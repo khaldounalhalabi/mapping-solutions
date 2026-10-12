@@ -57,7 +57,7 @@ class Translatable implements JsonSerializable, Arrayable, Stringable
      */
     public static function create(string|array $value): Translatable
     {
-        return new static($value);
+        return new Translatable($value);
     }
 
     public function translate(?string $locale = null)

@@ -4,36 +4,39 @@ namespace App\Repositories\Contracts;
 
 use App\Excel\BaseExporter;
 use App\Excel\BaseImporter;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Database\Eloquent\Model;
+use PhpOffice\PhpSpreadsheet\Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection as RegularCollection;
-use Maatwebsite\Excel\Facades\Excel;
-use PhpOffice\PhpSpreadsheet\Exception;
-use PhpOffice\PhpSpreadsheet\Writer\Exception as SpreadSheetException;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use PhpOffice\PhpSpreadsheet\Writer\Exception as SpreadSheetException;
 
 /**
+ * @phpstan-consistent-constructor
+ *
  * @template MODEL of Model
  */
 abstract class BaseRepository
 {
-    protected string $modelClass = Model::class;
+    private array $filterKeys = [];
 
     private static $instance;
 
-    protected Model $model;
-
     private array $modelTableColumns;
-
-    private array $filterKeys = [];
 
     private array $relationSearchableKeys = [];
 
     private array $searchableKeys = [];
 
     private string $tableName;
+
+    protected Model $model;
+
+    protected string $modelClass = Model::class;
+
+    protected int $perPage = 10;
 
     public function __construct()
     {
@@ -55,84 +58,42 @@ abstract class BaseRepository
         $this->modelTableColumns = $this->getTableColumns();
     }
 
-    public static function make(): static
+    /**
+     * @return Builder<MODEL>|MODEL
+     */
+    private function addSearch($query): Builder|Model
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new static;
-        } elseif (! (self::$instance instanceof static)) {
-            self::$instance = new static;
+        if (! request()->has('search')) {
+            return $query;
         }
 
-        return self::$instance;
-    }
+        $keyword = request()->string('search');
 
-    public function getTableColumns(): array
-    {
-        return $this->model->getFillable();
-    }
-
-    /**
-     * @return Collection<MODEL>|RegularCollection<MODEL>|MODEL[]
-     */
-    public function all(array $relationships = []): Collection|array|RegularCollection
-    {
-        return $this->globalQuery($relationships)->get();
-    }
-
-    /**
-     * @return Builder|MODEL
-     */
-    public function globalQuery(array $relations = []): Builder
-    {
-        $query = $this->model->with($relations);
-
-        if (request()->method() == 'GET') {
-            $query = $query->where(function (Builder $builder) {
-                return $this->filterFields($builder);
-            });
-            $query = $query->where(function ($q) {
-                return $this->addSearch($q);
-            });
-            $query = $this->orderQueryBy($query);
+        if (count($this->searchableKeys) > 0) {
+            foreach ($this->searchableKeys as $searchAttribute) {
+                $query->orWhere($searchAttribute, 'LIKE', "%{$keyword}%");
+            }
         }
 
-        return $query;
-    }
+        if (count($this->relationSearchableKeys) > 0) {
 
-    private function addSearch($query): mixed
-    {
-        if (request()->has('search')) {
-            $keyword = request()->search;
-
-            if (count($this->searchableKeys) > 0) {
-                foreach ($this->searchableKeys as $search_attribute) {
-                    $query->orWhere($search_attribute, 'LIKE', "%{$keyword}%");
+            foreach ($this->relationSearchableKeys as $relation => $values) {
+                foreach ($values as $searchAttribute) {
+                    $query->orWhereHas($relation, function ($q) use ($keyword, $searchAttribute) {
+                        $q->where($searchAttribute, 'LIKE', "%{$keyword}%");
+                    });
                 }
             }
-
-            if (count($this->relationSearchableKeys) > 0) {
-
-                foreach ($this->relationSearchableKeys as $relation => $values) {
-
-                    foreach ($values as $key => $search_attribute) {
-                        $query->orWhereHas($relation, function ($q) use ($keyword, $search_attribute) {
-                            $q->where($search_attribute, 'LIKE', "%{$keyword}%");
-                        });
-                    }
-                }
-            }
-            $query->orWhere('id', $keyword);
         }
+        $query->orWhere('id', $keyword);
 
         return $query;
     }
 
     /**
-     * this function implement already defined filters in the model
-     *
-     * @return Builder|MODEL
+     * @return Builder<MODEL>|MODEL
      */
-    private function filterFields(Builder $query): Builder
+    private function filterFields(Builder $query): Builder|Model
     {
         foreach ($this->filterKeys as $filterFields) {
             $field = $filterFields['field'] ?? $filterFields['name'];
@@ -185,94 +146,9 @@ abstract class BaseRepository
     }
 
     /**
-     * @return Builder|MODEL
+     * @return Builder<MODEL>|MODEL
      */
-    private function orderQueryBy($query): mixed
-    {
-        $sortColumns = request()->sort_col;
-        if (isset($sortColumns)) {
-            if (is_array(request()->sort_col)) {
-                foreach ($sortColumns as $col => $dir) {
-                    if (in_array($col, $this->modelTableColumns)) {
-                        $query->orderBy($col, $dir);
-                    }
-                }
-            } elseif (in_array(request()->sort_col, $this->modelTableColumns)) {
-                $query->orderBy(request()->sort_col, request()->sort_dir ?? 'asc');
-            }
-
-            return $query;
-        }
-
-        return $query->orderBy('created_at', 'desc');
-    }
-
-    /**
-     * @return LengthAwarePaginator<int, MODEL>
-     */
-    public function allWithPagination(array $relationships = [], int $per_page = 10): LengthAwarePaginator
-    {
-        $per_page = request('limit') ?? $per_page;
-
-        return $this->globalQuery($relationships)->paginate($per_page);
-    }
-
-    public function create(array $data, array $relationships = []): Model
-    {
-        $result = $this->model->create($data);
-        $result->refresh();
-
-        return $result->load($relationships);
-    }
-
-    public function delete(string|int|Model $id): ?bool
-    {
-        if ($id instanceof Model) {
-            $result = $id;
-        } else {
-            $result = $this->modelClass::find($id);
-        }
-
-        return $result?->delete();
-    }
-
-    public function find($id, array $relationships = []): ?Model
-    {
-        $result = $this->model->with($relationships)->find($id);
-
-        if ($result) {
-            return $result;
-        }
-
-        return null;
-    }
-
-    /**
-     * @param  string|int|Model|MODEL  $id
-     * @return MODEL|null|Model
-     */
-    public function update(array $data, string|int|Model $id, array $relationships = []): ?Model
-    {
-        if ($id instanceof Model) {
-            $item = $id;
-        } else {
-            $item = $this->modelClass::find($id);
-        }
-
-        if (! $item) {
-            return null;
-        }
-
-        $item->update($data);
-
-        return $item->refresh()->load($relationships);
-    }
-
-    /**
-     * @param  mixed  $value
-     * @return Builder|MODEL
-     */
-    private function handleRangeQuery(array $value, Builder $query, string $table, string $column): Builder
+    private function handleRangeQuery(array $value, Builder $query, string $table, string $column): Builder|Model
     {
         if (count($value) == 2) {
             if (! isset($value[0]) && isset($value[1])) {
@@ -288,6 +164,91 @@ abstract class BaseRepository
         }
 
         return $query;
+    }
+
+    /**
+     * @return Builder<MODEL>|MODEL
+     */
+    private function orderQueryBy($query): Builder|Model
+    {
+        $sortColumns = request('sort_col');
+        $sortDir = request()->string('sort_dir', 'asc');
+        if (empty($sortColumns)) {
+            return $query->orderBy('created_at', 'desc');
+        }
+        if (is_array($sortColumns)) {
+            foreach ($sortColumns as $col => $dir) {
+                if (in_array($col, $this->modelTableColumns)) {
+                    $query->orderBy($col, $dir);
+                }
+            }
+        } elseif (in_array($sortColumns, $this->modelTableColumns)) {
+            $query->orderBy($sortColumns, $sortDir);
+        }
+
+        return $query;
+
+    }
+
+    protected function unsetEmptyParams(string|array|null $param = null): string|array|null
+    {
+        if (! $param) {
+            return null;
+        }
+        if (is_array($param)) {
+            foreach ($param as $value) {
+                if (strlen(trim(preg_replace('/\s+/', '', $value))) != 0) {
+                    return $param;
+                }
+            }
+
+            return null;
+        } elseif (strlen(trim(preg_replace('/\s+/', '', $param))) == 0) {
+            return null;
+        } else {
+            return $param;
+        }
+    }
+
+    /**
+     * @return Collection<MODEL>
+     */
+    public function all(array $relationships = []): Collection
+    {
+        return $this->globalQuery($relationships)->get();
+    }
+
+    /**
+     * @return LengthAwarePaginator<int, MODEL>
+     */
+    public function allWithPagination(array $relationships = []): LengthAwarePaginator
+    {
+        return $this->globalQuery($relationships)->paginate($this->perPage);
+    }
+
+    /**
+     * @return MODEL|Model
+     */
+    public function create(array $data, array $relationships = []): Model
+    {
+        $result = $this->model->create($data);
+        $result->refresh();
+
+        return $result->load($relationships);
+    }
+
+    /**
+     * @param string|int|Model|MODEL $id
+     */
+    public function delete(string|int|Model $id): ?bool
+    {
+        if ($id instanceof Model) {
+            $result = $id;
+        } else {
+            $result = $this->modelClass::find($id);
+        }
+
+        return $result?->delete();
     }
 
     /**
@@ -310,6 +271,20 @@ abstract class BaseRepository
     }
 
     /**
+     * @return Model|MODEL|null
+     */
+    public function find(string|int $id, array $relationships = []): ?Model
+    {
+        $result = $this->model->with($relationships)->find($id);
+
+        if ($result) {
+            return $result;
+        }
+
+        return null;
+    }
+
+    /**
      * @throws SpreadSheetException
      * @throws Exception
      */
@@ -317,8 +292,33 @@ abstract class BaseRepository
     {
         return Excel::download(
             new BaseExporter(collect(), $this->model, null, true),
-            $this->model->getTable().'-example.xlsx'
+            $this->model->getTable().'-example.xlsx',
         );
+    }
+
+    public function getTableColumns(): array
+    {
+        return $this->model->getFillable();
+    }
+
+    /**
+     * @return Builder<MODEL>|MODEL
+     */
+    public function globalQuery(array $relations = []): Builder|Model
+    {
+        $query = $this->model->with($relations);
+
+        if (request()->isMethod('GET')) {
+            $query = $query->where(function (Builder $builder) {
+                return $this->filterFields($builder);
+            });
+            $query = $query->where(function ($q) {
+                return $this->addSearch($q);
+            });
+            $query = $this->orderQueryBy($query);
+        }
+
+        return $query;
     }
 
     public function import(): void
@@ -326,23 +326,37 @@ abstract class BaseRepository
         Excel::import(new BaseImporter($this->model), request()->file('excel_file'));
     }
 
-    protected function unsetEmptyParams(string|array|null $param = null): string|array|null
+    public static function make(): static
     {
-        if (! $param) {
-            return null;
+        if (is_null(self::$instance)) {
+            self::$instance = new static;
+        } elseif (! (self::$instance instanceof static)) {
+            self::$instance = new static;
         }
-        if (is_array($param)) {
-            foreach ($param as $value) {
-                if (strlen(trim(preg_replace('/\s+/', '', $value))) != 0) {
-                    return $param;
-                }
-            }
 
-            return null;
-        } elseif (strlen(trim(preg_replace('/\s+/', '', $param))) == 0) {
-            return null;
+        self::$instance->perPage = request()->integer('limit', 10);
+
+        return self::$instance;
+    }
+
+    /**
+     * @param  string|int|Model|MODEL $id
+     * @return MODEL|null|Model
+     */
+    public function update(array $data, string|int|Model $id, array $relationships = []): ?Model
+    {
+        if ($id instanceof Model) {
+            $item = $id;
         } else {
-            return $param;
+            $item = $this->modelClass::find($id);
         }
+
+        if (! $item) {
+            return null;
+        }
+
+        $item->update($data);
+
+        return $item->refresh()->load($relationships);
     }
 }

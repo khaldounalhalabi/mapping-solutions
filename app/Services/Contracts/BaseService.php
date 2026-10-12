@@ -2,16 +2,16 @@
 
 namespace App\Services\Contracts;
 
-use App\Repositories\Contracts\BaseRepository;
 use Exception;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use App\Repositories\Contracts\BaseRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Collection as RegularCollection;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * @template MODEL of Model
+ * @phpstan-consistent-constructor
  */
 abstract class BaseService
 {
@@ -24,40 +24,12 @@ abstract class BaseService
         $this->repository = new $this->repositoryClass;
     }
 
-    public function delete($id): ?bool
+    /**
+     * @param int|string|Model|MODEL $id
+     */
+    public function delete(Model|int|string $id): ?bool
     {
         return $this->repository->delete($id);
-    }
-
-    /**
-     * @return Collection<MODEL>|RegularCollection<MODEL>|MODEL[]
-     */
-    public function index(array $relations = []): Collection|array|RegularCollection
-    {
-        return $this->repository->all($relations);
-    }
-
-    /**
-     * @return LengthAwarePaginator<int , MODEL>
-     */
-    public function indexWithPagination(array $relations = [], int $per_page = 10): LengthAwarePaginator
-    {
-        return $this->repository->allWithPagination($relations, $per_page);
-    }
-
-    public function store(array $data, array $relationships = []): Model
-    {
-        return $this->repository->create($data, $relationships);
-    }
-
-    public function update(array $data, $id, array $relationships = []): ?Model
-    {
-        return $this->repository->update($data, $id, $relationships);
-    }
-
-    public function view($id, array $relationships = []): ?Model
-    {
-        return $this->repository->find($id, $relationships);
     }
 
     /**
@@ -80,5 +52,46 @@ abstract class BaseService
     public function import(): void
     {
         $this->repository->import();
+    }
+
+    /**
+     * @return Collection<MODEL>
+     */
+    public function index(array $relations = []): Collection
+    {
+        return $this->repository->all($relations);
+    }
+
+    /**
+     * @return LengthAwarePaginator<int , MODEL>
+     */
+    public function indexWithPagination(array $relations = []): LengthAwarePaginator
+    {
+        return $this->repository->allWithPagination($relations);
+    }
+
+    /**
+     * @return MODEL|Model
+     */
+    public function store(array $data, array $relationships = []): Model
+    {
+        return $this->repository->create($data, $relationships);
+    }
+
+    /**
+     * @param  string|int|Model|MODEL $id
+     * @return MODEL|null|Model
+     */
+    public function update(array $data, $id, array $relationships = []): ?Model
+    {
+        return $this->repository->update($data, $id, $relationships);
+    }
+
+    /**
+     * @return Model|MODEL|null
+     */
+    public function view($id, array $relationships = []): ?Model
+    {
+        return $this->repository->find($id, $relationships);
     }
 }

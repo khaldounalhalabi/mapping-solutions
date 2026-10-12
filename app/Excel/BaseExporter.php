@@ -2,6 +2,7 @@
 
 namespace App\Excel;
 
+use Illuminate\Support\Enumerable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -28,7 +29,7 @@ class BaseExporter implements FromCollection, WithMapping, WithHeadings, WithCus
         $this->isExample = $isExample;
     }
 
-    public function collection()
+    public function collection(): Enumerable
     {
         if (!method_exists($this->model, 'export')) {
             if ($this->isExample) {

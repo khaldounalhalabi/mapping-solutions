@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources\v1;
 
-use App\Http\Resources\BaseResource\BaseResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Resources\BaseResource\BaseResource;
 
 /**
  * @mixin User
@@ -23,6 +23,8 @@ class UserResource extends BaseResource
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'email' => $this->email,
+            'roles' => RoleResource::collection($this->whenLoaded('roles')),
+            'permissions' => PermissionResource::collection($this->whenLoaded('permissions')),
 
         ];
     }

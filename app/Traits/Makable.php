@@ -2,9 +2,14 @@
 
 namespace App\Traits;
 
+/**
+ * @phpstan-consistent-constructor
+ */
 trait Makable
 {
     private static $instance;
+
+    public function init(): void {}
 
     public static function make(): static
     {
@@ -17,6 +22,4 @@ trait Makable
 
         return self::$instance;
     }
-
-    public function init(): void {}
 }

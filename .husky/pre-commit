@@ -1,0 +1,25 @@
+echo "🔍 Running PHPStan check..."
+composer run lint || {
+  echo "❌ Lint check failed. Please fix the errors before committing."
+  exit 1
+}
+
+echo "🔍 Running Pint Formatting..."
+composer run format:dirty || {
+  echo "❌ Pint Formatting failed."
+  exit 1
+}
+
+echo "🔍 Running typecheck..."
+npm run typecheck || {
+  echo "❌ Typecheck failed. Please fix the errors before committing."
+  exit 1
+}
+
+echo "🔍 Running lint-staged..."
+npx lint-staged || {
+  echo "❌ lint-staged failed. Please fix the errors before committing."
+  exit 1
+}
+
+echo "✅ All checks passed!"

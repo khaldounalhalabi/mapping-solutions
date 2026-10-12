@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
  * @extends BaseService<User>
  *
  * @property UserRepository $repository
+ *
  */
 class UserService extends BaseService
 {
@@ -53,7 +54,6 @@ class UserService extends BaseService
         /** @var User $user */
         $user = $this->repository->update($data, $user->id);
 
-        /** @noinspection PhpVoidFunctionResultUsedInspection */
         $token = auth($this->guard)->login($user);
 
         if (! request()->acceptsHtml()) {
