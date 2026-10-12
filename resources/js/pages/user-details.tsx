@@ -1,0 +1,139 @@
+import Form from "@/components/form/form";
+import Input from "@/components/form/fields/input";
+import PageCard from "@/components/ui/page-card";
+import User from "@/models/user";
+import { useForm } from "@inertiajs/react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React from "react";
+import {
+    Field,
+    FieldDescription,
+    FieldGroup,
+    FieldLabel,
+} from "@/components/ui/field";
+
+const UserDetails = ({ user }: { user: User }) => {
+    return (
+        <PageCard title={"Account Details"}>
+            <Tabs defaultValue={"overview"}>
+                <TabsList className={"w-full"}>
+                    <TabsTrigger value={"overview"}>Overview</TabsTrigger>
+                    <TabsTrigger value={"edit_profile"}>
+                        Edit Profile
+                    </TabsTrigger>
+                </TabsList>
+                <TabsContent value={"overview"}>
+                    <UserOverview user={user} />
+                </TabsContent>
+                <TabsContent value={"edit_profile"}>
+                    <EditProfile user={user} />
+                </TabsContent>
+            </Tabs>
+        </PageCard>
+    );
+};
+
+export default UserDetails;
+
+const UserOverview = ({ user }: { user: User }) => {
+    return (
+        <div className="my-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+            <Field orientation={"horizontal"}>
+                <FieldLabel>User Name :</FieldLabel>
+                <FieldDescription>
+                    {user.first_name} {user.last_name}
+                </FieldDescription>
+            </Field>
+
+            <Field orientation={"horizontal"}>
+                <FieldLabel>Email :</FieldLabel>
+                <FieldDescription>{user.email}</FieldDescription>
+            </Field>
+        </div>
+    );
+};
+
+const EditProfile = ({ user }: { user: User }) => {
+    const { put, setData, processing } = useForm<{
+        first_name?: string;
+        last_name?: string;
+        email?: string;
+        password?: string;
+        password_confirmation?: string;
+        _method: "POST" | "PUT";
+    }>({
+        ...user,
+        _method: "PUT",
+    });
+
+    const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        put(route("v1.web.protected.me.update"));
+    };
+
+    return (
+        <Form onSubmit={onSubmit} processing={processing} backButton={false}>
+            <FieldGroup>
+                <FieldGroup className={"flex flex-row items-center"}>
+                    <Input
+                        name="first_name"
+                        type="text"
+                        label="First Name"
+                        onChange={(e) => {
+                            setData("first_name", e.target.value);
+                        }}
+                        defaultValue={user?.first_name}
+                    />
+
+                    <Input
+                        name="last_name"
+                        type="text"
+                        label="Last Name"
+                        onChange={(e) => {
+                            setData("last_name", e.target.value);
+                        }}
+                        defaultValue={user?.last_name}
+                    />
+                </FieldGroup>
+
+                <Input
+                    name="email"
+                    type="email"
+                    label="Email"
+                    onChange={(e) => {
+                        setData("email", e.target.value);
+                    }}
+                    defaultValue={user?.email}
+                />
+
+                <Input
+                    name="password"
+                    label="New Password"
+                    type="password"
+                    onChange={(e) => {
+                        setData(
+                            "password",
+                            e.target.value.length <= 0
+                                ? undefined
+                                : e.target.value,
+                        );
+                    }}
+                />
+
+                <Input
+                    name="password_confirmation"
+                    label="Password Confirmation"
+                    type="password"
+                    onChange={(e) => {
+                        setData(
+                            "password_confirmation",
+                            e.target.value.length <= 0
+                                ? undefined
+                                : e.target.value,
+                        );
+                    }}
+                />
+            </FieldGroup>
+        </Form>
+    );
+};

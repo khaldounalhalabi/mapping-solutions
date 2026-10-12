@@ -77,7 +77,7 @@ export function NavUser({ user }: { user?: User }) {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <Link id={"user-details"} href={"#"}>
+              <Link id={"user-details"}  href={route('v1.web.protected.me')} >
                 <DropdownMenuItem className={"cursor-pointer!"}>
                   <CircleUserRoundIcon />
                   Account
@@ -85,7 +85,7 @@ export function NavUser({ user }: { user?: User }) {
               </Link>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <Link id={"logout"} href={"#"}>
+            <Link id={"logout"}  href={route('v1.web.protected.logout')} >
               <DropdownMenuItem className={"cursor-pointer"}>
                 <LogOutIcon />
                 Log out

@@ -1,0 +1,82 @@
+import Form from "@/components/form/form";
+import { useForm } from "@inertiajs/react";
+import React from "react";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { FieldGroup } from "@/components/ui/field";
+import Input from "@/components/form/fields/input";
+
+const ResetPassword = () => {
+    const { post, setData, processing } = useForm<{
+        reset_password_code: string;
+        password: string;
+        password_confirmation: string;
+    }>();
+
+    const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        post(route("v1.web.public.reset.password"));
+    };
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>
+                    Please Check Your Email For An Email From Us!
+                </CardTitle>
+                <CardDescription>
+                    Enter the reset code sent within the email below
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Form
+                    onSubmit={onSubmit}
+                    processing={processing}
+                    backButton={false}
+                    buttonText={"Reset Password"}
+                >
+                    <FieldGroup>
+                        <Input
+                            label="Password Reset Code"
+                            name="reset_password_code"
+                            type="text"
+                            onChange={(e) => {
+                                setData("reset_password_code", e.target.value);
+                            }}
+                            required={true}
+                        />
+
+                        <Input
+                            label="New Password"
+                            name="password"
+                            type="password"
+                            onChange={(e) => {
+                                setData("password", e.target.value);
+                            }}
+                            required={true}
+                        />
+
+                        <Input
+                            label="Confirm Password"
+                            name="password_confirmation"
+                            type="password"
+                            onChange={(e) => {
+                                setData(
+                                    "password_confirmation",
+                                    e.target.value,
+                                );
+                            }}
+                            required={true}
+                        />
+                    </FieldGroup>
+                </Form>
+            </CardContent>
+        </Card>
+    );
+};
+
+export default ResetPassword;

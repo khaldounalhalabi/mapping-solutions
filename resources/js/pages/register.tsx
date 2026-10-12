@@ -1,0 +1,108 @@
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Field, FieldDescription, FieldGroup } from "@/components/ui/field";
+import { Link, useForm } from "@inertiajs/react";
+import React from "react";
+import Form from "@/components/form/form";
+import Input from "@/components/form/fields/input";
+
+function Register() {
+    const { post, setData, processing } = useForm<{
+        first_name: string;
+        last_name: string;
+        email: string;
+        password: string;
+        password_confirmation: string;
+    }>();
+
+    const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        post(route("v1.web.public.register"));
+    };
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Create an account</CardTitle>
+                <CardDescription>
+                    Enter your information below to create your account
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Form
+                    onSubmit={onSubmit}
+                    processing={processing}
+                    buttonText="Sign Up"
+                    backButton={false}
+                >
+                    <FieldGroup>
+                        <FieldGroup
+                            className={
+                                "flex items-center justify-between flex-row"
+                            }
+                        >
+                            <Input
+                                name="first_name"
+                                onChange={(e) =>
+                                    setData("first_name", e.target.value)
+                                }
+                                label="First Name"
+                                required={true}
+                                type="text"
+                            />
+                            <Input
+                                name="last_name"
+                                onChange={(e) =>
+                                    setData("last_name", e.target.value)
+                                }
+                                label="Last Name"
+                                required={true}
+                                type="text"
+                            />
+                        </FieldGroup>
+                        <Input
+                            name="email"
+                            onChange={(e) => setData("email", e.target.value)}
+                            label="Email"
+                            required={true}
+                            type="email"
+                        />
+
+                        <Input
+                            name="password"
+                            onChange={(e) =>
+                                setData("password", e.target.value)
+                            }
+                            label="Password"
+                            required={true}
+                            type="password"
+                        />
+                        <Input
+                            name="password_confirmation"
+                            onChange={(e) =>
+                                setData("password_confirmation", e.target.value)
+                            }
+                            label="Confirm Password"
+                            required={true}
+                            type="password"
+                        />
+                        <Field>
+                            <FieldDescription>
+                                Already have an account?{" "}
+                                <Link href={route("v1.web.public.login.page")}>
+                                    Sign in
+                                </Link>
+                            </FieldDescription>
+                        </Field>
+                    </FieldGroup>
+                </Form>
+            </CardContent>
+        </Card>
+    );
+}
+
+export default Register;

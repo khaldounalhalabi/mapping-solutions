@@ -1,8 +1,4 @@
-import {
-    Collapsible,
-    CollapsibleContent,
-    CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger,} from "@/components/ui/collapsible";
 import {
     SidebarGroup,
     SidebarGroupContent,
@@ -13,9 +9,9 @@ import {
     SidebarMenuSubButton,
     SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
-import { Link } from "@inertiajs/react";
-import { ChevronRight, LayoutDashboardIcon } from "lucide-react";
-import { ReactNode } from "react";
+import {Link} from "@inertiajs/react";
+import {ChevronRight, LayoutDashboardIcon} from "lucide-react";
+import {ReactNode} from "react";
 
 function isUrlActive(url: string) {
     const location = window.location.href;
@@ -23,8 +19,8 @@ function isUrlActive(url: string) {
 }
 
 export function NavMain({
-    items,
-}: {
+                            items,
+                        }: {
     items: {
         title: string;
         href?: string;
@@ -41,14 +37,16 @@ export function NavMain({
         <SidebarGroup>
             <SidebarGroupContent className="flex flex-col gap-2">
                 <SidebarMenu>
-                    <Link href={route("v1.web.public.index")}>
+                    <Link href={route("v1.web.protected.index")}>
                         <SidebarMenuItem className="flex items-center gap-2">
                             <SidebarMenuButton
                                 tooltip="Dashboard"
                                 className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
-                                isActive={url == route("v1.web.public.index")}
+                                isActive={
+                                    url == route("v1.web.protected.index")
+                                }
                             >
-                                <LayoutDashboardIcon />
+                                <LayoutDashboardIcon/>
                                 <span>Dashboard</span>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
@@ -56,9 +54,9 @@ export function NavMain({
 
                     {items.map((item, index) => {
                         return item.children ? (
-                            <SidebarCompactItem key={index} item={item} />
+                            <SidebarCompactItem key={index} item={item}/>
                         ) : (
-                            <SidebarItem key={index} item={item} />
+                            <SidebarItem key={index} item={item}/>
                         );
                     })}
                 </SidebarMenu>
@@ -68,8 +66,8 @@ export function NavMain({
 }
 
 const SidebarItem = ({
-    item,
-}: {
+                         item,
+                     }: {
     item: {
         title: string;
         href?: string;
@@ -95,8 +93,8 @@ const SidebarItem = ({
 };
 
 const SidebarCompactItem = ({
-    item,
-}: {
+                                item,
+                            }: {
     item: {
         title: string;
         icon?: ReactNode;
@@ -119,7 +117,8 @@ const SidebarCompactItem = ({
                     <SidebarMenuButton tooltip={item.title}>
                         {item.icon}
                         <span>{item.title}</span>
-                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                        <ChevronRight
+                            className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"/>
                     </SidebarMenuButton>
                 </CollapsibleTrigger>
                 <CollapsibleContent>

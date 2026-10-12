@@ -40,7 +40,7 @@ export function AppSidebar({
                             render={
                                 <Link
                                     className={"flex items-center gap-2"}
-                                    href={route("v1.web.public.index")}
+                                    href={route("v1.web.protected.index")}
                                 >
                                     <LayoutDashboardIcon />
                                     <span className="text-base font-semibold">

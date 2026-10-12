@@ -1,0 +1,57 @@
+import Form from "@/components/form/form";
+import { useForm } from "@inertiajs/react";
+import React from "react";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { FieldGroup } from "@/components/ui/field";
+import Input from "@/components/form/fields/input";
+
+const ResetPasswordCodeForm = () => {
+    const { post, setData, processing } = useForm<{
+        reset_password_code: string;
+    }>();
+
+    const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        post(route("v1.web.public.validate.reset.password.code"));
+    };
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>
+                    Please Check Your Email For An Email From Us!
+                </CardTitle>
+                <CardDescription>
+                    Enter the reset code sent within the email below
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Form
+                    onSubmit={onSubmit}
+                    processing={processing}
+                    backButton={false}
+                    buttonText="Submit Code"
+                >
+                    <FieldGroup>
+                        <Input
+                            label="Password Reset Code"
+                            name={"reset_password_code"}
+                            required={true}
+                            onChange={(e) => {
+                                setData("reset_password_code", e.target.value);
+                            }}
+                            type="text"
+                        />
+                    </FieldGroup>
+                </Form>
+            </CardContent>
+        </Card>
+    );
+};
+
+export default ResetPasswordCodeForm;

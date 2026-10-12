@@ -1,0 +1,85 @@
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Field, FieldDescription, FieldGroup } from "@/components/ui/field";
+import Form from "@/components/form/form";
+import { Link, useForm } from "@inertiajs/react";
+import React from "react";
+import Input from "@/components/form/fields/input";
+
+function Login() {
+    const { post, setData, processing } = useForm<{
+        email: string;
+        password: string;
+    }>();
+
+    const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        post(route("v1.web.public.login"));
+    };
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Login to your account</CardTitle>
+                <CardDescription>
+                    Enter your email below to login to your account
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Form
+                    onSubmit={onSubmit}
+                    buttonText={"Login"}
+                    processing={processing}
+                    backButton={false}
+                >
+                    <FieldGroup>
+                        <Input
+                            name={"email"}
+                            label={"Email"}
+                            type={"text"}
+                            onChange={(e) => setData("email", e.target.value)}
+                            required={true}
+                        />
+
+                        <Input
+                            name={"password"}
+                            label={"Password"}
+                            type={"password"}
+                            onChange={(e) =>
+                                setData("password", e.target.value)
+                            }
+                            required={true}
+                        />
+                        <Field>
+                            <FieldDescription>
+                                Don&apos;t have an account?{" "}
+                                <Link
+                                    href={route("v1.web.public.register.page")}
+                                >
+                                    Sign up
+                                </Link>
+                            </FieldDescription>
+
+                            <FieldDescription>
+                                Forgot your password?{" "}
+                                <Link
+                                    href={route(
+                                        "v1.web.public.request.reset.password.page",
+                                    )}
+                                >
+                                    Try Password Reset
+                                </Link>
+                            </FieldDescription>
+                        </Field>
+                    </FieldGroup>
+                </Form>
+            </CardContent>
+        </Card>
+    );
+}
+
+export default Login;

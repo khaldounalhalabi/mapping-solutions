@@ -1,0 +1,53 @@
+import { useForm } from "@inertiajs/react";
+import React from "react";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import Form from "@/components/form/form";
+import Input from "@/components/form/fields/input";
+import { FieldGroup } from "@/components/ui/field";
+
+const ForgetPassword = () => {
+    const { post, setData, errors, processing } = useForm<{
+        email: string;
+    }>();
+
+    const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        post(route("v1.web.public.request.reset.password"));
+    };
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Forget Your Password ?</CardTitle>
+                <CardDescription>
+                    Enter Your Email So We Can Send You A Reset Password Code
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Form
+                    onSubmit={onSubmit}
+                    processing={processing}
+                    backButton={false}
+                    buttonText="Send Code"
+                >
+                    <FieldGroup>
+                        <Input
+                            name={"email"}
+                            onChange={(e) => setData("email", e.target.value)}
+                            label="Email"
+                            required={true}
+                            type="email"
+                        />
+                    </FieldGroup>
+                </Form>
+            </CardContent>
+        </Card>
+    );
+};
+
+export default ForgetPassword;
