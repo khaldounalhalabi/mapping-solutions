@@ -1,0 +1,119 @@
+<?php
+
+namespace App\Traits;
+
+use App\Casts\MediaCast;
+use App\Serializers\SerializedMedia;
+use Exception;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
+/**
+ * @mixin Model
+ */
+trait HasMedia
+{
+    private static function afterCommit(callable $callback): void
+    {
+        if (DB::transactionLevel() > 0) {
+            DB::afterCommit($callback);
+
+            return;
+        }
+
+        $callback();
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    private static function mediaAttributes(Model $model): array
+    {
+        return array_keys(
+            array_filter(
+                $model->getCasts(),
+                fn (string $cast) => str_contains($cast, MediaCast::class),
+            ),
+        );
+    }
+
+    /**
+     * @return array<int, SerializedMedia>
+     */
+    private static function mediaFrom(mixed $rawValue): array
+    {
+        if (empty($rawValue) || ! is_string($rawValue)) {
+            return [];
+        }
+
+        $decoded = json_decode($rawValue, true);
+
+        if (! is_array($decoded)) {
+            return [];
+        }
+
+        $items = SerializedMedia::isMediaArray($decoded) ? [$decoded] : $decoded;
+
+        return array_values(
+            array_map(
+                fn (array $item) => new SerializedMedia($item),
+                array_filter($items, fn ($item) => SerializedMedia::isMediaArray($item)),
+            ),
+        );
+    }
+
+    /**
+     * @return array<int, SerializedMedia>
+     *
+     * @throws Exception
+     */
+    private static function orphanedMedia(Model $model, string $attribute): array
+    {
+        $before = self::mediaFrom($model->getRawOriginal($attribute));
+
+        if ($before === []) {
+            return [];
+        }
+
+        $keptPaths = array_map(
+            fn (SerializedMedia $media) => $media->path(),
+            self::mediaFrom($model->getAttributes()[$attribute] ?? null),
+        );
+
+        return array_values(
+            array_filter(
+                $before,
+                fn (SerializedMedia $media) => ! in_array($media->path(), $keptPaths, true),
+            ),
+        );
+    }
+
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        self::saved(function (Model $model) {
+            foreach (self::mediaAttributes($model) as $attribute) {
+                $removed = self::orphanedMedia($model, $attribute);
+
+                if (! empty($removed)) {
+                    self::afterCommit(fn () => array_walk($removed, fn (SerializedMedia $m) => $m->delete()));
+                }
+            }
+        });
+
+        self::deleted(function (Model $model) {
+            if (method_exists($model, 'isForceDeleting') && ! $model->isForceDeleting()) {
+                return;
+            }
+
+            foreach (self::mediaAttributes($model) as $attribute) {
+                $media = self::mediaFrom($model->getRawOriginal($attribute));
+
+                if (! empty($media)) {
+                    self::afterCommit(fn () => array_walk($media, fn (SerializedMedia $m) => $m->delete()));
+                }
+            }
+        });
+    }
+}

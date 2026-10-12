@@ -1,0 +1,63 @@
+import { NavMain } from "@/components/dashboard/sidebar/nav-main";
+import { NavUser } from "@/components/dashboard/sidebar/nav-user";
+import {
+    Sidebar as ShadcnSidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { Link, usePage } from "@inertiajs/react";
+import { LayoutDashboardIcon, TableIcon } from "lucide-react";
+import React from "react";
+
+export function AppSidebar({
+    ...props
+}: React.ComponentProps<typeof ShadcnSidebar>) {
+    const sidebarItems: {
+        title: string;
+        href?: string;
+        icon?: React.ReactNode;
+        children?: {
+            title: string;
+            href?: string;
+            icon?: React.ReactNode;
+        }[];
+    }[] = [];
+
+    const {
+        props: { authUser },
+    } = usePage();
+    return (
+        <ShadcnSidebar collapsible="icon" {...props}>
+            <SidebarHeader>
+                <SidebarMenu>
+                    <SidebarMenuItem>
+                        <SidebarMenuButton
+                            className="data-[slot=sidebar-menu-button]:p-1.5!"
+                            render={
+                                <Link
+                                    className={"flex items-center gap-2"}
+                                    href={route("v1.web.public.index")}
+                                >
+                                    <LayoutDashboardIcon />
+                                    <span className="text-base font-semibold">
+                                        Admin Dashboard
+                                    </span>
+                                </Link>
+                            }
+                        ></SidebarMenuButton>
+                    </SidebarMenuItem>
+                </SidebarMenu>
+            </SidebarHeader>
+            <SidebarContent>
+                <NavMain items={sidebarItems} />
+            </SidebarContent>
+            <SidebarFooter>
+                <NavUser user={authUser} />
+            </SidebarFooter>
+        </ShadcnSidebar>
+    );
+}
