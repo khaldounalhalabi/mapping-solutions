@@ -10,7 +10,7 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Link, usePage } from "@inertiajs/react";
-import { LayoutDashboardIcon, TableIcon } from "lucide-react";
+import { LayoutDashboardIcon } from "lucide-react";
 import React from "react";
 
 export function AppSidebar({

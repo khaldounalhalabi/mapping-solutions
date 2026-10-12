@@ -12,7 +12,7 @@ import Input from "@/components/form/fields/input";
 import { FieldGroup } from "@/components/ui/field";
 
 const ForgetPassword = () => {
-    const { post, setData, errors, processing } = useForm<{
+    const { post, setData, processing } = useForm<{
         email: string;
     }>();
 

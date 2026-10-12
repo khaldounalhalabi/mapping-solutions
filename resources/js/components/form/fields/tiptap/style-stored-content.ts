@@ -197,6 +197,6 @@ blockquote {
 }`;
 
 export default function WrapContent(html: string) {
-  const stylTag = `<style>${selectors}</style>`;
-  return `<div class="tiptap-content-viewer">${stylTag}${html}</div>`;
+    const stylTag = `<style>${selectors}</style>`;
+    return `<div class="tiptap-content-viewer">${stylTag}${html}</div>`;
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { ThemeProvider } from "@/providers/theme-provider";
 import ToasterProvider from "@/providers/toaster-provider";
 

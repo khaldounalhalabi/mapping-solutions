@@ -240,157 +240,157 @@
                     "
                     valign="top"
                 >
-                <div
-                    class="u-col u-col-100"
-                    style="
-                        max-width: 320px;
-                        min-width: 600px;
-                        display: table-cell;
-                        vertical-align: top;
-                    "
-                >
                     <div
+                        class="u-col u-col-100"
                         style="
-                            background-color: #ffffff;
-                            height: 100%;
-                            width: 100% !important;
+                            max-width: 320px;
+                            min-width: 600px;
+                            display: table-cell;
+                            vertical-align: top;
                         "
                     >
-                        <!--[if (!mso)&(!IE)]><!-->
                         <div
                             style="
-                                box-sizing: border-box;
+                                background-color: #ffffff;
                                 height: 100%;
-                                padding: 0;
-                                border-top: 0 solid transparent;
-                                border-left: 0 solid transparent;
-                                border-right: 0 solid transparent;
-                                border-bottom: 0 solid transparent;
+                                width: 100% !important;
                             "
                         >
-                            <!--<![endif]-->
-
-                            <table
-                                id="u_content_image_1"
+                            <!--[if (!mso)&(!IE)]><!-->
+                            <div
                                 style="
-                                    font-family:
-                                        &quot;Raleway&quot;, sans-serif;
+                                    box-sizing: border-box;
+                                    height: 100%;
+                                    padding: 0;
+                                    border-top: 0 solid transparent;
+                                    border-left: 0 solid transparent;
+                                    border-right: 0 solid transparent;
+                                    border-bottom: 0 solid transparent;
                                 "
-                                role="presentation"
-                                cellpadding="0"
-                                cellspacing="0"
-                                width="100%"
-                                border="0"
                             >
-                                <tbody>
-                                    <tr>
-                                        <td
-                                            class="v-container-padding-padding"
-                                            style="
-                                                overflow-wrap: break-word;
-                                                word-break: break-word;
-                                                padding: 60px 10px 10px;
-                                                font-family:
-                                                    &quot;Raleway&quot;,
-                                                    sans-serif;
-                                            "
-                                            align="left"
-                                        >
-                                            <table
-                                                role="presentation"
-                                                width="100%"
-                                                cellpadding="0"
-                                                cellspacing="0"
-                                                border="0"
+                                <!--<![endif]-->
+
+                                <table
+                                    id="u_content_image_1"
+                                    style="
+                                        font-family:
+                                            &quot;Raleway&quot;, sans-serif;
+                                    "
+                                    role="presentation"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    border="0"
+                                >
+                                    <tbody>
+                                        <tr>
+                                            <td
+                                                class="v-container-padding-padding"
+                                                style="
+                                                    overflow-wrap: break-word;
+                                                    word-break: break-word;
+                                                    padding: 60px 10px 10px;
+                                                    font-family:
+                                                        &quot;Raleway&quot;,
+                                                        sans-serif;
+                                                "
+                                                align="left"
                                             >
-                                                <tr>
-                                                    <td
-                                                        style="
-                                                            padding-right: 0;
-                                                            padding-left: 0;
-                                                        "
-                                                        align="center"
-                                                    >
-                                                        <img
-                                                            align="center"
-                                                            border="0"
-                                                            src="{{asset('/images/lock-image.png')}}"
-                                                            alt="image"
-                                                            title="image"
+                                                <table
+                                                    role="presentation"
+                                                    width="100%"
+                                                    cellpadding="0"
+                                                    cellspacing="0"
+                                                    border="0"
+                                                >
+                                                    <tr>
+                                                        <td
                                                             style="
-                                                                outline: none;
-                                                                text-decoration: none;
-                                                                -ms-interpolation-mode: bicubic;
-                                                                clear: both;
-                                                                display: inline-block !important;
-                                                                border: none;
-                                                                height: auto;
-                                                                float: none;
-                                                                width: 35%;
-                                                                max-width: 203px;
+                                                                padding-right: 0;
+                                                                padding-left: 0;
                                                             "
-                                                            width="203"
-                                                            class="v-src-width v-src-max-width"
-                                                        />
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                            align="center"
+                                                        >
+                                                            <img
+                                                                align="center"
+                                                                border="0"
+                                                                src="{{asset('/images/lock-image.png')}}"
+                                                                alt="image"
+                                                                title="image"
+                                                                style="
+                                                                    outline: none;
+                                                                    text-decoration: none;
+                                                                    -ms-interpolation-mode: bicubic;
+                                                                    clear: both;
+                                                                    display: inline-block !important;
+                                                                    border: none;
+                                                                    height: auto;
+                                                                    float: none;
+                                                                    width: 35%;
+                                                                    max-width: 203px;
+                                                                "
+                                                                width="203"
+                                                                class="v-src-width v-src-max-width"
+                                                            />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                            <table
-                                id="u_content_heading_1"
-                                style="
-                                    font-family:
-                                        &quot;Raleway&quot;, sans-serif;
-                                "
-                                role="presentation"
-                                cellpadding="0"
-                                cellspacing="0"
-                                width="100%"
-                                border="0"
-                            >
-                                <tbody>
-                                    <tr>
-                                        <td
-                                            class="v-container-padding-padding"
-                                            style="
-                                                overflow-wrap: break-word;
-                                                word-break: break-word;
-                                                padding: 10px 10px 30px;
-                                                font-family:
-                                                    &quot;Raleway&quot;,
-                                                    sans-serif;
-                                            "
-                                            align="left"
-                                        >
-                                            <!--[if mso]>
+                                <table
+                                    id="u_content_heading_1"
+                                    style="
+                                        font-family:
+                                            &quot;Raleway&quot;, sans-serif;
+                                    "
+                                    role="presentation"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="100%"
+                                    border="0"
+                                >
+                                    <tbody>
+                                        <tr>
+                                            <td
+                                                class="v-container-padding-padding"
+                                                style="
+                                                    overflow-wrap: break-word;
+                                                    word-break: break-word;
+                                                    padding: 10px 10px 30px;
+                                                    font-family:
+                                                        &quot;Raleway&quot;,
+                                                        sans-serif;
+                                                "
+                                                align="left"
+                                            >
+                                                <!--[if mso]>
                                                 <table role="presentation" width="100%">
                                                     <tr>
                                                         <td><![endif]-->
-                                            <h1
-                                                class="v-font-size"
-                                                style="
-                                                    margin: 0;
-                                                    line-height: 140%;
-                                                    text-align: center;
-                                                    word-wrap: break-word;
-                                                    font-size: 28px;
-                                                    font-weight: 400;
-                                                "
-                                            >
-                                                <strong
-                                                    >Forget password ?</strong
+                                                <h1
+                                                    class="v-font-size"
+                                                    style="
+                                                        margin: 0;
+                                                        line-height: 140%;
+                                                        text-align: center;
+                                                        word-wrap: break-word;
+                                                        font-size: 28px;
+                                                        font-weight: 400;
+                                                    "
                                                 >
-                                            </h1>
-                                            <!--[if mso[endif]-->
-                                        </td>
-                                    </tr>
-                            </table>
-
-                        </td>
+                                                    <strong
+                                                        >Forget password
+                                                        ?</strong
+                                                    >
+                                                </h1>
+                                                <!--[if mso[endif]-->
+                                            </td>
+                                        </tr>
+                                </table>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -526,57 +526,65 @@
                                     </tr>
                             </table>
 
-                        </td>
-                        </tr>
-                        </tbody>
-                        </table>
-
-                        <table
-                            id="u_content_text_2"
-                            style="font-family: &quot;Raleway&quot;, sans-serif"
-                            role="presentation"
-                            cellpadding="0"
-                            cellspacing="0"
-                            width="100%"
-                            border="0"
-                        >
-                            <tbody>
-                                <tr>
-                                    <td
-                                        class="v-container-padding-padding"
-                                        style="
-                                            overflow-wrap: break-word;
-                                            word-break: break-word;
-                                            padding: 10px 60px;
-                                            font-family:
-                                                &quot;Raleway&quot;, sans-serif;
-                                        "
-                                        align="center"
-                                    >
-                                        <span
-                                            style="
-                                                color: #3bc5df;
-                                                font-size: 40px;
-                                                font-weight: bold;
-                                                background: rgb(253, 180, 65);
-                                                padding: 4px;
-                                                border-radius: 5px;
-                                            "
-                                            >{{$code}}</span
-                                        >
-                                    </td>
-                                </tr>
+                            </td>
+                            </tr>
                             </tbody>
-                        </table>
-                        <!--[if (!mso)&(!IE)]><!-->
+                            </table>
+
+                            <table
+                                id="u_content_text_2"
+                                style="
+                                    font-family:
+                                        &quot;Raleway&quot;, sans-serif;
+                                "
+                                role="presentation"
+                                cellpadding="0"
+                                cellspacing="0"
+                                width="100%"
+                                border="0"
+                            >
+                                <tbody>
+                                    <tr>
+                                        <td
+                                            class="v-container-padding-padding"
+                                            style="
+                                                overflow-wrap: break-word;
+                                                word-break: break-word;
+                                                padding: 10px 60px;
+                                                font-family:
+                                                    &quot;Raleway&quot;,
+                                                    sans-serif;
+                                            "
+                                            align="center"
+                                        >
+                                            <span
+                                                style="
+                                                    color: #3bc5df;
+                                                    font-size: 40px;
+                                                    font-weight: bold;
+                                                    background: rgb(
+                                                        253,
+                                                        180,
+                                                        65
+                                                    );
+                                                    padding: 4px;
+                                                    border-radius: 5px;
+                                                "
+                                                >{{$code}}</span
+                                            >
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--[if (!mso)&(!IE)]><!-->
+                        </div>
+                        <!--<![endif]-->
                     </div>
-                    <!--<![endif]-->
                 </div>
+                <!--[if (mso)|(IE)]></td><![endif]-->
+                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
             </div>
-            <!--[if (mso)|(IE)]></td><![endif]-->
-            <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
         </div>
-    </div>
     </div>
     <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
     </td>

@@ -2,19 +2,20 @@
 
 namespace App\Services\v1\User;
 
-use App\Mail\ResetPasswordCodeEmail;
-use App\Models\User;
-use App\Repositories\UserRepository;
-use App\Services\Contracts\BaseService;
-use App\Traits\Makable;
 use Exception;
+use App\Models\User;
+use RuntimeException;
+use App\Traits\Makable;
+use App\Mail\ResetPasswordCodeEmail;
+use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Mail;
+use App\Services\Contracts\BaseService;
+use Illuminate\Contracts\Auth\StatefulGuard;
 
 /**
  * @extends BaseService<User>
  *
  * @property UserRepository $repository
- *
  */
 class UserService extends BaseService
 {
@@ -23,117 +24,6 @@ class UserService extends BaseService
     private string $guard = 'web';
 
     protected string $repositoryClass = UserRepository::class;
-
-    /**
-     * @throws Exception
-     */
-    public function setGuard(string $guard = 'api'): void
-    {
-        if (! in_array($guard, array_keys(config('auth.guards')))) {
-            throw new Exception("Undefined Guard : [$guard]");
-        }
-
-        $this->guard = $guard;
-    }
-
-    /**
-     * @return array{User , string , string}|User|null
-     */
-    public function updateUserDetails(array $data, ?string $role = null, array $relations = []): array|User|null
-    {
-        $user = auth($this->guard)->user();
-
-        if (! $user) {
-            return null;
-        }
-
-        if ($role && ! $user->hasRole($role)) {
-            return null;
-        }
-
-        /** @var User $user */
-        $user = $this->repository->update($data, $user->id);
-
-        $token = auth($this->guard)->login($user);
-
-        if (! request()->acceptsHtml()) {
-            $refreshToken = auth($this->guard)->setTTL(ttl: config('jwt.refresh_ttl'))->refresh();
-
-            return [$user->load($relations), $token, $refreshToken];
-        }
-
-        return $user->load($relations);
-    }
-
-    /**
-     * @return User|array{User , string , string}|null
-     */
-    public function login(array $data, ?string $role = null, array $relations = []): User|array|null
-    {
-        $token = auth($this->guard)->attempt([
-            'email' => $data['email'],
-            'password' => $data['password'],
-        ]);
-
-        if (! $token) {
-            return null;
-        }
-
-        /** @noinspection PhpVoidFunctionResultUsedInspection */
-        $user = auth($this->guard)->user();
-
-        if ($role && ! $user->hasRole($role)) {
-            return null;
-        }
-
-        if (! request()->acceptsHtml()) {
-            $refreshToken = auth($this->guard)->setTTL(ttl: config('jwt.refresh_|ttl'))->refresh();
-
-            return [$user->load($relations), $token, $refreshToken];
-        }
-
-        return $user->load($relations);
-    }
-
-    public function logout(): void
-    {
-        auth($this->guard)->logout();
-    }
-
-    /**
-     * @return array{User , string , string}|null
-     */
-    public function refreshToken(array $relations = []): ?array
-    {
-        $user = auth($this->guard)->user();
-        $token = auth($this->guard)->setTTL(config('jwt.ttl'))->refresh();
-        $refreshToken = auth($this->guard)->setTTL(config('jwt.refresh_ttl'))->refresh();
-
-        return [$user->load($relations), $token, $refreshToken];
-    }
-
-    /**
-     * @return array{User , string , string}|User
-     */
-    public function register(array $data, ?string $role = null, array $relations = []): array|User
-    {
-        $user = $this->repository->create($data);
-
-        if ($role) {
-            $user->assignRole($role);
-        }
-
-        /** @noinspection PhpVoidFunctionResultUsedInspection */
-        $token = auth($this->guard)->login($user);
-
-        if (! request()->acceptsHtml()) {
-            $refreshToken = auth($this->guard)->setTTL(ttl: config('jwt.refresh_ttl'))->refresh();
-
-            return [$user->load($relations), $token, $refreshToken];
-        }
-
-        return $user->load($relations);
-    }
 
     private function generateVerificationCode(): string
     {
@@ -145,24 +35,41 @@ class UserService extends BaseService
         return $code;
     }
 
-    public function passwordResetRequest(string $email): bool
+    private function guard(): StatefulGuard
     {
-        $user = $this->repository->getUserByEmail($email);
+        return auth()->guard($this->guard);
+    }
 
-        if (! $user) {
-            return false;
+    public function login(array $data, ?string $role = null, array $relations = []): ?User
+    {
+        $guard = $this->guard();
+        $authenticated = $guard->attempt([
+            'email' => $data['email'],
+            'password' => $data['password'],
+        ]);
+
+        if (! $authenticated) {
+            return null;
         }
 
-        $user->reset_password_code = $this->generateVerificationCode();
-        $user->save();
+        $user = $guard->user();
 
-        Mail::to($user)
-            ->send(new ResetPasswordCodeEmail(
-                $user->reset_password_code,
-                $user->email
-            ));
+        if (! $user instanceof User) {
+            return null;
+        }
 
-        return true;
+        if ($role && ! $user->hasRole($role)) {
+            $guard->logout();
+
+            return null;
+        }
+
+        return $user->load($relations);
+    }
+
+    public function logout(): void
+    {
+        $this->guard()->logout();
     }
 
     public function passwordReset(string $verificationCode, string $password): bool
@@ -180,11 +87,84 @@ class UserService extends BaseService
         return false;
     }
 
-    public function userDetails(?string $role = null, array $relations = []): ?User
+    public function passwordResetRequest(string $email): bool
     {
-        $user = auth($this->guard)->user();
+        $user = $this->repository->getUserByEmail($email);
 
         if (! $user) {
+            return false;
+        }
+
+        $user->reset_password_code = $this->generateVerificationCode();
+        $user->save();
+
+        Mail::to($user)
+            ->send(new ResetPasswordCodeEmail(
+                $user->reset_password_code,
+                $user->email,
+            ));
+
+        return true;
+    }
+
+    public function register(array $data, ?string $role = null, array $relations = []): User
+    {
+        $user = $this->repository->create($data);
+
+        if (! $user instanceof User) {
+            throw new RuntimeException('The user repository did not return a user.');
+        }
+
+        if ($role) {
+            $user->assignRole($role);
+        }
+
+        $this->guard()->login($user);
+
+        return $user->load($relations);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function setGuard(string $guard = 'api'): void
+    {
+        if (! in_array($guard, array_keys(config('auth.guards')))) {
+            throw new Exception("Undefined Guard : [$guard]");
+        }
+
+        $this->guard = $guard;
+    }
+
+    public function updateUserDetails(array $data, ?string $role = null, array $relations = []): ?User
+    {
+        $guard = $this->guard();
+        $user = $guard->user();
+
+        if (! $user instanceof User) {
+            return null;
+        }
+
+        if ($role && ! $user->hasRole($role)) {
+            return null;
+        }
+
+        $user = $this->repository->update($data, $user->id);
+
+        if (! $user instanceof User) {
+            throw new RuntimeException('The user repository did not return a user.');
+        }
+
+        $guard->login($user);
+
+        return $user->load($relations);
+    }
+
+    public function userDetails(?string $role = null, array $relations = []): ?User
+    {
+        $user = $this->guard()->user();
+
+        if (! $user instanceof User) {
             return null;
         }
 

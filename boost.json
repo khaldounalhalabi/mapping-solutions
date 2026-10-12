@@ -1,0 +1,25 @@
+{
+    "agents": ["claude_code", "junie", "codex"],
+    "cloud": false,
+    "guidelines": true,
+    "mcp": true,
+    "nightwatch": false,
+    "packages": [
+        "cubeta/cubeta-starter",
+        "maatwebsite/excel",
+        "spatie/laravel-permission",
+        "wendelladriel/laravel-validated-dto"
+    ],
+    "sail": false,
+    "skills": [
+        "infer-conventions",
+        "laravel-best-practices",
+        "testing-best-practices",
+        "inertia-react-development",
+        "tailwindcss-development",
+        "cubeta-starter-development",
+        "laravel-excel",
+        "laravel-permission-development",
+        "laravel-validated-dto-development"
+    ]
+}

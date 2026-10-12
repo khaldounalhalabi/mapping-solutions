@@ -1,12 +1,12 @@
-import inertia from '@inertiajs/vite'
-import laravel from 'laravel-vite-plugin'
-import { defineConfig } from 'vite'
+import inertia from "@inertiajs/vite";
+import laravel from "laravel-vite-plugin";
+import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/js/cubeta-starter.tsx'],
+            input: ["resources/js/cubeta-starter.tsx"],
             refresh: true,
         }),
         inertia(),
@@ -14,12 +14,12 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': '/resources/js',
+            "@": "/resources/js",
         },
     },
     server: {
         watch: {
-            ignored: ['**/storage/framework/views/**'],
+            ignored: ["**/storage/framework/views/**"],
         },
     },
 });
