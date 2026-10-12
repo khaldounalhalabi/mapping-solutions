@@ -3,6 +3,5 @@
     "frontend_type": "React & Typescript",
     "installed_web_packages": true,
     "validation_type": "DTO",
-    "installed_web_auth": true,
-    "has_roles": true
+    "installed_web_auth": true
 }

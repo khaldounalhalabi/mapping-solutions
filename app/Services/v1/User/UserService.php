@@ -40,7 +40,7 @@ class UserService extends BaseService
         return auth()->guard($this->guard);
     }
 
-    public function login(array $data, ?string $role = null, array $relations = []): ?User
+    public function login(array $data, array $relations = []): ?User
     {
         $guard = $this->guard();
         $authenticated = $guard->attempt([
@@ -55,12 +55,6 @@ class UserService extends BaseService
         $user = $guard->user();
 
         if (! $user instanceof User) {
-            return null;
-        }
-
-        if ($role && ! $user->hasRole($role)) {
-            $guard->logout();
-
             return null;
         }
 
@@ -107,16 +101,12 @@ class UserService extends BaseService
         return true;
     }
 
-    public function register(array $data, ?string $role = null, array $relations = []): User
+    public function register(array $data, array $relations = []): User
     {
         $user = $this->repository->create($data);
 
         if (! $user instanceof User) {
             throw new RuntimeException('The user repository did not return a user.');
-        }
-
-        if ($role) {
-            $user->assignRole($role);
         }
 
         $this->guard()->login($user);
@@ -136,16 +126,12 @@ class UserService extends BaseService
         $this->guard = $guard;
     }
 
-    public function updateUserDetails(array $data, ?string $role = null, array $relations = []): ?User
+    public function updateUserDetails(array $data, array $relations = []): ?User
     {
         $guard = $this->guard();
         $user = $guard->user();
 
         if (! $user instanceof User) {
-            return null;
-        }
-
-        if ($role && ! $user->hasRole($role)) {
             return null;
         }
 
@@ -160,15 +146,11 @@ class UserService extends BaseService
         return $user->load($relations);
     }
 
-    public function userDetails(?string $role = null, array $relations = []): ?User
+    public function userDetails(array $relations = []): ?User
     {
         $user = $this->guard()->user();
 
         if (! $user instanceof User) {
-            return null;
-        }
-
-        if ($role && ! $user->hasRole($role)) {
             return null;
         }
 

@@ -7,7 +7,6 @@
     "packages": [
         "cubeta/cubeta-starter",
         "maatwebsite/excel",
-        "spatie/laravel-permission",
         "wendelladriel/laravel-validated-dto"
     ],
     "sail": false,
@@ -19,7 +18,6 @@
         "tailwindcss-development",
         "cubeta-starter-development",
         "laravel-excel",
-        "laravel-permission-development",
         "laravel-validated-dto-development"
     ]
 }

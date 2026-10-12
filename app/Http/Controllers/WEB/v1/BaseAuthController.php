@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers\WEB\v1;
 
+use Exception;
+use Inertia\Inertia;
+use App\Services\v1\User\UserService;
 use App\DTOs\v1\AuthDtos\AuthLoginDTO;
-use App\DTOs\v1\AuthDtos\AuthRegisterDTO;
-use App\DTOs\v1\AuthDtos\CheckPasswordResetDTO;
-use App\DTOs\v1\AuthDtos\RequestResetPasswordDTO;
-use App\DTOs\v1\AuthDtos\ResetPasswordDTO;
 use App\DTOs\v1\AuthDtos\UpdateUserDTO;
 use App\Http\Controllers\WebController;
 use App\Http\Resources\v1\UserResource;
-use App\Services\v1\User\UserService;
-use Exception;
-use Inertia\Inertia;
+use App\DTOs\v1\AuthDtos\AuthRegisterDTO;
+use App\DTOs\v1\AuthDtos\ResetPasswordDTO;
+use App\DTOs\v1\AuthDtos\CheckPasswordResetDTO;
+use App\DTOs\v1\AuthDtos\RequestResetPasswordDTO;
 
 class BaseAuthController extends WebController
 {
     private UserService $userService;
-
-    private ?string $role = null;
 
     /**
      * @throws Exception
@@ -30,14 +28,9 @@ class BaseAuthController extends WebController
         $this->relations = [];
     }
 
-    public function roleHook(string $role)
-    {
-        $this->role = $role;
-    }
-
     public function login(AuthLoginDTO $dto)
     {
-        $user = $this->userService->login($dto->toArray(), $this->role, $this->relations);
+        $user = $this->userService->login($dto->toArray(), $this->relations);
         if ($user) {
             Inertia::flash([
                 'success' => trans('site.successfully_logged_in'),
@@ -51,31 +44,25 @@ class BaseAuthController extends WebController
         }
     }
 
-    public function updateUserDetails(UpdateUserDTO $dto)
+    public function logout()
     {
-        $user = $this->userService->updateUserDetails($dto->toArray(), $this->role, $this->relations);
+        $this->userService->logout();
+        Inertia::flash([
+            'success' => trans('site.logout_success'),
+        ]);
 
+        return redirect()->route('v1.web.public.login.page');
+    }
+
+    public function register(AuthRegisterDTO $dto)
+    {
+        $user = $this->userService->register($dto->toArray());
         if ($user) {
             Inertia::flash([
-                'success' => trans('site.update_successfully'),
+                'success' => trans('site.registered_successfully'),
             ]);
 
             return redirect()->route('v1.web.protected.me');
-        } else {
-            return Inertia::flash([
-                'error' => trans('site.something_went_wrong'),
-            ])->back();
-        }
-    }
-
-    public function userDetails()
-    {
-        $user = $this->userService->userDetails($this->role);
-
-        if ($user) {
-            return Inertia::render('user-details', [
-                'user' => UserResource::make($user),
-            ]);
         } else {
             return Inertia::flash([
                 'error' => trans('site.something_went_wrong'),
@@ -99,16 +86,6 @@ class BaseAuthController extends WebController
         }
     }
 
-    public function validateResetPasswordCode(CheckPasswordResetDTO $dto)
-    {
-        $dto->toArray();
-        Inertia::flash([
-            'success' => trans('site.code_correct'),
-        ]);
-
-        return redirect()->route('v1.web.public.reset.password.page');
-    }
-
     public function resetPassword(ResetPasswordDTO $dto)
     {
         $data = $dto->toArray();
@@ -127,12 +104,13 @@ class BaseAuthController extends WebController
         }
     }
 
-    public function register(AuthRegisterDTO $dto)
+    public function updateUserDetails(UpdateUserDTO $dto)
     {
-        $user = $this->userService->register($dto->toArray(), $this->role);
+        $user = $this->userService->updateUserDetails($dto->toArray(), $this->relations);
+
         if ($user) {
             Inertia::flash([
-                'success' => trans('site.registered_successfully'),
+                'success' => trans('site.update_successfully'),
             ]);
 
             return redirect()->route('v1.web.protected.me');
@@ -143,13 +121,28 @@ class BaseAuthController extends WebController
         }
     }
 
-    public function logout()
+    public function userDetails()
     {
-        $this->userService->logout();
+        $user = $this->userService->userDetails();
+
+        if ($user) {
+            return Inertia::render('user-details', [
+                'user' => UserResource::make($user),
+            ]);
+        } else {
+            return Inertia::flash([
+                'error' => trans('site.something_went_wrong'),
+            ])->back();
+        }
+    }
+
+    public function validateResetPasswordCode(CheckPasswordResetDTO $dto)
+    {
+        $dto->toArray();
         Inertia::flash([
-            'success' => trans('site.logout_success'),
+            'success' => trans('site.code_correct'),
         ]);
 
-        return redirect()->route('v1.web.public.login.page');
+        return redirect()->route('v1.web.public.reset.password.page');
     }
 }

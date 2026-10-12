@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Database\Factories\UserFactory;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -41,7 +40,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
-    use HasRoles;
 
     /**
      * Get the attributes that should be cast.
