@@ -27,6 +27,6 @@ php artisan view:cache
 
 php artisan migrate --force
 
-# exec replaces the shell process with Octane, so it becomes PID 1 and
-# receives SIGTERM directly from Docker/Dokploy for a clean shutdown.
-exec php artisan octane:frankenphp --port=80
+# exec replaces the shell process with the configured service command, so it
+# becomes PID 1 and receives SIGTERM directly for a clean shutdown.
+exec "$@"
