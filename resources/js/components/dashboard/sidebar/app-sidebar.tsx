@@ -1,3 +1,4 @@
+import { FactoryIcon, LayoutDashboardIcon } from "lucide-react";
 import { NavMain } from "@/components/dashboard/sidebar/nav-main";
 import { NavUser } from "@/components/dashboard/sidebar/nav-user";
 import {
@@ -10,7 +11,6 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Link, usePage } from "@inertiajs/react";
-import { LayoutDashboardIcon } from "lucide-react";
 import React from "react";
 
 export function AppSidebar({
@@ -25,7 +25,13 @@ export function AppSidebar({
             href?: string;
             icon?: React.ReactNode;
         }[];
-    }[] = [];
+    }[] = [
+        {
+            title: "Suppliers",
+            href: route("v1.web.protected.suppliers.index"),
+            icon: <FactoryIcon />,
+        },
+    ];
 
     const {
         props: { authUser },

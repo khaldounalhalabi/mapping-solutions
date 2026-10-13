@@ -128,7 +128,7 @@ function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
 
 function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
     return (
-        <p
+        <div
             data-slot="field-description"
             className={cn(
                 "text-start text-sm leading-normal font-normal text-muted-foreground group-has-data-horizontal/field:text-balance [[data-variant=legend]+&]:-mt-1.5",

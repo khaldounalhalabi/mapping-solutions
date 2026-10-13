@@ -1,11 +1,11 @@
 <?php
 
-$directory = __DIR__ . '/storage/app/required';
+$directory = __DIR__.'/storage/app/required';
 $imageCount = 50;
 $imageWidth = 300;
 $imageHeight = 200;
 
-if (!is_dir($directory)) {
+if (! is_dir($directory)) {
     mkdir($directory, 0755, true);
     echo "Created directory: $directory\n";
 }
@@ -19,6 +19,7 @@ for ($i = 1; $i <= $imageCount; $i++) {
     $image = file_get_contents($url);
     if ($image === false) {
         echo "Failed to download image $i\n";
+
         continue;
     }
 

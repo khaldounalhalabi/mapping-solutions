@@ -3,5 +3,50 @@
     "frontend_type": "React & Typescript",
     "installed_web_packages": true,
     "validation_type": "DTO",
-    "installed_web_auth": true
+    "installed_web_auth": true,
+    "tables": [
+        {
+            "model_name": "Supplier",
+            "table_name": "suppliers",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "slug",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": true
+                },
+                {
+                    "name": "description",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "logo",
+                    "type": "file",
+                    "nullable": true,
+                    "unique": false
+                }
+            ],
+            "relations": {
+                "hasMany": [
+                    {
+                        "type": "hasMany",
+                        "model_name": "ProductFamily"
+                    },
+                    {
+                        "type": "hasMany",
+                        "model_name": "Product"
+                    }
+                ]
+            },
+            "version": "v1"
+        }
+    ]
 }
