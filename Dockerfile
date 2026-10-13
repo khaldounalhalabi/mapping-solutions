@@ -64,30 +64,7 @@ RUN mkdir -p storage/framework/cache/data \
     && chown -R www-data:www-data /var/www /config /data
 
 # ============================
-# Stage 3: Development runtime
-# ============================
-FROM php-runtime AS development
-
-USER root
-
-RUN apk add --no-cache nodejs npm su-exec
-
-COPY --from=node-dependencies --chown=www-data:www-data /app/node_modules ./node_modules
-COPY --chown=www-data:www-data docker/development-entrypoint.sh /usr/local/bin/development-entrypoint
-
-RUN chmod +x /usr/local/bin/development-entrypoint
-
-USER root
-
-EXPOSE 80 5173
-
-HEALTHCHECK NONE
-
-ENTRYPOINT ["/usr/local/bin/development-entrypoint"]
-CMD ["php", "artisan", "octane:frankenphp", "--host=0.0.0.0", "--port=80", "--watch", "--poll"]
-
-# ============================
-# Stage 4: Production runtime
+# Stage 3: Production runtime
 # ============================
 FROM php-runtime AS production
 
