@@ -56,9 +56,23 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
     private function disk(): FilesystemAdapter
     {
         /** @var FilesystemAdapter $disk */
-        $disk = Storage::disk(self::diskName());
+        $disk = Storage::disk($this->diskName());
 
         return $disk;
+    }
+
+    /**
+     * The disk every media file is read from and written to.
+     */
+    private function diskName(): string
+    {
+        $diskName = (string) config('media.disk');
+
+        if ($diskName == 'local') {
+            return $this->private ? 'local' : 'public';
+        }
+
+        return $diskName;
     }
 
     private function guessExtension(): ?string
@@ -107,7 +121,7 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
             join_paths($this->prefix(), $this->dir, Str::uuid()->toString()),
             $finalFileName,
             [
-                'disk' => self::diskName(),
+                'disk' => $this->diskName(),
                 'visibility' => $this->private ? 'private' : 'public',
             ],
         );
@@ -171,14 +185,6 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
     }
 
     /**
-     * The disk every media file is read from and written to.
-     */
-    public static function diskName(): string
-    {
-        return (string) config('media.disk');
-    }
-
-    /**
      * Hits the disk. to check if the file exists
      */
     public function exists(): bool
@@ -186,36 +192,36 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
         return ! empty($this->storagePath) && $this->disk()->exists($this->storagePath);
     }
 
-    /**
-     * Store bytes we produced ourselves rather than a file somebody uploaded.
-     */
-    public static function fromContents(
-        string $contents,
-        string $name,
-        string $mimeType,
-        ?string $dir = null,
-        bool $private = false,
-    ): self {
-        $path = join_paths(
-            (string) config($private ? 'media.prefixes.private' : 'media.prefixes.public'),
-            $dir ?? '',
-            Str::uuid()->toString(),
-            $name,
-        );
-
-        Storage::disk(self::diskName())->put(
-            $path,
-            $contents,
-            ['visibility' => $private ? 'private' : 'public'],
-        );
-
-        return new self([
-            'storage_path' => $path,
-            'extension' => pathinfo($name, PATHINFO_EXTENSION),
-            'mime_type' => $mimeType,
-            'size' => round(strlen($contents) / 1024),
-        ], $dir, $private);
-    }
+    //    /**
+    //     * Store bytes we produced ourselves rather than a file somebody uploaded.
+    //     */
+    //    public static function fromContents(
+    //        string $contents,
+    //        string $name,
+    //        string $mimeType,
+    //        ?string $dir = null,
+    //        bool $private = false,
+    //    ): self {
+    //        $path = join_paths(
+    //            (string) config($private ? 'media.prefixes.private' : 'media.prefixes.public'),
+    //            $dir ?? '',
+    //            Str::uuid()->toString(),
+    //            $name,
+    //        );
+    //
+    //        Storage::disk(self::diskName())->put(
+    //            $path,
+    //            $contents,
+    //            ['visibility' => $private ? 'private' : 'public'],
+    //        );
+    //
+    //        return new self([
+    //            'storage_path' => $path,
+    //            'extension' => pathinfo($name, PATHINFO_EXTENSION),
+    //            'mime_type' => $mimeType,
+    //            'size' => round(strlen($contents) / 1024),
+    //        ], $dir, $private);
+    //    }
 
     /**
      * @throws Exception
@@ -305,10 +311,10 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
     }
 
     /**
-    * A private object is not anonymously readable, so it has to be signed.
-    * Disks that cannot sign (a plain local disk) fall back to the direct
-    * URL rather than throwing.
-    */
+     * A private object is not anonymously readable, so it has to be signed.
+     * Disks that cannot sign (a plain local disk) fall back to the direct
+     * URL rather than throwing.
+     */
     public function url(): string
     {
         $disk = $this->disk();
