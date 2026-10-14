@@ -2,11 +2,12 @@ import ActionsButtons from "@/components/datatable/actions-buttons";
 import Datatable from "@/components/datatable/datatable";
 import Http from "@/modules/http/http";
 import Supplier from "@/models/supplier";
+import ImagePreview from "@/components/ui/image-preview";
 
 const Index = () => {
     return (
         <Datatable
-            title="Supplier Table"
+            title="Suppliers"
             createUrl={route("v1.web.protected.suppliers.create")}
             getDataArray={(res) => res.data}
             getTotalPages={(res) => res?.paginate?.total_pages ?? 0}
@@ -38,6 +39,11 @@ const Index = () => {
                     sortable: true,
                 },
                 { name: "name", label: "Name", sortable: true },
+                {
+                    name: "logo",
+                    label: "Logo",
+                    render: (data) => <ImagePreview src={data?.url} />,
+                },
                 {
                     label: "Options",
                     render: (_data, record, setHidden) => (

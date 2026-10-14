@@ -65,21 +65,21 @@ class ProductFamily extends Model
         ];
     }
 
+    public function sluggable(): array
+    {
+        return [
+            [
+                'col' => 'name',
+                'slug_col' => 'slug',
+            ],
+        ];
+    }
+
     /**
      * @return BelongsTo<Supplier, static>
      */
     public function supplier(): BelongsTo
     {
         return $this->belongsTo(Supplier::class);
-    }
-
-    public function sluggable(): array
-    {
-        return [
-          [
-              'col' => 'name',
-              'slug_col' => 'slug'
-          ]
-        ];
     }
 }
