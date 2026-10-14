@@ -2,91 +2,148 @@
 
 namespace App\Traits;
 
-use Exception;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
 use App\Serializers\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @mixin Model
+ *
+ * @phpstan-require-extends Model
  */
 trait Sluggable
 {
     /**
-     * @param array{col:string , slug_col:string , unique_cond:callable|null} $sluggables
+     * @param array{
+     *     col: string|callable,
+     *     slug_col: string,
+     *     unique_cond?: callable,
+     *     separator?: string,
+     *     depends_on?: list<string>
+     * } $config
      */
-    private static function checkForUniqueness(array $sluggables, string $slug): bool
-    {
-        if (! isset($sluggables['unique_cond'])) {
-            return self::query()->where("{$sluggables['slug_col']}", $slug)->exists();
+    private static function checkForUniqueness(
+        Model $item,
+        array $config,
+        string $slug,
+    ): bool {
+        if (isset($config['unique_cond'])) {
+            return (bool) $config['unique_cond']($slug, $item);
         }
 
-        return (bool) $sluggables['unique_cond']($slug);
+        return $item->newQuery()
+            ->where($config['slug_col'], $slug)
+            ->when(
+                $item->exists,
+                fn ($query) => $query->whereKeyNot($item->getKey()),
+            )
+            ->exists();
     }
 
     /**
-     * @param static&Model $item
-     *
-     * @throws Exception
+     * @param array{
+     *     col: string|callable,
+     *     slug_col: string,
+     *     unique_cond?: callable,
+     *     separator?: string,
+     *     depends_on?: list<string> } $config
      */
-    private static function generateSlug(Model $item): void
-    {
-        foreach ($item->sluggable() as $sluggables) {
-            $separator = $sluggables['separator'] ?? '-';
+    private static function generateSlug(
+        Model $item,
+        array $config,
+    ): void {
+        assert($item instanceof static);
+        $separator = $config['separator'] ?? '-';
 
-            if (empty(trim($separator))) {
-                throw new Exception("Separator can't be empty or underscore");
-            }
-
-            if (! is_callable($sluggables['col'])) {
-                $property = data_get($item, $sluggables['col']);
-                if ($property instanceof Translatable) {
-                    $property = $property->forceTranslate('en');
-                }
-
-                if (empty($property)) {
-                    throw new Exception('Sluggable property must not be null or an empty string');
-                }
-
-                $slug = str($property.'')
-                    ->kebab()
-                    ->singular()
-                    ->lower()
-                    ->replace('-', $separator)
-                    ->replace('.', '-')
-                    ->replace('_', '-')
-                    ->replace('--', '-')
-                    ->toString();
-            } else {
-                $slug = $sluggables['col']();
-            }
-
-            $notUnique = self::checkForUniqueness($sluggables, $slug);
-
-            $loopIndex = 1;
-            while ($notUnique) {
-                $num = $loopIndex;
-                $newSlug = "{$slug}{$separator}{$num}";
-                $notUnique = self::checkForUniqueness($sluggables, $newSlug);
-                $loopIndex++;
-            }
-
-            $item->{"{$sluggables['slug_col']}"} = $newSlug ?? $slug;
+        if (empty(trim($separator)) || empty($separator)) {
+            throw new InvalidArgumentException(
+                "Separator can't be empty or underscore",
+            );
         }
+
+        $source = $config['col'];
+
+        $property = is_callable($source)
+            ? $source($item)
+            : data_get($item, $source);
+
+        if ($property instanceof Translatable) {
+            $property = $property->forceTranslate('en');
+        }
+
+        if (! is_string($property) && ! is_numeric($property)) {
+            throw new InvalidArgumentException(
+                'Sluggable property must be a string or number',
+            );
+        }
+
+        $slug = Str::slug((string) $property, $separator);
+
+        if (empty($slug)) {
+            throw new InvalidArgumentException(
+                'Generated slug must not be empty',
+            );
+        }
+
+        $newSlug = $slug;
+        $loopIndex = 1;
+
+        while (self::checkForUniqueness($item, $config, $newSlug)) {
+            $newSlug = "{$slug}{$separator}{$loopIndex}";
+            $loopIndex++;
+        }
+
+        $item->{$config['slug_col']} = $newSlug;
     }
 
     protected static function bootSluggable(): void
     {
-        self::creating(function (Model $item) {
-            self::generateSlug($item);
-        });
+        static::creating(
+            function (Model $item) {
+                assert($item instanceof static);
+                foreach ($item->sluggable() as $config) {
+                    self::generateSlug($item, $config);
+                }
+            },
+        );
 
-        self::updating(function (Model $item) {
-            self::generateSlug($item);
-        });
+        static::updating(
+            /**
+             * @param static&Model $item
+             */
+            function (Model $item) {
+                assert($item instanceof static);
+                foreach ($item->sluggable() as $config) {
+                    $source = $config['col'];
+
+                    $dependencies = $config['depends_on']
+                        ?? (is_string($source) ? [$source] : null);
+
+                    // Callable sources without dependencies
+                    // are regenerated on every update.
+                    if ($dependencies === null) {
+                        self::generateSlug($item, $config);
+
+                        continue;
+                    }
+
+                    if ($item->isDirty($dependencies)) {
+                        self::generateSlug($item, $config);
+                    }
+                }
+            },
+        );
     }
 
     /**
-     * @return array{array{col:string , slug_col:string , unique_cond:callable|null, separator:string}}
+     * @return list<array{
+     *     col: string|callable,
+     *     slug_col: string,
+     *     unique_cond?: callable,
+     *     separator?: string,
+     *     depends_on?: list<string>
+     * }>
      */
     public function sluggable(): array
     {
