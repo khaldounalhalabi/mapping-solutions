@@ -22,6 +22,7 @@ class SupplierResource extends BaseResource
             'slug' => $this->slug,
             'description' => $this->description,
             'logo' => $this->logo,
+            'product_families' => ProductFamilyResource::collection($this->whenLoaded('productFamilies')),
         ];
     }
 }

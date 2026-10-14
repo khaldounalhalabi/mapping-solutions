@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Exception;
 use App\Models\Supplier;
+use App\Models\ProductFamily;
 use App\Serializers\Translatable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,5 +23,10 @@ class SupplierFactory extends Factory
             'description' => Translatable::fake('text')->toJson(),
             'logo' => fakeImage(),
         ];
+    }
+
+    public function withProductFamilies(int $count = 1): static
+    {
+        return $this->has(ProductFamily::factory($count));
     }
 }

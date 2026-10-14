@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 trait Sluggable
 {
     /**
-     * @param array{col:string , slug_col:string , unique_cols:array|null , unique_cond:callable|null} $sluggables
+     * @param array{col:string , slug_col:string , unique_cond:callable|null} $sluggables
      */
     private static function checkForUniqueness(array $sluggables, string $slug): bool
     {
@@ -86,8 +86,7 @@ trait Sluggable
     }
 
     /**
-     * @return array{array{col:string , slug_col:string , unique_cols:array|null , unique_cond:callable|null,
-     *                                separator:string}}
+     * @return array{array{col:string , slug_col:string , unique_cond:callable|null, separator:string}}
      */
     public function sluggable(): array
     {

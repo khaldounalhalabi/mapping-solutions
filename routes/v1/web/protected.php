@@ -11,3 +11,6 @@ Route::inertia('/v1/dashboard/', 'index')->name('v1.web.protected.index');
 
 Route::get('/v1/suppliers/data', [v1\SupplierController::class, 'data'])->name('v1.web.protected.suppliers.data');
 Route::resource('/v1/suppliers', v1\SupplierController::class)->names('v1.web.protected.suppliers');
+
+Route::get('/v1/product-families/data', [v1\ProductFamilyController::class, 'data'])->name('v1.web.protected.product.families.data');
+Route::resource('/v1/product-families', v1\ProductFamilyController::class)->names('v1.web.protected.product.families');
