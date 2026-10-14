@@ -1,9 +1,9 @@
 import {
     BoxesIcon,
+    CircuitBoardIcon,
     FactoryIcon,
     FolderTreeIcon,
     LayoutDashboardIcon,
-    TableIcon,
 } from "lucide-react";
 import { NavMain } from "@/components/dashboard/sidebar/nav-main";
 import { NavUser } from "@/components/dashboard/sidebar/nav-user";
@@ -49,7 +49,7 @@ export function AppSidebar({
                 {
                     title: "Product Technologies",
                     href: route("v1.web.protected.product.technologies.index"),
-                    icon: <TableIcon />,
+                    icon: <CircuitBoardIcon />,
                 },
             ],
         },

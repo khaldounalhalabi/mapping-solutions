@@ -1,75 +1,250 @@
+import React, { useState } from "react";
 import { useForm } from "@inertiajs/react";
+import { Check, Images, Shapes } from "lucide-react";
+
 import PageCard from "@/components/ui/page-card";
 import Form from "@/components/form/form";
 import Media from "@/models/media";
 import FilepondInput from "@/components/form/fields/filepond/filepond-input";
-import Input from "@/components/form/fields/input";
 import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
+import FormIconPicker from "@/components/form/fields/form-icon-picker";
 import ProductTechnology from "@/models/product-technology";
-import React from "react";
+
+type IconType = "key" | "file" | null;
+
+const iconOptions = [
+    {
+        value: "key",
+        title: "Icon Library",
+        description: "Choose from our collection of icons",
+        icon: Shapes,
+    },
+    {
+        value: "file",
+        title: "Upload Image",
+        description: "Upload your own custom icon",
+        icon: Images,
+    },
+] as const;
 
 const Edit = ({
     productTechnology,
 }: {
     productTechnology: ProductTechnology;
 }) => {
-    const { post, setData, processing } = useForm<
-        Partial<{
-            _method?: "PUT" | "POST";
-            name: string;
-            icon_key?: string;
-            icon?: Media | File | null;
-        }>
-    >({
+    const initialIconType: IconType = productTechnology.icon_key
+        ? "key"
+        : productTechnology.icon
+          ? "file"
+          : null;
+
+    const [iconType, setIconType] = useState<IconType>(initialIconType);
+
+    const { post, setData, processing } = useForm<{
+        _method: "PUT";
+        name: string;
+        icon_key?: string;
+        icon: Media | File | null;
+    }>({
         _method: "PUT",
-        name: productTechnology?.name,
-        icon_key: productTechnology?.icon_key,
-        icon: productTechnology?.icon,
+        name: productTechnology.name,
+        icon_key:
+            initialIconType === "key" ? (productTechnology.icon_key ?? "") : "",
+        icon:
+            initialIconType === "file"
+                ? (productTechnology.icon ?? null)
+                : null,
     });
+
+    const handleIconTypeChange = (type: IconType) => {
+        if (iconType === type) return;
+
+        setIconType(type);
+
+        setData((previous) => ({
+            ...previous,
+            icon_key: "",
+            icon: null,
+        }));
+    };
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        if (!iconType) return;
 
         post(
             route(
                 "v1.web.protected.product.technologies.update",
                 productTechnology.id,
             ),
+            {
+                forceFormData: true,
+            },
         );
     };
 
     return (
-        <PageCard title="Edit ProductTechnology">
+        <PageCard title="Edit Product Technology">
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
-                    <div
-                        className={`grid grid-cols-1 md:grid-cols-2 gap-5 items-start`}
-                    >
+                    <div className="grid grid-cols-1 gap-6">
+                        {/* Technology Name */}
                         <TranslatableInput
                             name="name"
-                            label={"Name"}
-                            onChange={(v) => setData("name", v)}
+                            label="Name"
                             defaultValue={productTechnology.name}
+                            onChange={(value) => setData("name", value)}
                             required
                         />
-                        <Input
-                            name="icon_key"
-                            label={"Icon Key"}
-                            type={"text"}
-                            onChange={(e) =>
-                                setData("icon_key", e.target?.value)
-                            }
-                            defaultValue={productTechnology.icon_key}
-                        />
-                        <div className="md:col-span-2">
-                            <FilepondInput
-                                name="icon"
-                                label={"Icon"}
-                                onChange={(file) => setData("icon", file)}
-                                acceptedFileTypes={["image/*"]}
-                                defaultValue={productTechnology.icon}
-                            />
+
+                        {/* Icon Source */}
+                        <div className="space-y-4">
+                            <div className="space-y-1">
+                                <label className="text-sm font-medium">
+                                    Icon Source
+                                    <span className="ml-1 text-destructive">
+                                        *
+                                    </span>
+                                </label>
+
+                                <p className="text-xs text-muted-foreground">
+                                    Choose how you want to display the
+                                    technology icon.
+                                </p>
+                            </div>
+
+                            {/* Icon Type Cards */}
+                            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                {iconOptions.map((option) => {
+                                    const Icon = option.icon;
+                                    const isSelected =
+                                        iconType === option.value;
+
+                                    return (
+                                        <button
+                                            key={option.value}
+                                            type="button"
+                                            disabled={processing}
+                                            onClick={() =>
+                                                handleIconTypeChange(
+                                                    option.value,
+                                                )
+                                            }
+                                            aria-pressed={isSelected}
+                                            className={`
+                                                group relative flex items-start gap-3
+                                                rounded-xl border p-4 text-left
+                                                transition-all duration-200
+                                                focus-visible:outline-none
+                                                focus-visible:ring-2
+                                                focus-visible:ring-ring
+                                                disabled:cursor-not-allowed
+                                                disabled:opacity-60
+                                                ${
+                                                    isSelected
+                                                        ? "border-primary bg-primary/5 ring-1 ring-primary/20"
+                                                        : "border-border bg-card hover:border-primary/40 hover:bg-muted/40"
+                                                }
+                                            `}
+                                        >
+                                            {/* Icon */}
+                                            <div
+                                                className={`
+                                                    flex size-11 shrink-0 items-center
+                                                    justify-center rounded-lg
+                                                    transition-colors
+                                                    ${
+                                                        isSelected
+                                                            ? "bg-primary/10 text-primary"
+                                                            : "bg-muted text-muted-foreground group-hover:text-foreground"
+                                                    }
+                                                `}
+                                            >
+                                                <Icon className="size-5" />
+                                            </div>
+
+                                            {/* Text */}
+                                            <div className="min-w-0 flex-1 space-y-1">
+                                                <div className="text-sm font-semibold">
+                                                    {option.title}
+                                                </div>
+
+                                                <p className="text-xs text-muted-foreground">
+                                                    {option.description}
+                                                </p>
+                                            </div>
+
+                                            {/* Selection Indicator */}
+                                            <div
+                                                className={`
+                                                    flex size-5 shrink-0 items-center
+                                                    justify-center rounded-full border
+                                                    transition-colors
+                                                    ${
+                                                        isSelected
+                                                            ? "border-primary bg-primary text-primary-foreground"
+                                                            : "border-muted-foreground/40"
+                                                    }
+                                                `}
+                                            >
+                                                {isSelected && (
+                                                    <Check
+                                                        className="size-3"
+                                                        strokeWidth={3}
+                                                    />
+                                                )}
+                                            </div>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+
+                            {/* Selected Icon Input */}
+                            {iconType && (
+                                <div className="pt-2">
+                                    {iconType === "key" && (
+                                        <FormIconPicker
+                                            key="icon-key"
+                                            name="icon_key"
+                                            label="Choose Icon"
+                                            defaultValue={
+                                                initialIconType === "key"
+                                                    ? productTechnology.icon_key
+                                                    : undefined
+                                            }
+                                            onChange={(value) =>
+                                                setData("icon_key", value)
+                                            }
+                                        />
+                                    )}
+
+                                    {iconType === "file" && (
+                                        <FilepondInput
+                                            key="icon-file"
+                                            name="icon"
+                                            label="Upload Icon"
+                                            defaultValue={
+                                                initialIconType === "file"
+                                                    ? productTechnology.icon
+                                                    : undefined
+                                            }
+                                            onChange={(file) =>
+                                                setData("icon", file)
+                                            }
+                                            acceptedFileTypes={["image/*"]}
+                                        />
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Helper Message */}
+                            {!iconType && (
+                                <p className="text-xs text-muted-foreground">
+                                    Select an icon source to continue.
+                                </p>
+                            )}
                         </div>
                     </div>
                 </Form>

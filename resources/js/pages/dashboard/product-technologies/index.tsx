@@ -3,6 +3,7 @@ import Datatable from "@/components/datatable/datatable";
 import Http from "@/modules/http/http";
 import ImagePreview from "@/components/ui/image-preview";
 import ProductTechnology from "@/models/product-technology";
+import { DynamicIcon } from "lucide-react/dynamic";
 
 const Index = () => {
     return (
@@ -43,13 +44,28 @@ const Index = () => {
                     label: "Name",
                     translatable: true,
                     sortable: true,
+                    render(data) {
+                        return (
+                            <span
+                                className={
+                                    "inline-block max-w-64 overflow-hidden text-ellipsis whitespace-nowrap"
+                                }
+                            >
+                                {data}
+                            </span>
+                        );
+                    },
                 },
-                { name: "icon_key", label: "Icon Key", sortable: true },
                 {
                     name: "icon",
                     label: "Icon",
-                    render: (cell) => {
-                        return <ImagePreview src={cell?.url} />;
+                    render(_data, record) {
+                        if (record?.icon_key) {
+                            return <DynamicIcon name={record.icon_key} />;
+                        } else if (record?.icon) {
+                            return <ImagePreview src={record?.icon?.url} />;
+                        }
+                        return undefined;
                     },
                 },
                 {

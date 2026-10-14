@@ -16,9 +16,6 @@ class StoreUpdateProductTechnologyDTO extends ValidatedDTO
 
     public string $name;
 
-    /**
-     * Get the type casting for the DTO properties.
-     */
     protected function casts(): array
     {
         return [
@@ -27,25 +24,36 @@ class StoreUpdateProductTechnologyDTO extends ValidatedDTO
         ];
     }
 
-    /**
-     * Get the default values for the DTO properties.
-     */
     protected function defaults(): array
     {
-        return [
-
-        ];
+        return [];
     }
 
-    /**
-     * Get the validation rules that apply to the DTO.
-     */
     protected function rules(): array
     {
         return [
-            'name' => ['json', new ValidTranslatableJson, 'required'],
-            'icon_key' => ['nullable', 'string', 'max:255', 'min:3'],
-            'icon' => ['nullable', new MediaValidationRule],
+            'name' => [
+                'required',
+                'json',
+                new ValidTranslatableJson,
+            ],
+
+            'icon_key' => [
+                'nullable',
+                'required_without:icon',
+                'prohibits:icon',
+                'string',
+                'min:3',
+                'max:255',
+            ],
+
+            'icon' => [
+                'nullable',
+                'required_without:icon_key',
+                'prohibits:icon_key',
+                new MediaValidationRule,
+            ],
         ];
+
     }
 }
