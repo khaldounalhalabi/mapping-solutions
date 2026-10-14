@@ -115,35 +115,32 @@ const SidebarCompactItem = ({
                 (i) => i.href && isUrlActive(i.href),
             )}
             className={"group/collapsible"}
+            render={<SidebarMenuItem />}
         >
-            <SidebarMenuItem>
-                <CollapsibleTrigger>
-                    <SidebarMenuButton tooltip={item.title}>
-                        {item.icon}
-                        <span>{item.title}</span>
-                        <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-                    </SidebarMenuButton>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                    <SidebarMenuSub>
-                        {item.children?.map((subItem, index) => (
-                            <SidebarMenuSubItem key={index}>
-                                <SidebarMenuSubButton
-                                    isActive={
-                                        !!subItem.href &&
-                                        isUrlActive(subItem.href)
-                                    }
-                                >
-                                    <Link href={subItem.href}>
-                                        {subItem.icon}
-                                        <span>{subItem.title}</span>
-                                    </Link>
-                                </SidebarMenuSubButton>
-                            </SidebarMenuSubItem>
-                        ))}
-                    </SidebarMenuSub>
-                </CollapsibleContent>
-            </SidebarMenuItem>
+            <CollapsibleTrigger
+                render={<SidebarMenuButton tooltip={item.title} />}
+            >
+                {item.icon}
+                <span className="truncate">{item.title}</span>
+                <ChevronRight className="ml-auto transition-transform duration-200 group-data-open/collapsible:rotate-90" />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+                <SidebarMenuSub>
+                    {item.children?.map((subItem, index) => (
+                        <SidebarMenuSubItem key={index}>
+                            <SidebarMenuSubButton
+                                isActive={
+                                    !!subItem.href && isUrlActive(subItem.href)
+                                }
+                                render={<Link href={subItem.href} />}
+                            >
+                                {subItem.icon}
+                                <span>{subItem.title}</span>
+                            </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                    ))}
+                </SidebarMenuSub>
+            </CollapsibleContent>
         </Collapsible>
     );
 };

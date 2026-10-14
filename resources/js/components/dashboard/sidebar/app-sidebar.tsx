@@ -1,4 +1,4 @@
-import { FactoryIcon, LayoutDashboardIcon } from "lucide-react";
+import { BoxesIcon, FactoryIcon, LayoutDashboardIcon } from "lucide-react";
 import { NavMain } from "@/components/dashboard/sidebar/nav-main";
 import { NavUser } from "@/components/dashboard/sidebar/nav-user";
 import {
@@ -27,9 +27,15 @@ export function AppSidebar({
         }[];
     }[] = [
         {
-            title: "Suppliers",
-            href: route("v1.web.protected.suppliers.index"),
-            icon: <FactoryIcon />,
+            title: "Product Catalogue",
+            icon: <BoxesIcon />,
+            children: [
+                {
+                    title: "Suppliers",
+                    href: route("v1.web.protected.suppliers.index"),
+                    icon: <FactoryIcon />,
+                },
+            ],
         },
     ];
 
