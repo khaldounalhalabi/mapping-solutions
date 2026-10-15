@@ -6,7 +6,8 @@
         "documents": "Documents",
         "navigation": {
             "product_catalogue": "Product Catalogue",
-            "applications_and_services": "Applications and services"
+            "applications_and_services": "Applications and services",
+            "content_and_publications": "Content & Publications"
         },
         "account": "Account",
         "profile": "My Profile",
@@ -290,6 +291,14 @@
                 "group": "Group",
                 "name": "Name",
                 "summary": "Summary"
+            }
+        },
+        "NewsCategory": {
+            "singular": "News Category",
+            "plural": "News Categories",
+            "fields": {
+                "name": "Name",
+                "slug": "Slug"
             }
         }
     }

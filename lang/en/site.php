@@ -258,5 +258,13 @@ return [
                 'summary' => 'Summary',
             ],
         ],
+        'NewsCategory' => [
+            'singular' => 'News Category',
+            'plural'   => 'News Categories',
+            'fields'   => [
+                'name' => 'Name',
+                'slug' => 'Slug',
+            ],
+        ],
     ],
 ];

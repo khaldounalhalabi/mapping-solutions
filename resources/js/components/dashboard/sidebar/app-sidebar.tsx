@@ -6,6 +6,7 @@ import {
     FolderTreeIcon,
     Layers3Icon,
     LayoutDashboardIcon,
+    NewspaperIcon,
     PackageIcon,
     WrenchIcon,
 } from "lucide-react";
@@ -77,6 +78,17 @@ export function AppSidebar({
                     title: t("models.Service.plural"),
                     href:  route("v1.web.protected.services.index"),
                     icon:  <Layers3Icon />,
+                },
+            ],
+        },
+        {
+            title:    t("dashboard.navigation.content_and_publications"),
+            icon:     <NewspaperIcon />,
+            children: [
+                {
+                    title: t("models.NewsCategory.plural"),
+                    href:  route("v1.web.protected.news.categories.index"),
+                    icon:  <FolderTreeIcon />,
                 },
             ],
         },

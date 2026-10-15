@@ -26,3 +26,6 @@ Route::resource('/v1/market-applications', v1\MarketApplicationController::class
 
 Route::get('/v1/services/data', [v1\ServiceController::class, 'data'])->name('v1.web.protected.services.data');
 Route::resource('/v1/services', v1\ServiceController::class)->names('v1.web.protected.services');
+
+Route::get('/v1/news-categories/data', [v1\NewsCategoryController::class, 'data'])->name('v1.web.protected.news.categories.data');
+Route::resource('/v1/news-categories', v1\NewsCategoryController::class)->names('v1.web.protected.news.categories');
