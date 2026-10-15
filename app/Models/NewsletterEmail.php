@@ -8,9 +8,11 @@ use App\Traits\HasMedia;
 use App\Serializers\SerializedMedia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use App\Observers\NewsletterEmailObserver;
 use Database\Factories\NewsletterEmailFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 
 /**
  * @property int                    $id
@@ -29,6 +31,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
     'content',
     'attachments',
 ])]
+#[ObservedBy([NewsletterEmailObserver::class])]
 class NewsletterEmail extends Model
 {
     use HasFactory, HasMedia;
