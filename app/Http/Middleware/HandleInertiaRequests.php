@@ -35,12 +35,12 @@ class HandleInertiaRequests extends Middleware
 
         return array_merge(parent::share($request), [
             'availableLocales' => config('cubeta-starter.available_locales'),
-            'currentLocale' => app()->getLocale(),
-            'authUser' => auth()->user(),
-            'asset' => asset('/'),
-            'baseUrl' => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
-            'error' => session()->get('error') ?? null,
-            'success' => session()->get('success') ?? null,
+            'currentLocale'    => app()->getLocale(),
+            'authUser'         => auth()->user(),
+            'asset'            => asset('/'),
+            'baseUrl'          => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
+            'error'            => session()->get('error') ?? null,
+            'success'          => session()->get('success') ?? null,
         ]);
     }
 

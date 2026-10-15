@@ -22,7 +22,7 @@ class StoreUpdateSupplierDTO extends ValidatedDTO
     protected function casts(): array
     {
         return [
-            'name' => new StringCast,
+            'name'        => new StringCast,
             'description' => new StringCast,
         ];
     }
@@ -43,9 +43,9 @@ class StoreUpdateSupplierDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255', 'min:3'],
+            'name'        => ['required', 'string', 'max:255', 'min:3'],
             'description' => ['json', new ValidTranslatableJson, 'required'],
-            'logo' => ['nullable', new MediaValidationRule],
+            'logo'        => ['nullable', new MediaValidationRule],
         ];
     }
 }

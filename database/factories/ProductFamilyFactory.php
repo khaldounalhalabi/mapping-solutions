@@ -17,7 +17,7 @@ class ProductFamilyFactory extends Factory
     {
         return [
             'supplier_id' => Supplier::factory(),
-            'name' => Translatable::fake()->toJson(),
+            'name'        => Translatable::fake()->toJson(),
         ];
     }
 

@@ -14,9 +14,9 @@ class MarketApplicationFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => Translatable::fake('firstName')->toJson(),
-            'icon_key' => 'x-mark',
-            'summary' => Translatable::fake('text')->toJson(),
+            'name'        => Translatable::fake('firstName')->toJson(),
+            'icon_key'    => 'x-mark',
+            'summary'     => Translatable::fake('text')->toJson(),
             'description' => Translatable::fake('text')->toJson(),
         ];
     }

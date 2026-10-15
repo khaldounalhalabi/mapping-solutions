@@ -17,13 +17,13 @@ class SupplierResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'slug' => $this->slug,
-            'description' => $this->description,
-            'logo' => $this->logo,
+            'id'               => $this->id,
+            'name'             => $this->name,
+            'slug'             => $this->slug,
+            'description'      => $this->description,
+            'logo'             => $this->logo,
             'product_families' => ProductFamilyResource::collection($this->whenLoaded('productFamilies')),
-            'products' => ProductResource::collection($this->whenLoaded('products')),
+            'products'         => ProductResource::collection($this->whenLoaded('products')),
         ];
     }
 }

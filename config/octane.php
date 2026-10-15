@@ -151,7 +151,7 @@ return [
 
     'tables' => [
         'example:1000' => [
-            'name' => 'string:1000',
+            'name'  => 'string:1000',
             'votes' => 'int',
         ],
     ],
@@ -168,7 +168,7 @@ return [
      */
 
     'cache' => [
-        'rows' => 1000,
+        'rows'  => 1000,
         'bytes' => 10000,
     ],
 
@@ -247,7 +247,7 @@ return [
      */
 
     'roadrunner' => [
-        'command' => env('OCTANE_ROADRUNNER_COMMAND', 'vendor/bin/roadrunner-worker'),
+        'command'         => env('OCTANE_ROADRUNNER_COMMAND', 'vendor/bin/roadrunner-worker'),
         'http_middleware' => env('OCTANE_ROADRUNNER_HTTP_MIDDLEWARE', 'static'),
     ],
 

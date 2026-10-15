@@ -44,7 +44,7 @@ class UserService extends BaseService
     {
         $guard = $this->guard();
         $authenticated = $guard->attempt([
-            'email' => $data['email'],
+            'email'    => $data['email'],
             'password' => $data['password'],
         ]);
 

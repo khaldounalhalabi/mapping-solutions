@@ -34,8 +34,8 @@ class Service extends Model
     protected function casts(): array
     {
         return [
-            'group' => Translatable::class,
-            'name' => Translatable::class,
+            'group'   => Translatable::class,
+            'name'    => Translatable::class,
             'summary' => Translatable::class,
         ];
     }

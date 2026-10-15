@@ -19,7 +19,7 @@ class StoreUpdateProductTechnologyDTO extends ValidatedDTO
     protected function casts(): array
     {
         return [
-            'name' => new StringCast,
+            'name'     => new StringCast,
             'icon_key' => new StringCast,
         ];
     }

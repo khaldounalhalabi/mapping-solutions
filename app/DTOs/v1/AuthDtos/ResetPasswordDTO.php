@@ -33,7 +33,7 @@ class ResetPasswordDTO extends ValidatedDTO
     {
         return [
             'reset_password_code' => 'required|string|exists:users,reset_password_code|max:8',
-            'password' => 'required|string|min:8|max:255|confirmed',
+            'password'            => 'required|string|min:8|max:255|confirmed',
         ];
     }
 }

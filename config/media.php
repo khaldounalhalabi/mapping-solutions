@@ -41,7 +41,7 @@ return [
      */
 
     'prefixes' => [
-        'public' => 'public',
+        'public'  => 'public',
         'private' => 'private',
     ],
 ];

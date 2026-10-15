@@ -42,9 +42,9 @@ class UpdateUserDTO extends ValidatedDTO
 
         return [
             'first_name' => 'required|string|min:3|max:255',
-            'last_name' => 'required|string|min:3|max:255',
-            'email' => 'required|min:3|max:255|email|unique:users,email,'.auth($guard)->user()?->id,
-            'password' => [
+            'last_name'  => 'required|string|min:3|max:255',
+            'email'      => 'required|min:3|max:255|email|unique:users,email,'.auth($guard)->user()?->id,
+            'password'   => [
                 'nullable',
                 'min:8',
                 'max:255',

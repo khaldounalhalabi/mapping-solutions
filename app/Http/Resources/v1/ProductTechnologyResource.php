@@ -17,11 +17,11 @@ class ProductTechnologyResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'slug' => $this->slug,
+            'id'       => $this->id,
+            'name'     => $this->name,
+            'slug'     => $this->slug,
             'icon_key' => $this->icon_key,
-            'icon' => $this->icon,
+            'icon'     => $this->icon,
             'products' => ProductResource::collection($this->whenLoaded('products')),
         ];
     }

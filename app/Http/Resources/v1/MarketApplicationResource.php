@@ -17,10 +17,10 @@ class MarketApplicationResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'icon_key' => $this->icon_key,
-            'summary' => $this->summary,
+            'id'          => $this->id,
+            'name'        => $this->name,
+            'icon_key'    => $this->icon_key,
+            'summary'     => $this->summary,
             'description' => $this->description,
         ];
     }

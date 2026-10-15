@@ -17,9 +17,9 @@ class ServiceResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'group' => $this->group,
-            'name' => $this->name,
+            'id'      => $this->id,
+            'group'   => $this->group,
+            'name'    => $this->name,
             'summary' => $this->summary,
         ];
     }

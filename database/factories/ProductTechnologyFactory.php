@@ -15,9 +15,9 @@ class ProductTechnologyFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => Translatable::fake()->toJson(),
+            'name'     => Translatable::fake()->toJson(),
             'icon_key' => fake()->word(),
-            'icon' => fakeImage(),
+            'icon'     => fakeImage(),
         ];
     }
 

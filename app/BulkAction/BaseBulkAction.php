@@ -19,10 +19,10 @@ class BaseBulkAction
     /** @var array{array{name:string,method:string,rules:array}} */
     protected array $actions = [
         [
-            'name' => 'delete',
+            'name'   => 'delete',
             'method' => 'delete',
-            'rules' => [
-                'ids' => ['array'],
+            'rules'  => [
+                'ids'   => ['array'],
                 'ids.*' => ['numeric'],
             ],
         ],

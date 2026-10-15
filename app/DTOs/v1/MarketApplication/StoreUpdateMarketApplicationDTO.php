@@ -22,9 +22,9 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
     protected function casts(): array
     {
         return [
-            'name' => new StringCast,
-            'icon_key' => new StringCast,
-            'summary' => new StringCast,
+            'name'        => new StringCast,
+            'icon_key'    => new StringCast,
+            'summary'     => new StringCast,
             'description' => new StringCast,
         ];
     }
@@ -45,9 +45,9 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'name' => ['json', new ValidTranslatableJson, 'required'],
-            'icon_key' => ['required', 'string', 'max:255', 'min:3'],
-            'summary' => ['json', new ValidTranslatableJson, 'required'],
+            'name'        => ['json', new ValidTranslatableJson, 'required'],
+            'icon_key'    => ['required', 'string', 'max:255', 'min:3'],
+            'summary'     => ['json', new ValidTranslatableJson, 'required'],
             'description' => ['json', new ValidTranslatableJson, 'required'],
         ];
     }

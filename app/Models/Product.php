@@ -71,18 +71,18 @@ class Product extends Model
     protected function casts(): array
     {
         return [
-            'name' => Translatable::class,
-            'excerpt' => Translatable::class,
-            'overview' => Translatable::class,
-            'key_specs' => Translatable::class,
+            'name'           => Translatable::class,
+            'excerpt'        => Translatable::class,
+            'overview'       => Translatable::class,
+            'key_specs'      => Translatable::class,
             'specifications' => Translatable::class,
-            'applications' => Translatable::class,
+            'applications'   => Translatable::class,
 
-            'brochure' => MediaCast::single(private: false),
-            'hero_image' => MediaCast::single(private: false),
+            'brochure'            => MediaCast::single(private: false),
+            'hero_image'          => MediaCast::single(private: false),
             'specifications_file' => MediaCast::single(private: false),
-            'datasheet' => MediaCast::single(private: false),
-            'manual' => MediaCast::single(private: false),
+            'datasheet'           => MediaCast::single(private: false),
+            'manual'              => MediaCast::single(private: false),
         ];
     }
 
@@ -130,8 +130,8 @@ class Product extends Model
     public static function relationsSearchableArray(): array
     {
         return [
-            'supplier' => ['name', 'slug', 'description'],
-            'productFamily' => ['name', 'slug'],
+            'supplier'          => ['name', 'slug', 'description'],
+            'productFamily'     => ['name', 'slug'],
             'productTechnology' => ['name', 'slug', 'icon_key'],
         ];
     }
@@ -155,7 +155,7 @@ class Product extends Model
     {
         return [
             [
-                'col' => 'name',
+                'col'      => 'name',
                 'slug_col' => 'slug',
             ],
         ];

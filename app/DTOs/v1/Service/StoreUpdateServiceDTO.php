@@ -20,8 +20,8 @@ class StoreUpdateServiceDTO extends ValidatedDTO
     protected function casts(): array
     {
         return [
-            'group' => new StringCast,
-            'name' => new StringCast,
+            'group'   => new StringCast,
+            'name'    => new StringCast,
             'summary' => new StringCast,
         ];
     }
@@ -42,8 +42,8 @@ class StoreUpdateServiceDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'group' => ['json', new ValidTranslatableJson, 'required'],
-            'name' => ['json', new ValidTranslatableJson, 'required'],
+            'group'   => ['json', new ValidTranslatableJson, 'required'],
+            'name'    => ['json', new ValidTranslatableJson, 'required'],
             'summary' => ['json', new ValidTranslatableJson, 'required'],
         ];
     }

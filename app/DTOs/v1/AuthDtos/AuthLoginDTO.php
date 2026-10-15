@@ -32,7 +32,7 @@ class AuthLoginDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'email' => ['required', 'email', 'exists:users,email', 'min:3', 'max:255'],
+            'email'    => ['required', 'email', 'exists:users,email', 'min:3', 'max:255'],
             'password' => 'required|min:8|max:255',
         ];
     }

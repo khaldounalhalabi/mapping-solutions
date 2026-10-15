@@ -27,7 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'authenticated' => Authenticate::class,
-            'locale' => AcceptedLanguagesMiddleware::class,
+            'locale'        => AcceptedLanguagesMiddleware::class,
         ]);
 
         $middleware->web(append: [

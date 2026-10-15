@@ -129,14 +129,14 @@ class ApiResponse implements JsonSerializable
     public function formatPaginateData(LengthAwarePaginator $data): array
     {
         return [
-            'current_page' => $data->currentPage(),
-            'from' => $data->firstItem(),
-            'to' => $data->lastItem(),
-            'total' => $data->total(),
-            'per_page' => $data->perPage(),
-            'total_pages' => $data->lastPage(),
+            'current_page'  => $data->currentPage(),
+            'from'          => $data->firstItem(),
+            'to'            => $data->lastItem(),
+            'total'         => $data->total(),
+            'per_page'      => $data->perPage(),
+            'total_pages'   => $data->lastPage(),
             'is_first_page' => $data->onFirstPage(),
-            'is_last_page' => $data->onLastPage(),
+            'is_last_page'  => $data->onLastPage(),
         ];
     }
 
@@ -158,9 +158,9 @@ class ApiResponse implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'data' => $this->data,
-            'message' => $this->message,
-            'code' => $this->code,
+            'data'            => $this->data,
+            'message'         => $this->message,
+            'code'            => $this->code,
             'pagination_data' => $this->paginationData,
         ];
     }

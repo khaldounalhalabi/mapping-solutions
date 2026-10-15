@@ -36,8 +36,8 @@ class MarketApplication extends Model
     protected function casts(): array
     {
         return [
-            'name' => Translatable::class,
-            'summary' => Translatable::class,
+            'name'        => Translatable::class,
+            'summary'     => Translatable::class,
             'description' => Translatable::class,
         ];
     }

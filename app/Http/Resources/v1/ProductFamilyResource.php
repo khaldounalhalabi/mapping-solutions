@@ -17,12 +17,12 @@ class ProductFamilyResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id' => $this->id,
-            'supplier' => SupplierResource::make($this->whenLoaded('supplier')),
+            'id'          => $this->id,
+            'supplier'    => SupplierResource::make($this->whenLoaded('supplier')),
             'supplier_id' => $this->supplier_id,
-            'name' => $this->name,
-            'slug' => $this->slug,
-            'products' => ProductResource::collection($this->whenLoaded('products')),
+            'name'        => $this->name,
+            'slug'        => $this->slug,
+            'products'    => ProductResource::collection($this->whenLoaded('products')),
         ];
     }
 }

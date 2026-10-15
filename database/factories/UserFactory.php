@@ -13,11 +13,11 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name' => fake()->firstName(),
-            'last_name' => fake()->lastName(),
-            'email' => fake()->unique()->safeEmail(),
+            'first_name'        => fake()->firstName(),
+            'last_name'         => fake()->lastName(),
+            'email'             => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '123456789',
+            'password'          => '123456789',
         ];
     }
 

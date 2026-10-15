@@ -94,7 +94,7 @@ class ProductTechnology extends Model
     {
         return [
             [
-                'col' => 'name',
+                'col'      => 'name',
                 'slug_col' => 'slug',
             ],
         ];

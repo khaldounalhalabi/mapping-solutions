@@ -49,11 +49,11 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'id' => 'integer',
+            'id'                => 'integer',
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'created_at' => 'datetime:Y-m-d H:i:s',
-            'updated_at' => 'datetime:Y-m-d H:i:s',
+            'password'          => 'hashed',
+            'created_at'        => 'datetime:Y-m-d H:i:s',
+            'updated_at'        => 'datetime:Y-m-d H:i:s',
         ];
     }
 }

@@ -14,9 +14,9 @@ class UserSeeder extends Seeder
     {
         User::create([
             'first_name' => 'Amer',
-            'last_name' => 'Alrweishdy',
-            'email' => 'amer.alrweishdy@mapping-solutions.co.uk',
-            'password' => '123456789',
+            'last_name'  => 'Alrweishdy',
+            'email'      => 'amer.alrweishdy@mapping-solutions.co.uk',
+            'password'   => '123456789',
         ]);
     }
 }

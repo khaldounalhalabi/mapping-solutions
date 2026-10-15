@@ -21,7 +21,7 @@ class StoreUpdateProductFamilyDTO extends ValidatedDTO
     {
         return [
             'supplier_id' => new IntegerCast,
-            'name' => new StringCast,
+            'name'        => new StringCast,
         ];
     }
 
@@ -42,7 +42,7 @@ class StoreUpdateProductFamilyDTO extends ValidatedDTO
     {
         return [
             'supplier_id' => ['numeric', 'required', Rule::exists('suppliers', 'id')],
-            'name' => ['json', new ValidTranslatableJson, 'required'],
+            'name'        => ['json', new ValidTranslatableJson, 'required'],
         ];
     }
 }

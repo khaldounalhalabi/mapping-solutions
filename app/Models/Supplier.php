@@ -47,7 +47,7 @@ class Supplier extends Model
     {
         return [
             'description' => Translatable::class,
-            'logo' => MediaCast::single(private: false),
+            'logo'        => MediaCast::single(private: false),
         ];
     }
 
@@ -99,8 +99,8 @@ class Supplier extends Model
     {
         return [
             [
-                'col' => 'name',
-                'slug_col' => 'slug',
+                'col'       => 'name',
+                'slug_col'  => 'slug',
                 'separator' => '-',
             ],
         ];

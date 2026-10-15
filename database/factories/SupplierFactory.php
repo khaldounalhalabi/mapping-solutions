@@ -20,9 +20,9 @@ class SupplierFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
+            'name'        => fake()->company(),
             'description' => Translatable::fake('text')->toJson(),
-            'logo' => fakeImage(),
+            'logo'        => fakeImage(),
         ];
     }
 

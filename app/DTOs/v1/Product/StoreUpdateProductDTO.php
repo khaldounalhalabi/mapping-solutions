@@ -50,18 +50,18 @@ class StoreUpdateProductDTO extends ValidatedDTO
     protected function casts(): array
     {
         return [
-            'supplier_id' => new IntegerCast,
-            'product_family_id' => new IntegerCast,
+            'supplier_id'           => new IntegerCast,
+            'product_family_id'     => new IntegerCast,
             'product_technology_id' => new IntegerCast,
-            'name' => new StringCast,
-            'price_note' => new StringCast,
-            'slug' => new StringCast,
-            'excerpt' => new StringCast,
-            'overview' => new StringCast,
-            'key_specs' => new StringCast,
-            'specifications' => new StringCast,
-            'applications' => new StringCast,
-            'external_url' => new StringCast,
+            'name'                  => new StringCast,
+            'price_note'            => new StringCast,
+            'slug'                  => new StringCast,
+            'excerpt'               => new StringCast,
+            'overview'              => new StringCast,
+            'key_specs'             => new StringCast,
+            'specifications'        => new StringCast,
+            'applications'          => new StringCast,
+            'external_url'          => new StringCast,
         ];
     }
 
@@ -81,22 +81,22 @@ class StoreUpdateProductDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'supplier_id' => ['numeric', 'required', Rule::exists('suppliers', 'id')],
-            'product_family_id' => ['numeric', 'nullable', Rule::exists('product_families', 'id')],
+            'supplier_id'           => ['numeric', 'required', Rule::exists('suppliers', 'id')],
+            'product_family_id'     => ['numeric', 'nullable', Rule::exists('product_families', 'id')],
             'product_technology_id' => ['numeric', 'nullable', Rule::exists('product_technologies', 'id')],
-            'name' => ['json', new ValidTranslatableJson, 'required'],
-            'price_note' => ['nullable', 'string', 'max:255', 'min:3'],
-            'excerpt' => ['json', new ValidTranslatableJson, 'required'],
-            'overview' => ['json', new ValidTranslatableJson, 'required'],
-            'key_specs' => ['json', new ValidTranslatableJson, 'required'],
-            'specifications' => ['json', new ValidTranslatableJson, 'required'],
-            'applications' => ['json', new ValidTranslatableJson, 'required'],
-            'external_url' => ['nullable', 'max:5000', 'min:0', 'active_url'],
-            'hero_image' => ['nullable', new MediaValidationRule],
-            'specifications_file' => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
-            'datasheet' => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
-            'manual' => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
-            'brochure' => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
+            'name'                  => ['json', new ValidTranslatableJson, 'required'],
+            'price_note'            => ['nullable', 'string', 'max:255', 'min:3'],
+            'excerpt'               => ['json', new ValidTranslatableJson, 'required'],
+            'overview'              => ['json', new ValidTranslatableJson, 'required'],
+            'key_specs'             => ['json', new ValidTranslatableJson, 'required'],
+            'specifications'        => ['json', new ValidTranslatableJson, 'required'],
+            'applications'          => ['json', new ValidTranslatableJson, 'required'],
+            'external_url'          => ['nullable', 'max:5000', 'min:0', 'active_url'],
+            'hero_image'            => ['nullable', new MediaValidationRule],
+            'specifications_file'   => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
+            'datasheet'             => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
+            'manual'                => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
+            'brochure'              => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
         ];
     }
 }

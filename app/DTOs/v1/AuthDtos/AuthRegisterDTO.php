@@ -37,9 +37,9 @@ class AuthRegisterDTO extends ValidatedDTO
     {
         return [
             'first_name' => 'required|string|min:3|max:255',
-            'last_name' => 'required|string|min:3|max:255',
-            'email' => 'required|email|unique:users,email|min:3|max:255',
-            'password' => 'required|min:8|confirmed|max:255',
+            'last_name'  => 'required|string|min:3|max:255',
+            'email'      => 'required|email|unique:users,email|min:3|max:255',
+            'password'   => 'required|min:8|confirmed|max:255',
         ];
     }
 }

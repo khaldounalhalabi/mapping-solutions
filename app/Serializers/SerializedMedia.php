@@ -121,7 +121,7 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
             join_paths($this->prefix(), $this->dir, Str::uuid()->toString()),
             $finalFileName,
             [
-                'disk' => $this->diskName(),
+                'disk'       => $this->diskName(),
                 'visibility' => $this->private ? 'private' : 'public',
             ],
         );
@@ -133,8 +133,8 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
 
         return match ($prefix) {
             (string) config('media.prefixes.private') => true,
-            (string) config('media.prefixes.public') => false,
-            default => null,
+            (string) config('media.prefixes.public')  => false,
+            default                                   => null,
         };
     }
 
@@ -267,10 +267,10 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
     public function jsonSerialize(): array
     {
         return [
-            'url' => $this->url(),
-            'size' => $this->size,
-            'extension' => $this->extension,
-            'mime_type' => $this->mimeType,
+            'url'          => $this->url(),
+            'size'         => $this->size,
+            'extension'    => $this->extension,
+            'mime_type'    => $this->mimeType,
             'storage_path' => $this->storagePath,
         ];
     }
@@ -297,11 +297,11 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
     public function toArray(): array
     {
         return [
-            'name' => $this->name(),
+            'name'         => $this->name(),
             'storage_path' => $this->storagePath,
-            'size' => $this->size,
-            'extension' => $this->extension,
-            'mime_type' => $this->mimeType,
+            'size'         => $this->size,
+            'extension'    => $this->extension,
+            'mime_type'    => $this->mimeType,
         ];
     }
 
