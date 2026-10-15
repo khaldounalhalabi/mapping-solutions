@@ -8,28 +8,36 @@ import { translate } from "@/models/translatable";
 import { DownloadIcon, ExternalLink } from "lucide-react";
 import Gallery from "@/components/ui/gallery";
 import Product from "@/models/product";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Show = ({ product }: { product: Product }) => {
+    const { t } = useTranslation();
+
     return (
         <PageCard
-            title="Product Details"
+            title={t("dashboard.titles.details", {
+                model: t("models.product.singular"),
+            })}
             actions={
                 <Link
                     href={route("v1.web.protected.products.edit", product.id)}
                 >
-                    <Button>Edit</Button>
+                    <Button>{t("dashboard.actions.edit")}</Button>
                 </Link>
             }
         >
             <FieldGroup>
                 <div className="gap-5 grid grid-cols-1 md:grid-cols-2">
-                    <DetailItem label="Name" value={translate(product.name)} />
                     <DetailItem
-                        label="Price Note"
+                        label={t("models.product.fields.name")}
+                        value={translate(product.name)}
+                    />
+                    <DetailItem
+                        label={t("models.product.fields.price_note")}
                         value={product?.price_note}
                     />
                     <DetailItem
-                        label="External Url"
+                        label={t("models.product.fields.external_url")}
                         value={
                             product?.external_url ? (
                                 <a
@@ -44,13 +52,13 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     />
                     <DetailItem
-                        label="Hero Image"
+                        label={t("models.product.fields.hero_image")}
                         value={<Gallery sources={[product?.hero_image?.url]} />}
                         className="md:col-span-2"
                         orientation="vertical"
                     />
                     <DetailItem
-                        label="Specifications File"
+                        label={t("models.product.fields.specifications_file")}
                         value={
                             product?.specifications_file?.url ? (
                                 <a
@@ -65,7 +73,7 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     />
                     <DetailItem
-                        label="Datasheet"
+                        label={t("models.product.fields.datasheet")}
                         value={
                             product?.datasheet?.url ? (
                                 <a href={product?.datasheet?.url} download>
@@ -77,7 +85,7 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     />
                     <DetailItem
-                        label="Manual"
+                        label={t("models.product.fields.manual")}
                         value={
                             product?.manual?.url ? (
                                 <a href={product?.manual?.url} download>
@@ -89,7 +97,7 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     />
                     <DetailItem
-                        label="Brochure"
+                        label={t("models.product.fields.brochure")}
                         value={
                             product?.brochure?.url ? (
                                 <a href={product?.brochure?.url} download>
@@ -101,7 +109,7 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     />
                     <DetailItem
-                        label="Supplier"
+                        label={t("models.product.fields.supplier")}
                         value={
                             <Link
                                 href={route(
@@ -118,7 +126,7 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     />
                     <DetailItem
-                        label="Product Family"
+                        label={t("models.product.fields.product_family")}
                         value={
                             <Link
                                 href={route(
@@ -137,7 +145,7 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     />
                     <DetailItem
-                        label="Product Technology"
+                        label={t("models.product.fields.product_technology")}
                         value={
                             <Link
                                 href={route(
@@ -158,34 +166,34 @@ const Show = ({ product }: { product: Product }) => {
                 </div>
 
                 <DetailItem
-                    label="Excerpt"
+                    label={t("models.product.fields.excerpt")}
                     value={translate(product?.excerpt)}
                     orientation="vertical"
                     className="md:col-span-2"
                 />
                 <DetailItem
-                    label="Overview"
+                    label={t("models.product.fields.overview")}
                     value={translate(product?.overview)}
                     orientation="vertical"
                     className="md:col-span-2"
                     html
                 />
                 <DetailItem
-                    label="Key Specs"
+                    label={t("models.product.fields.key_specs")}
                     value={translate(product?.key_specs)}
                     orientation="vertical"
                     className="md:col-span-2"
                     html
                 />
                 <DetailItem
-                    label="Specifications"
+                    label={t("models.product.fields.specifications")}
                     value={translate(product?.specifications)}
                     orientation="vertical"
                     className="md:col-span-2"
                     html
                 />
                 <DetailItem
-                    label="Applications"
+                    label={t("models.product.fields.applications")}
                     value={translate(product?.applications)}
                     orientation="vertical"
                     className="md:col-span-2"

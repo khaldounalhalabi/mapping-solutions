@@ -9,25 +9,28 @@ import FilepondInput from "@/components/form/fields/filepond/filepond-input";
 import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import FormIconPicker from "@/components/form/fields/form-icon-picker";
+import { useTranslation } from "@/hooks/use-translation";
 
 type IconType = "key" | "file" | null;
 
 const iconOptions = [
     {
         value: "key",
-        title: "Icon Library",
-        description: "Choose from our collection of icons",
+        title: "models.product_technology.icon_source.library",
+        description:
+            "models.product_technology.icon_source.library_description",
         icon: Shapes,
     },
     {
         value: "file",
-        title: "Upload Image",
-        description: "Upload your own custom icon",
+        title: "models.product_technology.icon_source.upload",
+        description: "models.product_technology.icon_source.upload_description",
         icon: Images,
     },
 ] as const;
 
 const Create = () => {
+    const { t } = useTranslation();
     const [iconType, setIconType] = useState<IconType>(null);
 
     const { post, setData, processing } = useForm<{
@@ -63,14 +66,18 @@ const Create = () => {
     };
 
     return (
-        <PageCard title="Add New Product Technology">
+        <PageCard
+            title={t("dashboard.titles.create", {
+                model: t("models.product_technology.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div className="grid grid-cols-1 gap-6">
                         {/* Technology Name */}
                         <TranslatableInput
                             name="name"
-                            label="Name"
+                            label={t("models.product_technology.fields.name")}
                             onChange={(value) => setData("name", value)}
                             required
                         />
@@ -79,15 +86,18 @@ const Create = () => {
                         <div className="space-y-4">
                             <div className="space-y-1">
                                 <label className="text-sm font-medium">
-                                    Icon Source
+                                    {t(
+                                        "models.product_technology.fields.icon_source",
+                                    )}
                                     <span className="ml-1 text-destructive">
                                         *
                                     </span>
                                 </label>
 
                                 <p className="text-xs text-muted-foreground">
-                                    Choose how you want to add your technology
-                                    icon.
+                                    {t(
+                                        "models.product_technology.icon_source.create_description",
+                                    )}
                                 </p>
                             </div>
 
@@ -144,11 +154,11 @@ const Create = () => {
                                             {/* Text */}
                                             <div className="min-w-0 flex-1 space-y-1">
                                                 <div className="text-sm font-semibold">
-                                                    {option.title}
+                                                    {t(option.title)}
                                                 </div>
 
                                                 <p className="text-xs text-muted-foreground">
-                                                    {option.description}
+                                                    {t(option.description)}
                                                 </p>
                                             </div>
 
@@ -184,7 +194,9 @@ const Create = () => {
                                         <FormIconPicker
                                             key="icon-key"
                                             name="icon_key"
-                                            label="Choose Icon"
+                                            label={t(
+                                                "models.product_technology.icon_source.choose_icon",
+                                            )}
                                             onChange={(value) =>
                                                 setData("icon_key", value)
                                             }
@@ -195,7 +207,9 @@ const Create = () => {
                                         <FilepondInput
                                             key="icon-file"
                                             name="icon"
-                                            label="Upload Icon"
+                                            label={t(
+                                                "models.product_technology.icon_source.upload_icon",
+                                            )}
                                             onChange={(file) =>
                                                 setData("icon", file)
                                             }
@@ -208,7 +222,9 @@ const Create = () => {
                             {/* Helper Message */}
                             {!iconType && (
                                 <p className="text-xs text-muted-foreground">
-                                    Select an icon source to continue.
+                                    {t(
+                                        "models.product_technology.icon_source.select_to_continue",
+                                    )}
                                 </p>
                             )}
                         </div>

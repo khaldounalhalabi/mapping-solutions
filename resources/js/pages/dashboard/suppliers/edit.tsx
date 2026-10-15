@@ -7,8 +7,10 @@ import TranslatableTextarea from "@/components/form/fields/translatable-textarea
 import Input from "@/components/form/fields/input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import Supplier from "@/models/supplier";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Edit = ({ supplier }: { supplier: Supplier }) => {
+    const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
@@ -32,7 +34,11 @@ const Edit = ({ supplier }: { supplier: Supplier }) => {
     };
 
     return (
-        <PageCard title="Edit Supplier">
+        <PageCard
+            title={t("dashboard.titles.edit", {
+                model: t("models.supplier.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div
@@ -40,7 +46,7 @@ const Edit = ({ supplier }: { supplier: Supplier }) => {
                     >
                         <Input
                             name="name"
-                            label={"Name"}
+                            label={t("models.supplier.fields.name")}
                             type={"text"}
                             onChange={(e) => setData("name", e.target?.value)}
                             defaultValue={supplier.name}
@@ -49,7 +55,7 @@ const Edit = ({ supplier }: { supplier: Supplier }) => {
                         <div className="md:col-span-2">
                             <TranslatableTextarea
                                 name="description"
-                                label={"Description"}
+                                label={t("models.supplier.fields.description")}
                                 onChange={(v) => setData("description", v)}
                                 defaultValue={supplier.description}
                                 required
@@ -58,7 +64,7 @@ const Edit = ({ supplier }: { supplier: Supplier }) => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="logo"
-                                label={"Logo"}
+                                label={t("models.supplier.fields.logo")}
                                 onChange={(file) => setData("logo", file)}
                                 acceptedFileTypes={["image/*"]}
                                 defaultValue={supplier.logo}

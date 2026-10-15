@@ -4,11 +4,14 @@ import Http from "@/modules/http/http";
 import { Link } from "@inertiajs/react";
 import ProductFamily from "@/models/product-family";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Index = () => {
+    const { t } = useTranslation();
+
     return (
         <Datatable
-            title="Product Families"
+            title={t("models.product_family.plural")}
             createUrl={route("v1.web.protected.product.families.create")}
             getDataArray={(res) => res.data}
             getTotalPages={(res) => res?.paginate?.total_pages ?? 0}
@@ -36,18 +39,18 @@ const Index = () => {
             schema={[
                 {
                     name: "id",
-                    label: "ID",
+                    label: t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
                     name: "name",
-                    label: "Name",
+                    label: t("models.product_family.fields.name"),
                     translatable: true,
                     sortable: true,
                 },
                 {
                     name: "supplier.name",
-                    label: "Supplier Name",
+                    label: t("models.product_family.fields.supplier_name"),
                     render: (_cell, record) => {
                         return (
                             record?.supplier_id && (
@@ -67,7 +70,7 @@ const Index = () => {
                     },
                 },
                 {
-                    label: "Options",
+                    label: t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

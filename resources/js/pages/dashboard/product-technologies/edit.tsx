@@ -10,20 +10,22 @@ import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import FormIconPicker from "@/components/form/fields/form-icon-picker";
 import ProductTechnology from "@/models/product-technology";
+import { useTranslation } from "@/hooks/use-translation";
 
 type IconType = "key" | "file" | null;
 
 const iconOptions = [
     {
         value: "key",
-        title: "Icon Library",
-        description: "Choose from our collection of icons",
+        title: "models.product_technology.icon_source.library",
+        description:
+            "models.product_technology.icon_source.library_description",
         icon: Shapes,
     },
     {
         value: "file",
-        title: "Upload Image",
-        description: "Upload your own custom icon",
+        title: "models.product_technology.icon_source.upload",
+        description: "models.product_technology.icon_source.upload_description",
         icon: Images,
     },
 ] as const;
@@ -33,6 +35,7 @@ const Edit = ({
 }: {
     productTechnology: ProductTechnology;
 }) => {
+    const { t } = useTranslation();
     const initialIconType: IconType = productTechnology.icon_key
         ? "key"
         : productTechnology.icon
@@ -86,14 +89,18 @@ const Edit = ({
     };
 
     return (
-        <PageCard title="Edit Product Technology">
+        <PageCard
+            title={t("dashboard.titles.edit", {
+                model: t("models.product_technology.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div className="grid grid-cols-1 gap-6">
                         {/* Technology Name */}
                         <TranslatableInput
                             name="name"
-                            label="Name"
+                            label={t("models.product_technology.fields.name")}
                             defaultValue={productTechnology.name}
                             onChange={(value) => setData("name", value)}
                             required
@@ -103,15 +110,18 @@ const Edit = ({
                         <div className="space-y-4">
                             <div className="space-y-1">
                                 <label className="text-sm font-medium">
-                                    Icon Source
+                                    {t(
+                                        "models.product_technology.fields.icon_source",
+                                    )}
                                     <span className="ml-1 text-destructive">
                                         *
                                     </span>
                                 </label>
 
                                 <p className="text-xs text-muted-foreground">
-                                    Choose how you want to display the
-                                    technology icon.
+                                    {t(
+                                        "models.product_technology.icon_source.edit_description",
+                                    )}
                                 </p>
                             </div>
 
@@ -168,11 +178,11 @@ const Edit = ({
                                             {/* Text */}
                                             <div className="min-w-0 flex-1 space-y-1">
                                                 <div className="text-sm font-semibold">
-                                                    {option.title}
+                                                    {t(option.title)}
                                                 </div>
 
                                                 <p className="text-xs text-muted-foreground">
-                                                    {option.description}
+                                                    {t(option.description)}
                                                 </p>
                                             </div>
 
@@ -208,7 +218,9 @@ const Edit = ({
                                         <FormIconPicker
                                             key="icon-key"
                                             name="icon_key"
-                                            label="Choose Icon"
+                                            label={t(
+                                                "models.product_technology.icon_source.choose_icon",
+                                            )}
                                             defaultValue={
                                                 initialIconType === "key"
                                                     ? productTechnology.icon_key
@@ -224,7 +236,9 @@ const Edit = ({
                                         <FilepondInput
                                             key="icon-file"
                                             name="icon"
-                                            label="Upload Icon"
+                                            label={t(
+                                                "models.product_technology.icon_source.upload_icon",
+                                            )}
                                             defaultValue={
                                                 initialIconType === "file"
                                                     ? productTechnology.icon
@@ -242,7 +256,9 @@ const Edit = ({
                             {/* Helper Message */}
                             {!iconType && (
                                 <p className="text-xs text-muted-foreground">
-                                    Select an icon source to continue.
+                                    {t(
+                                        "models.product_technology.icon_source.select_to_continue",
+                                    )}
                                 </p>
                             )}
                         </div>

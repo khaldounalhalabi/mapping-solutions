@@ -16,8 +16,10 @@ import FormLocaleProvider from "@/providers/form-locale-provider";
 import Product from "@/models/product";
 import TranslatableTextarea from "@/components/form/fields/translatable-textarea";
 import TranslatableTextEditor from "@/components/form/fields/translatable-text-editor";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Edit = ({ product }: { product: Product }) => {
+    const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
@@ -64,7 +66,11 @@ const Edit = ({ product }: { product: Product }) => {
     };
 
     return (
-        <PageCard title="Edit Product">
+        <PageCard
+            title={t("dashboard.titles.edit", {
+                model: t("models.product.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div
@@ -72,14 +78,14 @@ const Edit = ({ product }: { product: Product }) => {
                     >
                         <TranslatableInput
                             name="name"
-                            label={"Name"}
+                            label={t("models.product.fields.name")}
                             onChange={(v) => setData("name", v)}
                             required
                             defaultValue={product.name}
                         />
                         <Input
                             name="price_note"
-                            label={"Price Note"}
+                            label={t("models.product.fields.price_note")}
                             type={"text"}
                             onChange={(e) =>
                                 setData("price_note", e.target?.value)
@@ -89,7 +95,7 @@ const Edit = ({ product }: { product: Product }) => {
 
                         <Input
                             name="external_url"
-                            label={"External Url"}
+                            label={t("models.product.fields.external_url")}
                             onChange={(e) =>
                                 setData("external_url", e.target.value)
                             }
@@ -99,7 +105,7 @@ const Edit = ({ product }: { product: Product }) => {
 
                         <ApiSelect
                             name="supplier_id"
-                            label={"Supplier"}
+                            label={t("models.product.fields.supplier")}
                             api={(page, search) =>
                                 Http.make<Supplier[]>().get(
                                     route("v1.web.protected.suppliers.data"),
@@ -121,7 +127,7 @@ const Edit = ({ product }: { product: Product }) => {
                         />
                         <ApiSelect
                             name="product_family_id"
-                            label={"Product Family"}
+                            label={t("models.product.fields.product_family")}
                             api={(page, search) =>
                                 Http.make<ProductFamily[]>().get(
                                     route(
@@ -146,7 +152,9 @@ const Edit = ({ product }: { product: Product }) => {
                         />
                         <ApiSelect
                             name="product_technology_id"
-                            label={"Product Technology"}
+                            label={t(
+                                "models.product.fields.product_technology",
+                            )}
                             api={(page, search) =>
                                 Http.make<ProductTechnology[]>().get(
                                     route(
@@ -172,7 +180,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <TranslatableTextarea
                                 name="excerpt"
-                                label={"Excerpt"}
+                                label={t("models.product.fields.excerpt")}
                                 onChange={(e) => setData("excerpt", e)}
                                 defaultValue={product.excerpt}
                             />
@@ -180,7 +188,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="overview"
-                                label={"Overview"}
+                                label={t("models.product.fields.overview")}
                                 onChange={(e) => setData("overview", e)}
                                 defaultValue={product.overview}
                             />
@@ -188,7 +196,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="key_specs"
-                                label={"Key Specs"}
+                                label={t("models.product.fields.key_specs")}
                                 onChange={(e) => setData("key_specs", e)}
                                 defaultValue={product.key_specs}
                             />
@@ -196,7 +204,9 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="specifications"
-                                label={"Specifications"}
+                                label={t(
+                                    "models.product.fields.specifications",
+                                )}
                                 onChange={(e) => setData("specifications", e)}
                                 defaultValue={product.specifications}
                             />
@@ -204,7 +214,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="applications"
-                                label={"Applications"}
+                                label={t("models.product.fields.applications")}
                                 onChange={(e) => setData("applications", e)}
                                 defaultValue={product.applications}
                             />
@@ -212,7 +222,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="hero_image"
-                                label={"Hero Image"}
+                                label={t("models.product.fields.hero_image")}
                                 onChange={(file) => setData("hero_image", file)}
                                 acceptedFileTypes={["image/*"]}
                                 defaultValue={product.hero_image}
@@ -221,7 +231,9 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="specifications_file"
-                                label={"Specifications File"}
+                                label={t(
+                                    "models.product.fields.specifications_file",
+                                )}
                                 onChange={(file) =>
                                     setData("specifications_file", file)
                                 }
@@ -232,7 +244,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="datasheet"
-                                label={"Datasheet"}
+                                label={t("models.product.fields.datasheet")}
                                 onChange={(file) => setData("datasheet", file)}
                                 acceptedFileTypes={DOCUMENT_MIME_TYPES}
                                 defaultValue={product.datasheet}
@@ -241,7 +253,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="manual"
-                                label={"Manual"}
+                                label={t("models.product.fields.manual")}
                                 onChange={(file) => setData("manual", file)}
                                 acceptedFileTypes={DOCUMENT_MIME_TYPES}
                                 defaultValue={product.manual}
@@ -250,7 +262,7 @@ const Edit = ({ product }: { product: Product }) => {
                         <div className={"md:col-span-2"}>
                             <FilepondInput
                                 name="brochure"
-                                label={"Brochure"}
+                                label={t("models.product.fields.brochure")}
                                 onChange={(e) => setData("brochure", e)}
                                 acceptedFileTypes={DOCUMENT_MIME_TYPES}
                                 defaultValue={product.brochure}

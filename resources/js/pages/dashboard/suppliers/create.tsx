@@ -7,8 +7,10 @@ import TranslatableTextarea from "@/components/form/fields/translatable-textarea
 import Input from "@/components/form/fields/input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import React from "react";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Create = () => {
+    const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
@@ -26,7 +28,11 @@ const Create = () => {
     };
 
     return (
-        <PageCard title="Add New Supplier">
+        <PageCard
+            title={t("dashboard.titles.create", {
+                model: t("models.supplier.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div
@@ -34,7 +40,7 @@ const Create = () => {
                     >
                         <Input
                             name="name"
-                            label={"Name"}
+                            label={t("models.supplier.fields.name")}
                             type={"text"}
                             onChange={(e) => setData("name", e.target?.value)}
                             required
@@ -42,7 +48,7 @@ const Create = () => {
                         <div className="md:col-span-2">
                             <TranslatableTextarea
                                 name="description"
-                                label={"Description"}
+                                label={t("models.supplier.fields.description")}
                                 onChange={(v) => setData("description", v)}
                                 required
                             />
@@ -50,7 +56,7 @@ const Create = () => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="logo"
-                                label={"Logo"}
+                                label={t("models.supplier.fields.logo")}
                                 onChange={(file) => setData("logo", file)}
                                 acceptedFileTypes={["image/*"]}
                             />

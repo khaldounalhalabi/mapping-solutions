@@ -7,8 +7,10 @@ import ApiSelect from "@/components/form/fields/select/api-select";
 import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import React from "react";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Create = () => {
+    const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
@@ -24,7 +26,11 @@ const Create = () => {
     };
 
     return (
-        <PageCard title="Add New ProductFamily">
+        <PageCard
+            title={t("dashboard.titles.create", {
+                model: t("models.product_family.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div
@@ -32,13 +38,13 @@ const Create = () => {
                     >
                         <TranslatableInput
                             name="name"
-                            label={"Name"}
+                            label={t("models.product_family.fields.name")}
                             onChange={(v) => setData("name", v)}
                             required
                         />
                         <ApiSelect
                             name="supplier_id"
-                            label={"Supplier"}
+                            label={t("models.product_family.fields.supplier")}
                             api={(page, search) =>
                                 Http.make<Supplier[]>().get(
                                     route("v1.web.protected.suppliers.data"),

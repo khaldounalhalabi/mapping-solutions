@@ -15,8 +15,10 @@ import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import TranslatableTextarea from "@/components/form/fields/translatable-textarea";
 import TranslatableTextEditor from "@/components/form/fields/translatable-text-editor";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Create = () => {
+    const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
@@ -45,7 +47,11 @@ const Create = () => {
     };
 
     return (
-        <PageCard title="Add New Product">
+        <PageCard
+            title={t("dashboard.titles.create", {
+                model: t("models.product.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div
@@ -53,13 +59,13 @@ const Create = () => {
                     >
                         <TranslatableInput
                             name="name"
-                            label={"Name"}
+                            label={t("models.product.fields.name")}
                             onChange={(v) => setData("name", v)}
                             required
                         />
                         <Input
                             name="price_note"
-                            label={"Price Note"}
+                            label={t("models.product.fields.price_note")}
                             type={"text"}
                             onChange={(e) =>
                                 setData("price_note", e.target?.value)
@@ -68,7 +74,7 @@ const Create = () => {
 
                         <Input
                             name="external_url"
-                            label={"External Url"}
+                            label={t("models.product.fields.external_url")}
                             onChange={(e) =>
                                 setData("external_url", e.target.value)
                             }
@@ -77,7 +83,7 @@ const Create = () => {
 
                         <ApiSelect
                             name="supplier_id"
-                            label={"Supplier"}
+                            label={t("models.product.fields.supplier")}
                             api={(page, search) =>
                                 Http.make<Supplier[]>().get(
                                     route("v1.web.protected.suppliers.data"),
@@ -98,7 +104,7 @@ const Create = () => {
                         />
                         <ApiSelect
                             name="product_family_id"
-                            label={"ProductFamily"}
+                            label={t("models.product.fields.product_family")}
                             api={(page, search) =>
                                 Http.make<ProductFamily[]>().get(
                                     route(
@@ -122,7 +128,9 @@ const Create = () => {
                         />
                         <ApiSelect
                             name="product_technology_id"
-                            label={"ProductTechnology"}
+                            label={t(
+                                "models.product.fields.product_technology",
+                            )}
                             api={(page, search) =>
                                 Http.make<ProductTechnology[]>().get(
                                     route(
@@ -147,42 +155,44 @@ const Create = () => {
                         <div className="md:col-span-2">
                             <TranslatableTextarea
                                 name="excerpt"
-                                label={"Excerpt"}
+                                label={t("models.product.fields.excerpt")}
                                 onChange={(e) => setData("excerpt", e)}
                             />
                         </div>
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="overview"
-                                label={"Overview"}
+                                label={t("models.product.fields.overview")}
                                 onChange={(e) => setData("overview", e)}
                             />
                         </div>
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="key_specs"
-                                label={"Key Specs"}
+                                label={t("models.product.fields.key_specs")}
                                 onChange={(e) => setData("key_specs", e)}
                             />
                         </div>
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="specifications"
-                                label={"Specifications"}
+                                label={t(
+                                    "models.product.fields.specifications",
+                                )}
                                 onChange={(e) => setData("specifications", e)}
                             />
                         </div>
                         <div className="md:col-span-2">
                             <TranslatableTextEditor
                                 name="applications"
-                                label={"Applications"}
+                                label={t("models.product.fields.applications")}
                                 onChange={(e) => setData("applications", e)}
                             />
                         </div>
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="hero_image"
-                                label={"Hero Image"}
+                                label={t("models.product.fields.hero_image")}
                                 onChange={(file) => setData("hero_image", file)}
                                 acceptedFileTypes={["image/*"]}
                             />
@@ -190,7 +200,9 @@ const Create = () => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="specifications_file"
-                                label={"Specifications File"}
+                                label={t(
+                                    "models.product.fields.specifications_file",
+                                )}
                                 onChange={(file) =>
                                     setData("specifications_file", file)
                                 }
@@ -200,7 +212,7 @@ const Create = () => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="datasheet"
-                                label={"Datasheet"}
+                                label={t("models.product.fields.datasheet")}
                                 onChange={(file) => setData("datasheet", file)}
                                 acceptedFileTypes={DOCUMENT_MIME_TYPES}
                             />
@@ -208,7 +220,7 @@ const Create = () => {
                         <div className="md:col-span-2">
                             <FilepondInput
                                 name="manual"
-                                label={"Manual"}
+                                label={t("models.product.fields.manual")}
                                 onChange={(file) => setData("manual", file)}
                                 acceptedFileTypes={DOCUMENT_MIME_TYPES}
                             />
@@ -216,7 +228,7 @@ const Create = () => {
                         <div className={"md:col-span-2"}>
                             <FilepondInput
                                 name="brochure"
-                                label={"Brochure"}
+                                label={t("models.product.fields.brochure")}
                                 onChange={(e) => setData("brochure", e)}
                                 acceptedFileTypes={DOCUMENT_MIME_TYPES}
                             />

@@ -7,11 +7,14 @@ import { translate } from "@/models/translatable";
 import { DownloadIcon } from "lucide-react";
 import ImagePreview from "@/components/ui/image-preview";
 import Product from "@/models/product";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Index = () => {
+    const { t } = useTranslation();
+
     return (
         <Datatable
-            title="Products"
+            title={t("models.product.plural")}
             createUrl={route("v1.web.protected.products.create")}
             getDataArray={(res) => res.data}
             getTotalPages={(res) => res?.paginate?.total_pages ?? 0}
@@ -39,19 +42,23 @@ const Index = () => {
             schema={[
                 {
                     name: "id",
-                    label: "ID",
+                    label: t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
                     name: "name",
-                    label: "Name",
+                    label: t("models.product.fields.name"),
                     translatable: true,
                     sortable: true,
                 },
-                { name: "price_note", label: "Price Note", sortable: true },
+                {
+                    name: "price_note",
+                    label: t("models.product.fields.price_note"),
+                    sortable: true,
+                },
                 {
                     name: "hero_image",
-                    label: "Hero Image",
+                    label: t("models.product.fields.hero_image"),
                     render: (cell) => {
                         return (
                             <div className={"size-6 rounded-full"}>
@@ -62,7 +69,7 @@ const Index = () => {
                 },
                 {
                     name: "specifications_file",
-                    label: "Specifications File",
+                    label: t("models.product.fields.specifications_file"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -75,7 +82,7 @@ const Index = () => {
                 },
                 {
                     name: "datasheet",
-                    label: "Datasheet",
+                    label: t("models.product.fields.datasheet"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -88,7 +95,7 @@ const Index = () => {
                 },
                 {
                     name: "manual",
-                    label: "Manual",
+                    label: t("models.product.fields.manual"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -101,7 +108,7 @@ const Index = () => {
                 },
                 {
                     name: "brochure",
-                    label: "Brochure",
+                    label: t("models.product.fields.brochure"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -114,7 +121,7 @@ const Index = () => {
                 },
                 {
                     name: "supplier.name",
-                    label: "Supplier",
+                    label: t("models.product.fields.supplier"),
                     render: (_cell, record) => {
                         return (
                             record?.supplier?.name && (
@@ -135,7 +142,7 @@ const Index = () => {
                 },
                 {
                     name: "product_family.name",
-                    label: "Product Family",
+                    label: t("models.product.fields.product_family"),
                     translatable: true,
                     render: (_cell, record) => {
                         return (
@@ -159,7 +166,7 @@ const Index = () => {
                 },
                 {
                     name: "product_technology.name",
-                    label: "Product Technology",
+                    label: t("models.product.fields.product_technology"),
                     translatable: true,
                     render: (_cell, record) => {
                         return (
@@ -182,7 +189,7 @@ const Index = () => {
                     },
                 },
                 {
-                    label: "Options",
+                    label: t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

@@ -3,11 +3,14 @@ import Datatable from "@/components/datatable/datatable";
 import Http from "@/modules/http/http";
 import Supplier from "@/models/supplier";
 import ImagePreview from "@/components/ui/image-preview";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Index = () => {
+    const { t } = useTranslation();
+
     return (
         <Datatable
-            title="Suppliers"
+            title={t("models.supplier.plural")}
             createUrl={route("v1.web.protected.suppliers.create")}
             getDataArray={(res) => res.data}
             getTotalPages={(res) => res?.paginate?.total_pages ?? 0}
@@ -35,17 +38,21 @@ const Index = () => {
             schema={[
                 {
                     name: "id",
-                    label: "ID",
+                    label: t("dashboard.table.id"),
                     sortable: true,
                 },
-                { name: "name", label: "Name", sortable: true },
+                {
+                    name: "name",
+                    label: t("models.supplier.fields.name"),
+                    sortable: true,
+                },
                 {
                     name: "logo",
-                    label: "Logo",
+                    label: t("models.supplier.fields.logo"),
                     render: (data) => <ImagePreview src={data?.url} />,
                 },
                 {
-                    label: "Options",
+                    label: t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

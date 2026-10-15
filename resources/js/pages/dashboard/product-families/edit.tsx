@@ -8,8 +8,10 @@ import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import ProductFamily from "@/models/product-family";
 import React from "react";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Edit = ({ productFamily }: { productFamily: ProductFamily }) => {
+    const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
@@ -31,7 +33,11 @@ const Edit = ({ productFamily }: { productFamily: ProductFamily }) => {
     };
 
     return (
-        <PageCard title="Edit ProductFamily">
+        <PageCard
+            title={t("dashboard.titles.edit", {
+                model: t("models.product_family.singular"),
+            })}
+        >
             <FormLocaleProvider>
                 <Form onSubmit={onSubmit} processing={processing}>
                     <div
@@ -39,14 +45,14 @@ const Edit = ({ productFamily }: { productFamily: ProductFamily }) => {
                     >
                         <TranslatableInput
                             name="name"
-                            label={"Name"}
+                            label={t("models.product_family.fields.name")}
                             onChange={(v) => setData("name", v)}
                             defaultValue={productFamily.name}
                             required
                         />
                         <ApiSelect
                             name="supplier_id"
-                            label={"Supplier"}
+                            label={t("models.product_family.fields.supplier")}
                             api={(page, search) =>
                                 Http.make<Supplier[]>().get(
                                     route("v1.web.protected.suppliers.data"),

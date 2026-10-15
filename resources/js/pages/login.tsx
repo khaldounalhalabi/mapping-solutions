@@ -58,15 +58,6 @@ function Login() {
                         />
                         <Field>
                             <FieldDescription>
-                                {t("dashboard.auth.not_registered")}{" "}
-                                <Link
-                                    href={route("v1.web.public.register.page")}
-                                >
-                                    {t("dashboard.auth.sign_up")}
-                                </Link>
-                            </FieldDescription>
-
-                            <FieldDescription>
                                 {t("dashboard.auth.forgot_password")}{" "}
                                 <Link
                                     href={route(

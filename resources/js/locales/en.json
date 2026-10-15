@@ -206,5 +206,68 @@
             "reset_email_message": "Your reset password code is:"
         }
     },
-    "models": []
+    "models": {
+        "product_family": {
+            "singular": "Product Family",
+            "plural": "Product Families",
+            "fields": {
+                "name": "Name",
+                "supplier": "Supplier",
+                "supplier_name": "Supplier Name"
+            }
+        },
+        "product_technology": {
+            "singular": "Product Technology",
+            "plural": "Product Technologies",
+            "fields": {
+                "name": "Name",
+                "slug": "Slug",
+                "icon": "Icon",
+                "icon_key": "Icon Key",
+                "icon_source": "Icon Source"
+            },
+            "icon_source": {
+                "create_description": "Choose how you want to add your technology icon.",
+                "edit_description": "Choose how you want to display the technology icon.",
+                "library": "Icon Library",
+                "library_description": "Choose from our collection of icons",
+                "upload": "Upload Image",
+                "upload_description": "Upload your own custom icon",
+                "choose_icon": "Choose Icon",
+                "upload_icon": "Upload Icon",
+                "select_to_continue": "Select an icon source to continue."
+            }
+        },
+        "product": {
+            "singular": "Product",
+            "plural": "Products",
+            "fields": {
+                "name": "Name",
+                "price_note": "Price Note",
+                "external_url": "External URL",
+                "supplier": "Supplier",
+                "product_family": "Product Family",
+                "product_technology": "Product Technology",
+                "excerpt": "Excerpt",
+                "overview": "Overview",
+                "key_specs": "Key Specs",
+                "specifications": "Specifications",
+                "applications": "Applications",
+                "hero_image": "Hero Image",
+                "specifications_file": "Specifications File",
+                "datasheet": "Datasheet",
+                "manual": "Manual",
+                "brochure": "Brochure"
+            }
+        },
+        "supplier": {
+            "singular": "Supplier",
+            "plural": "Suppliers",
+            "fields": {
+                "name": "Name",
+                "description": "Description",
+                "logo": "Logo"
+            }
+        }
+    }
 }

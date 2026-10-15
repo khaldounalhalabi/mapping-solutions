@@ -4,11 +4,14 @@ import Http from "@/modules/http/http";
 import ImagePreview from "@/components/ui/image-preview";
 import ProductTechnology from "@/models/product-technology";
 import { DynamicIcon } from "lucide-react/dynamic";
+import { useTranslation } from "@/hooks/use-translation";
 
 const Index = () => {
+    const { t } = useTranslation();
+
     return (
         <Datatable
-            title="Product Technologies"
+            title={t("models.product_technology.plural")}
             createUrl={route("v1.web.protected.product.technologies.create")}
             getDataArray={(res) => res.data}
             getTotalPages={(res) => res?.paginate?.total_pages ?? 0}
@@ -36,12 +39,12 @@ const Index = () => {
             schema={[
                 {
                     name: "id",
-                    label: "ID",
+                    label: t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
                     name: "name",
-                    label: "Name",
+                    label: t("models.product_technology.fields.name"),
                     translatable: true,
                     sortable: true,
                     render(data) {
@@ -58,7 +61,7 @@ const Index = () => {
                 },
                 {
                     name: "icon",
-                    label: "Icon",
+                    label: t("models.product_technology.fields.icon"),
                     render(_data, record) {
                         if (record?.icon_key) {
                             return <DynamicIcon name={record.icon_key} />;
@@ -69,7 +72,7 @@ const Index = () => {
                     },
                 },
                 {
-                    label: "Options",
+                    label: t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}
