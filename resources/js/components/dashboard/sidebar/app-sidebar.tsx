@@ -1,10 +1,12 @@
 import {
+    BlocksIcon,
     BoxesIcon,
     CircuitBoardIcon,
     FactoryIcon,
     FolderTreeIcon,
     LayoutDashboardIcon,
     PackageIcon,
+    WrenchIcon,
 } from "lucide-react";
 import { NavMain } from "@/components/dashboard/sidebar/nav-main";
 import { NavUser } from "@/components/dashboard/sidebar/nav-user";
@@ -58,6 +60,17 @@ export function AppSidebar({
                     title: "Products",
                     href: route("v1.web.protected.products.index"),
                     icon: <PackageIcon />,
+                },
+            ],
+        },
+        {
+            title: "Applications and services",
+            icon: <BlocksIcon />,
+            children: [
+                {
+                    title: t("models.MarketApplication.plural"),
+                    href: route("v1.web.protected.market.applications.index"),
+                    icon: <WrenchIcon />,
                 },
             ],
         },

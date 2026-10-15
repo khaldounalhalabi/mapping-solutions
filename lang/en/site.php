@@ -1,7 +1,6 @@
 <?php
 
 return [
-    /****** Authentication messages ******/
     'credentials_not_match_records' => 'Credentials not match records',
     'successfully_logged_in' => 'Successfully logged in',
     'logout_success' => 'Logout successfully',
@@ -25,19 +24,13 @@ return [
     'you_should_login' => 'You should login',
     'email_verification_code_sent' => 'An email with a verification code has been sent to your email',
     'your_email_is_not_verified' => 'Your email address is not verified.',
-
-    /****** crud messages ******/
     'get_successfully' => 'Data Retrieved Successfully',
     'there_is_no_data' => 'There is no data',
     'stored_successfully' => 'Your data has been saved',
     'update_successfully' => 'Your changes has been saved',
     'delete_successfully' => 'Item deleted successfully',
-
-    /****** general error ******/
     'something_went_wrong' => 'Some thing went wong process failed',
-    'server_error' => "Sorry we can't handle your request we have faced a problem",
-
-    /****** generated dashboard ******/
+    'server_error' => 'Sorry we can\'t handle your request we have faced a problem',
     'dashboard' => [
         'name' => 'Admin Dashboard',
         'home' => 'Dashboard',
@@ -219,7 +212,7 @@ return [
             'last_name' => 'Last Name',
             'full_name' => 'Full Name',
             'already_registered' => 'Already have an account?',
-            'not_registered' => "Don't have an account?",
+            'not_registered' => 'Don\'t have an account?',
             'sign_in' => 'Sign in',
             'sign_up' => 'Sign up',
             'forgot_password' => 'Forgot your password?',
@@ -245,6 +238,16 @@ return [
             'reset_email_message' => 'Your reset password code is:',
         ],
     ],
-    'models' => [],
-
+    'models' => [
+        'MarketApplication' => [
+            'singular' => 'Market Application',
+            'plural' => 'Market Applications',
+            'fields' => [
+                'name' => 'Name',
+                'icon_key' => 'Icon',
+                'summary' => 'Summary',
+                'description' => 'Description',
+            ],
+        ],
+    ],
 ];
