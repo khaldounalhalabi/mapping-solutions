@@ -10,8 +10,10 @@ import {
 } from "@/components/ui/card";
 import { FieldGroup } from "@/components/ui/field";
 import Input from "@/components/form/fields/input";
+import { useTranslation } from "@/hooks/use-translation";
 
 const ResetPasswordCodeForm = () => {
+    const { t } = useTranslation();
     const { post, setData, processing } = useForm<{
         reset_password_code: string;
     }>();
@@ -23,11 +25,9 @@ const ResetPasswordCodeForm = () => {
     return (
         <Card>
             <CardHeader>
-                <CardTitle>
-                    Please Check Your Email For An Email From Us!
-                </CardTitle>
+                <CardTitle>{t("dashboard.auth.check_email")}</CardTitle>
                 <CardDescription>
-                    Enter the reset code sent within the email below
+                    {t("dashboard.auth.reset_code_description")}
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -35,11 +35,11 @@ const ResetPasswordCodeForm = () => {
                     onSubmit={onSubmit}
                     processing={processing}
                     backButton={false}
-                    buttonText="Submit Code"
+                    buttonText={t("dashboard.auth.submit_code")}
                 >
                     <FieldGroup>
                         <Input
-                            label="Password Reset Code"
+                            label={t("dashboard.auth.reset_code")}
                             name={"reset_password_code"}
                             required={true}
                             onChange={(e) => {
