@@ -4,10 +4,10 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Attachment;
 
 class ResetPasswordCodeEmail extends Mailable
 {
@@ -24,14 +24,13 @@ class ResetPasswordCodeEmail extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     * Get the attachments for the message.
+     *
+     * @return array<int, Attachment>
      */
-    public function envelope(): Envelope
+    public function attachments(): array
     {
-        return new Envelope(
-            to: $this->email,
-            subject: 'Reset password',
-        );
+        return [];
     }
 
     /**
@@ -48,12 +47,13 @@ class ResetPasswordCodeEmail extends Mailable
     }
 
     /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, Attachment>
+     * Get the message envelope.
      */
-    public function attachments(): array
+    public function envelope(): Envelope
     {
-        return [];
+        return new Envelope(
+            to: $this->email,
+            subject: 'Reset password',
+        );
     }
 }

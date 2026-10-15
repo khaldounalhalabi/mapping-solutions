@@ -17,7 +17,7 @@ return [
     | as a separate rendering service needs to be available. To learn more,
     | please visit https://inertiajs.com/server-side-rendering
     |
-    */
+     */
 
     'ssr' => [
 
@@ -49,7 +49,7 @@ return [
         | You can also listen for the Inertia\Ssr\SsrRenderFailed event to handle
         | failures in your own way (e.g., logging, error tracking service).
         |
-        */
+         */
 
         'throw_on_error' => (bool) env('INERTIA_SSR_THROW_ON_ERROR', false),
 
@@ -67,7 +67,7 @@ return [
     | The `paths` and `extensions` options define where to look for page
     | components and which file extensions to consider.
     |
-    */
+     */
 
     'pages' => [
 
@@ -104,7 +104,7 @@ return [
     | You can disable this behavior by setting `ensure_pages_exist`
     | to false.
     |
-    */
+     */
 
     'testing' => [
 
@@ -121,7 +121,7 @@ return [
     | listing the top-level prop keys that were registered via `Inertia::share`.
     | The frontend can use this to carry shared props over during instant visits.
     |
-    */
+     */
 
     'expose_shared_prop_keys' => true,
 
@@ -134,7 +134,7 @@ return [
     | Inertia visits, as they are sent as AJAX requests. Enable this option to
     | store them for client-side visits as well, excluding partial reloads.
     |
-    */
+     */
 
     'store_previous_url' => false,
 
@@ -148,7 +148,7 @@ return [
     | being accessible after logout. Can also be enabled per-request
     | or via the `inertia.encrypt` middleware.
     |
-    */
+     */
 
     'history' => [
 
@@ -165,7 +165,7 @@ return [
     | read it back over HTTP. Recording is limited to your local environment.
     | See https://inertiajs.com/docs/devtools for the gate and storage options.
     |
-    */
+     */
 
     'devtools' => [
 
@@ -226,7 +226,7 @@ return [
     | frontend as native BigInt values instead of losing precision. Single
     | responses may opt in or out using the `preserveBigIntegers` method.
     |
-    */
+     */
 
     'preserve_big_integers' => (bool) env('INERTIA_PRESERVE_BIG_INTEGERS', false),
 

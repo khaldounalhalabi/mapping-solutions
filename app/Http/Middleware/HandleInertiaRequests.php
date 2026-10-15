@@ -2,13 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
 use Inertia\Middleware;
-use Psr\Container\ContainerExceptionInterface;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Psr\Container\NotFoundExceptionInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -20,16 +19,6 @@ class HandleInertiaRequests extends Middleware
      * @var string
      */
     protected $rootView = 'app';
-
-    /**
-     * Determines the current asset version.
-     *
-     * @see https://inertiajs.com/asset-versioning
-     */
-    public function version(Request $request): ?string
-    {
-        return parent::version($request);
-    }
 
     /**
      * Define the props that are shared by default.
@@ -54,5 +43,15 @@ class HandleInertiaRequests extends Middleware
             'error' => session()->get('error') ?? null,
             'success' => session()->get('success') ?? null,
         ]);
+    }
+
+    /**
+     * Determines the current asset version.
+     *
+     * @see https://inertiajs.com/asset-versioning
+     */
+    public function version(Request $request): ?string
+    {
+        return parent::version($request);
     }
 }

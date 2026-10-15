@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class SetLocaleController extends Controller
@@ -11,8 +10,8 @@ class SetLocaleController extends Controller
     {
         $lang = $request->lang;
 
-        if (!in_array($lang, config('cubeta-starter.available_locales'))) {
-            return response()->json(['message' => 'failed'] , 404);
+        if (! in_array($lang, config('cubeta-starter.available_locales'))) {
+            return response()->json(['message' => 'failed'], 404);
         }
 
         session()->put('locale', $lang);
@@ -22,7 +21,7 @@ class SetLocaleController extends Controller
 
         // Redirect back to the previous page
         return response()->json([
-            'message' => 'success'
+            'message' => 'success',
         ]);
     }
 }

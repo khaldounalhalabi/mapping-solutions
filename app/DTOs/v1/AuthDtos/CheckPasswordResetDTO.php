@@ -9,13 +9,11 @@ class CheckPasswordResetDTO extends ValidatedDTO
     public string $reset_password_code;
 
     /**
-     * Get the validation rules that apply to the DTO.
+     * Get the type casting for the DTO properties.
      */
-    protected function rules(): array
+    protected function casts(): array
     {
-        return [
-            'reset_password_code' => 'required|string|exists:users,reset_password_code|max:8',
-        ];
+        return [];
     }
 
     /**
@@ -27,10 +25,12 @@ class CheckPasswordResetDTO extends ValidatedDTO
     }
 
     /**
-     * Get the type casting for the DTO properties.
+     * Get the validation rules that apply to the DTO.
      */
-    protected function casts(): array
+    protected function rules(): array
     {
-        return [];
+        return [
+            'reset_password_code' => 'required|string|exists:users,reset_password_code|max:8',
+        ];
     }
 }

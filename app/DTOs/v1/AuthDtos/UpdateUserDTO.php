@@ -7,13 +7,31 @@ use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
 class UpdateUserDTO extends ValidatedDTO
 {
+    public string $email;
+
     public string $first_name;
 
     public string $last_name;
 
-    public string $email;
-
     public ?string $password;
+
+    /**
+     * Get the type casting for the DTO properties.
+     */
+    protected function casts(): array
+    {
+        return [];
+    }
+
+    /**
+     * Get the default values for the DTO properties.
+     */
+    protected function defaults(): array
+    {
+        return [
+            'password' => null,
+        ];
+    }
 
     /**
      * Get the validation rules that apply to the DTO.
@@ -34,23 +52,5 @@ class UpdateUserDTO extends ValidatedDTO
                 Rule::excludeIf(fn () => empty($this->dtoData['password'] ?? null)),
             ],
         ];
-    }
-
-    /**
-     * Get the default values for the DTO properties.
-     */
-    protected function defaults(): array
-    {
-        return [
-            'password' => null,
-        ];
-    }
-
-    /**
-     * Get the type casting for the DTO properties.
-     */
-    protected function casts(): array
-    {
-        return [];
     }
 }

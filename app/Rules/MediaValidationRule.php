@@ -32,16 +32,14 @@ readonly class MediaValidationRule implements ValidationRule
 
         if ($value instanceof UploadedFile) {
             $fileToValidate = $value;
-        }
-        elseif ($value instanceof SerializedMedia) {
+        } elseif ($value instanceof SerializedMedia) {
             if (! $value->exists()) {
                 $fail('Invalid media file');
 
                 return;
             }
             $fileToValidate = $value->getUploadedFile();
-        }
-        else {
+        } else {
             if (! SerializedMedia::isMediaArray($value)) {
                 $fail('Invalid media file');
 

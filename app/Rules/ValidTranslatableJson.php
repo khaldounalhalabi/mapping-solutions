@@ -22,11 +22,11 @@ class ValidTranslatableJson implements ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         try {
-            if (!$value) {
+            if (! $value) {
                 return;
             }
 
-            if (!is_array($value)) {
+            if (! is_array($value)) {
                 $translationArray = json_decode($value, true);
             } else {
                 $translationArray = $value;
@@ -42,8 +42,8 @@ class ValidTranslatableJson implements ValidationRule
 
             $theDifferenceBetweenTheProvidedLanguages = array_diff($translationLanguages, $availableLanguages);
 
-            if (!count($theDifferenceBetweenTheProvidedLanguages) == 0) {
-                $fail(implode(',', $theDifferenceBetweenTheProvidedLanguages) . " doesn't exist in your project locales");
+            if (! count($theDifferenceBetweenTheProvidedLanguages) == 0) {
+                $fail(implode(',', $theDifferenceBetweenTheProvidedLanguages)." doesn't exist in your project locales");
             }
         } catch (Exception) {
             $fail("invalid {$attribute}");

@@ -6,19 +6,16 @@ use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
 class ResetPasswordDTO extends ValidatedDTO
 {
-    public string $reset_password_code;
-
     public string $password;
 
+    public string $reset_password_code;
+
     /**
-     * Get the validation rules that apply to the DTO.
+     * Get the type casting for the DTO properties.
      */
-    protected function rules(): array
+    protected function casts(): array
     {
-        return [
-            'reset_password_code' => 'required|string|exists:users,reset_password_code|max:8',
-            'password' => 'required|string|min:8|max:255|confirmed',
-        ];
+        return [];
     }
 
     /**
@@ -30,10 +27,13 @@ class ResetPasswordDTO extends ValidatedDTO
     }
 
     /**
-     * Get the type casting for the DTO properties.
+     * Get the validation rules that apply to the DTO.
      */
-    protected function casts(): array
+    protected function rules(): array
     {
-        return [];
+        return [
+            'reset_password_code' => 'required|string|exists:users,reset_password_code|max:8',
+            'password' => 'required|string|min:8|max:255|confirmed',
+        ];
     }
 }

@@ -9,13 +9,11 @@ class RequestResetPasswordDTO extends ValidatedDTO
     public string $email;
 
     /**
-     * Get the validation rules that apply to the DTO.
+     * Get the type casting for the DTO properties.
      */
-    protected function rules(): array
+    protected function casts(): array
     {
-        return [
-            'email' => 'required|email|exists:users,email|min:3|max:255',
-        ];
+        return [];
     }
 
     /**
@@ -27,10 +25,12 @@ class RequestResetPasswordDTO extends ValidatedDTO
     }
 
     /**
-     * Get the type casting for the DTO properties.
+     * Get the validation rules that apply to the DTO.
      */
-    protected function casts(): array
+    protected function rules(): array
     {
-        return [];
+        return [
+            'email' => 'required|email|exists:users,email|min:3|max:255',
+        ];
     }
 }

@@ -27,7 +27,7 @@ return [
     |
      */
 
-    'temporary_url_ttl' => (int)env('MEDIA_TEMPORARY_URL_TTL', 5),
+    'temporary_url_ttl' => (int) env('MEDIA_TEMPORARY_URL_TTL', 5),
 
     /*
     |--------------------------------------------------------------------------

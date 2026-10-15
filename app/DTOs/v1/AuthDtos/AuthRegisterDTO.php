@@ -6,13 +6,29 @@ use WendellAdriel\ValidatedDTO\ValidatedDTO;
 
 class AuthRegisterDTO extends ValidatedDTO
 {
+    public string $email;
+
     public string $first_name;
 
     public string $last_name;
 
-    public string $email;
-
     public string $password;
+
+    /**
+     * Get the type casting for the DTO properties.
+     */
+    protected function casts(): array
+    {
+        return [];
+    }
+
+    /**
+     * Get the default values for the DTO properties.
+     */
+    protected function defaults(): array
+    {
+        return [];
+    }
 
     /**
      * Get the validation rules that apply to the DTO.
@@ -25,21 +41,5 @@ class AuthRegisterDTO extends ValidatedDTO
             'email' => 'required|email|unique:users,email|min:3|max:255',
             'password' => 'required|min:8|confirmed|max:255',
         ];
-    }
-
-    /**
-     * Get the default values for the DTO properties.
-     */
-    protected function defaults(): array
-    {
-        return [];
-    }
-
-    /**
-     * Get the type casting for the DTO properties.
-     */
-    protected function casts(): array
-    {
-        return [];
     }
 }

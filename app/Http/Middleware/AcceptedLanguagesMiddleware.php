@@ -23,7 +23,7 @@ class AcceptedLanguagesMiddleware
         }
 
         // if not exists in the project locales set the app locale to the default app locale
-        if (!in_array($locale, config('cubeta-starter.available_locales'))) {
+        if (! in_array($locale, config('cubeta-starter.available_locales'))) {
             App::setLocale(config('cubeta-starter.default_locale'));
         }
 

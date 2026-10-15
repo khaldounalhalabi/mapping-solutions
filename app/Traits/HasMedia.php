@@ -2,11 +2,11 @@
 
 namespace App\Traits;
 
-use App\Casts\MediaCast;
-use App\Serializers\SerializedMedia;
 use Exception;
-use Illuminate\Database\Eloquent\Model;
+use App\Casts\MediaCast;
 use Illuminate\Support\Facades\DB;
+use App\Serializers\SerializedMedia;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @mixin Model

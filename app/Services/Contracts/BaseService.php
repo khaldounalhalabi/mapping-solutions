@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * @template MODEL of Model
+ *
  * @phpstan-consistent-constructor
  */
 abstract class BaseService
