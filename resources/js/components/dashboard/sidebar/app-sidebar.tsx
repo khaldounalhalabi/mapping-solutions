@@ -19,10 +19,12 @@ import {
 } from "@/components/ui/sidebar";
 import { Link, usePage } from "@inertiajs/react";
 import React from "react";
+import { useTranslation } from "@/hooks/use-translation";
 
 export function AppSidebar({
     ...props
 }: React.ComponentProps<typeof ShadcnSidebar>) {
+    const { t } = useTranslation();
     const sidebarItems: {
         title: string;
         href?: string;
@@ -78,7 +80,7 @@ export function AppSidebar({
                                 >
                                     <LayoutDashboardIcon />
                                     <span className="text-base font-semibold">
-                                        Admin Dashboard
+                                        {t("dashboard.name")}
                                     </span>
                                 </Link>
                             }

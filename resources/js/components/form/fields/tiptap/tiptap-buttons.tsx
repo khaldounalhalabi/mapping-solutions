@@ -41,6 +41,7 @@ import {
     SeparatorHorizontal,
 } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "@/hooks/use-translation";
 
 export const GetEditor = () => {
     const { editor } = useCurrentEditor();
@@ -107,6 +108,7 @@ export const BlockQuoteButton = ({ editor }: { editor: Editor }) => {
 
 export const LinkButton = ({ editor }: { editor: Editor }) => {
     const [url, setUrl] = useState("");
+    const { t } = useTranslation();
     return (
         <AlertDialog>
             <AlertDialogTrigger
@@ -118,7 +120,9 @@ export const LinkButton = ({ editor }: { editor: Editor }) => {
             />
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogTitle>Add your url</AlertDialogTitle>
+                    <AlertDialogTitle>
+                        {t("dashboard.editor.add_url")}
+                    </AlertDialogTitle>
                 </AlertDialogHeader>
                 <div className={"my-4"}>
                     <Input
@@ -127,7 +131,9 @@ export const LinkButton = ({ editor }: { editor: Editor }) => {
                     />
                 </div>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel>
+                        {t("dashboard.actions.cancel")}
+                    </AlertDialogCancel>
                     <AlertDialogAction
                         onClick={() =>
                             editor
@@ -137,7 +143,7 @@ export const LinkButton = ({ editor }: { editor: Editor }) => {
                                 .run()
                         }
                     >
-                        Insert
+                        {t("dashboard.editor.insert")}
                     </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
@@ -147,6 +153,7 @@ export const LinkButton = ({ editor }: { editor: Editor }) => {
 
 export const ImageUrlButton = ({ editor }: { editor: Editor }) => {
     const [url, setUrl] = useState("");
+    const { t } = useTranslation();
     return (
         <AlertDialog>
             <AlertDialogTrigger
@@ -158,7 +165,9 @@ export const ImageUrlButton = ({ editor }: { editor: Editor }) => {
             />
             <AlertDialogContent>
                 <AlertDialogHeader>
-                    <AlertDialogTitle>Add your image url</AlertDialogTitle>
+                    <AlertDialogTitle>
+                        {t("dashboard.editor.add_image_url")}
+                    </AlertDialogTitle>
                 </AlertDialogHeader>
                 <div className={"my-4"}>
                     <Input
@@ -167,13 +176,15 @@ export const ImageUrlButton = ({ editor }: { editor: Editor }) => {
                     />
                 </div>
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel>
+                        {t("dashboard.actions.cancel")}
+                    </AlertDialogCancel>
                     <AlertDialogAction
                         onClick={() =>
                             editor.chain().focus().setImage({ src: url }).run()
                         }
                     >
-                        Insert
+                        {t("dashboard.editor.insert")}
                     </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
@@ -288,6 +299,7 @@ export const OrderedListButton = ({ editor }: { editor: Editor }) => {
 
 export const YoutubeButton = ({ editor }: { editor: Editor }) => {
     const [url, setUrl] = useState<string | undefined>(undefined);
+    const { t } = useTranslation();
 
     return (
         <AlertDialog>
@@ -301,12 +313,14 @@ export const YoutubeButton = ({ editor }: { editor: Editor }) => {
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>
-                        Add your youtube video url
+                        {t("dashboard.editor.add_youtube_url")}
                     </AlertDialogTitle>
                 </AlertDialogHeader>
                 <Input type={"url"} onChange={(e) => setUrl(e.target?.value)} />
                 <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogCancel>
+                        {t("dashboard.actions.cancel")}
+                    </AlertDialogCancel>
                     <AlertDialogAction
                         onClick={() => {
                             if (url) {
@@ -318,7 +332,7 @@ export const YoutubeButton = ({ editor }: { editor: Editor }) => {
                             }
                         }}
                     >
-                        Insert
+                        {t("dashboard.editor.insert")}
                     </AlertDialogAction>
                 </AlertDialogFooter>
             </AlertDialogContent>
@@ -342,6 +356,7 @@ export const ColorButton = ({ editor }: { editor: Editor }) => {
 
 export const FontFamilyButton = ({ editor }: { editor: Editor }) => {
     let currentToggled;
+    const { t } = useTranslation();
 
     const isActive = (family: string) =>
         editor.isActive("textStyle", {
@@ -391,25 +406,25 @@ export const FontFamilyButton = ({ editor }: { editor: Editor }) => {
                     }}
                 >
                     <DropdownMenuRadioItem value={"Inter"}>
-                        Inter
+                        {t("dashboard.editor.font_inter")}
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem
                         value={'"Comic Sans MS", "Comic Sans"'}
                     >
-                        Comic Sans MS , Comic Sans
+                        {t("dashboard.editor.font_comic_sans")}
                     </DropdownMenuRadioItem>
 
                     <DropdownMenuRadioItem value={"serif"}>
-                        Serif
+                        {t("dashboard.editor.font_serif")}
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value={"monospace"}>
-                        Monospace
+                        {t("dashboard.editor.font_monospace")}
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value={"cursive"}>
-                        Cursive
+                        {t("dashboard.editor.font_cursive")}
                     </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value={"none"}>
-                        Unset font family
+                        {t("dashboard.editor.unset_font_family")}
                     </DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
             </DropdownMenuContent>

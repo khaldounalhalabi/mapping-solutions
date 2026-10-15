@@ -6,6 +6,7 @@ import {
     TableCell,
     TableRow,
 } from "@/components/ui/table";
+import { useTranslation } from "@/hooks/use-translation";
 
 function TableBody<Data>({
     tableSchema,
@@ -14,6 +15,7 @@ function TableBody<Data>({
     revalidate,
     hidden = [],
 }: TableBodyProps<Data>) {
+    const { t } = useTranslation();
     return (
         <ShadcnTableBody>
             {data?.length ? (
@@ -41,7 +43,7 @@ function TableBody<Data>({
                                         : (getNestedPropertyValue(
                                               item,
                                               schema.name as string,
-                                          ) ?? "No Data")
+                                          ) ?? t("dashboard.table.no_data"))
                                     : undefined;
 
                                 if (!schema.render && schema.name) {
@@ -96,7 +98,7 @@ function TableBody<Data>({
                                         className={cellClassName}
                                         {...schema.cellProps}
                                     >
-                                        No Data
+                                        {t("dashboard.table.no_data")}
                                     </TableCell>
                                 );
                             })}
@@ -109,7 +111,7 @@ function TableBody<Data>({
                         colSpan={tableSchema.length}
                         className="p-3 text-center"
                     >
-                        No Data
+                        {t("dashboard.table.no_data")}
                     </TableCell>
                 </TableRow>
             )}

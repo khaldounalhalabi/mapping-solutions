@@ -1,8 +1,11 @@
+import { useTranslation } from "@/hooks/use-translation";
+
 const Index = () => {
+    const { t } = useTranslation();
     return (
         <div>
             <h1 className="text-5xl dark:text-white">
-                Welcome to cubeta-starter generated dashboard
+                {t("dashboard.welcome")}
             </h1>
         </div>
     );

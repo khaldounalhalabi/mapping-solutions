@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
-import { cn } from "cn";
 
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { XIcon } from "lucide-react";
+import { useTranslation } from "@/hooks/use-translation";
 
 function Dialog({ ...props }: DialogPrimitive.Root.Props) {
     return <DialogPrimitive.Root data-slot="dialog" {...props} />;
@@ -29,7 +30,7 @@ function DialogOverlay({
         <DialogPrimitive.Backdrop
             data-slot="dialog-overlay"
             className={cn(
-                "fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0",
+                "data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0 fixed inset-0 isolate z-50 bg-black/10 duration-100 supports-backdrop-filter:backdrop-blur-xs",
                 className,
             )}
             {...props}
@@ -45,13 +46,14 @@ function DialogContent({
 }: DialogPrimitive.Popup.Props & {
     showCloseButton?: boolean;
 }) {
+    const { t } = useTranslation();
     return (
         <DialogPortal>
             <DialogOverlay />
             <DialogPrimitive.Popup
                 data-slot="dialog-content"
                 className={cn(
-                    "fixed top-1/2 start-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+                    "bg-popover text-popover-foreground ring-foreground/10 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 fixed start-1/2 top-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl p-4 text-sm ring-1 duration-100 outline-none sm:max-w-sm rtl:translate-x-1/2",
                     className,
                 )}
                 {...props}
@@ -63,13 +65,15 @@ function DialogContent({
                         render={
                             <Button
                                 variant="ghost"
-                                className="absolute top-2 end-2"
+                                className="absolute end-2 top-2"
                                 size="icon-sm"
                             />
                         }
                     >
                         <XIcon />
-                        <span className="sr-only">Close</span>
+                        <span className="sr-only">
+                            {t("dashboard.accessibility.close")}
+                        </span>
                     </DialogPrimitive.Close>
                 )}
             </DialogPrimitive.Popup>
@@ -95,11 +99,12 @@ function DialogFooter({
 }: React.ComponentProps<"div"> & {
     showCloseButton?: boolean;
 }) {
+    const { t } = useTranslation();
     return (
         <div
             data-slot="dialog-footer"
             className={cn(
-                "-mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t bg-muted/50 p-4 sm:flex-row sm:justify-end",
+                "bg-muted/50 -mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t p-4 sm:flex-row sm:justify-end",
                 className,
             )}
             {...props}
@@ -107,7 +112,7 @@ function DialogFooter({
             {children}
             {showCloseButton && (
                 <DialogPrimitive.Close render={<Button variant="outline" />}>
-                    Close
+                    {t("dashboard.actions.close")}
                 </DialogPrimitive.Close>
             )}
         </div>
@@ -135,7 +140,7 @@ function DialogDescription({
         <DialogPrimitive.Description
             data-slot="dialog-description"
             className={cn(
-                "text-sm text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground",
+                "text-muted-foreground *:[a]:hover:text-foreground text-sm *:[a]:underline *:[a]:underline-offset-3",
                 className,
             )}
             {...props}

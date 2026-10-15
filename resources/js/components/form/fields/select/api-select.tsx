@@ -11,6 +11,7 @@ import {
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { useTranslation } from "@/hooks/use-translation";
 
 function ApiSelect<
     TResponse,
@@ -113,13 +114,14 @@ function ApiSelect<
     getOptionLabel = undefined,
     getOptionValue = undefined,
     onSelect = undefined,
-    placeHolder = "Select An Item",
+    placeHolder = undefined,
     defaultValue = undefined,
     onChange = undefined,
     revalidateOnOpen = false,
     getNextPage = undefined,
     required = false,
 }: IApiSelectProps<TResponse, TData, TMultiple, TValue, TLabel>) {
+    const { t } = useTranslation();
     const isMultiple = isMultipleProp ?? false;
     const {
         props: { errors },
@@ -374,7 +376,10 @@ function ApiSelect<
                                 placeHolder ?? "transition-opacity duration-300"
                             }
                         >
-                            {placeHolder ?? `Select ${label} ...`}
+                            {placeHolder ??
+                                t("dashboard.form.select", {
+                                    label: String(label ?? ""),
+                                })}
                         </p>
                     )}
                     <div className="flex items-center gap-2">
@@ -422,7 +427,7 @@ function ApiSelect<
                             value={search ?? ""}
                             name={"search-box"}
                             type={"search"}
-                            placeholder={"Search ..."}
+                            placeholder={t("dashboard.form.search")}
                         />
                     </div>
 
@@ -444,7 +449,7 @@ function ApiSelect<
                     ))}
                     {isLoading && (
                         <div className="text-primary my-2 flex w-full items-center justify-center transition-opacity duration-300">
-                            Loading ...
+                            {t("dashboard.table.loading")}
                         </div>
                     )}
                 </div>

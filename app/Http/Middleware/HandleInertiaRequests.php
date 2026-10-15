@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Inertia\Middleware;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -36,7 +35,7 @@ class HandleInertiaRequests extends Middleware
 
         return array_merge(parent::share($request), [
             'availableLocales' => config('cubeta-starter.available_locales'),
-            'currentLocale' => Session::get('locale') ?? 'en',
+            'currentLocale' => app()->getLocale(),
             'authUser' => auth()->user(),
             'asset' => asset('/'),
             'baseUrl' => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
