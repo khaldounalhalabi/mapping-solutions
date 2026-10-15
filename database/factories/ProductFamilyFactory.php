@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use App\Models\Supplier;
 use App\Models\ProductFamily;
 use App\Serializers\Translatable;
@@ -18,5 +19,10 @@ class ProductFamilyFactory extends Factory
             'supplier_id' => Supplier::factory(),
             'name' => Translatable::fake()->toJson(),
         ];
+    }
+
+    public function withProducts(int $count = 1): static
+    {
+        return $this->has(Product::factory($count));
     }
 }

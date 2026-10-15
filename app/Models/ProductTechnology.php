@@ -11,9 +11,11 @@ use App\Serializers\SerializedMedia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Database\Factories\ProductTechnologyFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Serializers\Translatable as TranslatableSerializer;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * @property int                    $id
@@ -27,6 +29,8 @@ use App\Serializers\Translatable as TranslatableSerializer;
  * @mixin Builder<ProductTechnology>
  *
  * @use  HasFactory<ProductTechnologyFactory>
+ *
+ * @property EloquentCollection<Product>|null $products
  */
 #[Fillable([
     'name',
@@ -56,6 +60,14 @@ class ProductTechnology extends Model
             'product_ids',
 
         ];
+    }
+
+    /**
+     * @return HasMany<Product, static>
+     */
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
     }
 
     public static function relationsSearchableArray(): array

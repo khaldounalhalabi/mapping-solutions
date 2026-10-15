@@ -22,6 +22,7 @@ class ProductTechnologyResource extends BaseResource
             'slug' => $this->slug,
             'icon_key' => $this->icon_key,
             'icon' => $this->icon,
+            'products' => ProductResource::collection($this->whenLoaded('products')),
         ];
     }
 }

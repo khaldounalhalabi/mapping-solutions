@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { Badge } from "@/components/ui/badge";
 import { FieldDescription } from "@/components/ui/field";
+import WrapContent from "@/components/form/fields/tiptap/style-stored-content";
 
 interface ValueProps extends React.ComponentProps<typeof FieldDescription> {
     value?: unknown;
@@ -16,7 +17,11 @@ export const DetailItemValue: React.FC<ValueProps> = ({
 }) => {
     let showedValue = value;
     if (typeof value == "string" && html) {
-        showedValue = <div dangerouslySetInnerHTML={{ __html: value }} />;
+        showedValue = (
+            <div className={"border p-2 rounded-md"}>
+                <div dangerouslySetInnerHTML={{ __html: WrapContent(value) }} />
+            </div>
+        );
     } else if (value === undefined || value === null) {
         showedValue = <Badge>{"No data"}</Badge>;
     } else if (value === 0 || Number.isNaN(value)) {
@@ -27,10 +32,10 @@ export const DetailItemValue: React.FC<ValueProps> = ({
         showedValue = <Badge>{"No data"}</Badge>;
     } else if (
         typeof value == "string" &&
-        (value?.includes("undefined") || value?.includes("null"))
+        (value == "undefined" || value == "null")
     ) {
         showedValue = <Badge>{"No data"}</Badge>;
-    } else if (typeof value == "string" && value.includes("NaN")) {
+    } else if (typeof value == "string" && value == "NaN") {
         showedValue = 0;
     }
 

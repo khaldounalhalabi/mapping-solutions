@@ -17,3 +17,6 @@ Route::resource('/v1/product-families', v1\ProductFamilyController::class)->name
 
 Route::get('/v1/product-technologies/data', [v1\ProductTechnologyController::class, 'data'])->name('v1.web.protected.product.technologies.data');
 Route::resource('/v1/product-technologies', v1\ProductTechnologyController::class)->names('v1.web.protected.product.technologies');
+
+Route::get('/v1/products/data', [v1\ProductController::class, 'data'])->name('v1.web.protected.products.data');
+Route::resource('/v1/products', v1\ProductController::class)->names('v1.web.protected.products');

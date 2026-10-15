@@ -7,10 +7,12 @@ use App\Traits\Sluggable;
 use App\Casts\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Serializers\Translatable as TranslatableSerializer;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * @property int                    $id
@@ -22,6 +24,8 @@ use App\Serializers\Translatable as TranslatableSerializer;
  * @property Carbon                 $updated_at
  *
  * @mixin Builder<ProductFamily>
+ *
+ * @property EloquentCollection<Product>|null $products
  */
 #[Fillable([
     'supplier_id',
@@ -49,10 +53,17 @@ class ProductFamily extends Model
         ];
     }
 
+    /**
+     * @return HasMany<Product, static>
+     */
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public static function relationsSearchableArray(): array
     {
         return [
-            'supplier' => ['name', 'slug', 'description'],
 
         ];
     }

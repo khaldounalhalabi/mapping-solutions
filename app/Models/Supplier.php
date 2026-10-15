@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Serializers\Translatable as TranslatableSerializer;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * @property int                       $id
@@ -27,6 +28,8 @@ use App\Serializers\Translatable as TranslatableSerializer;
  * @property Collection<ProductFamily> $productFamilies
  *
  * @mixin Builder<Supplier>
+ *
+ * @property EloquentCollection<Product>|null $products
  */
 #[Fillable([
     'name',
@@ -68,13 +71,18 @@ class Supplier extends Model
         return $this->hasMany(ProductFamily::class);
     }
 
+    /**
+     * @return HasMany<Product, static>
+     */
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public static function relationsSearchableArray(): array
     {
         return [
-            'productFamilies' => [
-                'name',
-                'slug',
-            ],
+
         ];
     }
 

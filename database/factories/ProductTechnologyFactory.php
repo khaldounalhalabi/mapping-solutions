@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use App\Models\ProductTechnology;
 use App\Serializers\Translatable;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,5 +19,10 @@ class ProductTechnologyFactory extends Factory
             'icon_key' => fake()->word(),
             'icon' => fakeImage(),
         ];
+    }
+
+    public function withProducts(int $count = 1): static
+    {
+        return $this->has(Product::factory($count));
     }
 }

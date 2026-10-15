@@ -1,3 +1,4 @@
+import Product from "@/models/product";
 import Media from "@/models/media";
 import { IconName } from "lucide-react/dynamic";
 
@@ -7,6 +8,7 @@ interface ProductTechnology {
     slug: string;
     icon_key?: IconName;
     icon?: Media | undefined;
+    products?: Product[];
 }
 
 export default ProductTechnology;

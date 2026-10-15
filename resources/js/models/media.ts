@@ -28,4 +28,14 @@ export function isMedia(obj: any): obj is Media {
     );
 }
 
+export const DOCUMENT_MIME_TYPES = [
+    "application/pdf",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "application/vnd.ms-excel",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "text/plain",
+    "text/csv",
+];
+
 export default Media;

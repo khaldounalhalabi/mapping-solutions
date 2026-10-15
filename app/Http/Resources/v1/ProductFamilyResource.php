@@ -22,6 +22,7 @@ class ProductFamilyResource extends BaseResource
             'supplier_id' => $this->supplier_id,
             'name' => $this->name,
             'slug' => $this->slug,
+            'products' => ProductResource::collection($this->whenLoaded('products')),
         ];
     }
 }

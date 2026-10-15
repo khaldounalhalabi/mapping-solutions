@@ -126,6 +126,140 @@
                 ]
             },
             "version": "v1"
+        },
+        {
+            "model_name": "Product",
+            "table_name": "products",
+            "attributes": [
+                {
+                    "name": "supplier_id",
+                    "type": "key",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "product_family_id",
+                    "type": "key",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "product_technology_id",
+                    "type": "key",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "name",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "price_note",
+                    "type": "string",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "brochure",
+                    "type": "integer",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "slug",
+                    "type": "text",
+                    "nullable": false,
+                    "unique": true
+                },
+                {
+                    "name": "excerpt",
+                    "type": "translatable",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "overview",
+                    "type": "translatable",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "key_specs",
+                    "type": "translatable",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "specifications",
+                    "type": "translatable",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "applications",
+                    "type": "translatable",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "external_url",
+                    "type": "text",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "hero_image",
+                    "type": "file",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "specifications_file",
+                    "type": "file",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "datasheet",
+                    "type": "file",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "manual",
+                    "type": "file",
+                    "nullable": true,
+                    "unique": false
+                }
+            ],
+            "relations": {
+                "belongsTo": [
+                    {
+                        "type": "belongsTo",
+                        "model_name": "Supplier",
+                        "key": "supplier_id"
+                    },
+                    {
+                        "type": "belongsTo",
+                        "model_name": "ProductFamily",
+                        "key": "productfamily_id"
+                    },
+                    {
+                        "type": "belongsTo",
+                        "model_name": "ProductTechnology",
+                        "key": "producttechnology_id"
+                    }
+                ],
+                "hasMany": [
+                    {
+                        "type": "hasMany",
+                        "model_name": "Inquiry"
+                    }
+                ]
+            },
+            "version": "v1"
         }
     ]
 }
