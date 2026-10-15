@@ -295,16 +295,16 @@
         },
         {
             "name": "cubeta/cubeta-starter",
-            "version": "v6.1.0",
+            "version": "v6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cubeta-io/cubeta-starter.git",
-                "reference": "87252d4bf292b4b6826c42ba0f9fc6ee818cd858"
+                "reference": "76428c9995cda1cc215179b0bab47b9fc8f8e659"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cubeta-io/cubeta-starter/zipball/87252d4bf292b4b6826c42ba0f9fc6ee818cd858",
-                "reference": "87252d4bf292b4b6826c42ba0f9fc6ee818cd858",
+                "url": "https://api.github.com/repos/cubeta-io/cubeta-starter/zipball/76428c9995cda1cc215179b0bab47b9fc8f8e659",
+                "reference": "76428c9995cda1cc215179b0bab47b9fc8f8e659",
                 "shasum": ""
             },
             "require": {
@@ -350,9 +350,9 @@
             "description": "Cubeta-Starter: A developer's Swiss army knife for seamless CRUD operations. Choose between core integration or dev dependency. Enjoy a user-friendly GUI for code generation, enhancing your development workflow. Say goodbye to repetition, embrace productivity with Cubeta-Starter!",
             "support": {
                 "issues": "https://github.com/cubeta-io/cubeta-starter/issues",
-                "source": "https://github.com/cubeta-io/cubeta-starter/tree/v6.1.0"
+                "source": "https://github.com/cubeta-io/cubeta-starter/tree/v6.1.1"
             },
-            "time": "2026-10-14T17:58:29+00:00"
+            "time": "2026-10-15T21:58:06+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

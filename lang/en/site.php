@@ -249,5 +249,14 @@ return [
                 'description' => 'Description',
             ],
         ],
+        'Service' => [
+            'singular' => 'Service',
+            'plural' => 'Services',
+            'fields' => [
+                'group' => 'Group',
+                'name' => 'Name',
+                'summary' => 'Summary',
+            ],
+        ],
     ],
 ];

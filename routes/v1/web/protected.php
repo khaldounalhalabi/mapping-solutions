@@ -23,3 +23,6 @@ Route::resource('/v1/products', v1\ProductController::class)->names('v1.web.prot
 
 Route::get('/v1/market-applications/data', [v1\MarketApplicationController::class, 'data'])->name('v1.web.protected.market.applications.data');
 Route::resource('/v1/market-applications', v1\MarketApplicationController::class)->names('v1.web.protected.market.applications');
+
+Route::get('/v1/services/data', [v1\ServiceController::class, 'data'])->name('v1.web.protected.services.data');
+Route::resource('/v1/services', v1\ServiceController::class)->names('v1.web.protected.services');
