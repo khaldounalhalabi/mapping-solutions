@@ -38,33 +38,33 @@ export function AppSidebar({
         }[];
     }[] = [
         {
-            title: "Product Catalogue",
+            title: t("dashboard.navigation.product_catalogue"),
             icon: <BoxesIcon />,
             children: [
                 {
-                    title: "Suppliers",
+                    title: t("models.supplier.plural"),
                     href: route("v1.web.protected.suppliers.index"),
                     icon: <FactoryIcon />,
                 },
                 {
-                    title: "Product Families",
+                    title: t("models.product_family.plural"),
                     href: route("v1.web.protected.product.families.index"),
                     icon: <FolderTreeIcon />,
                 },
                 {
-                    title: "Product Technologies",
+                    title: t("models.product_technology.plural"),
                     href: route("v1.web.protected.product.technologies.index"),
                     icon: <CircuitBoardIcon />,
                 },
                 {
-                    title: "Products",
+                    title: t("models.product.plural"),
                     href: route("v1.web.protected.products.index"),
                     icon: <PackageIcon />,
                 },
             ],
         },
         {
-            title: "Applications and services",
+            title: t("dashboard.navigation.applications_and_services"),
             icon: <BlocksIcon />,
             children: [
                 {
