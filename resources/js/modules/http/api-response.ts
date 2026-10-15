@@ -1,10 +1,10 @@
 import { PaginationMetaData } from "@/modules/http/types";
 
 class ApiResponse<T> {
-    private readonly _data: T | undefined;
-    private readonly _message: string | undefined;
-    private readonly _code: number;
-    private readonly _status: boolean;
+    private readonly _data:     T | undefined;
+    private readonly _message:  string | undefined;
+    private readonly _code:     number;
+    private readonly _status:   boolean;
     private readonly _paginate: PaginationMetaData | undefined;
 
     constructor(

@@ -5,9 +5,9 @@ import { useTranslation } from "@/hooks/use-translation";
 import WrapContent from "@/components/form/fields/tiptap/style-stored-content";
 
 interface ValueProps extends React.ComponentProps<typeof FieldDescription> {
-    value?: unknown;
+    value?:    unknown;
     children?: ReactNode;
-    html?: boolean;
+    html?:     boolean;
 }
 
 export const DetailItemValue: React.FC<ValueProps> = ({

@@ -18,14 +18,14 @@ import { useTranslation } from "@/hooks/use-translation";
 type Buttons = "delete" | "edit" | "show";
 
 export interface ActionsButtonsProps<Data extends Record<string, any>> {
-    data?: Data;
-    id?: number | string;
-    buttons: Buttons[];
-    children?: ReactNode;
-    baseUrl: string;
+    data?:      Data;
+    id?:        number | string;
+    buttons:    Buttons[];
+    children?:  ReactNode;
+    baseUrl:    string;
     deleteUrl?: string;
-    editUrl?: string;
-    showUrl?: string;
+    editUrl?:   string;
+    showUrl?:   string;
     setHidden?: (value: ((prevState: number[]) => number[]) | number[]) => void;
 }
 

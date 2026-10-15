@@ -64,7 +64,7 @@ Three conventions, explained once here instead of in every recipe:
 ```jsx
 const pan = usePanGesture({
     activeOffsetY: [-10, 10],
-    onActivate: () => {
+    onActivate:    () => {
         context.set(translateY.get());
     },
     onUpdate: (e) => {
@@ -129,9 +129,9 @@ function PressableScale({ onPress, children }) {
 
 const styles = StyleSheet.create({
     box: {
-        transform: [{ scale: 1 }],
-        transitionProperty: "transform",
-        transitionDuration: "120ms",
+        transform:                [{ scale: 1 }],
+        transitionProperty:       "transform",
+        transitionDuration:       "120ms",
         transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)",
     },
     pressed: { transform: [{ scale: 0.97 }] },
@@ -169,9 +169,9 @@ const pan = useMemo(
                         withSpring(
                             HEIGHT,
                             {
-                                duration: 300,
-                                dampingRatio: 1,
-                                velocity: e.velocityY,
+                                duration:          300,
+                                dampingRatio:      1,
+                                velocity:          e.velocityY,
                                 overshootClamping: true,
                             },
                             (finished) => {
@@ -182,9 +182,9 @@ const pan = useMemo(
                 } else {
                     translateY.set(
                         withSpring(0, {
-                            duration: 300,
+                            duration:     300,
                             dampingRatio: 0.8,
-                            velocity: e.velocityY,
+                            velocity:     e.velocityY,
                         }),
                     );
                     scheduleOnRN(
@@ -256,9 +256,9 @@ const pan = useMemo(
                 } else {
                     x.set(
                         withSpring(0, {
-                            duration: 300,
+                            duration:     300,
                             dampingRatio: 1,
-                            velocity: e.velocityX,
+                            velocity:     e.velocityX,
                         }),
                     );
                 }
@@ -374,7 +374,7 @@ useEffect(() => {
 
 const pillStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: x.get() }],
-    width: w.get(),
+    width:     w.get(),
 }));
 ```
 
@@ -393,7 +393,7 @@ Configure the native stack. Never rebuild a screen transition in JS: the native 
     <Stack.Screen
         name="settings"
         options={{
-            animation: "slide_from_right",
+            animation:               "slide_from_right",
             animationMatchesGesture: true,
         }}
     />
@@ -401,7 +401,7 @@ Configure the native stack. Never rebuild a screen transition in JS: the native 
     <Stack.Screen
         name="filter"
         options={{
-            presentation: "formSheet",
+            presentation:        "formSheet",
             sheetAllowedDetents: "fitToContents",
             sheetGrabberVisible: true,
         }}
@@ -440,9 +440,9 @@ const TOAST_EXIT = FadeOutDown.duration(250).easing(EASE_OUT);
     exiting={TOAST_EXIT}
     style={{
         position: "absolute",
-        bottom: insets.bottom + 16,
-        left: 16,
-        right: 16,
+        bottom:   insets.bottom + 16,
+        left:     16,
+        right:    16,
     }}
 />;
 ```

@@ -30,35 +30,35 @@ const Index = () => {
                 Http.make<Product[]>().get(
                     route("v1.web.protected.products.data"),
                     {
-                        page: page,
-                        search: search,
+                        page:     page,
+                        search:   search,
                         sort_col: sortCol,
                         sort_dir: sortDir,
-                        limit: perPage,
+                        limit:    perPage,
                         ...params,
                     },
                 )
             }
             schema={[
                 {
-                    name: "id",
-                    label: t("dashboard.table.id"),
+                    name:     "id",
+                    label:    t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
-                    name: "name",
-                    label: t("models.product.fields.name"),
+                    name:         "name",
+                    label:        t("models.product.fields.name"),
                     translatable: true,
+                    sortable:     true,
+                },
+                {
+                    name:     "price_note",
+                    label:    t("models.product.fields.price_note"),
                     sortable: true,
                 },
                 {
-                    name: "price_note",
-                    label: t("models.product.fields.price_note"),
-                    sortable: true,
-                },
-                {
-                    name: "hero_image",
-                    label: t("models.product.fields.hero_image"),
+                    name:   "hero_image",
+                    label:  t("models.product.fields.hero_image"),
                     render: (cell) => {
                         return (
                             <div className={"size-6 rounded-full"}>
@@ -68,8 +68,8 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "specifications_file",
-                    label: t("models.product.fields.specifications_file"),
+                    name:   "specifications_file",
+                    label:  t("models.product.fields.specifications_file"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -81,8 +81,8 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "datasheet",
-                    label: t("models.product.fields.datasheet"),
+                    name:   "datasheet",
+                    label:  t("models.product.fields.datasheet"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -94,8 +94,8 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "manual",
-                    label: t("models.product.fields.manual"),
+                    name:   "manual",
+                    label:  t("models.product.fields.manual"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -107,8 +107,8 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "brochure",
-                    label: t("models.product.fields.brochure"),
+                    name:   "brochure",
+                    label:  t("models.product.fields.brochure"),
                     render: (cell) => {
                         return cell?.url ? (
                             <a href={cell.url} download>
@@ -120,8 +120,8 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "supplier.name",
-                    label: t("models.product.fields.supplier"),
+                    name:   "supplier.name",
+                    label:  t("models.product.fields.supplier"),
                     render: (_cell, record) => {
                         return (
                             record?.supplier?.name && (
@@ -141,10 +141,10 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "product_family.name",
-                    label: t("models.product.fields.product_family"),
+                    name:         "product_family.name",
+                    label:        t("models.product.fields.product_family"),
                     translatable: true,
-                    render: (_cell, record) => {
+                    render:       (_cell, record) => {
                         return (
                             record?.product_family?.id && (
                                 <Link
@@ -165,10 +165,10 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "product_technology.name",
-                    label: t("models.product.fields.product_technology"),
+                    name:         "product_technology.name",
+                    label:        t("models.product.fields.product_technology"),
                     translatable: true,
-                    render: (_cell, record) => {
+                    render:       (_cell, record) => {
                         return (
                             record?.product_technology?.id && (
                                 <Link
@@ -189,7 +189,7 @@ const Index = () => {
                     },
                 },
                 {
-                    label: t("dashboard.table.options"),
+                    label:  t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

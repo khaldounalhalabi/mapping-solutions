@@ -22,41 +22,41 @@ const Edit = ({ product }: { product: Product }) => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            supplier_id: number;
-            product_family_id?: number;
+            _method?:               "PUT" | "POST";
+            supplier_id:            number;
+            product_family_id?:     number;
             product_technology_id?: number;
-            name: string;
-            price_note?: string;
-            excerpt?: string;
-            overview?: string;
-            key_specs?: string;
-            specifications?: string;
-            applications?: string;
-            external_url?: string;
-            hero_image?: Media | File | null;
-            specifications_file?: Media | File | null;
-            datasheet?: Media | File | null;
-            manual?: Media | File | null;
-            brochure?: Media | null | File;
+            name:                   string;
+            price_note?:            string;
+            excerpt?:               string;
+            overview?:              string;
+            key_specs?:             string;
+            specifications?:        string;
+            applications?:          string;
+            external_url?:          string;
+            hero_image?:            Media | File | null;
+            specifications_file?:   Media | File | null;
+            datasheet?:             Media | File | null;
+            manual?:                Media | File | null;
+            brochure?:              Media | null | File;
         }>
     >({
-        _method: "PUT",
-        name: product?.name,
-        price_note: product?.price_note,
-        brochure: product?.brochure,
-        excerpt: product?.excerpt,
-        overview: product?.overview,
-        key_specs: product?.key_specs,
-        specifications: product?.specifications,
-        applications: product?.applications,
-        external_url: product?.external_url,
-        hero_image: product?.hero_image,
-        specifications_file: product?.specifications_file,
-        datasheet: product?.datasheet,
-        manual: product?.manual,
-        supplier_id: product?.supplier_id,
-        product_family_id: product?.product_family_id,
+        _method:               "PUT",
+        name:                  product?.name,
+        price_note:            product?.price_note,
+        brochure:              product?.brochure,
+        excerpt:               product?.excerpt,
+        overview:              product?.overview,
+        key_specs:             product?.key_specs,
+        specifications:        product?.specifications,
+        applications:          product?.applications,
+        external_url:          product?.external_url,
+        hero_image:            product?.hero_image,
+        specifications_file:   product?.specifications_file,
+        datasheet:             product?.datasheet,
+        manual:                product?.manual,
+        supplier_id:           product?.supplier_id,
+        product_family_id:     product?.product_family_id,
         product_technology_id: product?.product_technology_id,
     });
 

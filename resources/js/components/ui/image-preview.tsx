@@ -7,7 +7,7 @@ interface ImgProps extends Omit<
     "className" | "alt"
 > {
     caption?: string;
-    src: string;
+    src:      string;
 }
 
 const ImagePreview: React.FC<ImgProps> = ({ caption, src, ...props }) => {

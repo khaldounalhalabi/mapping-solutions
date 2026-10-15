@@ -13,14 +13,14 @@ const Edit = ({ service }: { service: Service }) => {
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
-            group: string;
-            name: string;
-            summary: string;
+            group:    string;
+            name:     string;
+            summary:  string;
         }>
     >({
         _method: "PUT",
-        group: service?.group,
-        name: service?.name,
+        group:   service?.group,
+        name:    service?.name,
         summary: service?.summary,
     });
 

@@ -8,13 +8,13 @@ export interface TextEditorProps extends Omit<
     React.HTMLAttributes<HTMLDivElement>,
     "onChange" | "defaultValue"
 > {
-    name: string;
-    label?: string;
-    onChange?: (value: string) => void;
+    name:          string;
+    label?:        string;
+    onChange?:     (value: string) => void;
     defaultValue?: string;
     extraButtons?: (editor: Editor) => React.ReactNode;
-    minHeight?: string;
-    required?: boolean;
+    minHeight?:    string;
+    required?:     boolean;
 }
 
 const TextEditor: React.FC<TextEditorProps> = ({

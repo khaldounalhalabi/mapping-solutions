@@ -19,12 +19,12 @@ type SelectOption<T extends string> = {
 type SelectData<T extends string> = readonly T[] | readonly SelectOption<T>[];
 
 type SelectProps<T extends string> = {
-    data: SelectData<T>;
-    selected?: T;
-    label?: string;
+    data:         SelectData<T>;
+    selected?:    T;
+    label?:       string;
     placeholder?: string;
-    onChange?: (value: T) => void;
-    name?: string;
+    onChange?:    (value: T) => void;
+    name?:        string;
 };
 
 const isOptionObject = <T extends string>(

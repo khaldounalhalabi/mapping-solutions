@@ -15,8 +15,8 @@ import { DownloadIcon, Loader } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 
 interface ImportModalProps {
-    revalidate: () => void;
-    importRoute: string;
+    revalidate:          () => void;
+    importRoute:         string;
     importExampleRoute?: string;
 }
 

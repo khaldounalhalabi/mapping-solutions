@@ -11,8 +11,8 @@ interface TranslatableProps extends Omit<
     "defaultValue" | "onChange" | "onInput"
 > {
     defaultValue?: string | object | Translatable | undefined;
-    label?: string;
-    onChange?: (v: string) => void;
+    label?:        string;
+    onChange?:     (v: string) => void;
 }
 
 const TranslatableTextarea: React.FC<TranslatableProps> = ({

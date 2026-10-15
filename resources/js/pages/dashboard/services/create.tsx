@@ -12,9 +12,9 @@ const Create = () => {
     const { post, setData, processing } = useForm<
         Partial<{
             _method?: "PUT" | "POST";
-            group: string;
-            name: string;
-            summary: string;
+            group:    string;
+            name:     string;
+            summary:  string;
         }>
     >();
 

@@ -13,18 +13,18 @@ const Edit = ({ supplier }: { supplier: Supplier }) => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            name: string;
-            slug: string;
+            _method?:    "PUT" | "POST";
+            name:        string;
+            slug:        string;
             description: string;
-            logo?: Media | File | null;
+            logo?:       Media | File | null;
         }>
     >({
-        _method: "PUT",
-        name: supplier?.name,
-        slug: supplier?.slug,
+        _method:     "PUT",
+        name:        supplier?.name,
+        slug:        supplier?.slug,
         description: supplier?.description,
-        logo: supplier?.logo,
+        logo:        supplier?.logo,
     });
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {

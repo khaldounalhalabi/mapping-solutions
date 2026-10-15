@@ -27,9 +27,9 @@ function ApiSelect<
         TData[TOptionValue],
         TData[TOptionLabel]
     > & {
-        optionValue: TOptionValue;
-        optionLabel?: TOptionLabel;
-        isMultiple?: TMultiple;
+        optionValue:     TOptionValue;
+        optionLabel?:    TOptionLabel;
+        isMultiple?:     TMultiple;
         getOptionValue?: never;
         getOptionLabel?: never;
     },
@@ -49,9 +49,9 @@ function ApiSelect<
         TData[TOptionValue],
         TLabel
     > & {
-        optionValue: TOptionValue;
-        getOptionLabel: (item: TData) => TLabel;
-        isMultiple?: TMultiple;
+        optionValue:     TOptionValue;
+        getOptionLabel:  (item: TData) => TLabel;
+        isMultiple?:     TMultiple;
         getOptionValue?: never;
     },
 ): JSX.Element;
@@ -70,10 +70,10 @@ function ApiSelect<
         TValue,
         TData[TOptionLabel]
     > & {
-        getOptionValue: (item: TData) => TValue;
-        optionLabel?: TOptionLabel;
-        isMultiple?: TMultiple;
-        optionValue?: never;
+        getOptionValue:  (item: TData) => TValue;
+        optionLabel?:    TOptionLabel;
+        isMultiple?:     TMultiple;
+        optionValue?:    never;
         getOptionLabel?: never;
     },
 ): JSX.Element;
@@ -88,7 +88,7 @@ function ApiSelect<
     props: IApiSelectProps<TResponse, TData, TMultiple, TValue, TLabel> & {
         getOptionValue?: (item: TData) => TValue;
         getOptionLabel?: (item: TData) => TLabel;
-        isMultiple?: TMultiple;
+        isMultiple?:     TMultiple;
     },
 ): JSX.Element;
 
@@ -413,7 +413,7 @@ function ApiSelect<
                             : "pointer-events-none scale-95 opacity-0"
                     } ${styles?.dropDownItemsContainerClasses ?? "bg-popover w-full rounded-lg border px-3 pb-3 shadow-2xl"}`}
                     style={{
-                        top: `${(fullContainer?.current?.clientHeight ?? 0) + 5}px`,
+                        top:       `${(fullContainer?.current?.clientHeight ?? 0) + 5}px`,
                         maxHeight: `${styles?.dropDownContainerMaxHeight ?? "200"}px`,
                         overflowY: "scroll",
                     }}

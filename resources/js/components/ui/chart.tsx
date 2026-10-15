@@ -15,7 +15,7 @@ export type ChartConfig = Record<
     string,
     {
         label?: React.ReactNode;
-        icon?: React.ComponentType;
+        icon?:  React.ComponentType;
     } & (
         | { color?: string; theme?: never }
         | { color?: never; theme: Record<keyof typeof THEMES, string> }
@@ -46,12 +46,12 @@ function ChartContainer({
     initialDimension = INITIAL_DIMENSION,
     ...props
 }: React.ComponentProps<"div"> & {
-    config: ChartConfig;
-    children: React.ComponentProps<
+    config:            ChartConfig;
+    children:          React.ComponentProps<
         typeof RechartsPrimitive.ResponsiveContainer
     >["children"];
     initialDimension?: {
-        width: number;
+        width:  number;
         height: number;
     };
 }) {
@@ -131,11 +131,11 @@ function ChartTooltipContent({
     labelKey,
 }: React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
     React.ComponentProps<"div"> & {
-        hideLabel?: boolean;
+        hideLabel?:     boolean;
         hideIndicator?: boolean;
-        indicator?: "line" | "dot" | "dashed";
-        nameKey?: string;
-        labelKey?: string;
+        indicator?:     "line" | "dot" | "dashed";
+        nameKey?:       string;
+        labelKey?:      string;
     } & Omit<
         RechartsPrimitive.DefaultTooltipContentProps<
             TooltipValueType,
@@ -308,7 +308,7 @@ function ChartLegendContent({
     nameKey,
 }: React.ComponentProps<"div"> & {
     hideIcon?: boolean;
-    nameKey?: string;
+    nameKey?:  string;
 } & RechartsPrimitive.DefaultLegendContentProps) {
     const { config } = useChart();
 

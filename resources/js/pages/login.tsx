@@ -15,7 +15,7 @@ import { useTranslation } from "@/hooks/use-translation";
 function Login() {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<{
-        email: string;
+        email:    string;
         password: string;
     }>();
 

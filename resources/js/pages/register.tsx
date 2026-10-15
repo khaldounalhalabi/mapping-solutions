@@ -15,10 +15,10 @@ import { useTranslation } from "@/hooks/use-translation";
 function Register() {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<{
-        first_name: string;
-        last_name: string;
-        email: string;
-        password: string;
+        first_name:            string;
+        last_name:             string;
+        email:                 string;
+        password:              string;
         password_confirmation: string;
     }>();
 

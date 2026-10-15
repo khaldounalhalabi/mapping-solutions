@@ -23,10 +23,10 @@ const ROW_HEIGHT = 40;
 const LIST_HEIGHT = 288; // h-72 = 18rem = 288px
 
 interface IconPickerProps {
-    value?: string;
-    onChange?: (value: string) => void;
+    value?:       string;
+    onChange?:    (value: string) => void;
     placeholder?: string;
-    disabled?: boolean;
+    disabled?:    boolean;
 }
 
 const IconPicker = ({
@@ -47,10 +47,10 @@ const IconPicker = ({
     }, [search]);
 
     const virtualizer = useVirtualizer({
-        count: filteredIcons.length,
+        count:            filteredIcons.length,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => ROW_HEIGHT,
-        overscan: 10,
+        estimateSize:     () => ROW_HEIGHT,
+        overscan:         10,
     });
 
     // Store virtualizer in a ref so we can call measure() in effects
@@ -155,8 +155,8 @@ const IconPicker = ({
                     >
                         <div
                             style={{
-                                height: `${virtualizer.getTotalSize()}px`,
-                                width: "100%",
+                                height:   `${virtualizer.getTotalSize()}px`,
+                                width:    "100%",
                                 position: "relative",
                             }}
                         >
@@ -171,11 +171,11 @@ const IconPicker = ({
                                         type="button"
                                         onClick={() => handleSelect(iconName)}
                                         style={{
-                                            position: "absolute",
-                                            top: 0,
-                                            left: 0,
-                                            width: "100%",
-                                            height: `${ROW_HEIGHT}px`,
+                                            position:  "absolute",
+                                            top:       0,
+                                            left:      0,
+                                            width:     "100%",
+                                            height:    `${ROW_HEIGHT}px`,
                                             transform: `translateY(${virtualItem.start}px)`,
                                         }}
                                         className={cn(

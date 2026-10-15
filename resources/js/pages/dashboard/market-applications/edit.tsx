@@ -18,17 +18,17 @@ const Edit = ({
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            name: string;
-            icon_key: string;
-            summary: string;
+            _method?:    "PUT" | "POST";
+            name:        string;
+            icon_key:    string;
+            summary:     string;
             description: string;
         }>
     >({
-        _method: "PUT",
-        name: marketApplication?.name,
-        icon_key: marketApplication?.icon_key,
-        summary: marketApplication?.summary,
+        _method:     "PUT",
+        name:        marketApplication?.name,
+        icon_key:    marketApplication?.icon_key,
+        summary:     marketApplication?.summary,
         description: marketApplication?.description,
     });
 

@@ -26,35 +26,35 @@ const Index = () => {
                 Http.make<Service[]>().get(
                     route("v1.web.protected.services.data"),
                     {
-                        page: page,
-                        search: search,
+                        page:     page,
+                        search:   search,
                         sort_col: sortCol,
                         sort_dir: sortDir,
-                        limit: perPage,
+                        limit:    perPage,
                         ...params,
                     },
                 )
             }
             schema={[
                 {
-                    name: "id",
-                    label: t("dashboard.table.id"),
+                    name:     "id",
+                    label:    t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
-                    name: "group",
-                    label: t("models.Service.fields.group"),
+                    name:         "group",
+                    label:        t("models.Service.fields.group"),
                     translatable: true,
-                    sortable: true,
+                    sortable:     true,
                 },
                 {
-                    name: "name",
-                    label: t("models.Service.fields.name"),
+                    name:         "name",
+                    label:        t("models.Service.fields.name"),
                     translatable: true,
-                    sortable: true,
+                    sortable:     true,
                 },
                 {
-                    label: t("dashboard.table.options"),
+                    label:  t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

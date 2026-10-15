@@ -16,7 +16,7 @@ import { useTranslation } from "@/hooks/use-translation";
 
 interface TableGridSelectorProps {
     onSelection: (rows: number, columns: number) => void;
-    maxRows?: number;
+    maxRows?:    number;
     maxColumns?: number;
 }
 
@@ -70,7 +70,7 @@ const TableGridSelector: React.FC<TableGridSelectorProps> = ({
                 <p className="mt-4 text-sm">
                     {hoveredRow > 0 && hoveredColumn > 0
                         ? t("dashboard.editor.selected_grid", {
-                              rows: hoveredRow,
+                              rows:    hoveredRow,
                               columns: hoveredColumn,
                           })
                         : t("dashboard.editor.select_grid")}
@@ -106,8 +106,8 @@ export const TableButtons = ({ editor }: { editor: Editor }) => {
                                         .chain()
                                         .focus()
                                         .insertTable({
-                                            rows: rows,
-                                            cols: columns,
+                                            rows:          rows,
+                                            cols:          columns,
                                             withHeaderRow: true,
                                         })
                                         .run();

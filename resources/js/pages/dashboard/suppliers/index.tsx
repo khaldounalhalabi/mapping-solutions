@@ -26,33 +26,33 @@ const Index = () => {
                 Http.make<Supplier[]>().get(
                     route("v1.web.protected.suppliers.data"),
                     {
-                        page: page,
-                        search: search,
+                        page:     page,
+                        search:   search,
                         sort_col: sortCol,
                         sort_dir: sortDir,
-                        limit: perPage,
+                        limit:    perPage,
                         ...params,
                     },
                 )
             }
             schema={[
                 {
-                    name: "id",
-                    label: t("dashboard.table.id"),
+                    name:     "id",
+                    label:    t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
-                    name: "name",
-                    label: t("models.supplier.fields.name"),
+                    name:     "name",
+                    label:    t("models.supplier.fields.name"),
                     sortable: true,
                 },
                 {
-                    name: "logo",
-                    label: t("models.supplier.fields.logo"),
+                    name:   "logo",
+                    label:  t("models.supplier.fields.logo"),
                     render: (data) => <ImagePreview src={data?.url} />,
                 },
                 {
-                    label: t("dashboard.table.options"),
+                    label:  t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

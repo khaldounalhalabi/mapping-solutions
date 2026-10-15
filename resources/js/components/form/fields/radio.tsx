@@ -9,11 +9,11 @@ import {
 } from "@/components/ui/field";
 
 interface IRadioProps<VALUE extends string | number> {
-    name: string;
-    items: { label?: string; value: VALUE }[];
-    checked?: ((value: VALUE) => boolean) | string;
+    name:      string;
+    items:     { label?: string; value: VALUE }[];
+    checked?:  ((value: VALUE) => boolean) | string;
     onChange?: (e: VALUE) => void;
-    label?: string;
+    label?:    string;
 }
 
 const Radio = <VALUE extends string | number>({

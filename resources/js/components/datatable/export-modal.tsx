@@ -18,7 +18,7 @@ import { TableIcon } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 
 interface ExportModalProps {
-    schema: TableSchema<any>[];
+    schema:       TableSchema<any>[];
     exportRoute?: string;
     exportables?: string[];
 }

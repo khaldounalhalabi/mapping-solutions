@@ -12,21 +12,21 @@ export interface IApiSelectProps<
     TValue = any,
     TLabel = any,
 > {
-    api: (
+    api:             (
         page?: number,
         search?: string,
         isLast?: boolean,
         totalPages?: number,
     ) => Promise<TResponse>;
-    isMultiple?: TMultiple;
-    optionLabel?: keyof TData;
-    optionValue?: keyof TData;
-    getDataArray: (response: TResponse) => TData[];
+    isMultiple?:     TMultiple;
+    optionLabel?:    keyof TData;
+    optionValue?:    keyof TData;
+    getDataArray:    (response: TResponse) => TData[];
     getOptionLabel?: (item: TData) => TLabel;
     getOptionValue?: (item: TData) => TValue;
-    getIsLast: (data: TResponse) => boolean;
-    getTotalPages: (data: TResponse) => number;
-    onSelect?: (
+    getIsLast:       (data: TResponse) => boolean;
+    getTotalPages:   (data: TResponse) => number;
+    onSelect?:       (
         selectedItem?: TData,
         selected?: Option<TValue, TLabel>[],
         setSelected?: React.Dispatch<
@@ -36,32 +36,32 @@ export interface IApiSelectProps<
     ) => void;
     defaultValue?:
         TData[] | Option<TValue, TLabel>[] | TData | Option<TValue, TLabel>;
-    placeHolder?: string;
-    label?: string;
-    name?: string;
-    closeOnSelect?: boolean;
-    clearable?: boolean;
-    styles?: {
-        labelClasses?: string;
-        selectedItemsBadgeClasses?: string;
-        searchInputClasses?: string;
-        loadingIcon?: () => ReactNode;
-        selectedDropDownItemClasses?: string;
-        dropDownItemClasses?: string;
-        selectClasses?: string;
+    placeHolder?:    string;
+    label?:          string;
+    name?:           string;
+    closeOnSelect?:  boolean;
+    clearable?:      boolean;
+    styles?:         {
+        labelClasses?:                  string;
+        selectedItemsBadgeClasses?:     string;
+        searchInputClasses?:            string;
+        loadingIcon?:                   () => ReactNode;
+        selectedDropDownItemClasses?:   string;
+        dropDownItemClasses?:           string;
+        selectClasses?:                 string;
         dropDownItemsContainerClasses?: string;
-        dropDownContainerMaxHeight?: number;
+        dropDownContainerMaxHeight?:    number;
     };
-    onChange?: TMultiple extends true
+    onChange?:         TMultiple extends true
         ? (value: Option<TValue, TLabel>[]) => void
         : (value: Option<TValue, TLabel> | undefined) => void;
     revalidateOnOpen?: boolean;
-    getNextPage?: (
+    getNextPage?:      (
         prevPage: number,
         isLast: boolean,
         totalPages: number,
     ) => number;
-    required?: boolean;
+    required?:         boolean;
 }
 
 export interface SelectInputProps extends Omit<
@@ -70,36 +70,36 @@ export interface SelectInputProps extends Omit<
 > {}
 
 export interface ISelectProps<TData> {
-    data: TData[];
-    isMultiple?: boolean;
-    optionLabel?: keyof TData;
-    optionValue?: keyof TData;
+    data:            TData[];
+    isMultiple?:     boolean;
+    optionLabel?:    keyof TData;
+    optionValue?:    keyof TData;
     getOptionLabel?: (item: TData) => TData | any;
     getOptionValue?: (item: TData) => TData | any;
-    onSelect?: (
+    onSelect?:       (
         selectedItem?: TData,
         selected?: Option[],
         setSelected?: React.Dispatch<React.SetStateAction<Option[]>>,
         event?: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => void;
-    defaultValue?: TData[] | Option[] | TData | Option;
-    placeHolder?: string;
-    label?: string;
-    name?: string;
-    closeOnSelect?: boolean;
-    clearable?: boolean;
-    styles?: {
-        labelClasses?: string;
-        selectedItemsBadgeClasses?: string;
-        searchInputClasses?: string;
-        loadingIcon?: () => ReactNode;
+    defaultValue?:   TData[] | Option[] | TData | Option;
+    placeHolder?:    string;
+    label?:          string;
+    name?:           string;
+    closeOnSelect?:  boolean;
+    clearable?:      boolean;
+    styles?:         {
+        labelClasses?:                string;
+        selectedItemsBadgeClasses?:   string;
+        searchInputClasses?:          string;
+        loadingIcon?:                 () => ReactNode;
         selectedDropDownItemClasses?: string;
-        dropDownItemClasses?: string;
-        selectClasses?: string;
-        dropDownItemsContainer?: string;
-        dropDownContainerMaxHeight?: number;
+        dropDownItemClasses?:         string;
+        selectClasses?:               string;
+        dropDownItemsContainer?:      string;
+        dropDownContainerMaxHeight?:  number;
     };
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?:   (e: React.ChangeEvent<HTMLInputElement>) => void;
     inputProps?: SelectInputProps;
-    required?: boolean;
+    required?:   boolean;
 }

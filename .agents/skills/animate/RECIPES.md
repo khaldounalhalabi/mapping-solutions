@@ -327,8 +327,8 @@ element.animate(
     [{ clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0 0)" }],
     {
         duration: 1000,
-        fill: "forwards",
-        easing: "cubic-bezier(0.77, 0, 0.175, 1)",
+        fill:     "forwards",
+        easing:   "cubic-bezier(0.77, 0, 0.175, 1)",
     },
 );
 ```

@@ -4,12 +4,12 @@ import { FC, useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
 
 interface FormIconPickerProps {
-    label?: string;
-    name: string;
+    label?:        string;
+    name:          string;
     defaultValue?: string;
-    placeholder?: string;
-    required?: boolean;
-    onChange?: (icon: string | undefined) => void;
+    placeholder?:  string;
+    required?:     boolean;
+    onChange?:     (icon: string | undefined) => void;
 }
 
 const FormIconPicker: FC<FormIconPickerProps> = ({

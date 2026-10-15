@@ -14,13 +14,13 @@ const Edit = ({ productFamily }: { productFamily: ProductFamily }) => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
+            _method?:    "PUT" | "POST";
             supplier_id: number;
-            name: string;
+            name:        string;
         }>
     >({
-        _method: "PUT",
-        name: productFamily?.name,
+        _method:     "PUT",
+        name:        productFamily?.name,
         supplier_id: productFamily?.supplier_id,
     });
 

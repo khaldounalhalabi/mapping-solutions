@@ -193,7 +193,7 @@ const y = useSharedValue(reduced ? 0 : SHEET_HEIGHT);
 
 // or let each animation decide
 withSpring(0, {
-    duration: 300,
+    duration:     300,
     dampingRatio: 0.8,
     reduceMotion: ReduceMotion.System,
 });

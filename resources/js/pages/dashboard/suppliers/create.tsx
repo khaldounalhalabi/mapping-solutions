@@ -13,11 +13,11 @@ const Create = () => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            name: string;
-            slug: string;
+            _method?:    "PUT" | "POST";
+            name:        string;
+            slug:        string;
             description: string;
-            logo?: Media | File | null;
+            logo?:       Media | File | null;
         }>
     >();
 

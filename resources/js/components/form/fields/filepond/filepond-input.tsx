@@ -17,7 +17,7 @@ export type MediaInput = File | Media;
 
 function toInitialFile(file: Media): FilePondInitialFile {
     return {
-        source: file?.url,
+        source:  file?.url,
         options: {
             type: "local",
             file: {
@@ -44,13 +44,13 @@ function FilepondInput({
     defaultValue,
     process,
 }: {
-    name: string;
-    isMultiple: true;
-    label?: string;
+    name:               string;
+    isMultiple:         true;
+    label?:             string;
     acceptedFileTypes?: string[];
-    onChange?: (file: MediaInput[] | null) => void;
-    defaultValue?: Media[];
-    process?: string | ServerUrl | ProcessServerConfigFunction | null;
+    onChange?:          (file: MediaInput[] | null) => void;
+    defaultValue?:      Media[];
+    process?:           string | ServerUrl | ProcessServerConfigFunction | null;
 }): JSX.Element;
 
 function FilepondInput({
@@ -62,13 +62,13 @@ function FilepondInput({
     defaultValue,
     process,
 }: {
-    name: string;
-    isMultiple?: false | undefined;
-    label?: string;
+    name:               string;
+    isMultiple?:        false | undefined;
+    label?:             string;
     acceptedFileTypes?: string[];
-    onChange?: (file: MediaInput | null) => void;
-    defaultValue?: Media;
-    process?: string | ServerUrl | ProcessServerConfigFunction | null;
+    onChange?:          (file: MediaInput | null) => void;
+    defaultValue?:      Media;
+    process?:           string | ServerUrl | ProcessServerConfigFunction | null;
 }): JSX.Element;
 
 function FilepondInput({
@@ -80,15 +80,15 @@ function FilepondInput({
     defaultValue = [],
     process,
 }: {
-    name: string;
-    isMultiple?: boolean;
-    label?: string;
+    name:               string;
+    isMultiple?:        boolean;
+    label?:             string;
     acceptedFileTypes?: string[];
     onChange?:
         | ((file: MediaInput[] | null) => void)
         | ((file: MediaInput | null) => void);
-    defaultValue?: Media[] | Media;
-    process?: string | ServerUrl | ProcessServerConfigFunction | null;
+    defaultValue?:      Media[] | Media;
+    process?:           string | ServerUrl | ProcessServerConfigFunction | null;
 }): JSX.Element {
     const { t } = useTranslation();
     defaultValue = defaultValue

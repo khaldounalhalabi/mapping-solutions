@@ -168,7 +168,7 @@ const rotation = mouseX * 0.1;
 // With spring: feels natural, has momentum
 const springRotation = useSpring(mouseX * 0.1, {
     stiffness: 100,
-    damping: 10,
+    damping:   10,
 });
 ```
 
@@ -527,8 +527,8 @@ element.animate(
     [{ clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0 0)" }],
     {
         duration: 1000,
-        fill: "forwards",
-        easing: "cubic-bezier(0.77, 0, 0.175, 1)",
+        fill:     "forwards",
+        easing:   "cubic-bezier(0.77, 0, 0.175, 1)",
     },
 );
 ```

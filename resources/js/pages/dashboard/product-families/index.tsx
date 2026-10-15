@@ -27,30 +27,30 @@ const Index = () => {
                 Http.make<ProductFamily[]>().get(
                     route("v1.web.protected.product.families.data"),
                     {
-                        page: page,
-                        search: search,
+                        page:     page,
+                        search:   search,
                         sort_col: sortCol,
                         sort_dir: sortDir,
-                        limit: perPage,
+                        limit:    perPage,
                         ...params,
                     },
                 )
             }
             schema={[
                 {
-                    name: "id",
-                    label: t("dashboard.table.id"),
+                    name:     "id",
+                    label:    t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
-                    name: "name",
-                    label: t("models.product_family.fields.name"),
+                    name:         "name",
+                    label:        t("models.product_family.fields.name"),
                     translatable: true,
-                    sortable: true,
+                    sortable:     true,
                 },
                 {
-                    name: "supplier.name",
-                    label: t("models.product_family.fields.supplier_name"),
+                    name:   "supplier.name",
+                    label:  t("models.product_family.fields.supplier_name"),
                     render: (_cell, record) => {
                         return (
                             record?.supplier_id && (
@@ -70,7 +70,7 @@ const Index = () => {
                     },
                 },
                 {
-                    label: t("dashboard.table.options"),
+                    label:  t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

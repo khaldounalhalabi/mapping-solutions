@@ -27,9 +27,9 @@ export function NavMain({
     items,
 }: {
     items: {
-        title: string;
-        href?: string;
-        icon?: ReactNode;
+        title:     string;
+        href?:     string;
+        icon?:     ReactNode;
         children?: {
             title: string;
             href?: string;
@@ -102,8 +102,8 @@ const SidebarCompactItem = ({
     item,
 }: {
     item: {
-        title: string;
-        icon?: ReactNode;
+        title:     string;
+        icon?:     ReactNode;
         children?: {
             title: string;
             href?: string;

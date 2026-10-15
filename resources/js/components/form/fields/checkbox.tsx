@@ -10,13 +10,13 @@ import {
 } from "@/components/ui/field";
 
 interface ICheckboxProps {
-    name: string;
-    items?: { label?: string; value: string | number }[];
+    name:      string;
+    items?:    { label?: string; value: string | number }[];
     checked?:
         boolean | string[] | number[] | ((value: string | number) => boolean);
     onChange?: (value: boolean | (string | number)[]) => void;
-    label?: string;
-    value?: string | number;
+    label?:    string;
+    value?:    string | number;
 }
 
 const Checkbox: React.FC<ICheckboxProps> = ({

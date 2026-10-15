@@ -13,10 +13,10 @@ const Create = () => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            name: string;
-            icon_key: string;
-            summary: string;
+            _method?:    "PUT" | "POST";
+            name:        string;
+            icon_key:    string;
+            summary:     string;
             description: string;
         }>
     >();

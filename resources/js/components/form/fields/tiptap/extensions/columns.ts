@@ -3,9 +3,9 @@ import { TextSelection } from "prosemirror-state";
 
 // Column node (can contain any block, including columns for nesting)
 const Column = Node.create({
-    name: "column",
-    group: "block",
-    content: "block+",
+    name:      "column",
+    group:     "block",
+    content:   "block+",
     isolating: true,
     parseHTML() {
         return [
@@ -19,7 +19,7 @@ const Column = Node.create({
             "div",
             mergeAttributes(HTMLAttributes, {
                 "data-type": "column",
-                style: "flex: 1 1 0; min-width: 0;",
+                style:       "flex: 1 1 0; min-width: 0;",
             }),
             0,
         ];
@@ -28,9 +28,9 @@ const Column = Node.create({
 
 // Columns node (can contain any number of columns)
 const Columns = Node.create({
-    name: "columns",
-    group: "block",
-    content: "column+",
+    name:      "columns",
+    group:     "block",
+    content:   "column+",
     isolating: true,
     parseHTML() {
         return [
@@ -44,7 +44,7 @@ const Columns = Node.create({
             "div",
             mergeAttributes(HTMLAttributes, {
                 "data-type": "columns",
-                style: "display: flex; gap: 1em; width: 100%;",
+                style:       "display: flex; gap: 1em; width: 100%;",
             }),
             0,
         ];

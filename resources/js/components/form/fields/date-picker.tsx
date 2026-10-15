@@ -19,15 +19,15 @@ export interface DatePickerProps extends Omit<
     CalendarProps,
     "mode" | "selected" | "onSelect"
 > {
-    name: string;
-    label?: string;
-    placeholder?: string;
-    value?: Date | string;
+    name:          string;
+    label?:        string;
+    placeholder?:  string;
+    value?:        Date | string;
     defaultValue?: Date | string;
-    onChange?: (date: Date | undefined) => void;
-    required?: boolean;
-    disabled?: boolean;
-    className?: string;
+    onChange?:     (date: Date | undefined) => void;
+    required?:     boolean;
+    disabled?:     boolean;
+    className?:    string;
 }
 
 function normalizeDate(value: Date | string | undefined): Date | undefined {

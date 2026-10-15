@@ -10,10 +10,10 @@ interface TranslatableProps extends Omit<
     React.ComponentProps<typeof TextEditor>,
     "defaultValue" | "onChange"
 > {
-    name: string;
+    name:          string;
     defaultValue?: string | object | Translatable | undefined;
-    label?: string;
-    onChange?: (v: string) => void;
+    label?:        string;
+    onChange?:     (v: string) => void;
 }
 
 const TranslatableTextEditor: React.FC<TranslatableProps> = ({

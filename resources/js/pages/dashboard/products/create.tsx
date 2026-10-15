@@ -21,23 +21,23 @@ const Create = () => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            supplier_id: number;
-            product_family_id?: number;
+            _method?:               "PUT" | "POST";
+            supplier_id:            number;
+            product_family_id?:     number;
             product_technology_id?: number;
-            name: string;
-            price_note?: string;
-            excerpt?: string;
-            overview?: string;
-            key_specs?: string;
-            specifications?: string;
-            applications?: string;
-            external_url?: string;
-            brochure?: Media | File | null;
-            hero_image?: Media | File | null;
-            specifications_file?: Media | File | null;
-            datasheet?: Media | File | null;
-            manual?: Media | File | null;
+            name:                   string;
+            price_note?:            string;
+            excerpt?:               string;
+            overview?:              string;
+            key_specs?:             string;
+            specifications?:        string;
+            applications?:          string;
+            external_url?:          string;
+            brochure?:              Media | File | null;
+            hero_image?:            Media | File | null;
+            specifications_file?:   Media | File | null;
+            datasheet?:             Media | File | null;
+            manual?:                Media | File | null;
         }>
     >();
 

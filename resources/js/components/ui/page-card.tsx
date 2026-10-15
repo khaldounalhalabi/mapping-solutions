@@ -14,10 +14,10 @@ const PageCard = ({
     actions,
     description,
 }: {
-    children?: ReactNode;
-    title?: string;
+    children?:    ReactNode;
+    title?:       string;
     description?: string;
-    actions?: ReactNode[] | ReactNode;
+    actions?:     ReactNode[] | ReactNode;
 }) => {
     return (
         <Card>

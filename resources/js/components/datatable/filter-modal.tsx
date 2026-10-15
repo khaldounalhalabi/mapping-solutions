@@ -12,11 +12,11 @@ import { FilterIcon } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 
 interface FilterModalProps {
-    open: boolean;
+    open:         boolean;
     onOpenChange: (open: boolean) => void;
-    children?: React.ReactNode;
-    onReset: () => void;
-    onApply: () => void;
+    children?:    React.ReactNode;
+    onReset:      () => void;
+    onApply:      () => void;
 }
 
 function FilterModal({

@@ -3,7 +3,7 @@ import ApiResponse from "@/modules/http/api-response";
 class Http<RESPONSE extends any = any> {
     private static instance: Http | undefined = undefined;
     private baseHeaders = {
-        Accept: "application/html",
+        Accept:            "application/html",
         "Accept-Language": window.localStorage.getItem("locale") ?? "en",
     };
     private isFile = false;
@@ -204,7 +204,7 @@ class Http<RESPONSE extends any = any> {
             this.addCsrfIfNeeded(method);
 
             const config: RequestInit = {
-                method: method,
+                method:  method,
                 headers: {
                     ...headers,
                     ...this.baseHeaders,

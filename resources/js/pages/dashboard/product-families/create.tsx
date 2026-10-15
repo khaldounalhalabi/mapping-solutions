@@ -13,9 +13,9 @@ const Create = () => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
+            _method?:    "PUT" | "POST";
             supplier_id: number;
-            name: string;
+            name:        string;
         }>
     >();
 

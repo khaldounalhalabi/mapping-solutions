@@ -29,9 +29,9 @@ export function AppSidebar({
 }: React.ComponentProps<typeof ShadcnSidebar>) {
     const { t } = useTranslation();
     const sidebarItems: {
-        title: string;
-        href?: string;
-        icon?: React.ReactNode;
+        title:     string;
+        href?:     string;
+        icon?:     React.ReactNode;
         children?: {
             title: string;
             href?: string;
@@ -39,44 +39,44 @@ export function AppSidebar({
         }[];
     }[] = [
         {
-            title: t("dashboard.navigation.product_catalogue"),
-            icon: <BoxesIcon />,
+            title:    t("dashboard.navigation.product_catalogue"),
+            icon:     <BoxesIcon />,
             children: [
                 {
                     title: t("models.supplier.plural"),
-                    href: route("v1.web.protected.suppliers.index"),
-                    icon: <FactoryIcon />,
+                    href:  route("v1.web.protected.suppliers.index"),
+                    icon:  <FactoryIcon />,
                 },
                 {
                     title: t("models.product_family.plural"),
-                    href: route("v1.web.protected.product.families.index"),
-                    icon: <FolderTreeIcon />,
+                    href:  route("v1.web.protected.product.families.index"),
+                    icon:  <FolderTreeIcon />,
                 },
                 {
                     title: t("models.product_technology.plural"),
-                    href: route("v1.web.protected.product.technologies.index"),
-                    icon: <CircuitBoardIcon />,
+                    href:  route("v1.web.protected.product.technologies.index"),
+                    icon:  <CircuitBoardIcon />,
                 },
                 {
                     title: t("models.product.plural"),
-                    href: route("v1.web.protected.products.index"),
-                    icon: <PackageIcon />,
+                    href:  route("v1.web.protected.products.index"),
+                    icon:  <PackageIcon />,
                 },
             ],
         },
         {
-            title: t("dashboard.navigation.applications_and_services"),
-            icon: <BlocksIcon />,
+            title:    t("dashboard.navigation.applications_and_services"),
+            icon:     <BlocksIcon />,
             children: [
                 {
                     title: t("models.MarketApplication.plural"),
-                    href: route("v1.web.protected.market.applications.index"),
-                    icon: <WrenchIcon />,
+                    href:  route("v1.web.protected.market.applications.index"),
+                    icon:  <WrenchIcon />,
                 },
                 {
                     title: t("models.Service.plural"),
-                    href: route("v1.web.protected.services.index"),
-                    icon: <Layers3Icon />,
+                    href:  route("v1.web.protected.services.index"),
+                    icon:  <Layers3Icon />,
                 },
             ],
         },

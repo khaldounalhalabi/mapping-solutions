@@ -325,8 +325,8 @@ export const YoutubeButton = ({ editor }: { editor: Editor }) => {
                         onClick={() => {
                             if (url) {
                                 editor.commands.setYoutubeVideo({
-                                    src: url,
-                                    width: 640,
+                                    src:    url,
+                                    width:  640,
                                     height: 480,
                                 });
                             }

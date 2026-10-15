@@ -4,7 +4,7 @@ import "../css/cubeta-starter.css";
 import Layout from "@/components/layouts/layout";
 
 createInertiaApp({
-    layout: (name) => (authPages.includes(name) ? AuthLayout : Layout),
+    layout:   (name) => (authPages.includes(name) ? AuthLayout : Layout),
     defaults: {
         visitOptions: () => {
             return { viewTransition: true };

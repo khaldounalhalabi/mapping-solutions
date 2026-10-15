@@ -27,26 +27,26 @@ const Index = () => {
                 Http.make<ProductTechnology[]>().get(
                     route("v1.web.protected.product.technologies.data"),
                     {
-                        page: page,
-                        search: search,
+                        page:     page,
+                        search:   search,
                         sort_col: sortCol,
                         sort_dir: sortDir,
-                        limit: perPage,
+                        limit:    perPage,
                         ...params,
                     },
                 )
             }
             schema={[
                 {
-                    name: "id",
-                    label: t("dashboard.table.id"),
+                    name:     "id",
+                    label:    t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
-                    name: "name",
-                    label: t("models.product_technology.fields.name"),
+                    name:         "name",
+                    label:        t("models.product_technology.fields.name"),
                     translatable: true,
-                    sortable: true,
+                    sortable:     true,
                     render(data) {
                         return (
                             <span
@@ -60,7 +60,7 @@ const Index = () => {
                     },
                 },
                 {
-                    name: "icon",
+                    name:  "icon",
                     label: t("models.product_technology.fields.icon"),
                     render(_data, record) {
                         if (record?.icon_key) {
@@ -72,7 +72,7 @@ const Index = () => {
                     },
                 },
                 {
-                    label: t("dashboard.table.options"),
+                    label:  t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

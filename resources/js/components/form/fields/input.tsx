@@ -7,7 +7,7 @@ import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { useTranslation } from "@/hooks/use-translation";
 
 export interface InputProps extends React.ComponentProps<"input"> {
-    name: string;
+    name:   string;
     label?: string;
 }
 

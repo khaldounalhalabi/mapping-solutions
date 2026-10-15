@@ -53,8 +53,8 @@ import React, {
 import "./tiptap.css";
 
 interface IProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
-    onChange?: (value: string) => void;
-    minHeight?: string;
+    onChange?:     (value: string) => void;
+    minHeight?:    string;
     defaultValue?: string;
     extraButtons?: (editor: Editor) => React.ReactNode;
 }
@@ -132,7 +132,7 @@ const TiptapEditor: React.FC<IProps> = ({
                 slotAfter={<TiptapFooter />}
                 editorContainerProps={{
                     className: "border p-4 rounded-lg",
-                    onClick: (e) => {
+                    onClick:   (e) => {
                         e.preventDefault();
                         const proseMirrorNode =
                             // @ts-ignore

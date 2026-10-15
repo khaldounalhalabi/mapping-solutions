@@ -16,17 +16,17 @@ type IconType = "key" | "file" | null;
 
 const iconOptions = [
     {
-        value: "key",
-        title: "models.product_technology.icon_source.library",
+        value:       "key",
+        title:       "models.product_technology.icon_source.library",
         description:
             "models.product_technology.icon_source.library_description",
-        icon: Shapes,
+        icon:        Shapes,
     },
     {
-        value: "file",
-        title: "models.product_technology.icon_source.upload",
+        value:       "file",
+        title:       "models.product_technology.icon_source.upload",
         description: "models.product_technology.icon_source.upload_description",
-        icon: Images,
+        icon:        Images,
     },
 ] as const;
 
@@ -45,13 +45,13 @@ const Edit = ({
     const [iconType, setIconType] = useState<IconType>(initialIconType);
 
     const { post, setData, processing } = useForm<{
-        _method: "PUT";
-        name: string;
+        _method:   "PUT";
+        name:      string;
         icon_key?: string;
-        icon: Media | File | null;
+        icon:      Media | File | null;
     }>({
-        _method: "PUT",
-        name: productTechnology.name,
+        _method:  "PUT",
+        name:     productTechnology.name,
         icon_key:
             initialIconType === "key" ? (productTechnology.icon_key ?? "") : "",
         icon:
@@ -68,7 +68,7 @@ const Edit = ({
         setData((previous) => ({
             ...previous,
             icon_key: "",
-            icon: null,
+            icon:     null,
         }));
     };
 

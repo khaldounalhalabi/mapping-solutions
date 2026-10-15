@@ -15,6 +15,7 @@
         ]
     },
     "devDependencies": {
+        "@huggingface/prettier-plugin-vertical-align": "^0.3.1",
         "@tailwindcss/vite": "^4.0.0",
         "concurrently": "^10.0.3",
         "laravel-vite-plugin": "^3.1",

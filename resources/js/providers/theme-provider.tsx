@@ -3,18 +3,18 @@ import { createContext, useContext, useEffect, useState } from "react";
 type Theme = "dark" | "light" | "system";
 
 type ThemeProviderProps = {
-    children: React.ReactNode;
+    children:      React.ReactNode;
     defaultTheme?: Theme;
-    storageKey?: string;
+    storageKey?:   string;
 };
 
 type ThemeProviderState = {
-    theme: Theme;
+    theme:    Theme;
     setTheme: (theme: Theme) => void;
 };
 
 const initialState: ThemeProviderState = {
-    theme: "system",
+    theme:    "system",
     setTheme: () => null,
 };
 

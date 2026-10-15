@@ -4,7 +4,7 @@ import React from "react";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 
 export interface TextareaProps extends React.ComponentProps<"textarea"> {
-    name: string;
+    name:   string;
     label?: string;
 }
 

@@ -7,7 +7,7 @@ import path from "node:path";
 export default defineConfig(({ command }) => ({
     plugins: [
         laravel({
-            input: ["resources/js/cubeta-starter.tsx"],
+            input:   ["resources/js/cubeta-starter.tsx"],
             refresh: true,
         }),
         inertia(),

@@ -61,12 +61,12 @@ const UserOverview = ({ user }: { user: User }) => {
 const EditProfile = ({ user }: { user: User }) => {
     const { t } = useTranslation();
     const { put, setData, processing } = useForm<{
-        first_name?: string;
-        last_name?: string;
-        email?: string;
-        password?: string;
+        first_name?:            string;
+        last_name?:             string;
+        email?:                 string;
+        password?:              string;
         password_confirmation?: string;
-        _method: "POST" | "PUT";
+        _method:                "POST" | "PUT";
     }>({
         ...user,
         _method: "PUT",

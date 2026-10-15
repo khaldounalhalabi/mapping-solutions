@@ -11,9 +11,9 @@ const Form = ({
     buttonText,
     backButton = true,
 }: {
-    onSubmit: SubmitEventHandler<HTMLFormElement>;
+    onSubmit:    SubmitEventHandler<HTMLFormElement>;
     processing?: boolean;
-    children?: ReactNode;
+    children?:   ReactNode;
     buttonText?: string;
     backButton?: boolean;
 }) => {

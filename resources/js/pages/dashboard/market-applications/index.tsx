@@ -27,35 +27,35 @@ const Index = () => {
                 Http.make<MarketApplication[]>().get(
                     route("v1.web.protected.market.applications.data"),
                     {
-                        page: page,
-                        search: search,
+                        page:     page,
+                        search:   search,
                         sort_col: sortCol,
                         sort_dir: sortDir,
-                        limit: perPage,
+                        limit:    perPage,
                         ...params,
                     },
                 )
             }
             schema={[
                 {
-                    name: "id",
-                    label: t("dashboard.table.id"),
+                    name:     "id",
+                    label:    t("dashboard.table.id"),
                     sortable: true,
                 },
                 {
-                    name: "name",
-                    label: t("models.MarketApplication.fields.name"),
+                    name:         "name",
+                    label:        t("models.MarketApplication.fields.name"),
                     translatable: true,
-                    sortable: true,
+                    sortable:     true,
                 },
                 {
-                    name: "icon_key",
-                    label: t("models.MarketApplication.fields.icon_key"),
+                    name:     "icon_key",
+                    label:    t("models.MarketApplication.fields.icon_key"),
                     sortable: true,
-                    render: (data) => <DynamicIcon name={data} />,
+                    render:   (data) => <DynamicIcon name={data} />,
                 },
                 {
-                    label: t("dashboard.table.options"),
+                    label:  t("dashboard.table.options"),
                     render: (_data, record, setHidden) => (
                         <ActionsButtons
                             buttons={["delete", "edit", "show"]}

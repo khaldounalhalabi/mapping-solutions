@@ -11,7 +11,7 @@ import { AvailableLocales } from "@/models/translatable";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const FormLocaleContext = createContext<{
-    locale: AvailableLocales;
+    locale:    AvailableLocales;
     setLocale: Dispatch<SetStateAction<AvailableLocales>>;
 } | null>(null);
 
@@ -20,7 +20,7 @@ const FormLocaleProvider = ({
     children,
 }: {
     withLanguageRadio?: boolean;
-    children: ReactNode;
+    children:           ReactNode;
 }) => {
     const {
         props: { availableLocales, currentLocale },

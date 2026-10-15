@@ -15,8 +15,8 @@ import { useTranslation } from "@/hooks/use-translation";
 const ResetPassword = () => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<{
-        reset_password_code: string;
-        password: string;
+        reset_password_code:   string;
+        password:              string;
         password_confirmation: string;
     }>();
 
