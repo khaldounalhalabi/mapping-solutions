@@ -32,3 +32,9 @@ Route::resource('/v1/news-categories', v1\NewsCategoryController::class)->names(
 
 Route::get('/v1/news-articles/data', [v1\NewsArticleController::class, 'data'])->name('v1.web.protected.news.articles.data');
 Route::resource('/v1/news-articles', v1\NewsArticleController::class)->names('v1.web.protected.news.articles');
+
+Route::post('/v1/newsletter-subscribers/export', [v1\NewsletterSubscriberController::class, 'export'])->name('v1.web.protected.newsletter.subscribers.export');
+Route::post('/v1/newsletter-subscribers/import', [v1\NewsletterSubscriberController::class, 'import'])->name('v1.web.protected.newsletter.subscribers.import');
+Route::get('/v1/newsletter-subscribers/get-import-example', [v1\NewsletterSubscriberController::class, 'getImportExample'])->name('v1.web.protected.newsletter.subscribers.import.example');
+Route::get('/v1/newsletter-subscribers/data', [v1\NewsletterSubscriberController::class, 'data'])->name('v1.web.protected.newsletter.subscribers.data');
+Route::resource('/v1/newsletter-subscribers', v1\NewsletterSubscriberController::class)->names('v1.web.protected.newsletter.subscribers');

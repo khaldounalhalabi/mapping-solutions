@@ -132,3 +132,53 @@
         @apply font-sans;
     }
 }
+
+@layer components {
+    .dashboard-scrollbars,
+    .dashboard-scrollbars * {
+        scrollbar-color: color-mix(
+                in oklab,
+                var(--muted-foreground) 45%,
+                transparent
+            )
+            transparent;
+        scrollbar-width: thin;
+    }
+
+    .dashboard-scrollbars::-webkit-scrollbar,
+    .dashboard-scrollbars *::-webkit-scrollbar {
+        width: 0.625rem;
+        height: 0.625rem;
+    }
+
+    .dashboard-scrollbars::-webkit-scrollbar-track,
+    .dashboard-scrollbars *::-webkit-scrollbar-track,
+    .dashboard-scrollbars::-webkit-scrollbar-corner,
+    .dashboard-scrollbars *::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+
+    .dashboard-scrollbars::-webkit-scrollbar-button,
+    .dashboard-scrollbars *::-webkit-scrollbar-button {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    .dashboard-scrollbars::-webkit-scrollbar-thumb,
+    .dashboard-scrollbars *::-webkit-scrollbar-thumb {
+        background-clip: padding-box;
+        background-color: color-mix(
+            in oklab,
+            var(--muted-foreground) 45%,
+            transparent
+        );
+        border: 2px solid transparent;
+        border-radius: 9999px;
+    }
+
+    .dashboard-scrollbars::-webkit-scrollbar-thumb:hover,
+    .dashboard-scrollbars *::-webkit-scrollbar-thumb:hover {
+        background-color: color-mix(in oklab, var(--primary) 70%, transparent);
+    }
+}

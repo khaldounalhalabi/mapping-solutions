@@ -278,5 +278,12 @@ return [
                 'hero_image'       => 'Hero Image',
             ],
         ],
+        'NewsletterSubscriber' => [
+            'singular' => 'Newsletter Subscriber',
+            'plural'   => 'Newsletter Subscribers',
+            'fields'   => [
+                'email' => 'Email',
+            ],
+        ],
     ],
 ];

@@ -19,6 +19,11 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
 
     useEffect(() => {
         document.documentElement.lang = currentLocale;
+        document.documentElement.classList.add("dashboard-scrollbars");
+
+        return () => {
+            document.documentElement.classList.remove("dashboard-scrollbars");
+        };
     }, [currentLocale]);
 
     registerPlugin(

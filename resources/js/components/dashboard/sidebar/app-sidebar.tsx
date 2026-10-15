@@ -7,6 +7,7 @@ import {
     FolderTreeIcon,
     Layers3Icon,
     LayoutDashboardIcon,
+    MailCheckIcon,
     NewspaperIcon,
     PackageIcon,
     WrenchIcon,
@@ -95,6 +96,13 @@ export function AppSidebar({
                     title: t("models.NewsArticle.plural"),
                     href:  route("v1.web.protected.news.articles.index"),
                     icon:  <FileTextIcon />,
+                },
+                {
+                    title: t("models.NewsletterSubscriber.plural"),
+                    href:  route(
+                        "v1.web.protected.newsletter.subscribers.index",
+                    ),
+                    icon:  <MailCheckIcon />,
                 },
             ],
         },
