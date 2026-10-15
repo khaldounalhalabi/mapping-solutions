@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             MarketApplicationSeeder::class,
             ServiceSeeder::class,
             NewsCategorySeeder::class,
+            NewsArticleSeeder::class,
         ]);
     }
 }

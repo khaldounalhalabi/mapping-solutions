@@ -17,9 +17,10 @@ class NewsCategoryResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id'   => $this->id,
-            'name' => $this->name,
-            'slug' => $this->slug,
+            'id'            => $this->id,
+            'name'          => $this->name,
+            'slug'          => $this->slug,
+            'news_articles' => NewsArticleResource::collection($this->whenLoaded('newsArticles')),
         ];
     }
 }

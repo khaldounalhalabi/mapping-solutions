@@ -266,5 +266,17 @@ return [
                 'slug' => 'Slug',
             ],
         ],
+        'NewsArticle' => [
+            'singular' => 'News Article',
+            'plural'   => 'News Articles',
+            'fields'   => [
+                'news_category_id' => 'News Category',
+                'title'            => 'Title',
+                'slug'             => 'Slug',
+                'excerpt'          => 'Excerpt',
+                'content'          => 'Content',
+                'hero_image'       => 'Hero Image',
+            ],
+        ],
     ],
 ];

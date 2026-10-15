@@ -29,3 +29,6 @@ Route::resource('/v1/services', v1\ServiceController::class)->names('v1.web.prot
 
 Route::get('/v1/news-categories/data', [v1\NewsCategoryController::class, 'data'])->name('v1.web.protected.news.categories.data');
 Route::resource('/v1/news-categories', v1\NewsCategoryController::class)->names('v1.web.protected.news.categories');
+
+Route::get('/v1/news-articles/data', [v1\NewsArticleController::class, 'data'])->name('v1.web.protected.news.articles.data');
+Route::resource('/v1/news-articles', v1\NewsArticleController::class)->names('v1.web.protected.news.articles');
