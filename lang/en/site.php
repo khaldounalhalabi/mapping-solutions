@@ -285,5 +285,14 @@ return [
                 'email' => 'Email',
             ],
         ],
+        'NewsletterEmail' => [
+            'singular' => 'Newsletter Email',
+            'plural'   => 'Newsletter Emails',
+            'fields'   => [
+                'title'       => 'Title',
+                'content'     => 'Content',
+                'attachments' => 'Attachments',
+            ],
+        ],
     ],
 ];

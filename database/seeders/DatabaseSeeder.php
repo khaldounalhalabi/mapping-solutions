@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             NewsCategorySeeder::class,
             NewsArticleSeeder::class,
             NewsletterSubscriberSeeder::class,
+            NewsletterEmailSeeder::class,
         ]);
     }
 }

@@ -411,6 +411,32 @@
             ],
             "relations": [],
             "version": "v1"
+        },
+        {
+            "model_name": "NewsletterEmail",
+            "table_name": "newsletter_emails",
+            "attributes": [
+                {
+                    "name": "title",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "content",
+                    "type": "text",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "attachments",
+                    "type": "file",
+                    "nullable": true,
+                    "unique": false
+                }
+            ],
+            "relations": [],
+            "version": "v1"
         }
     ]
 }

@@ -38,3 +38,8 @@ Route::post('/v1/newsletter-subscribers/import', [v1\NewsletterSubscriberControl
 Route::get('/v1/newsletter-subscribers/get-import-example', [v1\NewsletterSubscriberController::class, 'getImportExample'])->name('v1.web.protected.newsletter.subscribers.import.example');
 Route::get('/v1/newsletter-subscribers/data', [v1\NewsletterSubscriberController::class, 'data'])->name('v1.web.protected.newsletter.subscribers.data');
 Route::resource('/v1/newsletter-subscribers', v1\NewsletterSubscriberController::class)->names('v1.web.protected.newsletter.subscribers');
+
+Route::get('/v1/newsletter-emails/data', [v1\NewsletterEmailController::class, 'data'])->name('v1.web.protected.newsletter.emails.data');
+Route::resource('/v1/newsletter-emails', v1\NewsletterEmailController::class)
+    ->except(['update', 'edit', 'destroy'])
+    ->names('v1.web.protected.newsletter.emails');
