@@ -9,7 +9,10 @@ use WendellAdriel\ValidatedDTO\Casting\StringCast;
 
 class StoreNewsletterEmailDTO extends ValidatedDTO
 {
-    public ?UploadedFile $attachments = null;
+    /**
+     * @var UploadedFile[]|null
+     */
+    public ?array $attachments = null;
 
     public string $content;
 
@@ -42,9 +45,10 @@ class StoreNewsletterEmailDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'title'       => ['required', 'string', 'max:255', 'min:3'],
-            'content'     => ['required', 'max:5000', 'min:0'],
-            'attachments' => ['nullable', new MediaValidationRule(['file', 'max:10000'])],
+            'title'         => ['required', 'string', 'max:255', 'min:3'],
+            'content'       => ['required', 'max:5000', 'min:0'],
+            'attachments'   => ['nullable', 'array'],
+            'attachments.*' => [new MediaValidationRule(['file', 'max:10000'])],
         ];
     }
 }
