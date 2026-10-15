@@ -59,6 +59,7 @@ const Create = () => {
                             )}
                             isMultiple={true}
                             onChange={(file) => setData("attachments", file)}
+                            acceptedFileTypes={[]}
                         />
                     </div>
                 </div>
