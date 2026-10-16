@@ -582,6 +582,76 @@
                 ]
             },
             "version": "v1"
+        },
+        {
+            "model_name": "Inquiry",
+            "table_name": "inquiries",
+            "attributes": [
+                {
+                    "name": "product_id",
+                    "type": "key",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "first_name",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "last_name",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "company",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "country",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "email",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "phone",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "subject",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "message",
+                    "type": "text",
+                    "nullable": false,
+                    "unique": false
+                }
+            ],
+            "relations": {
+                "belongsTo": [
+                    {
+                        "type": "belongsTo",
+                        "model_name": "Product",
+                        "key": "product_id"
+                    }
+                ]
+            },
+            "version": "v1"
         }
     ]
 }

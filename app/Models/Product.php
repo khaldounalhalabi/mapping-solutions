@@ -11,10 +11,12 @@ use App\Serializers\SerializedMedia;
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Serializers\Translatable as TranslatableSerializer;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * @property int                         $id
@@ -44,6 +46,8 @@ use App\Serializers\Translatable as TranslatableSerializer;
  * @mixin Builder<Product>
  *
  * @use  HasFactory<ProductFactory>
+ *
+ * @property EloquentCollection<Inquiry>|null $inquiries
  */
 #[Fillable([
     'supplier_id',
@@ -112,6 +116,14 @@ class Product extends Model
     }
 
     /**
+     * @return HasMany<Inquiry, static>
+     */
+    public function inquiries(): HasMany
+    {
+        return $this->hasMany(Inquiry::class);
+    }
+
+    /**
      * @return BelongsTo<ProductFamily, static>
      */
     public function productFamily(): BelongsTo
@@ -130,9 +142,20 @@ class Product extends Model
     public static function relationsSearchableArray(): array
     {
         return [
-            'supplier'          => ['name', 'slug', 'description'],
-            'productFamily'     => ['name', 'slug'],
-            'productTechnology' => ['name', 'slug', 'icon_key'],
+            'supplier' => [
+                'name',
+                'slug',
+                'description',
+            ],
+            'productFamily' => [
+                'name',
+                'slug',
+            ],
+            'productTechnology' => [
+                'name',
+                'slug',
+                'icon_key',
+            ],
         ];
     }
 

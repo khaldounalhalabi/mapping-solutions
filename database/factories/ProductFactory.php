@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Inquiry;
 use App\Models\Product;
 use App\Models\Supplier;
 use App\Models\ProductFamily;
@@ -35,5 +36,10 @@ class ProductFactory extends Factory
             'manual'                => UploadedFile::fake()->create('manual.pdf', 1024, 'application/pdf'),
             'brochure'              => UploadedFile::fake()->create('brochure.pdf', 1024, 'application/pdf'),
         ];
+    }
+
+    public function withInquiries(int $count = 1): static
+    {
+        return $this->has(Inquiry::factory($count));
     }
 }

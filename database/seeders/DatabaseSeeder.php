@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             NewsletterEmailSeeder::class,
             VacancySeeder::class,
             JobApplicationSeeder::class,
+            InquirySeeder::class,
         ]);
     }
 }

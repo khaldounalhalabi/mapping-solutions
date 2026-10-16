@@ -12,6 +12,7 @@ import {
     LayoutDashboardIcon,
     MailCheckIcon,
     MailsIcon,
+    MessageSquareMoreIcon,
     NewspaperIcon,
     PackageIcon,
     WrenchIcon,
@@ -130,6 +131,11 @@ export function AppSidebar({
                     icon:  <FileUserIcon />,
                 },
             ],
+        },
+        {
+            title: t("models.Inquiry.plural"),
+            href:  route("v1.web.protected.inquiries.index"),
+            icon:  <MessageSquareMoreIcon />,
         },
     ];
 

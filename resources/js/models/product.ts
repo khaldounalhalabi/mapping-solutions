@@ -1,3 +1,4 @@
+import Inquiry from "@/models/inquiry";
 import ProductTechnology from "@/models/product-technology";
 import ProductFamily from "@/models/product-family";
 import Supplier from "@/models/supplier";
@@ -24,6 +25,7 @@ interface Product {
     supplier?:              Supplier;
     product_family?:        ProductFamily;
     product_technology?:    ProductTechnology;
+    inquiries?:             Inquiry[];
 }
 
 export default Product;

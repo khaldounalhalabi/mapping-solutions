@@ -360,6 +360,44 @@
                 "relevant_experience": "Relevant Experience",
                 "linkedin_url": "Linkedin Url"
             }
+        },
+        "Inquiry": {
+            "singular": "Inquiry",
+            "plural": "Inquiries",
+            "fields": {
+                "product_id": "Product",
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "company": "Company",
+                "country": "Country",
+                "email": "Email",
+                "phone": "Phone",
+                "subject": "Subject",
+                "message": "Message"
+            }
+        },
+        "Product": {
+            "singular": "Product",
+            "plural": "Products",
+            "fields": {
+                "supplier_id": "Supplier",
+                "product_family_id": "Product Family",
+                "product_technology_id": "Product Technology",
+                "name": "Name",
+                "price_note": "Price Note",
+                "brochure": "Brochure",
+                "excerpt": "Excerpt",
+                "overview": "Overview",
+                "key_specs": "Key Specs",
+                "specifications": "Specifications",
+                "applications": "Applications",
+                "slug": "Slug",
+                "external_url": "External Url",
+                "hero_image": "Hero Image",
+                "specifications_file": "Specifications File",
+                "datasheet": "Datasheet",
+                "manual": "Manual"
+            }
         }
     },
     "enums": {

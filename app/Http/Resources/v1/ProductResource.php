@@ -38,6 +38,7 @@ class ProductResource extends BaseResource
             'supplier'              => SupplierResource::make($this->whenLoaded('supplier')),
             'product_family'        => ProductFamilyResource::make($this->whenLoaded('productFamily')),
             'product_technology'    => ProductTechnologyResource::make($this->whenLoaded('productTechnology')),
+            'inquiries'             => InquiryResource::collection($this->whenLoaded('inquiries')),
         ];
     }
 }

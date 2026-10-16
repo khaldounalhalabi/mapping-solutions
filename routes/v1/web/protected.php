@@ -51,3 +51,11 @@ Route::get('/v1/job-applications/data', [v1\JobApplicationController::class, 'da
 Route::resource('/v1/job-applications', v1\JobApplicationController::class)
     ->only(['index', 'destroy', 'show'])
     ->names('v1.web.protected.job.applications');
+
+Route::get('/v1/inquiries/data', [v1\InquiryController::class, 'data'])->name('v1.web.protected.inquiries.data');
+Route::resource('/v1/inquiries', v1\InquiryController::class)
+    ->only([
+        'show',
+        'destroy',
+        'index',
+    ])->names('v1.web.protected.inquiries');
