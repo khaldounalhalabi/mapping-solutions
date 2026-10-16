@@ -39,7 +39,7 @@ const ImagePreview: React.FC<ImgProps> = ({ caption, src, ...props }) => {
             >
                 <img
                     src={src}
-                    className={`${isExpanded ? "max-h-fit max-w-fit" : "size-32 rounded-full object-cover"}`}
+                    className={`${isExpanded ? "max-h-fit max-w-fit" : "size-32 rounded-full object-fill"}`}
                     {...props}
                     alt={caption}
                 />
