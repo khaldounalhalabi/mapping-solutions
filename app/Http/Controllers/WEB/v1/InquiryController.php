@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\WEB\v1;
 
-use Exception;
 use Inertia\Inertia;
 use App\Models\Inquiry;
-use Illuminate\Http\Request;
 use App\Http\Controllers\WebController;
 use App\Http\Resources\v1\InquiryResource;
 use App\Services\v1\Inquiry\InquiryService;
-use App\DTOs\v1\Inquiry\StoreInquiryDTO;
 
 class InquiryController extends WebController
 {
