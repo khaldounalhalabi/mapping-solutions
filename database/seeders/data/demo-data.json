@@ -68,70 +68,70 @@
                 "en": "Spectroradiometers"
             },
             "slug": "spectroradiometers",
-            "icon_key": "categoryCard"
+            "icon_key": "rainbow"
         },
         {
             "name": {
                 "en": "Hyperspectral Imaging"
             },
             "slug": "hyperspectral-imaging",
-            "icon_key": "categoryCard3"
+            "icon_key": "layers-3"
         },
         {
             "name": {
                 "en": "Thermal Imaging"
             },
             "slug": "thermal-imaging",
-            "icon_key": "categoryCard4"
+            "icon_key": "camera"
         },
         {
             "name": {
                 "en": "LiDAR"
             },
             "slug": "lidar",
-            "icon_key": "categoryCard5"
+            "icon_key": "scan-line"
         },
         {
             "name": {
                 "en": "Radar"
             },
             "slug": "radar",
-            "icon_key": "categoryCard6"
+            "icon_key": "radar"
         },
         {
             "name": {
                 "en": "Satellites"
             },
             "slug": "satellites",
-            "icon_key": "categoryCard7"
+            "icon_key": "satellite"
         },
         {
             "name": {
                 "en": "Drones"
             },
             "slug": "drones",
-            "icon_key": "categoryCard8"
+            "icon_key": "drone"
         },
         {
             "name": {
                 "en": "IMU & GPS"
             },
             "slug": "imu-gps",
-            "icon_key": "categoryCard9"
+            "icon_key": "orbit"
         },
         {
             "name": {
                 "en": "Software"
             },
             "slug": "software",
-            "icon_key": "categoryCard10"
+            "icon_key": "chart-no-axes-combined"
         },
         {
             "name": {
                 "en": "Customised Solutions"
             },
             "slug": "customised-solutions",
-            "icon_key": "categoryCard11"
+            "icon_key": "settings-2"
         }
     ],
     "products": [
@@ -815,7 +815,7 @@
             "name": {
                 "en": "Environment and agriculture"
             },
-            "icon_key": "applicationCard",
+            "icon_key": "trending-up",
             "summary": {
                 "en": "Vegetation condition, water quality, coastal change and habitat mapping."
             },
@@ -827,7 +827,7 @@
             "name": {
                 "en": "Defence and intelligence"
             },
-            "icon_key": "applicationCard2",
+            "icon_key": "shield",
             "summary": {
                 "en": "ISR payloads, target detection and airborne reconnaissance."
             },
@@ -839,7 +839,7 @@
             "name": {
                 "en": "Research and laboratory"
             },
-            "icon_key": "applicationCard3",
+            "icon_key": "flask-conical",
             "summary": {
                 "en": "Spectroscopy, materials analysis and field measurement campaigns."
             },
@@ -851,7 +851,7 @@
             "name": {
                 "en": "Infrastructure and survey"
             },
-            "icon_key": "applicationCard4",
+            "icon_key": "house",
             "summary": {
                 "en": "Corridor mapping, topographic survey and asset inspection."
             },

@@ -49,7 +49,11 @@ class DemoDataSeeder extends Seeder
     private function seedMarketApplications(array $rows): void
     {
         foreach ($rows as $row) {
-            MarketApplication::query()->updateOrCreate(['icon_key' => $row['icon_key']], $row);
+            $application = MarketApplication::query()
+                ->where('name->en', $row['name']['en'])
+                ->first() ?? new MarketApplication;
+
+            $application->fill($row)->save();
         }
     }
 
