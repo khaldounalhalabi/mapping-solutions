@@ -84,6 +84,11 @@
             "confirm": "Yes",
             "deny": "No"
         },
+        "inquiry_response": {
+            "title": "Respond to inquiry",
+            "previous": "Previous response",
+            "send": "Send response"
+        },
         "notifications": {
             "error": "Error!",
             "success": "Success!",
@@ -373,7 +378,11 @@
                 "email": "Email",
                 "phone": "Phone",
                 "subject": "Subject",
-                "message": "Message"
+                "message": "Message",
+                "response_subject": "Response subject",
+                "response_message": "Response message",
+                "responded_at": "Responded at",
+                "responded_by": "Responded by"
             }
         },
         "Product": {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -31,6 +32,10 @@ return new class extends Migration
             $table->string('phone');
             $table->string('subject');
             $table->text('message');
+            $table->string('response_subject')->nullable();
+            $table->text('response_message')->nullable();
+            $table->foreignIdFor(User::class, 'responded_by_id')->nullable()->constrained()->nullOnDelete();
+            $table->dateTime('responded_at')->nullable();
             $table->timestamps();
         });
     }

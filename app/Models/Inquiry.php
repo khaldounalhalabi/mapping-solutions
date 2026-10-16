@@ -21,7 +21,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string       $phone
  * @property string       $subject
  * @property string       $message
+ * @property string|null  $response_subject
+ * @property string|null  $response_message
+ * @property int|null     $responded_by_id
+ * @property Carbon|null  $responded_at
  * @property Product|null $product
+ * @property User|null    $respondedBy
  * @property Carbon       $created_at
  * @property Carbon       $updated_at
  *
@@ -38,6 +43,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
     'phone',
     'subject',
     'message',
+    'response_subject',
+    'response_message',
+    'responded_by_id',
+    'responded_at',
 ])]
 class Inquiry extends Model
 {
@@ -46,7 +55,7 @@ class Inquiry extends Model
     protected function casts(): array
     {
         return [
-
+            'responded_at' => 'datetime',
         ];
     }
 
@@ -82,6 +91,14 @@ class Inquiry extends Model
             ],
 
         ];
+    }
+
+    /**
+     * @return BelongsTo<User, static>
+     */
+    public function respondedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'responded_by_id');
     }
 
     public static function searchableArray(): array

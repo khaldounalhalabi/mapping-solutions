@@ -53,6 +53,7 @@ Route::resource('/v1/job-applications', v1\JobApplicationController::class)
     ->names('v1.web.protected.job.applications');
 
 Route::get('/v1/inquiries/data', [v1\InquiryController::class, 'data'])->name('v1.web.protected.inquiries.data');
+Route::post('/v1/inquiries/{inquiryId}/respond', [v1\InquiryController::class, 'respond'])->name('v1.web.protected.inquiries.respond');
 Route::resource('/v1/inquiries', v1\InquiryController::class)
     ->only([
         'show',
