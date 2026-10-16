@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
     Select as ShadcnSelect,
     SelectContent,
@@ -58,20 +59,35 @@ const Select = <T extends string>({
     const errors = usePage().props.errors as Record<string, string>;
     const options = normalizeOptions(data);
 
+    const [displayLabel, setDisplayLabel] = useState(
+        () => options.find((option) => option.value === selected)?.label,
+    );
+
     return (
         <Field>
             {label && <FieldLabel>{label}</FieldLabel>}
+
             <ShadcnSelect
+                name={name}
                 defaultValue={selected}
-                onValueChange={(value) => onChange?.(value as T)}
+                onValueChange={(value) => {
+                    setDisplayLabel(
+                        options.find((option) => option.value === value)?.label,
+                    );
+
+                    onChange?.(value as T);
+                }}
             >
                 <SelectTrigger className="w-full">
                     <SelectValue
                         placeholder={
                             placeholder ?? t("dashboard.form.select_item")
                         }
-                    />
+                    >
+                        {displayLabel}
+                    </SelectValue>
                 </SelectTrigger>
+
                 <SelectContent>
                     <SelectGroup>
                         {options.map((option) => (
@@ -82,6 +98,7 @@ const Select = <T extends string>({
                     </SelectGroup>
                 </SelectContent>
             </ShadcnSelect>
+
             {name && errors[name] && <FieldError>{errors[name]}</FieldError>}
         </Field>
     );

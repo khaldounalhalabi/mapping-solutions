@@ -1,7 +1,9 @@
 import {
     BlocksIcon,
     BoxesIcon,
+    BriefcaseBusinessIcon,
     CircuitBoardIcon,
+    ClipboardListIcon,
     FactoryIcon,
     FileTextIcon,
     FolderTreeIcon,
@@ -109,6 +111,17 @@ export function AppSidebar({
                     title: t("models.NewsletterEmail.plural"),
                     href:  route("v1.web.protected.newsletter.emails.index"),
                     icon:  <MailsIcon />,
+                },
+            ],
+        },
+        {
+            title:    t("dashboard.navigation.careers_and_training"),
+            icon:     <BriefcaseBusinessIcon />,
+            children: [
+                {
+                    title: t("models.Vacancy.plural"),
+                    href:  route("v1.web.protected.vacancies.index"),
+                    icon:  <ClipboardListIcon />,
                 },
             ],
         },

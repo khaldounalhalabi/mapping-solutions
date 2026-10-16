@@ -42,3 +42,9 @@ export const toTitleCase = (str: string): string => {
             .join(" ")
     );
 };
+
+export function getEnumValues<T extends object>(enumObj: T): T[keyof T][] {
+    return Object.values(enumObj).filter(
+        (value) => typeof value === "string" || typeof value === "number",
+    ) as T[keyof T][];
+}

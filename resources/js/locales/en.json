@@ -7,7 +7,8 @@
         "navigation": {
             "product_catalogue": "Product Catalogue",
             "applications_and_services": "Applications and services",
-            "content_and_publications": "Content & Publications"
+            "content_and_publications": "Content & Publications",
+            "careers_and_training": "Careers & Training"
         },
         "account": "Account",
         "profile": "My Profile",
@@ -328,6 +329,25 @@
                 "content": "Content",
                 "attachments": "Attachments"
             }
+        },
+        "Vacancy": {
+            "singular": "Vacancy",
+            "plural": "Vacancies",
+            "fields": {
+                "title": "Title",
+                "slug": "Slug",
+                "excerpt": "Excerpt",
+                "job_type": "Job Type",
+                "location": "Location",
+                "closing_date": "Closing Date",
+                "content": "Content"
+            }
         }
+    },
+    "enums": {
+        "full_time": "Full Time",
+        "paid_internship": "Paid Internship",
+        "part_time": "Part Time",
+        "unpaid_internship": "Unpaid Internship"
     }
 }

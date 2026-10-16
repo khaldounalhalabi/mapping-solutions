@@ -294,5 +294,18 @@ return [
                 'attachments' => 'Attachments',
             ],
         ],
+        'Vacancy' => [
+            'singular' => 'Vacancy',
+            'plural'   => 'Vacancies',
+            'fields'   => [
+                'title'        => 'Title',
+                'slug'         => 'Slug',
+                'excerpt'      => 'Excerpt',
+                'job_type'     => 'Job Type',
+                'location'     => 'Location',
+                'closing_date' => 'Closing Date',
+                'content'      => 'Content',
+            ],
+        ],
     ],
 ];
