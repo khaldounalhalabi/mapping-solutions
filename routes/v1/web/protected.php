@@ -46,3 +46,8 @@ Route::resource('/v1/newsletter-emails', v1\NewsletterEmailController::class)
 
 Route::get('/v1/vacancies/data', [v1\VacancyController::class, 'data'])->name('v1.web.protected.vacancies.data');
 Route::resource('/v1/vacancies', v1\VacancyController::class)->names('v1.web.protected.vacancies');
+
+Route::get('/v1/job-applications/data', [v1\JobApplicationController::class, 'data'])->name('v1.web.protected.job.applications.data');
+Route::resource('/v1/job-applications', v1\JobApplicationController::class)
+    ->only(['index', 'destroy', 'show'])
+    ->names('v1.web.protected.job.applications');

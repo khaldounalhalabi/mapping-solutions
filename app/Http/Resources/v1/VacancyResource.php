@@ -17,14 +17,15 @@ class VacancyResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id'           => $this->id,
-            'title'        => $this->title,
-            'slug'         => $this->slug,
-            'job_type'     => $this->job_type,
-            'location'     => $this->location,
-            'closing_date' => $this->closing_date?->format('Y-m-d'),
-            'excerpt'      => $this->excerpt,
-            'content'      => $this->content,
+            'id'               => $this->id,
+            'title'            => $this->title,
+            'slug'             => $this->slug,
+            'job_type'         => $this->job_type,
+            'location'         => $this->location,
+            'closing_date'     => $this->closing_date?->format('Y-m-d'),
+            'excerpt'          => $this->excerpt,
+            'content'          => $this->content,
+            'job_applications' => JobApplicationResource::collection($this->whenLoaded('jobApplications')),
         ];
     }
 }

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             NewsletterSubscriberSeeder::class,
             NewsletterEmailSeeder::class,
             VacancySeeder::class,
+            JobApplicationSeeder::class,
         ]);
     }
 }

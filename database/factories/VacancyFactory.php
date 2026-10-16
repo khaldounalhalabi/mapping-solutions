@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Vacancy;
 use App\Enums\VacancyTypeEnum;
+use App\Models\JobApplication;
 use App\Serializers\Translatable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,5 +24,10 @@ class VacancyFactory extends Factory
             'closing_date' => fake()->date(),
             'content'      => Translatable::fake('html')->toJson(),
         ];
+    }
+
+    public function withJobApplications(int $count = 1): static
+    {
+        return $this->has(JobApplication::factory($count));
     }
 }

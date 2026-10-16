@@ -342,6 +342,24 @@
                 "closing_date": "Closing Date",
                 "content": "Content"
             }
+        },
+        "JobApplication": {
+            "singular": "Job Application",
+            "plural": "Job Applications",
+            "fields": {
+                "vacancy_id": "Vacancy",
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "email": "Email",
+                "phone": "Phone",
+                "referral_source": "Referral Source",
+                "eligible_to_work_in_uk": "Eligible To Work In Uk",
+                "notice_period": "Notice Period",
+                "gdpr_consent": "Gdpr Consent",
+                "cover_letter": "Cover Letter",
+                "relevant_experience": "Relevant Experience",
+                "linkedin_url": "Linkedin Url"
+            }
         }
     },
     "enums": {

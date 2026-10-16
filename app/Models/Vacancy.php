@@ -8,9 +8,11 @@ use App\Casts\Translatable;
 use Database\Factories\VacancyFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Serializers\Translatable as TranslatableSerializer;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 /**
  * @property int                    $id
@@ -27,6 +29,8 @@ use App\Serializers\Translatable as TranslatableSerializer;
  * @mixin Builder<Vacancy>
  *
  * @use  HasFactory<VacancyFactory>
+ *
+ * @property EloquentCollection<JobApplication>|null $jobApplications
  */
 #[Fillable([
     'title',
@@ -63,6 +67,14 @@ class Vacancy extends Model
             'content',
             'job_application_ids',
         ];
+    }
+
+    /**
+     * @return HasMany<JobApplication, static>
+     */
+    public function jobApplications(): HasMany
+    {
+        return $this->hasMany(JobApplication::class);
     }
 
     public static function relationsSearchableArray(): array

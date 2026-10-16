@@ -494,6 +494,94 @@
                 ]
             },
             "version": "v1"
+        },
+        {
+            "model_name": "JobApplication",
+            "table_name": "job_applications",
+            "attributes": [
+                {
+                    "name": "vacancy_id",
+                    "type": "key",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "first_name",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "last_name",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "email",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "phone",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "referral_source",
+                    "type": "string",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "eligible_to_work_in_uk",
+                    "type": "boolean",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "notice_period",
+                    "type": "string",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "gdpr_consent",
+                    "type": "boolean",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "cover_letter",
+                    "type": "text",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "relevant_experience",
+                    "type": "text",
+                    "nullable": true,
+                    "unique": false
+                },
+                {
+                    "name": "linkedin_url",
+                    "type": "text",
+                    "nullable": true,
+                    "unique": false
+                }
+            ],
+            "relations": {
+                "belongsTo": [
+                    {
+                        "type": "belongsTo",
+                        "model_name": "Vacancy",
+                        "key": "vacancy_id"
+                    }
+                ]
+            },
+            "version": "v1"
         }
     ]
 }
