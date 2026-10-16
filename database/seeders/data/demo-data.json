@@ -1,0 +1,1082 @@
+{
+    "suppliers": [
+        {
+            "name": "Cubert",
+            "slug": "cubert",
+            "description": {
+                "en": "Description coming soon — add one in the Catalogue taxonomy."
+            },
+            "logo": "2026/07/Screenshot-2026-07-17-at-20.03.46.png"
+        },
+        {
+            "name": "HySpex",
+            "slug": "hyspex",
+            "description": {
+                "en": "Description coming soon — add one in the Catalogue taxonomy."
+            },
+            "logo": "2026/07/Screenshot-2026-07-17-at-00.11.53.png"
+        },
+        {
+            "name": "Resonon",
+            "slug": "resonon",
+            "description": {
+                "en": "Description coming soon — add one in the Catalogue taxonomy."
+            },
+            "logo": "2026/07/Screenshot-2026-07-17-at-20.50.28.png"
+        }
+    ],
+    "product_families": [
+        {
+            "supplier_slug": "hyspex",
+            "name": {
+                "en": "HySpex Baldur"
+            },
+            "slug": "hyspex-baldur"
+        },
+        {
+            "supplier_slug": "hyspex",
+            "name": {
+                "en": "HySpex Classics"
+            },
+            "slug": "hyspex-classics"
+        },
+        {
+            "supplier_slug": "hyspex",
+            "name": {
+                "en": "HySpex Mjolnir"
+            },
+            "slug": "hyspex-mjolnir"
+        },
+        {
+            "supplier_slug": "hyspex",
+            "name": {
+                "en": "HySpex Processing Software"
+            },
+            "slug": "hyspex-processing-software"
+        },
+        {
+            "supplier_slug": "resonon",
+            "name": {
+                "en": "Pika - Resonon Hyperspectral Cameras"
+            },
+            "slug": "pika-hyperspectral-cameras"
+        }
+    ],
+    "product_technologies": [
+        {
+            "name": {
+                "en": "Spectroradiometers"
+            },
+            "slug": "spectroradiometers",
+            "icon_key": "categoryCard"
+        },
+        {
+            "name": {
+                "en": "Hyperspectral Imaging"
+            },
+            "slug": "hyperspectral-imaging",
+            "icon_key": "categoryCard3"
+        },
+        {
+            "name": {
+                "en": "Thermal Imaging"
+            },
+            "slug": "thermal-imaging",
+            "icon_key": "categoryCard4"
+        },
+        {
+            "name": {
+                "en": "LiDAR"
+            },
+            "slug": "lidar",
+            "icon_key": "categoryCard5"
+        },
+        {
+            "name": {
+                "en": "Radar"
+            },
+            "slug": "radar",
+            "icon_key": "categoryCard6"
+        },
+        {
+            "name": {
+                "en": "Satellites"
+            },
+            "slug": "satellites",
+            "icon_key": "categoryCard7"
+        },
+        {
+            "name": {
+                "en": "Drones"
+            },
+            "slug": "drones",
+            "icon_key": "categoryCard8"
+        },
+        {
+            "name": {
+                "en": "IMU & GPS"
+            },
+            "slug": "imu-gps",
+            "icon_key": "categoryCard9"
+        },
+        {
+            "name": {
+                "en": "Software"
+            },
+            "slug": "software",
+            "icon_key": "categoryCard10"
+        },
+        {
+            "name": {
+                "en": "Customised Solutions"
+            },
+            "slug": "customised-solutions",
+            "icon_key": "categoryCard11"
+        }
+    ],
+    "products": [
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-baldur",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpexBaldur S-384 N"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspexbaldur-s-384-n",
+            "excerpt": {
+                "en": "Baldur S-384 N covers the spectral range from 960-2500 nm."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">All Baldur cameras are Nyquist cameras giving a spectral resolution of 2 spectral bands while capturing 4 times as much light as the classic systems. To ensure that the most information per framerate is provided, the spectral resolution is kept very close to 2 bands. Additionally, the spatial resolution of Baldur S-384 N is better than 1.5 pixels, yielding a very sharp camera.</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpexBaldur+S-384+N\">Contact us</a> for a full datasheet."
+            },
+            "applications": null,
+            "external_url": null,
+            "hero_image": "2026/07/hyspex-baldur-v-1024-n.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-20-at-15.25.05.png",
+            "datasheet": "2026/07/HySpex-Classic-SWIR-384-Data-Sheet-1.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-baldur",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpexBaldur S-640i N"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "jk",
+            "excerpt": {
+                "en": "Baldur S-640i N covers the spectral range from 950-1730nm."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">All Baldur cameras are Nyquist cameras giving a spectral resolution of 2 spectral bands while capturing 4 times as much light as the classic systems. To ensure that the most information per framerate is provided, the spectral resolution is kept very close to 2 bands. Additionally, the spatial resolution of Baldur S-640i N is better than 1.5 pixels, yielding a very sharp camera.</p>\n\n  <h2 class=\"wp-block-heading\"><strong>lens options</strong></h2>\n\n  <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1656\" height=\"510\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-20-at-14.17.29.png\" alt=\"\" class=\"wp-image-283\">\n</figure>\n\n\n  <p class=\"wp-block-paragraph\"><br></p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpexBaldur+S-640i+N\">Contact us</a> for a full datasheet."
+            },
+            "applications": null,
+            "external_url": null,
+            "hero_image": "2026/07/hyspex-baldur-v-1024-n.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-20-at-14.13.59.png",
+            "datasheet": "2026/07/69fc5d84fd99edc0a27887e9_HySpex-Baldur-S-640i-N-Data-Sheet-1.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-baldur",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex Baldur V-1024 N"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-baldur-v-1024-n",
+            "excerpt": {
+                "en": "Baldur V-1024 N covers the full VNIR spectral range from 400-1000nm and is configurable within one octave in the same range."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">All Baldur cameras are Nyquist cameras giving a spectral resolution of 2 spectral bands while capturing 4 times as much light as the classic systems. To ensure that the most information per framerate is provided, the spectral resolution is kept very close to 2 bands. Additionally, the spatial resolution of Baldur V-1024 N is better than 1.7 pixels, yielding a very sharp camera.</p>\n\n    <p class=\"wp-block-paragraph\"><strong>Lens options</strong></p>\n\n    <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"2442\" height=\"526\" src=\"/assets/uploads/2026/07/Lens-options.jpg.png\" alt=\"\" class=\"wp-image-257\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+Baldur+V-1024+N\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Baldur for Industrial Applications \r\n\r\nDesigned to be fast, flexible, robust and repeatable, HySpex offers the Baldur line of industrial cameras.\r\n\r\nBaldur benefits \r\n\r\nFlexibility: All Baldur cameras support multiple regions of interest (MOI).\r\nTrigger: All camera can be triggered internally, and all cameras support several kinds external triggering.\r\nAll cameras are operating in Integrate While Read (IWR) mode.\r\nSpeed: Maximized information per data rate of any hyperspectral camera. Speed scalable with reducing\r\nthe number of spectral channel read-out.\r\nReliability and traceability:\r\nAll cameras delivered with traceable calibration to NIST and PTB standards.\r\nAll cameras within the same wavelength range have the same center wavelengths.\r\nWell-proven and robust design.\r\nLight sensitivity: High speed acquisitions with light sensitivity 4 times higher than HySpex classic.\r\nSDK: All HySpex cameras (Baldur, Classic and Mjolnir) are delivered with a high-end SDK and library\r\nthat makes it simple to integrate the HySpex HW into any third-party software and hardware solution.\r\nFully integrated hardware and software solution"
+            },
+            "external_url": null,
+            "hero_image": "2026/07/hyspex-baldur-v-1024-n.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-18.06.49.png",
+            "datasheet": "2026/07/HySpex-Baldur-V-1024-N-Data-Sheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-classics",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex VNIR-3000 N"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-vnir-3000-n",
+            "excerpt": {
+                "en": "HySpex VNIR-3000 N is developed for field, laboratory, and airborne applications."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">HySpex VNIR-3000 N utilizes the same spectrograph as the other classical HySpex VNIR models. With a pixel size of 3.45μm, compared to 6. 5μm for VNIR-1800, HySpex VNIR-3000 N will have less than 1.6 pixels per FWHM of the PSF spatially and less than 1.8 bands spectrally, ensuring that narrow band features will be resolved equally for all cameras. With 3000 spatial pixels, 300 bands and a noise floor of 2.4e-, HySpex VNIR-3000N will provide outstanding SNR levels in dark environments.</p>\n\n  <h3 class=\"wp-block-heading\">The camera is offered with a USB connection, allowing camera operation from any computer and reducing the cost of supplementing equipment. To visualize that the camera has a wider PSF per pixel and band relative to our normal extremely sharp cameras, we have added an N for Nyquist to the model name.</h3>\n\n  <p class=\"wp-block-paragraph\"></p>\n\n  <p class=\"wp-block-paragraph\"></p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+VNIR-3000+N\">Contact us</a> for a full datasheet."
+            },
+            "applications": null,
+            "external_url": null,
+            "hero_image": "2026/07/69cbbb28f342f7cd77228770_HySpex-VNIR-3000-N-Product-Thumb.jpg",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-14.47.11.png",
+            "datasheet": "2026/07/HySpex-VNIR-3000N-Datasheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-classics",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex SWIR-384"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-swir-384",
+            "excerpt": {
+                "en": "HySpex SWIR-384 | Hyperspectral Camera Cookies We use cookies and personal data to provide you with the best experience, personalize ads, and analyze"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">The state of the art MCT sensor with cooling down to 150K yields low background noise, high dynamic range, and exceptional SNR levels. With a max frame rate of 400 fps, combined with an aberration-corrected optical system with high optical throughput (f/2), the data quality, speed, and sensitivity is truly state of the art.</p>\n\n  <p class=\"wp-block-paragraph\">A wide range of close-up lenses allows the use of the camera at working distances ranging from a few centimeters with a spatial resolution of 53 μm to infinity e.g. airborne remote sensing.</p>\n\n  <h3 class=\"wp-block-heading\">Laboratory setup</h3>\n\n  <p class=\"wp-block-paragraph\">For lab and field use, a scanning stage is needed to scan the cameras and build the hyperspectral data cube of the scene. A user-friendly table-top lab setup with translation stage, VNIR-SWIR light sources, and close-up lenses can also be supplied for scanning of samples of varying sizes. The scanning speed is automatically controlled by the data acquisition unit, based on the selected lens option. The lab rack includes a camera adjustment platform, to facilitate camera focus adjustment when using different close-up lenses.</p>\n\n  <h3 class=\"wp-block-heading\">Field setup</h3>\n\n  <p class=\"wp-block-paragraph\">For field operations, HySpex supplies a range of high precision rotation stages tailored to fit the specific operational scenario</p>\n\n  <p class=\"wp-block-paragraph\">Long-life Li-ion battery powered solutions are available for increased portability.</p>\n\n  <p class=\"wp-block-paragraph\">To ensure stable and reliable acquisitions in challenging field conditions, rugged and portable tripods are supplied. HySpex supplies a variety of tripods with pan/tilt heads that will accommodate the camera payload and rotation stage used.</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+SWIR-384\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/hyspex-swir-384-hero.avif",
+            "specifications_file": "2026/07/spec_HySpex-SWIR-384.png",
+            "datasheet": "2026/07/HySpex-Classic-SWIR-384-Data-Sheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-classics",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex SWIR-640"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-swir-640",
+            "excerpt": {
+                "en": "The HySpex SWIR-640 hyperspectral camera is developed for field, laboratory, and airborne applications."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">HySpex SWIR-640 offers high spatial resolution by using a unique MCT sensor. The FPA is cooled to 150K using a sterling cooler, yielding low background noise, high dynamic range, and exceptional SNR levels. The camera offers an aberration-corrected optical system with high optical throughput (f/2.0), the data quality, sensitivity, and resolution is truly state of the art.</p>\n\n  <p class=\"wp-block-paragraph\">A wide range of close-up lenses allows the use of the camera at working distances ranging from a few centimeters, with a spatial resolution of 32 μm, to infinity for e.g. airborne remote sensing.</p>\n\n  <h3 class=\"wp-block-heading\">Laboratory setup</h3>\n\n  <p class=\"wp-block-paragraph\">For lab and field use, a scanning stage is needed to scan the cameras and build the hyperspectral data cube of the scene. A user-friendly table-top lab setup with translation stage, VNIR-SWIR light sources, and close-up lenses can also be supplied for scanning of samples of varying sizes. The scanning speed is automatically controlled by the data acquisition unit, based on the selected lens option. The lab rack includes a camera adjustment platform, to facilitate camera focus adjustment when using different close-up lenses.</p>\n\n  <h3 class=\"wp-block-heading\">Field setup</h3>\n\n  <p class=\"wp-block-paragraph\">For field operations, HySpex supplies a range of high precision rotation stages tailored to fit the specific operational scenario.</p>\n\n  <p class=\"wp-block-paragraph\">Long-life Li-ion battery powered solutions are available for increased portability.</p>\n\n  <p class=\"wp-block-paragraph\">To ensure stable and reliable acquisitions in challenging field conditions, rugged and portable tripods are supplied. HySpex supplies a variety of tripods with pan/tilt heads that will accommodate the camera payload and rotation stage used.</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+SWIR-640\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Airborne Applications\r\nHigh resolution and high speed, combined with low weight and power consumption, make NEO’s HySpex cameras very well suited for airborne data acquisition.\r\n\r\nPosition- and attitude logging systems (IMU/GPS) from leading manufacturers can be integrated and supplied with the cameras. Alternatively, the HySpex systems can be interfaced with the customer’s existing navigational hardware.\r\n\r\nFor airborne systems, NEO supplies dedicated software and a touch screen for ease of operation."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/hyspex-swir-384-hero.avif",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.03.13.png",
+            "datasheet": "2026/07/HySpex-Classic-SWIR-640-Data-Sheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-classics",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex VS-1200"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-vs-1200",
+            "excerpt": {
+                "en": "The HySpex VS-1200 hyperspectral camera is developed for airborne applications requiring extreme resolution in both VNIR and SWIR spectral regions."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">The HySpex VS-1200 is a novel high-resolution instrument designed for airborne applications at altitudes greater than 400m.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">The camera produces the highest scientific grade level data, commercially available, having FWHM less than 1.2 pixels spatially and less than 1.5 pixels spectrally. The combined VNIR-SWIR cube has coregistration errors, and smile and keystone of less than 10% of a pixel.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">With 40 degrees FOV, the camera is ideal for mapping large areas with high accuracy and resolution.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">The camera is delivered with an integrated high-performance IMU/GPS and data acquisition unit with removable storage bays as a standard. Existing navigation systems can also be integrated/utilized.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">A standard passive damping solution is included as a part of the default delivery package, but mounting plates for active damping solutions, such as GSM4000 or PAV80 can be supplied.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\"></p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+VS-1200\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Airborne Applications :- High resolution and high speed, combined with low weight and power consumption, make NEO’s HySpex cameras very well suited for airborne data acquisition.\r\n\r\nPosition- and attitude logging systems (IMU/GPS) from leading manufacturers can be integrated and supplied with the cameras. Alternatively, the HySpex systems can be interfaced with the customer’s existing navigational hardware.\r\n\r\nFor airborne systems, NEO supplies dedicated software and a touch screen for ease of operation."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/Screenshot-2026-07-17-at-17.15.44.png",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.10.45.png",
+            "datasheet": "2026/07/HySpex-Classic-VS-1200-Data-Sheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-classics",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex VNIR-1800"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-vnir-1800",
+            "excerpt": {
+                "en": "The HySpex VNIR-1800 hyperspectral camera is developed for field, laboratory, and airborne applications."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">HySpex VNIR-1800 utilizes a cutting edge actively cooled and stabilized scientific CMOS detector. This makes VNIR-1800 the ideal camera for high-end data acquisitions where high radiometric accuracy is required.</p>\n\n  <p class=\"wp-block-paragraph\">The dynamic range of 20,000 ensures outstanding SNR levels even in darker areas of an image of highly dynamic scenes. With a max frame rate of 260 fps, combined with aberration-corrected optics and high optical throughput (f/2.5), HySpex VNIR-1800 offers a unique combination of data quality, high speed, and sensitivity. A wide range of close-up lenses allows the use of the camera at working distances ranging from a few centimeters with a spatial resolution of 24 μm to infinity e.g. airborne remote sensing.</p>\n\n  <ul class=\"wp-block-list\">\n  <li>\n    <strong>Laboratory setup</strong>\n    <ul class=\"wp-block-list\">\n  <li>For lab and field use, a scanning stage is needed to scan the cameras and build the hyperspectral data cube of the scene. A user-friendly table-top lab setup with translation stage, VNIR-SWIR light sources, and close-up lenses can also be supplied for scanning of samples of varying sizes. The scanning speed is automatically controlled by the data acquisition unit, based on the selected lens option. The lab rack includes a camera adjustment platform, to facilitate camera focus adjustment when using different close-up lenses.</li>\n</ul>\n\n  </li>\n</ul>\n\n\n  <p class=\"wp-block-paragraph\"></p>\n\n  <ul class=\"wp-block-list\">\n  <li>\n    <strong>Field setup</strong>\n    <ul class=\"wp-block-list\">\n  \n<li>For field operations, HySpex supplies a range of high precision rotation stages tailored to fit the specific operational scenario. </li>\n\n\n\n\n<li>Long-life Li-ion battery powered solutions are available for increased portability.</li>\n\n\n\n\n<li>To ensure stable and reliable acquisitions in challenging field conditions, rugged and portable tripods are supplied. HySpex supplies a variety of tripods with pan/tilt heads that will accommodate the camera payload and rotation stage used.</li>\n\n</ul>\n\n  </li>\n</ul>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+VNIR-1800\">Contact us</a> for a full datasheet."
+            },
+            "applications": null,
+            "external_url": null,
+            "hero_image": "2026/07/69cbbb28f342f7cd77228770_HySpex-VNIR-3000-N-Product-Thumb.jpg",
+            "specifications_file": "2026/07/Screenshot-2026-07-20-at-11.27.23.png",
+            "datasheet": "2026/07/HySpex-Classic-VNIR-1800-Data-Sheet-1.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-mjolnir",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Mjolnir V-1240 OEM"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "mjolnir-v-1240-oem",
+            "excerpt": {
+                "en": "HySpex Mjolnir OEM hyperspectral imaging systems are purpose-built for seamless integration into intelligence, surveillance, and reconnaissance (ISR) platforms, combining compact form factor, low weight, and high-performance, scientific-grade data quality."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">\n  With a system weight of approximately 2 kg and low power consumption, the&#160;<strong>HySpex&#160;</strong><strong>Mjolnir OEM</strong>&#160;versions are optimized for platforms with limited payload capacity. They can be integrated into any airborne or mobile platform capable of lifting 2 kg or more, making them ideal for UAVs and other ISR assets requiring lightweight, high-end sensing capabilities.\n</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">The OEM solution is delivered as a complete, integration-ready payload, consisting of the hyperspectral camera, a navigation system (with optional GNSS-denied capability), and an onboard processing computer. This modular architecture enables flexible integration into a wide range of platforms, including custom UAVs, gimbals, and stabilized systems.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">The systems are fully compatible with&#160;HySpex Bifrost real-time software, enabling advanced onboard processing and analytics for applications in defense and intelligence, environmental monitoring, and geological mapping. This allows users to move from data acquisition to actionable insights in real time.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">In addition to airborne deployment, the systems can also be mounted on tripods or rotational stages for ground-based operations, supporting a wide range of mission scenarios.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\"></p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Mjolnir+V-1240+OEM\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/69dcd089b7e0b1de32bb867d_Mjolnir-OEM-thumb.jpg",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.59.35.png",
+            "datasheet": "2026/07/Mjolnir-V-1240-OEM-Data-Sheet-VIEW.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-mjolnir",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Mjolnir S-620 OEM"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-mjolnir-oem",
+            "excerpt": {
+                "en": "HySpex Mjolnir OEM hyperspectral imaging systems are purpose-built for seamless integration into intelligence, surveillance, and reconnaissance (ISR) platforms, combining compact form factor, low weight, and high-performance, scientific-grade data quality."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">\n  With a system weight of approximately 2 kg and low power consumption, the&#160;<strong>HySpex&#160;</strong><strong>Mjolnir OEM</strong>&#160;versions are optimized for platforms with limited payload capacity. They can be integrated into any airborne or mobile platform capable of lifting 2 kg or more, making them ideal for UAVs and other ISR assets requiring lightweight, high-end sensing capabilities.\n</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">The OEM solution is delivered as a complete, integration-ready payload, consisting of the hyperspectral camera, a navigation system (with optional GNSS-denied capability), and an onboard processing computer. This modular architecture enables flexible integration into a wide range of platforms, including custom UAVs, gimbals, and stabilized systems.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">The systems are fully compatible with&#160;HySpex Bifrost real-time software, enabling advanced onboard processing and analytics for applications in defense and intelligence, environmental monitoring, and geological mapping. This allows users to move from data acquisition to actionable insights in real time.</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">In addition to airborne deployment, the systems can also be mounted on tripods or rotational stages for ground-based operations, supporting a wide range of mission scenarios.</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Mjolnir+S-620+OEM\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/69dcd089b7e0b1de32bb867d_Mjolnir-OEM-thumb.jpg",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.52.22.png",
+            "datasheet": "2026/07/Mjolnir-S-620-OEM-Data-Sheet-VIEW.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-mjolnir",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex Mjolnir V-1240"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-mjolnir-v-1240",
+            "excerpt": {
+                "en": "The HySpex Mjolnir V-1240 hyperspectral imaging system for UAVs provides a unique combination of small form factor and low mass, combined with high-performance specifications and scientific grade data quality."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">With a weight of less than 4 kg and less than 50 W power consumption, HySpex Mjolnir V-1240 is very well suited for a wide range of UAVs.</p>\n\n  <p class=\"wp-block-paragraph\">The system is also compatible with several off-the-shelf gimbals. NEO offers high-performance unmanned aerial vehicles, fully integrated with the HySpex Mjolnir V-1240. The UAV is fitted with a standard battery package allowing up to 30 minutes of flight time. All HySpex Mjolnir systems can also be mounted on a tripod and rotation stage for ground use.</p>\n\n  <h3 class=\"wp-block-heading\">UAV Configuration</h3>\n\n  <p class=\"wp-block-paragraph\"><strong>UAV&#160;</strong></p>\n\n  <p class=\"wp-block-paragraph\">HySpex can be mounted on any UAV platform capable of lifting the total payload.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>BlackSquare X8 multi-rotor provides great flight endurance with Mjolnir payload</li>\n\n\n\n\n<li>Ground control software for advanced flight plans</li>\n\n\n\n\n<li>High stability in wind</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\"><strong>GIMBAL</strong></p>\n\n  <p class=\"wp-block-paragraph\">NEO recommends using a gimbal, to compensate for the pitching of the multicopter. The advanced 3-axis digital stabilizer weighs only 2.63kg (5.8 lbs). NEO delivers the AEVO with an anti-vibrational mount and circular quick release, allowing it to be seamlessly fit on a wide range of multirotor platforms. Capable of handling payloads up to 9 kg (20 lbs), the gimbal can support all HySpex Mjolnir models.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Gimbal and Mjolnir powered by the same battery</li>\n\n\n\n\n<li>Encoder with resolution up to 0.005°</li>\n\n\n\n\n<li>Ultra accurate IMU sensor with temperature compensation</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\"><strong>APPLANIX APX-15/20 UAV</strong></p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Advanced Applanix IN-FusionTM GNSS-Inertial integration technology</li>\n\n\n\n\n<li>100 Hz real-time position, roll, pitch and heading output for direct georeferencing of sensor data</li>\n\n\n\n\n<li>IMU data rate 200 Hz</li>\n\n\n\n\n<li>336 Channels (GPS, GLONASS, BeiDou, Galileo, QZSS, SBAS)</li>\n\n\n\n\n<li>Solid-state MEMS inertial sensors w/Applanix SmartCalTM compensation technology</li>\n\n\n\n\n<li>Unfiltered, unsmoothed pseudo-range measurements data for low noise, low multipath error, low time domain correlation, and high dynamic response</li>\n\n</ul>\n\n\n  <h3 class=\"wp-block-heading\">Ground Configuration</h3>\n\n  <p class=\"wp-block-paragraph\">All Mjolnir systems can easily be deployed for fieldwork by mounting it on a tripod with a rotation stage.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Lightweight, robust, compact and self-contained design</li>\n\n\n\n\n<li>Working distances: 20 m –</li>\n\n\n\n\n<li>Can be fully battery powered</li>\n\n\n\n\n<li>Quick mounting and easy operation with scan speed fully synchronized with the camera frame rate</li>\n\n\n\n\n<li>Easy wireless operation from tablet or laptop</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\">A 1m close-up lens is also available for closer range ground measurements.</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+Mjolnir+V-1240\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/hyspex-mjolnir-v-1240.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.20.34.png",
+            "datasheet": "2026/07/HySpex-Mjolnir-V-1240-Data-Sheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-mjolnir",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex Mjolnir S-620"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-mjolnir-s-620",
+            "excerpt": {
+                "en": "The HySpex Mjolnir S-620 hyperspectral imaging system for UAVs is the SWIR version of the Mjolnir camera series. Similar to the VNIR version, it provides a unique combination of small form factor and low mass, combined with high-performance specifications and scientific grade data quality."
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">With a weight of less than 4 kg and less than 50 W power consumption, HySpex Mjolnir V-1240 is very well suited for a wide range of UAVs.</p>\n\n  <p class=\"wp-block-paragraph\">The system is also compatible with several off-the-shelf gimbals. NEO offers high-performance unmanned aerial vehicles, fully integrated with the HySpex Mjolnir V-1240. The UAV is fitted with a standard battery package allowing up to 30 minutes of flight time. All HySpex Mjolnir systems can also be mounted on a tripod and rotation stage for ground use.</p>\n\n  <h2 class=\"wp-block-heading\">UAV Configuration</h2>\n\n  <h3 class=\"wp-block-heading\"><strong>UAV&#160;</strong></h3>\n\n  <p class=\"wp-block-paragraph\">HySpex can be mounted on any UAV platform capable of lifting the total payload.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>BlackSquare X8 multi-rotor provides great flight endurance with Mjolnir payload</li>\n\n\n\n\n<li>Ground control software for advanced flight plans</li>\n\n\n\n\n<li>High stability in wind</li>\n\n</ul>\n\n\n  <h3 class=\"wp-block-heading\"><strong>GIMBAL</strong></h3>\n\n  <p class=\"wp-block-paragraph\">NEO recommends using a gimbal, to compensate for the pitching of the multicopter. The advanced 3-axis digital stabilizer weighs only 2.63kg (5.8 lbs). NEO delivers the AEVO with an anti-vibrational mount and circular quick release, allowing it to be seamlessly fit on a wide range of multirotor platforms. Capable of handling payloads up to 9 kg (20 lbs), the gimbal can support all HySpex Mjolnir models.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Gimbal and Mjolnir powered by the same battery</li>\n\n\n\n\n<li>Encoder with resolution up to 0.005°</li>\n\n\n\n\n<li>Ultra accurate IMU sensor with temperature compensation</li>\n\n</ul>\n\n\n  <h3 class=\"wp-block-heading\"><strong>APPLANIX APX-15/20 UAV</strong></h3>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Advanced Applanix IN-FusionTM GNSS-Inertial integration technology</li>\n\n\n\n\n<li>100 Hz real-time position, roll, pitch and heading output for direct georeferencing of sensor data</li>\n\n\n\n\n<li>IMU data rate 200 Hz</li>\n\n\n\n\n<li>336 Channels (GPS, GLONASS, BeiDou, Galileo, QZSS, SBAS)</li>\n\n\n\n\n<li>Solid-state MEMS inertial sensors w/Applanix SmartCalTM compensation technology</li>\n\n\n\n\n<li>Unfiltered, unsmoothed pseudo-range measurements data for low noise, low multipath error, low time domain correlation, and high dynamic response</li>\n\n</ul>\n\n\n  <h2 class=\"wp-block-heading\">Ground Configuration</h2>\n\n  <p class=\"wp-block-paragraph\">All Mjolnir systems can easily be deployed for fieldwork by mounting it on a tripod with a rotation stage.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Lightweight, robust, compact and self-contained design</li>\n\n\n\n\n<li>Working distances: 20 m –</li>\n\n\n\n\n<li>Can be fully battery powered</li>\n\n\n\n\n<li>Quick mounting and easy operation with scan speed fully synchronized with the camera frame rate</li>\n\n\n\n\n<li>Easy wireless operation from tablet or laptop</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\">A 1m close-up lens is also available for closer range ground measurements.</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+Mjolnir+S-620\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/hyspex-mjolnir-v-1240.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.39.28.png",
+            "datasheet": "2026/07/HySpex-Mjolnir-S-620-Data-Sheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "hyspex",
+            "product_family_slug": "hyspex-mjolnir",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "HySpex Mjolnir VS-620"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "hyspex-mjolnir-vs-620",
+            "excerpt": {
+                "en": "For applications requiring low mass, combined with high-performance specifications and scientific grade data quality on the full VNIR-SWIR range, HySpex Mjolnir VS-620 is an ideal solution. Sharing the onboard data acquisition unit and navigation system, HySpex Mjolnir VS-620 is both space-efficient and cost-effective"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">\n    The VNIR and SWIR optical axis are coaligned in the along-track direction, assuring perfect coregistration in the flight direction. In addition to the high-quality hyperspectral data cube, covering the spectral range from 400 – 2500 nm, with 490 bands, double resolution data in the VNIR range is always readily available. With smile and keystone less than 0.1 pixels for each spectral range, the merged Mjolnir VS-620 data product will have coregistration/keystone better than 0.2 pixels for the full VNIR-SWIR range.\n  </p>\n\n  <h3 class=\"wp-block-heading\">UAV Configuration</h3>\n\n  <p class=\"wp-block-paragraph\"><strong>UAV&#160;</strong></p>\n\n  <p class=\"wp-block-paragraph\">HySpex can be mounted on any UAV platform capable of lifting the total payload.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>BlackSquare X8 multi-rotor provides great flight endurance with Mjolnir payload</li>\n\n\n\n\n<li>Ground control software for advanced flight plans</li>\n\n\n\n\n<li>High stability in wind</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\"><strong>GIMBAL</strong></p>\n\n  <p class=\"wp-block-paragraph\">NEO recommends using a gimbal, to compensate for the pitching of the multicopter. The advanced 3-axis digital stabilizer weighs only 2.63kg (5.8 lbs). NEO delivers the AEVO with an anti-vibrational mount and circular quick release, allowing it to be seamlessly fit on a wide range of multirotor platforms. Capable of handling payloads up to 9 kg (20 lbs), the gimbal can support all HySpex Mjolnir models.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Gimbal and Mjolnir powered by the same battery</li>\n\n\n\n\n<li>Encoder with resolution up to 0.005°</li>\n\n\n\n\n<li>Ultra accurate IMU sensor with temperature compensation</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\"><strong>APPLANIX APX-15/20 UAV</strong></p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Advanced Applanix IN-FusionTM GNSS-Inertial integration technology</li>\n\n\n\n\n<li>100 Hz real-time position, roll, pitch and heading output for direct georeferencing of sensor data</li>\n\n\n\n\n<li>IMU data rate 200 Hz</li>\n\n\n\n\n<li>336 Channels (GPS, GLONASS, BeiDou, Galileo, QZSS, SBAS)</li>\n\n\n\n\n<li>Solid-state MEMS inertial sensors w/Applanix SmartCalTM compensation technology</li>\n\n\n\n\n<li>Unfiltered, unsmoothed pseudo-range measurements data for low noise, low multipath error, low time domain correlation, and high dynamic response</li>\n\n</ul>\n\n\n  <h3 class=\"wp-block-heading\">Ground Configuration</h3>\n\n  <p class=\"wp-block-paragraph\">All Mjolnir systems can easily be deployed for fieldwork by mounting it on a tripod with a rotation stage.</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Lightweight, robust, compact and self-contained design</li>\n\n\n\n\n<li>Working distances: 20 m –</li>\n\n\n\n\n<li>Can be fully battery powered</li>\n\n\n\n\n<li>Quick mounting and easy operation with scan speed fully synchronized with the camera frame rate</li>\n\n\n\n\n<li>Easy wireless operation from tablet or laptop</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\">A 1m close-up lens is also available for closer range ground measurements.</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=HySpex+Mjolnir+VS-620\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/Screenshot-2026-07-17-at-17.48.00.png",
+            "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.46.27.png",
+            "datasheet": "2026/07/HySpex-Mjolnir-VS-620-Data-Sheet.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika SWIR (1000-2500nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-swir-1000-2500nm",
+            "excerpt": {
+                "en": "Pika SWIR (1000-2500nm)\n1000 - 2500 nm\nShort-Wave Infrared"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">\n    The Pika SWIR hyperspectral imager is a high spatial and spectral resolution Short-Wave Infrared (1,000-2,500 nm) camera. It is&#160;compatible with Resonon’s&#160;benchtop,&#160;airborne&#160;and&#160;outdoor&#160;systems.&#160;\n  </p>\n\n  <p class=\"wp-block-paragraph\">The SWIR wavelength range enables diverse applications, including mineral exploration, pharmaceutical inspection, soil characterization, and waste recycling.</p>\n\n  <h3 class=\"wp-block-heading\">Objective Lenses for Pika SWIR</h3>\n\n  <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1436\" height=\"478\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-22-at-14.41.53.png\" alt=\"\" class=\"wp-image-346\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "• Spectral Range: 1000 – 2500 nm\n• 640 Spatial Pixels Per Line\n• 245 Spectral Channels Per Line\n• 7.7 nm Spectral Resolution (FWHM)"
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+SWIR+%281000-2500nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/Screenshot-2026-07-22-at-14.42.59.png",
+            "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.43.30.png",
+            "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-SWIR.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika IR-L+ (925-1700nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-ir-l-925-1700nm-2",
+            "excerpt": {
+                "en": "925 - 1700 nm\nLightweight, High-Precision Infrared"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">The Pika IR-L+ imager is a high spatial and spectral resolution Near-Infrared (925-1,700 nm) imager in a lightweight, compact format. It is well suited for&#160;airborne applications, yet compatible with all imaging platforms (airborne, benchtop, outdoor, or machine vision).&#160;</p>\n\n    <h3 class=\"wp-block-heading\">Objective Lenses for Pika IR-L+</h3>\n\n    <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1430\" height=\"666\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-22-at-14.36.53.png\" alt=\"\" class=\"wp-image-342\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "• Spectral Range: 925 – 1700 nm\n• 640 Spatial Pixels Per Line\n• 470 Spectral Channels Per Line\n• 3.8 nm Spectral Resolution (FWHM)"
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+IR-L%2B+%28925-1700nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "<p>The Pika IR-L+ can be used in our airborne, laboratory, and outdoor hyperspectral systems, as well as standalone or integrated<br>\ninto your system with our programming guidance document.</p>"
+            },
+            "external_url": null,
+            "hero_image": "2026/07/ic_1654718606_640x388_false.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.37.36.png",
+            "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-IR-L-Plus.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika IR-L (925-1700nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-ir-l-925-1700nm",
+            "excerpt": {
+                "en": "925 - 1700 nm\nLightweight Infrared"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">The Pika IR-L is a lightweight and compact Near-Infrared (925-1,700 nm) imager. The small size and mass make it well suited for&#160;airborne applications, where it can provide invisible to the naked-eye contrast of outdoor features.</p>\n\n    <h3 class=\"wp-block-heading\">Objective Lenses for Pika IR-L</h3>\n\n    <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1412\" height=\"630\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-22-at-14.32.21.png\" alt=\"\" class=\"wp-image-338\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "• Spectral Range: 925 – 1700 nm\n• 320 Spatial Pixels Per Line\n• 236 Spectral Channels Per Line\n• High Speed (364 fps max.)"
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+IR-L+%28925-1700nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/ic_1654718606_640x388_false.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.32.54.png",
+            "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-IR-L.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika IR+ (900-1700nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-ir-900-1700nm-2",
+            "excerpt": {
+                "en": "900 - 1700 nm\nHigh-Precision Infrared"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">The Pika IR+ (formerly Pika NIR-640) is a high-performance hyperspectral camera that covers the Near-Infrared (NIR) spectral range. It has high spatial and spectral resolutions and is often used for infrared laboratory applications.</p>\n\n    <h3 class=\"wp-block-heading\">Objective Lenses for Pika IR+</h3>\n\n    <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1430\" height=\"640\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-22-at-14.27.08.png\" alt=\"\" class=\"wp-image-333\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "• Spectral Range: 900 – 1700 nm\n• 640 Spatial Pixels Per Line\n• 336 Spectral Channels Per Line\n• High Performance (5.6 nm FWHM spectral resolution)"
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+IR%2B+%28900-1700nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "<p>The Pika IR+ can be used in our airborne, laboratory, and outdoor hyperspectral systems, as well as standalone or integrated into your system with our programming guidance document.</p>"
+            },
+            "external_url": null,
+            "hero_image": "2026/07/Screenshot-2026-07-22-at-14.16.50.png",
+            "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.27.46.png",
+            "datasheet": null,
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika IR (900-1700nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-ir-900-1700nm",
+            "excerpt": {
+                "en": "900 - 1700 nm\nHigh-Speed Infrared"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">The Pika IR (formerly Pika NIR-320) is a high-speed, cost-effective hyperspectral camera that covers the Near-Infrared (NIR) spectral range. It is our most popular imager for machine vision applications.</p>\n\n    <h3 class=\"wp-block-heading\"><br><strong>Objective Lenses for Pika IR</strong></h3>\n\n    <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1470\" height=\"648\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-22-at-14.22.37.png\" alt=\"\" class=\"wp-image-330\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "• Spectral Range: 900 – 1700 nm\n• 320 Spatial Pixels Per Line\n• 168 Spectral Channels Per Line\n• High Speed (508 fps max.)"
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+IR+%28900-1700nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "<p>The Pika IR can be used in our airborne, laboratory, and outdoor hyperspectral systems, as well as standalone or integrated into your system with our programming guidance document.</p>"
+            },
+            "external_url": null,
+            "hero_image": "2026/07/Screenshot-2026-07-22-at-14.16.50.png",
+            "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.19.55.png",
+            "datasheet": "2026/07/FP6Ymk-Resonon-Camera-Data-Sheets-Pika-IR.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika XC2 (400-1000nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-xc2-400-1000nm",
+            "excerpt": {
+                "en": "400 - 1000 nm\nHigh-Precision VNIR"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">The Pika XC2 is a high-resolution hyperspectral camera that covers the Visible + Near-Infrared (VNIR) spectral range. The Pika XC2 has high spatial resolution, best in-class spectral resolution, and excellent imaging quality. Popular in VNIR laboratory applications.</p>\n\n    <h3 class=\"wp-block-heading\">Objective Lenses for Pika XC2<br></h3>\n\n    <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1454\" height=\"664\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-22-at-14.12.22.png\" alt=\"\" class=\"wp-image-321\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "• Spectral Range: 400 – 1000 nm\n• 1600 Spatial Pixels Per Line\n• 447 Spectral Channels Per Line\n• High Performance (1.9 nm FWHM spectral resolution)"
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+XC2+%28400-1000nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "<p>The Pika XC2 can be used in our laboratory, and outdoor, and airborne hyperspectral systems, as well as standalone or integrated into your system with our programming guidance document.</p>"
+            },
+            "external_url": null,
+            "hero_image": "2026/07/Screenshot-2026-07-22-at-14.16.50.png",
+            "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.13.17.png",
+            "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-XC2.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika L-F (420-980nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-l-f-420-980nm",
+            "excerpt": {
+                "en": "420 - 980 nm\nFast VNIR"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">\n    The Pika L-F is a fast (<strong>up to 585 frames per second</strong>) hyperspectral camera that covers the Visible + Near-Infrared (VNIR) spectral range.&#160; It is designed for machine vision applications where speed is critical.\n  </p>\n\n  <p class=\"wp-block-paragraph\">The Pika L-F is ideally suited for machine vision systems, but can also be used in our&#160;laboratory&#160;and&#160;outdoor&#160;hyperspectral systems, as well as standalone or integrated into your system with our&#160;programming guidance document.</p>\n\n  <h3 class=\"wp-block-heading\"><strong>Objective Lenses for Pika L-F</strong></h3>\n\n  <figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1420\" height=\"772\" src=\"/assets/uploads/2026/07/Screenshot-2026-07-22-at-13.59.17.png\" alt=\"\" class=\"wp-image-314\">\n</figure>"
+            },
+            "key_specs": {
+                "en": "• Spectral Range: 420 – 980 nm\n• Maximum Frame Rate: 585 Frames Per Second\n• 720 Spatial Pixels Per Line\n• 224 Spectral Channels Per Line"
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+L-F+%28420-980nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "Application information coming soon.\n            <a href=\"/contact\">Contact us</a> to discuss your application."
+            },
+            "external_url": null,
+            "hero_image": "2026/07/ic_1630351056_1280x_false-1.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.02.04.png",
+            "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-L-F.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika L (400-1000nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-l-400-1000nm",
+            "excerpt": {
+                "en": "Lightweight, Compact VNIR"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">\n  The Pika L is a lightweight, compact hyperspectral camera that covers the Visible + Near-Infrared (VNIR) spectral range.&#160; It is our most popular imager for remote sensing applications.\n</p>\n\n\n\n\n<p class=\"wp-block-paragraph\">\n  The Pika L can be used in our&#160;<a href=\"https://resonon.com/hyperspectral-airborne-remote-sensing-system\" target=\"_blank\" rel=\"noreferrer noopener\">airborne</a>,&#160;<a href=\"https://resonon.com/hyperspectral-benchtop-reflectance-system\" target=\"_blank\" rel=\"noreferrer noopener\">laboratory</a>, and&#160;<a href=\"https://resonon.com/hyperspectral-outdoor-field-system\" target=\"_blank\" rel=\"noreferrer noopener\">outdoor</a>&#160;hyperspectral systems, as well as standalone or integrated into your system with our&#160;<a href=\"https://resonon.gitlab.io/programming-docs/\" target=\"_blank\" rel=\"noreferrer noopener\">programming guidance document</a>.\n</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+L+%28400-1000nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "<p>The Pika L can be used in our airborne, laboratory, and outdoor hyperspectral systems, as well as standalone or integrated into your system with our programming guidance document.</p>"
+            },
+            "external_url": null,
+            "hero_image": "2026/07/ic_1630351056_1280x_false.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-20-at-16.01.04.png",
+            "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-L.pdf",
+            "manual": null,
+            "brochure": null
+        },
+        {
+            "supplier_slug": "resonon",
+            "product_family_slug": "pika-hyperspectral-cameras",
+            "product_technology_slug": "hyperspectral-imaging",
+            "name": {
+                "en": "Pika UV (330-800nm)"
+            },
+            "price_note": "Contact us for pricing",
+            "slug": "pika-uv-330-800nm",
+            "excerpt": {
+                "en": "The Pika UV (formerly NUV2) is a hyperspectral camera that scans the Visible and Near Ultraviolet (VIS+NUV) spectral rang"
+            },
+            "overview": {
+                "en": "<p class=\"wp-block-paragraph\">\n    The&#160;Pika UV (formerly NUV2) is a hyperspectral camera that scans the Visible and Near Ultraviolet (VIS+NUV) spectral range.&#160;An optimized objective lens provides excellent imaging throughout the entire spectral range.\n  </p>\n\n  <p class=\"wp-block-paragraph\">Because halogen lights have low output in much of the NUV, Resonon offers an NUV lighting module to augment illumination for our desktop system.</p>\n\n  <h2 class=\"wp-block-heading\">FEATURES</h2>\n\n  <p class=\"wp-block-paragraph\">• Spectral Range: 330 – 800 nm</p>\n\n  <p class=\"wp-block-paragraph\">• 1500 Spatial Pixels Per Line</p>\n\n  <p class=\"wp-block-paragraph\">• 255 Spectral Channels Per Line</p>"
+            },
+            "key_specs": {
+                "en": "Full details in the Specifications tab below."
+            },
+            "specifications": {
+                "en": "Specifications coming soon.\n            <a href=\"/contact/?product=Pika+UV+%28330-800nm%29\">Contact us</a> for a full datasheet."
+            },
+            "applications": {
+                "en": "<p>The Pika UV can be used in our airborne, laboratory, and outdoor hyperspectral systems, as well as standalone or integrated into your system with our programming guidance document.</p>"
+            },
+            "external_url": null,
+            "hero_image": "2026/07/mm.webp",
+            "specifications_file": "2026/07/Screenshot-2026-07-20-at-15.43.06.png",
+            "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-UV.pdf",
+            "manual": null,
+            "brochure": null
+        }
+    ],
+    "market_applications": [
+        {
+            "name": {
+                "en": "Environment and agriculture"
+            },
+            "icon_key": "applicationCard",
+            "summary": {
+                "en": "Vegetation condition, water quality, coastal change and habitat mapping."
+            },
+            "description": {
+                "en": "Vegetation condition, water quality, coastal change and habitat mapping."
+            }
+        },
+        {
+            "name": {
+                "en": "Defence and intelligence"
+            },
+            "icon_key": "applicationCard2",
+            "summary": {
+                "en": "ISR payloads, target detection and airborne reconnaissance."
+            },
+            "description": {
+                "en": "ISR payloads, target detection and airborne reconnaissance."
+            }
+        },
+        {
+            "name": {
+                "en": "Research and laboratory"
+            },
+            "icon_key": "applicationCard3",
+            "summary": {
+                "en": "Spectroscopy, materials analysis and field measurement campaigns."
+            },
+            "description": {
+                "en": "Spectroscopy, materials analysis and field measurement campaigns."
+            }
+        },
+        {
+            "name": {
+                "en": "Infrastructure and survey"
+            },
+            "icon_key": "applicationCard4",
+            "summary": {
+                "en": "Corridor mapping, topographic survey and asset inspection."
+            },
+            "description": {
+                "en": "Corridor mapping, topographic survey and asset inspection."
+            }
+        }
+    ],
+    "services": [
+        {
+            "group": {
+                "en": "Survey services"
+            },
+            "name": {
+                "en": "Optical hyperspectral survey"
+            },
+            "summary": {
+                "en": "Full airborne hyperspectral acquisition using HySpex VNIR/SWIR sensors, including flight planning, acquisition, and geometric and atmospheric correction."
+            }
+        },
+        {
+            "group": {
+                "en": "Survey services"
+            },
+            "name": {
+                "en": "Thermal hyperspectral survey"
+            },
+            "summary": {
+                "en": "Airborne thermal acquisition using Telops HyperCam — for gas detection, urban heat mapping and industrial monitoring."
+            }
+        },
+        {
+            "group": {
+                "en": "Survey services"
+            },
+            "name": {
+                "en": "LiDAR & topographic survey"
+            },
+            "summary": {
+                "en": "Airborne LiDAR using Riegl systems for topographic, bathymetric, forestry and infrastructure mapping. DTM, DSM and point cloud products delivered."
+            }
+        },
+        {
+            "group": {
+                "en": "Survey services"
+            },
+            "name": {
+                "en": "Digital aerial photography"
+            },
+            "summary": {
+                "en": "High-resolution photography using Phase One and UltraCam systems for orthophoto production, 3D modelling and photogrammetric mapping."
+            }
+        },
+        {
+            "group": {
+                "en": "Survey services"
+            },
+            "name": {
+                "en": "Radar survey"
+            },
+            "summary": {
+                "en": "Airborne radar services covering ground-penetrating, interferometric and synthetic aperture radar applications."
+            }
+        },
+        {
+            "group": {
+                "en": "Survey services"
+            },
+            "name": {
+                "en": "Geophysical survey"
+            },
+            "summary": {
+                "en": "Airborne geophysics including gamma-ray spectrometry, gravity, electromagnetic and aeromagnetic methods."
+            }
+        },
+        {
+            "group": {
+                "en": "Data processing"
+            },
+            "name": {
+                "en": "Image processing"
+            },
+            "summary": {
+                "en": "Geometric correction (PARGE), atmospheric correction (ATCOR-4), spectral analysis and classification of airborne hyperspectral datasets."
+            }
+        },
+        {
+            "group": {
+                "en": "Data processing"
+            },
+            "name": {
+                "en": "GIS solutions"
+            },
+            "summary": {
+                "en": "Spatial data integration, analysis and visualisation — turning raw survey datasets into actionable geographic intelligence."
+            }
+        },
+        {
+            "group": {
+                "en": "Consultancy"
+            },
+            "name": {
+                "en": "Technical consultancy"
+            },
+            "summary": {
+                "en": "Expert independent advice on sensor selection, survey design, data workflows and processing pipelines. We match the instrument to the application, not the other way round."
+            }
+        },
+        {
+            "group": {
+                "en": "Consultancy"
+            },
+            "name": {
+                "en": "Research & development"
+            },
+            "summary": {
+                "en": "Collaborative R&D projects applying hyperspectral, LiDAR and radar technologies to environmental, industrial and defence challenges."
+            }
+        },
+        {
+            "group": {
+                "en": "Training"
+            },
+            "name": {
+                "en": "Thermal hyperspectral survey"
+            },
+            "summary": {
+                "en": "Hands-on training in hyperspectral image processing using PARGE and ATCOR-4. Available as classroom courses at Cranfield or e-learning modules.Hands-on training in hyperspectral…"
+            }
+        }
+    ],
+    "news_categories": [
+        {
+            "name": {
+                "en": "Product News"
+            },
+            "slug": "product-news"
+        },
+        {
+            "name": {
+                "en": "Company News"
+            },
+            "slug": "company-news"
+        },
+        {
+            "name": {
+                "en": "Exhibitions"
+            },
+            "slug": "exhibitions"
+        }
+    ],
+    "news_articles": [
+        {
+            "title": {
+                "en": "Mapping Solution Agrees Calibration Partnership with Labsphere"
+            },
+            "slug": "mapping-solution-agrees-calibration-partnership-with-labsphere",
+            "excerpt": {
+                "en": "Pro-Lite (Cranfield, UK) has entered into a strategic agreement with Labsphere, Inc. (North Sutton, New Hampshire, USA) to operate Labsphere’s European calibration laboratory from its SphereOptics GmbH facility in Herrsching, near Munich, Germany. Under…"
+            },
+            "content": {
+                "en": "<figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1024\" height=\"1024\" src=\"/assets/uploads/2026/07/ILT-Lab.jpg\" alt=\"\" class=\"wp-image-101\">\n</figure>\n\n\n  <p class=\"wp-block-paragraph\">Pro-Lite (Cranfield, UK) has entered into a strategic agreement with Labsphere, Inc. (North Sutton, New Hampshire, USA) to operate Labsphere’s European calibration laboratory from its SphereOptics GmbH facility in Herrsching, near Munich, Germany.</p>\n\n  <p class=\"wp-block-paragraph\">Under this agreement, the SphereOptics laboratory will provide optical and electrical calibration services for Labsphere’s International Light Technologies | A Division of Labsphere (ILT) brand of light measurement instruments across Europe, and Middle East (EMEA). This includes radiometers, photometers, and spectroradiometers. Previously, EMEA calibrations were carried out at Ocean Optics near Stuttgart.</p>\n\n  <p class=\"wp-block-paragraph\">This partnership significantly enhances service for ILT customers in the region, delivering faster turnaround times, expanded calibration capabilities, on-site engineering expertise, and dedicated technical and customer support. In addition to calibration services, SphereOptics will also perform repairs and servicing of ILT instruments and provide a rental service that aims to eliminate downtime when a customer’s light meter comes back for service.</p>\n\n  <p class=\"wp-block-paragraph\">With the addition of the new optical calibration laboratory, SphereOptics will operate two state-of-the-art, ISO/IEC 17025-accredited photonics calibration laboratories. Its existing reflectance laboratory already offers high-precision measurements of reflectance, transmittance, and scatter. The new optical calibration laboratory will support both ILT instruments and third-party light meters.</p>\n\n  <p class=\"wp-block-paragraph\">SphereOptics GmbH forms part of the Pro-Lite Group that incorporates Pro-Lite Technology Ltd (Cranfield, UK), Pro-Lite Technology France (Bordeaux) and Pro-Lite Technology Iberia (Barcelona).</p>\n\n  <p class=\"wp-block-paragraph\">Pro-Lite Director Robert Yeo commented “I am proud that SphereOptics has been chosen to operate the Labsphere ILT EMEA calibration laboratory. This marks a significant investment for our business, but it brings us one step closer to our goal of offering our customers a complete solution in radiometry and photometry, from the sale of equipment for almost any application in light measurement to equipment hire, service and calibration.</p>\n\n  <p class=\"wp-block-paragraph\">Labsphere President Rob Harrison added: “This partnership with SphereOptics marks a major step forward in Labsphere’s commitment to delivering world-class calibration and support to our customers across EMEA. By combining our expertise with SphereOptics’ state-of-the-art facilities and local engineering talent, we’re able to offer faster service, greater flexibility, and the highest standards of measurement accuracy. We’re excited to strengthen our presence in the region and help our customers achieve reliable results in their most demanding applications.”</p>"
+            },
+            "hero_image": "2026/07/Labsphere-Calibration-Laboratory.jpg",
+            "category_slug": "product-news"
+        },
+        {
+            "title": {
+                "en": "Mapping Solutions Launches New On‑Site Uniform Light Source Recalibration Service"
+            },
+            "slug": "mapping-solutions-launches-new-on-site-uniform-light-source-recalibration-service",
+            "excerpt": {
+                "en": "The BREVA Hexapod: Precision Motion Control with Balanced Performance Oftentimes when considering a hexapod for a precision positioning setup it is not…"
+            },
+            "content": {
+                "en": "<figure class=\"wp-block-image size-full\">\n  <img decoding=\"async\" width=\"1280\" height=\"628\" src=\"/assets/uploads/2026/07/Symetrie-Breva-Hexapods-1200x628-1.jpg\" alt=\"\" class=\"wp-image-98\">\n</figure>\n\n\n  <h2 class=\"wp-block-heading\">The BREVA Hexapod: Precision Motion Control with Balanced Performance</h2>\n\n  <p class=\"wp-block-paragraph\">Oftentimes when considering a hexapod for a precision positioning setup it is not any individual specification that is most important, but instead the combination of performance factors.</p>\n\n  <p class=\"wp-block-paragraph\">Smaller hexapods typically provide better pure positioning performance, whereas larger hexapods can handle heavier payloads and provide a larger actuator stroke resulting in a larger travel range. Most applications fall between these extremes, and the challenge is to choose a system that delivers all facets of the required performance with minimal (or ideally no) trade-offs.</p>\n\n  <p class=\"wp-block-paragraph\">The BREVA hexapod is a good example of finding that balance. It is not the smallest, or largest, or most precise hexapod in the Symétrie range, but sits in the important middle ground. It offers a balance of footprint, payload capacity, stiffness, and positioning performance, which makes it a versatile solution that can be suited across a wide range of laboratory and industrial environments.</p>\n\n  <p class=\"wp-block-paragraph\">As a parallel-kinematic system, it provides full six degree-of-freedom positioning about a single, well-defined reference point, simplifying integration into precision alignment and assembly setups.</p>\n\n  <p class=\"wp-block-paragraph\">For applications requiring optical alignment, precision assembly, or metrological positioning, the balanced specifications of the BREVA hexapod are exactly what is required.&#160;</p>\n\n  <p class=\"wp-block-paragraph\">Oftentimes when considering a hexapod for a precision positioning setup it is not any individual specification that is most important, but instead the combination of performance factors.</p>\n\n  <p class=\"wp-block-paragraph\">Smaller hexapods typically provide better pure positioning performance, whereas larger hexapods can handle heavier payloads and provide a larger actuator stroke resulting in a larger travel range. Most applications fall between these extremes, and the challenge is to choose a system that delivers all facets of the required performance with minimal (or ideally no) trade-offs.</p>\n\n  <p class=\"wp-block-paragraph\">The BREVA hexapod is a good example of finding that balance. It is not the smallest, or largest, or most precise hexapod in the Symétrie range, but sits in the important middle ground. It offers a balance of footprint, payload capacity, stiffness, and positioning performance, which makes it a versatile solution that can be suited across a wide range of laboratory and industrial environments.</p>\n\n  <p class=\"wp-block-paragraph\">As a parallel-kinematic system, it provides full six degree-of-freedom positioning about a single, well-defined reference point, simplifying integration into precision alignment and assembly setups.</p>\n\n  <p class=\"wp-block-paragraph\">For applications requiring optical alignment, precision assembly, or metrological positioning, the balanced specifications of the BREVA hexapod are exactly what is required.&#160;</p>"
+            },
+            "hero_image": "2026/07/Symetrie-Breva-Hexapods-1200x628-1.jpg",
+            "category_slug": "company-news"
+        },
+        {
+            "title": {
+                "en": "HySpex introduces next-generation VNIR 1800 sensor for high-altitude airborne survey"
+            },
+            "slug": "hyspex-introduces-next-generation-vnir-1800-sensor-for-high-altitude-airborne-survey",
+            "excerpt": {
+                "en": "The updated VNIR 1800 delivers a wider swath and improved SNR, ideal for large-area environmental and agricultural monitoring campaigns."
+            },
+            "content": {
+                "en": "<p>The updated VNIR 1800 delivers a wider swath and improved SNR, ideal for large-area environmental and agricultural monitoring campaigns.</p><p>The updated VNIR 1800 delivers a wider swath and improved SNR, ideal for large-area environmental and agricultural monitoring campaigns.The updated VNIR 1800 delivers a wider swath and improved SNR, ideal for large-area environmental and agricultural monitoring campaignsThe updated VNIR 1800 delivers a wider swath and improved SNR, ideal for large-area environmental and agricultural monitoring campaigns..The updated VNIR 1800 delivers a wider swath and improved SNR, ideal for large-area environmental and agricultural monitoring campaigns.The updated VNIR 1800 delivers a wider swath and improved SNR, ideal for large-area environmental and agricultural monitoring campaigns.</p>"
+            },
+            "hero_image": null,
+            "category_slug": "exhibitions"
+        }
+    ],
+    "vacancies": [
+        {
+            "title": {
+                "en": "Airborne Survey Pilot / Sensor Operator"
+            },
+            "slug": "airborne-survey-pilot-sensor-operator",
+            "excerpt": {
+                "en": "Experienced pilot or sensor operator required to support our airborne survey operations. Experience with hyperspectral, LiDAR or aerial camera systems is essential.Airborne Survey Pilot / Sensor…"
+            },
+            "job_type": "Internship",
+            "location": "Manchester",
+            "closing_date": "2026-10-30",
+            "content": {
+                "en": "<p class=\"wp-block-paragraph\">\n      Experienced pilot or sensor operator required to support our airborne survey operations. Experience with hyperspectral, LiDAR or aerial camera systems is essential.Airborne Survey Pilot / Sensor OperatorAirborne Survey Pilot / Sensor OperatorAirborne Survey Pilot / Sensor Operator<br><br><br>\n    </p>"
+            }
+        },
+        {
+            "title": {
+                "en": "Remote Sensing Applications Engineer"
+            },
+            "slug": "ergr",
+            "excerpt": {
+                "en": "We are looking for an experienced and enthusiastic Remote Sensing Applications Engineer to join the Mapping Solutions team. This is an exciting opportunityto work with some…"
+            },
+            "job_type": "Part Time",
+            "location": "london",
+            "closing_date": "2026-10-30",
+            "content": {
+                "en": "<p class=\"wp-block-paragraph\">\n    We are looking for an experienced and enthusiastic Remote Sensing Applications Engineer to join the Mapping Solutions team. This is an exciting opportunity<br>to work with some of the world’s most advanced remote<br>sensing instruments including LiDAR, hyperspectral<br>imaging systems and spectroradiometers.\n  </p>\n\n  <p class=\"wp-block-paragraph\">Role Overview</p>\n\n  <p class=\"wp-block-paragraph\">\n  You will be the primary technical point of contact<br>for our growing customer base across the UK, Middle<br>East and North Africa. Working closely with our sales<br>and operations teams you will provide expert technical<br>support, deliver training courses and help customers<br>get the most from their instruments.\n</p>\n\n\n  <p class=\"wp-block-paragraph\">Key Responsibilities</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Provide pre-sales technical advice and product<br>demonstrations to prospective customers</li>\n\n\n\n\n<li>Deliver post-sales technical support and training<br>for LiDAR, hyperspectral and spectroradiometer systems</li>\n\n\n\n\n<li>Assist with airborne survey campaign planning<br>and data quality assessment</li>\n\n\n\n\n<li>Develop and deliver training courses at customer<br>sites and at our Cranfield facility</li>\n\n\n\n\n<li>Attend exhibitions and conferences representing<br>Mapping Solutions</li>\n\n\n\n\n<li>Contribute to technical documentation, application<br>notes and case studies</li>\n\n\n\n\n<li>Support the sales team with technical proposals<br>and quotations</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\">Essential Requirements</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Degree in Remote Sensing, Geomatics, Geography,<br>Physics, Engineering or a related field</li>\n\n\n\n\n<li>Practical experience with LiDAR, hyperspectral<br>imaging or spectroradiometer systems</li>\n\n\n\n\n<li>Strong understanding of remote sensing data<br>processing workflows</li>\n\n\n\n\n<li>Excellent written and verbal communication skills</li>\n\n\n\n\n<li>Willingness to travel within the UK and internationally</li>\n\n\n\n\n<li>Full UK driving licence</li>\n\n\n\n\n<li>Eligible to work in the United Kingdom</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\">Desirable Requirements</p>\n\n  <ul class=\"wp-block-list\">\n  \n<li>Experience with PARGE, ATCOR or similar atmospheric<br>correction software</li>\n\n\n\n\n<li>Knowledge of GIS software such as ArcGIS or QGIS</li>\n\n\n\n\n<li>Experience delivering technical training</li>\n\n\n\n\n<li>Arabic or French language skills</li>\n\n\n\n\n<li>Postgraduate qualification in a relevant field</li>\n\n</ul>\n\n\n  <p class=\"wp-block-paragraph\">What We Offer</p>\n\n  <p class=\"wp-block-paragraph\">Small friendly team with a collaborative culture</p>\n\n  <p class=\"wp-block-paragraph\">Competitive salary commensurate with experience</p>\n\n  <p class=\"wp-block-paragraph\">Flexible working arrangements</p>\n\n  <p class=\"wp-block-paragraph\">\n    Opportunity to work with world-leading remote<br>sensing technology\n  </p>\n\n  <p class=\"wp-block-paragraph\">Travel to international exhibitions and survey sites</p>\n\n  <p class=\"wp-block-paragraph\">Professional development and training support</p>"
+            }
+        }
+    ]
+}
