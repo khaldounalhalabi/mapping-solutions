@@ -12,7 +12,7 @@ import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 
-const Layout = ({ children }: { children?: React.ReactNode }) => {
+const DashboardLayout = ({ children }: { children?: React.ReactNode }) => {
     const {
         props: { currentLocale },
     } = usePage();
@@ -67,4 +67,4 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
     );
 };
 
-export default Layout;
+export default DashboardLayout;
