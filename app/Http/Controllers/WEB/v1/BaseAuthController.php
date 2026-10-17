@@ -78,7 +78,7 @@ class BaseAuthController extends WebController
                 'success' => trans('site.email_verification_code_sent'),
             ]);
 
-            return Inertia::render('reset-password-code-form');
+            return Inertia::render('dashboard/reset-password-code-form');
         } else {
             return Inertia::flash([
                 'error' => trans('site.something_went_wrong'),
@@ -126,7 +126,7 @@ class BaseAuthController extends WebController
         $user = $this->userService->userDetails();
 
         if ($user) {
-            return Inertia::render('user-details', [
+            return Inertia::render('dashboard/user-details', [
                 'user' => UserResource::make($user),
             ]);
         } else {

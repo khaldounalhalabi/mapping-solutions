@@ -14,9 +14,9 @@ createInertiaApp({
 });
 
 const authPages = [
-    "login",
-    "forget-password",
-    "reset-password-code-form",
-    "reset-password",
-    "register",
+    "dashboard/login",
+    "dashboard/forget-password",
+    "dashboard/reset-password-code-form",
+    "dashboard/reset-password",
+    "dashboard/register",
 ];
