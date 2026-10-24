@@ -1,6 +1,8 @@
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ProductTechnologiesGrid from "@/components/site/home/product-technologies-grid";
 import ProductTechnology from "@/models/product-technology";
+import { Separator } from "@/components/ui/separator";
+import HeroCounts from "@/components/site/home/hero-counts";
 
 const HomeHero = ({ technologies }: { technologies: ProductTechnology[] }) => {
     return (
@@ -16,6 +18,8 @@ const HomeHero = ({ technologies }: { technologies: ProductTechnology[] }) => {
                 research, defence and industry since 2004.
             </p>
             <ProductTechnologiesGrid technologies={technologies} />
+            <Separator className={"my-10"} />
+            <HeroCounts />
         </div>
     );
 };
