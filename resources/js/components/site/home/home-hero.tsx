@@ -1,6 +1,8 @@
 import SpectrumLine from "@/components/ui/spectrum-line";
+import ProductFamiliesGrid from "@/components/site/home/product-families-grid";
+import ProductFamily from "@/models/product-family";
 
-const HomeHero = () => {
+const HomeHero = ({ families }: { families: ProductFamily[] }) => {
     return (
         <div className={"flex flex-col items-start px-32"}>
             <h1 className={"text-navy font-bold text-4xl"}>
@@ -13,6 +15,7 @@ const HomeHero = () => {
                 technical support from our engineers in the UK. Serving
                 research, defence and industry since 2004.
             </p>
+            <ProductFamiliesGrid families={families} />
         </div>
     );
 };
