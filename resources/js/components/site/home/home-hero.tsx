@@ -10,7 +10,7 @@ const HomeHero = ({ technologies }: { technologies: ProductTechnology[] }) => {
             <h1 className={"text-navy font-bold text-4xl"}>
                 Instrumentation for measurement beyond the visible spectrum
             </h1>
-            <SpectrumLine className={"h-0.5"} />
+            <SpectrumLine className={"h-0.5 my-5"} />
             <p className={"text-sm text-gray-500 max-w-2/3"}>
                 Spectral, thermal, ranging and positioning systems from leading
                 international manufacturers, supplied with selection advice and

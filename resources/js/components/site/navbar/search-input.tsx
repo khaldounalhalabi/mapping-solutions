@@ -7,7 +7,7 @@ const SearchInput = () => {
     return (
         <div className={"flex items-center"}>
             <Input
-                className={"rounded-sm rounded-r-none py-5"}
+                className={"rounded-sm rounded-r-none border-r-0 py-[1.20rem]"}
                 placeholder={"Search..."}
             />
             <Button
