@@ -8,6 +8,7 @@ import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import FormIconPicker from "@/components/form/fields/form-icon-picker";
 import TranslatableTextEditor from "@/components/form/fields/translatable-text-editor";
+import Checkbox from "@/components/form/fields/checkbox";
 
 const Create = () => {
     const { t } = useTranslation();
@@ -18,8 +19,11 @@ const Create = () => {
             icon_key:    string;
             summary:     string;
             description: string;
+            is_featured: boolean;
         }>
-    >();
+    >({
+        is_featured: false,
+    });
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -51,6 +55,15 @@ const Create = () => {
                             )}
                             onChange={(e) => setData("icon_key", e)}
                             required
+                        />
+                        <Checkbox
+                            name="is_featured"
+                            label={t(
+                                "models.MarketApplication.fields.is_featured",
+                            )}
+                            onChange={(value) =>
+                                setData("is_featured", value === true)
+                            }
                         />
                         <div className="md:col-span-2">
                             <TranslatableTextarea

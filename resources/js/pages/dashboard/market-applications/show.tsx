@@ -42,6 +42,14 @@ const Show = ({
                             <DynamicIcon name={marketApplication.icon_key} />
                         }
                     />
+                    <DetailItem
+                        label={t("models.MarketApplication.fields.is_featured")}
+                        value={
+                            marketApplication.is_featured
+                                ? t("dashboard.boolean.yes")
+                                : t("dashboard.boolean.no")
+                        }
+                    />
                 </div>
 
                 <DetailItem

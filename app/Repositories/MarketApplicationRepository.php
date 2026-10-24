@@ -11,4 +11,17 @@ use App\Repositories\Contracts\BaseRepository;
 class MarketApplicationRepository extends BaseRepository
 {
     protected string $modelClass = MarketApplication::class;
+
+    /**
+     * @param int[] $exceptIds
+     */
+    public function featuredCount(array $exceptIds = []): int
+    {
+        return $this
+            ->globalQuery()
+            ->when(
+                ! empty($exceptIds),
+                fn ($query) => $query->whereNotIn('id', $exceptIds),
+            )->count();
+    }
 }

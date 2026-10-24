@@ -6,6 +6,7 @@ interface MarketApplication {
     icon_key:    IconName;
     summary:     string;
     description: string;
+    is_featured: boolean;
 }
 
 export default MarketApplication;

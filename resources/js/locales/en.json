@@ -288,7 +288,8 @@
                 "name": "Name",
                 "icon_key": "Icon",
                 "summary": "Summary",
-                "description": "Description"
+                "description": "Description",
+                "is_featured": "Featured"
             }
         },
         "Service": {

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('icon_key');
             $table->json('summary');
             $table->json('description');
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
         });
     }

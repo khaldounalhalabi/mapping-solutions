@@ -18,6 +18,14 @@ class MarketApplicationFactory extends Factory
             'icon_key'    => 'x-mark',
             'summary'     => Translatable::fake('text')->toJson(),
             'description' => Translatable::fake('text')->toJson(),
+            'is_featured' => false,
         ];
+    }
+
+    public function featured(): static
+    {
+        return $this->state(fn (array $attributes): array => [
+            'is_featured' => true,
+        ]);
     }
 }

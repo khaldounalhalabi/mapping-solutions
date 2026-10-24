@@ -22,6 +22,7 @@ class MarketApplicationResource extends BaseResource
             'icon_key'    => $this->icon_key,
             'summary'     => $this->summary,
             'description' => $this->description,
+            'is_featured' => $this->is_featured,
         ];
     }
 }

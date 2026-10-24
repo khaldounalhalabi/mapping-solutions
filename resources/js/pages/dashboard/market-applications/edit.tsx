@@ -9,6 +9,7 @@ import FormLocaleProvider from "@/providers/form-locale-provider";
 import MarketApplication from "@/models/market-application";
 import FormIconPicker from "@/components/form/fields/form-icon-picker";
 import TranslatableTextEditor from "@/components/form/fields/translatable-text-editor";
+import Checkbox from "@/components/form/fields/checkbox";
 
 const Edit = ({
     marketApplication,
@@ -23,6 +24,7 @@ const Edit = ({
             icon_key:    string;
             summary:     string;
             description: string;
+            is_featured: boolean;
         }>
     >({
         _method:     "PUT",
@@ -30,6 +32,7 @@ const Edit = ({
         icon_key:    marketApplication?.icon_key,
         summary:     marketApplication?.summary,
         description: marketApplication?.description,
+        is_featured: marketApplication?.is_featured,
     });
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -69,6 +72,16 @@ const Edit = ({
                             onChange={(e) => setData("icon_key", e)}
                             defaultValue={marketApplication.icon_key}
                             required
+                        />
+                        <Checkbox
+                            name="is_featured"
+                            label={t(
+                                "models.MarketApplication.fields.is_featured",
+                            )}
+                            checked={marketApplication.is_featured}
+                            onChange={(value) =>
+                                setData("is_featured", value === true)
+                            }
                         />
                         <div className="md:col-span-2">
                             <TranslatableTextarea

@@ -17,6 +17,7 @@ use App\Serializers\Translatable as TranslatableSerializer;
  * @property string                 $icon_key
  * @property TranslatableSerializer $summary
  * @property TranslatableSerializer $description
+ * @property bool                   $is_featured
  * @property Carbon                 $created_at
  * @property Carbon                 $updated_at
  *
@@ -28,10 +29,13 @@ use App\Serializers\Translatable as TranslatableSerializer;
     'icon_key',
     'summary',
     'description',
+    'is_featured',
 ])]
 class MarketApplication extends Model
 {
     use HasFactory;
+
+    public const int MAX_FEATURED = 4;
 
     protected function casts(): array
     {
@@ -39,6 +43,7 @@ class MarketApplication extends Model
             'name'        => Translatable::class,
             'summary'     => Translatable::class,
             'description' => Translatable::class,
+            'is_featured' => 'boolean',
         ];
     }
 
@@ -49,6 +54,7 @@ class MarketApplication extends Model
             'icon_key',
             'summary',
             'description',
+            'is_featured',
         ];
     }
 

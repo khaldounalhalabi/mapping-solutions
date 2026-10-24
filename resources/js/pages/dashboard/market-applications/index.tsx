@@ -4,6 +4,7 @@ import Http from "@/modules/http/http";
 import { useTranslation } from "@/hooks/use-translation";
 import MarketApplication from "@/models/market-application";
 import { DynamicIcon } from "lucide-react/dynamic";
+import { Badge } from "@/components/ui/badge";
 
 const Index = () => {
     const { t } = useTranslation();
@@ -53,6 +54,19 @@ const Index = () => {
                     label:    t("models.MarketApplication.fields.icon_key"),
                     sortable: true,
                     render:   (data) => <DynamicIcon name={data} />,
+                },
+                {
+                    name:     "is_featured",
+                    label:    t("models.MarketApplication.fields.is_featured"),
+                    sortable: true,
+                    render:   (cell) =>
+                        cell ? (
+                            <Badge>{t("dashboard.boolean.yes")}</Badge>
+                        ) : (
+                            <Badge variant="destructive">
+                                {t("dashboard.boolean.no")}
+                            </Badge>
+                        ),
                 },
                 {
                     label:  t("dashboard.table.options"),

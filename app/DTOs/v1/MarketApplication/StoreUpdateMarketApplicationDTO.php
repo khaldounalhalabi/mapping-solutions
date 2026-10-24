@@ -4,13 +4,17 @@ namespace App\DTOs\v1\MarketApplication;
 
 use App\Rules\ValidTranslatableJson;
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
+use App\Rules\MaximumFeaturedMarketApplications;
 use WendellAdriel\ValidatedDTO\Casting\StringCast;
+use WendellAdriel\ValidatedDTO\Casting\BooleanCast;
 
 class StoreUpdateMarketApplicationDTO extends ValidatedDTO
 {
     public string $description;
 
     public string $icon_key;
+
+    public bool $is_featured;
 
     public string $name;
 
@@ -26,6 +30,7 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
             'icon_key'    => new StringCast,
             'summary'     => new StringCast,
             'description' => new StringCast,
+            'is_featured' => new BooleanCast,
         ];
     }
 
@@ -35,7 +40,7 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
     protected function defaults(): array
     {
         return [
-
+            'is_featured' => false,
         ];
     }
 
@@ -49,6 +54,11 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
             'icon_key'    => ['required', 'string', 'max:255', 'min:3'],
             'summary'     => ['json', new ValidTranslatableJson, 'required'],
             'description' => ['json', new ValidTranslatableJson, 'required'],
+            'is_featured' => [
+                'sometimes',
+                'boolean',
+                new MaximumFeaturedMarketApplications(request()->route('market_application')),
+            ],
         ];
     }
 }
