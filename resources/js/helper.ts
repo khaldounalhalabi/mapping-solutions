@@ -1,5 +1,9 @@
 import { usePage } from "@inertiajs/react";
 
+/**
+ * @param {string} path
+ * @path public
+ */
 export const asset = (path: string) => {
     const {
         props: { asset },
@@ -47,4 +51,9 @@ export function getEnumValues<T extends object>(enumObj: T): T[keyof T][] {
     return Object.values(enumObj).filter(
         (value) => typeof value === "string" || typeof value === "number",
     ) as T[keyof T][];
+}
+
+export function isUrlActive(url: string) {
+    const location = window.location.href;
+    return location == url || location.startsWith(url);
 }

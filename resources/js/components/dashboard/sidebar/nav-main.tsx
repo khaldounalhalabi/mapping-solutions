@@ -17,11 +17,7 @@ import { Link } from "@inertiajs/react";
 import { ChevronRight, LayoutDashboardIcon } from "lucide-react";
 import { ReactNode } from "react";
 import { useTranslation } from "@/hooks/use-translation";
-
-function isUrlActive(url: string) {
-    const location = window.location.href;
-    return location == url || location.startsWith(url);
-}
+import { isUrlActive } from "@/helper";
 
 export function NavMain({
     items,

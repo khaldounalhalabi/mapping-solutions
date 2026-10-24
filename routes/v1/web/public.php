@@ -16,4 +16,4 @@ Route::inertia('/v1/dashboard/login', 'dashboard/login')->name('v1.web.public.lo
 Route::inertia('/v1/dashboard/request-reset-password', 'dashboard/forget-password')->name('v1.web.public.request.reset.password.page');
 Route::inertia('/v1/dashboard/reset-password', 'dashboard/reset-password')->name('v1.web.public.reset.password.page');
 
-Route::inertia('/', 'website/index');
+Route::inertia('/', 'website/index')->name('site.index');

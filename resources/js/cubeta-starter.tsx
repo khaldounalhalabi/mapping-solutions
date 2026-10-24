@@ -2,10 +2,18 @@ import AuthLayout from "@/components/layouts/auth-layout";
 import { createInertiaApp } from "@inertiajs/react";
 import "../css/cubeta-starter.css";
 import DashboardLayout from "@/components/layouts/dashboard-layout";
+import SiteLayout from "@/components/layouts/site-layout";
 
 createInertiaApp({
-    layout:   (name) =>
-        authPages.includes(name) ? AuthLayout : DashboardLayout,
+    layout: (name) => {
+        const isDashboardPage = name.includes("dashboard");
+
+        if (isDashboardPage) {
+            return authPages.includes(name) ? AuthLayout : DashboardLayout;
+        }
+
+        return SiteLayout;
+    },
     defaults: {
         visitOptions: () => {
             return { viewTransition: true };
