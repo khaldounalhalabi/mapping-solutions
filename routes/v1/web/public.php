@@ -12,7 +12,6 @@ Route::get('/v1/newsletter/unsubscribe/{newsletterSubscriber}', v1\NewsletterUns
     ->middleware('signed')
     ->name('v1.web.public.newsletter.unsubscribe');
 
-Route::inertia('/v1/dashboard/register', 'dashboard/register')->name('v1.web.public.register.page');
 Route::inertia('/v1/dashboard/login', 'dashboard/login')->name('v1.web.public.login.page');
 Route::inertia('/v1/dashboard/request-reset-password', 'dashboard/forget-password')->name('v1.web.public.request.reset.password.page');
 Route::inertia('/v1/dashboard/reset-password', 'dashboard/reset-password')->name('v1.web.public.reset.password.page');
