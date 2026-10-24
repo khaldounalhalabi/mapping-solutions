@@ -206,3 +206,20 @@
         background-color: color-mix(in oklab, var(--primary) 70%, transparent);
     }
 }
+
+.spectrum-line {
+    height: 1.5px;
+    width: 100%;
+    background: var(
+        linear-gradient(
+            90deg,
+            #2b3fd4,
+            #1a9ed4,
+            #12b886,
+            #f2c037,
+            #f2762e,
+            #d63b3b
+        )
+    );
+    margin: 16px 0 18px;
+}
