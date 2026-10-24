@@ -26,6 +26,7 @@ class NewsletterEmailMessage extends Mailable implements ShouldQueue
      * Get the attachments for the message.
      *
      * @return array<int, Attachment>
+     *
      * @throws Exception
      */
     public function attachments(): array
