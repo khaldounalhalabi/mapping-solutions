@@ -16,7 +16,7 @@ RUN npm run build
 # ============================
 # Stage 2: Shared PHP runtime
 # ============================
-FROM dunglas/frankenphp:1.7.0-php8.4-alpine AS php-runtime
+FROM dunglas/frankenphp:php8.4-alpine AS php-runtime
 
 RUN apk add --no-cache \
     libpng-dev \
