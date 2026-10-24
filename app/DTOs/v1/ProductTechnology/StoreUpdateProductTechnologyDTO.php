@@ -10,6 +10,8 @@ use WendellAdriel\ValidatedDTO\Casting\StringCast;
 
 class StoreUpdateProductTechnologyDTO extends ValidatedDTO
 {
+    public string $color;
+
     public ?UploadedFile $icon = null;
 
     public ?string $icon_key = null;
@@ -20,6 +22,7 @@ class StoreUpdateProductTechnologyDTO extends ValidatedDTO
     {
         return [
             'name'     => new StringCast,
+            'color'    => new StringCast,
             'icon_key' => new StringCast,
         ];
     }
@@ -36,6 +39,11 @@ class StoreUpdateProductTechnologyDTO extends ValidatedDTO
                 'required',
                 'json',
                 new ValidTranslatableJson,
+            ],
+
+            'color' => [
+                'required',
+                'hex_color',
             ],
 
             'icon_key' => [

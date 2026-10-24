@@ -233,6 +233,7 @@
             "fields": {
                 "name": "Name",
                 "slug": "Slug",
+                "color": "Color",
                 "icon": "Icon",
                 "icon_key": "Icon Key",
                 "icon_source": "Icon Source"

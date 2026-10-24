@@ -42,6 +42,21 @@ const Show = ({
                         value={productTechnology.slug}
                     />
                     <DetailItem
+                        label={t("models.product_technology.fields.color")}
+                        value={
+                            <span className="flex items-center gap-2">
+                                <span
+                                    className="size-5 rounded-full border border-border"
+                                    style={{
+                                        backgroundColor:
+                                            productTechnology.color,
+                                    }}
+                                />
+                                {productTechnology.color}
+                            </span>
+                        }
+                    />
+                    <DetailItem
                         label={t("models.product_technology.fields.icon_key")}
                         value={productTechnology?.icon_key}
                     />

@@ -10,6 +10,7 @@ import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import FormIconPicker from "@/components/form/fields/form-icon-picker";
 import { useTranslation } from "@/hooks/use-translation";
+import Input from "@/components/form/fields/input";
 
 type IconType = "key" | "file" | null;
 
@@ -35,10 +36,12 @@ const Create = () => {
 
     const { post, setData, processing } = useForm<{
         name:      string;
+        color:     string;
         icon_key?: string;
         icon:      Media | File | null;
     }>({
         name:     "",
+        color:    "#af52de",
         icon_key: "",
         icon:     null,
     });
@@ -79,6 +82,18 @@ const Create = () => {
                             name="name"
                             label={t("models.product_technology.fields.name")}
                             onChange={(value) => setData("name", value)}
+                            required
+                        />
+
+                        <Input
+                            name="color"
+                            label={t("models.product_technology.fields.color")}
+                            type="color"
+                            defaultValue="#af52de"
+                            onChange={(event) =>
+                                setData("color", event.target.value)
+                            }
+                            className="h-12 cursor-pointer p-1"
                             required
                         />
 

@@ -60,6 +60,21 @@ const Index = () => {
                     },
                 },
                 {
+                    name:  "color",
+                    label: t("models.product_technology.fields.color"),
+                    render(data) {
+                        return (
+                            <span className="flex items-center gap-2">
+                                <span
+                                    className="size-5 rounded-full border border-border"
+                                    style={{ backgroundColor: data }}
+                                />
+                                {data}
+                            </span>
+                        );
+                    },
+                },
+                {
                     name:  "icon",
                     label: t("models.product_technology.fields.icon"),
                     render(_data, record) {

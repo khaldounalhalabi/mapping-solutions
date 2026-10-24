@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  * @property int                    $id
  * @property TranslatableSerializer $name
  * @property string                 $slug
- * @property string|null            $color
+ * @property string                 $color
  * @property string|null            $icon_key
  * @property SerializedMedia|null   $icon
  * @property Carbon                 $created_at

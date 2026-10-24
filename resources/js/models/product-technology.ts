@@ -6,7 +6,7 @@ interface ProductTechnology {
     id:        number;
     name:      string;
     slug:      string;
-    color:     string | null;
+    color:     string;
     icon_key?: IconName;
     icon?:     Media | undefined;
     products?: Product[];

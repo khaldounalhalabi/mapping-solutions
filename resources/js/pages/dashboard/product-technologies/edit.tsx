@@ -11,6 +11,7 @@ import FormLocaleProvider from "@/providers/form-locale-provider";
 import FormIconPicker from "@/components/form/fields/form-icon-picker";
 import ProductTechnology from "@/models/product-technology";
 import { useTranslation } from "@/hooks/use-translation";
+import Input from "@/components/form/fields/input";
 
 type IconType = "key" | "file" | null;
 
@@ -47,11 +48,13 @@ const Edit = ({
     const { post, setData, processing } = useForm<{
         _method:   "PUT";
         name:      string;
+        color:     string;
         icon_key?: string;
         icon:      Media | File | null;
     }>({
         _method:  "PUT",
         name:     productTechnology.name,
+        color:    productTechnology.color,
         icon_key:
             initialIconType === "key" ? (productTechnology.icon_key ?? "") : "",
         icon:
@@ -103,6 +106,18 @@ const Edit = ({
                             label={t("models.product_technology.fields.name")}
                             defaultValue={productTechnology.name}
                             onChange={(value) => setData("name", value)}
+                            required
+                        />
+
+                        <Input
+                            name="color"
+                            label={t("models.product_technology.fields.color")}
+                            type="color"
+                            defaultValue={productTechnology.color}
+                            onChange={(event) =>
+                                setData("color", event.target.value)
+                            }
+                            className="h-12 cursor-pointer p-1"
                             required
                         />
 
