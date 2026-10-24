@@ -16,6 +16,7 @@ class ProductTechnologyFactory extends Factory
     {
         return [
             'name'     => Translatable::fake()->toJson(),
+            'color'    => fake()->hexColor(),
             'icon_key' => fake()->word(),
             'icon'     => fakeImage(),
         ];

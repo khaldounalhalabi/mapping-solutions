@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  * @property int                    $id
  * @property TranslatableSerializer $name
  * @property string                 $slug
+ * @property string|null            $color
  * @property string|null            $icon_key
  * @property SerializedMedia|null   $icon
  * @property Carbon                 $created_at
@@ -35,6 +36,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 #[Fillable([
     'name',
     'slug',
+    'color',
     'icon_key',
     'icon',
 ])]
@@ -55,6 +57,7 @@ class ProductTechnology extends Model
         return [
             'name',
             'slug',
+            'color',
             'icon_key',
             'icon',
             'product_ids',

@@ -20,6 +20,7 @@ class ProductTechnologyResource extends BaseResource
             'id'       => $this->id,
             'name'     => $this->name,
             'slug'     => $this->slug,
+            'color'    => $this->color,
             'icon_key' => $this->icon_key,
             'icon'     => $this->icon,
             'products' => ProductResource::collection($this->whenLoaded('products')),

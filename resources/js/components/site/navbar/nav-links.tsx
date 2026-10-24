@@ -46,6 +46,7 @@ const NavLinks = () => {
             {LINKS.map((l) => (
                 <Link
                     href={l.link}
+                    key={l.link + "-id-" + l.title}
                     className={cn(
                         "uppercase hover:text-link font-bold text-sm",
                         isUrlActive(l.link) ? "text-link" : "text-foreground",

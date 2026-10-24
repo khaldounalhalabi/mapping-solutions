@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <nav
             className={
-                "sticky top-0 w-full h-fit px-22 py-5 shadow-2xl flex items-center justify-between"
+                "bg-background sticky top-0 w-full h-fit px-22 py-5 shadow-2xl flex items-center justify-between"
             }
         >
             <img

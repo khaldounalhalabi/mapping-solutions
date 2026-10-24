@@ -68,6 +68,7 @@
                 "en": "Spectroradiometers"
             },
             "slug": "spectroradiometers",
+            "color": "#af52de",
             "icon_key": "rainbow"
         },
         {
@@ -75,6 +76,7 @@
                 "en": "Hyperspectral Imaging"
             },
             "slug": "hyperspectral-imaging",
+            "color": "#5856d6",
             "icon_key": "layers-3"
         },
         {
@@ -82,6 +84,7 @@
                 "en": "Thermal Imaging"
             },
             "slug": "thermal-imaging",
+            "color": "#007aff",
             "icon_key": "camera"
         },
         {
@@ -89,6 +92,7 @@
                 "en": "LiDAR"
             },
             "slug": "lidar",
+            "color": "#00c7be",
             "icon_key": "scan-line"
         },
         {
@@ -96,6 +100,7 @@
                 "en": "Radar"
             },
             "slug": "radar",
+            "color": "#34c759",
             "icon_key": "radar"
         },
         {
@@ -103,6 +108,7 @@
                 "en": "Satellites"
             },
             "slug": "satellites",
+            "color": "#c6ff00",
             "icon_key": "satellite"
         },
         {
@@ -110,6 +116,7 @@
                 "en": "Drones"
             },
             "slug": "drones",
+            "color": "#ffeb3b",
             "icon_key": "drone"
         },
         {
@@ -117,6 +124,7 @@
                 "en": "IMU & GPS"
             },
             "slug": "imu-gps",
+            "color": "#ffcc00",
             "icon_key": "orbit"
         },
         {
@@ -124,6 +132,7 @@
                 "en": "Software"
             },
             "slug": "software",
+            "color": "#ff9500",
             "icon_key": "chart-no-axes-combined"
         },
         {
@@ -131,6 +140,7 @@
                 "en": "Customised Solutions"
             },
             "slug": "customised-solutions",
+            "color": "#ff3b30",
             "icon_key": "settings-2"
         }
     ],
