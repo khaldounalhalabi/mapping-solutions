@@ -52,6 +52,10 @@
     --color-background: var(--background);
     --color-link: var(--link);
     --color-navy: var(--navy);
+    --color-navy-secondary: var(--navy-secondary);
+    --color-danger: var(--danger);
+    --color-paragraph: var(--paragraph);
+    --background-image-spectrum: var(--spectrum);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
@@ -59,6 +63,8 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+    --spacing-page-padding: var(--page-padding);
+    --shadow-card: 0 16px 38px rgb(11 33 64 / 12%);
 }
 
 :root {
@@ -88,6 +94,7 @@
     --chart-4: oklch(0.371 0 0);
     --chart-5: oklch(0.269 0 0);
     --radius: 0.625rem;
+    --page-padding: calc(var(--spacing) * 32);
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
     --sidebar-primary: oklch(0.205 0 0);
@@ -98,6 +105,18 @@
     --sidebar-ring: oklch(0.708 0 0);
     --link: #1a5fb4;
     --navy: #0b2140;
+    --spectrum: linear-gradient(
+        90deg,
+        #2b3fd4,
+        #1a9ed4,
+        #12b886,
+        #f2c037,
+        #f2762e,
+        #d63b3b
+    );
+    --navy-secondary: #1a5fb4;
+    --danger: #d63b3b;
+    --paragraph: var(--color-gray-500);
 }
 
 .dark {
@@ -136,6 +155,18 @@
     --sidebar-ring: oklch(0.556 0 0);
     --link: #7ab8ff;
     --navy: #a3c4ed;
+    --spectrum: linear-gradient(
+        90deg,
+        #2b3fd4,
+        #1a9ed4,
+        #12b886,
+        #f2c037,
+        #f2762e,
+        #d63b3b
+    );
+    --navy-secondary: #1a5fb4;
+    --danger: #d63b3b;
+    --paragraph: var(--color-gray-500);
 }
 
 @layer base {
@@ -205,21 +236,4 @@
     .dashboard-scrollbars *::-webkit-scrollbar-thumb:hover {
         background-color: color-mix(in oklab, var(--primary) 70%, transparent);
     }
-}
-
-.spectrum-line {
-    height: 1.5px;
-    width: 100%;
-    background: var(
-        linear-gradient(
-            90deg,
-            #2b3fd4,
-            #1a9ed4,
-            #12b886,
-            #f2c037,
-            #f2762e,
-            #d63b3b
-        )
-    );
-    margin: 16px 0 18px;
 }

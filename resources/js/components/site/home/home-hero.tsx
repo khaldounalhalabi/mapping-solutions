@@ -3,20 +3,22 @@ import ProductTechnologiesGrid from "@/components/site/home/product-technologies
 import ProductTechnology from "@/models/product-technology";
 import { Separator } from "@/components/ui/separator";
 import HeroCounts from "@/components/site/home/hero-counts";
+import SectionTitle from "@/components/ui/section-title";
+import SectionDescription from "@/components/ui/section-description";
 
 const HomeHero = ({ technologies }: { technologies: ProductTechnology[] }) => {
     return (
-        <div className={"flex flex-col items-start px-32"}>
-            <h1 className={"text-navy font-bold text-4xl"}>
+        <div className={"flex flex-col items-start px-page-padding"}>
+            <SectionTitle>
                 Instrumentation for measurement beyond the visible spectrum
-            </h1>
+            </SectionTitle>
             <SpectrumLine className={"h-0.5 my-5"} />
-            <p className={"text-sm text-gray-500 max-w-2/3"}>
+            <SectionDescription>
                 Spectral, thermal, ranging and positioning systems from leading
                 international manufacturers, supplied with selection advice and
                 technical support from our engineers in the UK. Serving
                 research, defence and industry since 2004.
-            </p>
+            </SectionDescription>
             <ProductTechnologiesGrid technologies={technologies} />
             <Separator className={"my-10"} />
             <HeroCounts />

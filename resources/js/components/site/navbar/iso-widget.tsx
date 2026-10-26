@@ -12,7 +12,7 @@ const IsoWidget = () => {
                 <strong className={"font-extrabold text-sm"}>ISO 901</strong>
                 <p
                     className={
-                        "text-gray-500 text-[0.6rem] uppercase tracking-wider"
+                        "text-paragraph text-[0.6rem] uppercase tracking-wider"
                     }
                 >
                     certified

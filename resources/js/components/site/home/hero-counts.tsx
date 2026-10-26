@@ -36,7 +36,7 @@ const HeroCounts = () => {
                         />
                     </h1>
 
-                    <p className="text-xs text-gray-500 text-start">
+                    <p className="text-xs text-paragraph text-start">
                         {stat.description}
                     </p>
                 </div>

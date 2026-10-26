@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\MarketApplication;
+use Illuminate\Database\Eloquent\Collection;
 use App\Repositories\Contracts\BaseRepository;
 
 /**
@@ -11,6 +12,16 @@ use App\Repositories\Contracts\BaseRepository;
 class MarketApplicationRepository extends BaseRepository
 {
     protected string $modelClass = MarketApplication::class;
+
+    /**
+     * @return Collection<int, MarketApplication>
+     */
+    public function featured(array $relations = []): Collection
+    {
+        return $this->globalQuery($relations)
+            ->where('is_featured', true)
+            ->get();
+    }
 
     /**
      * @param int[] $exceptIds
