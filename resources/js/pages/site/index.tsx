@@ -7,6 +7,7 @@ import NewsSection from "@/components/site/home/news-section";
 import NewsArticle from "@/models/news-article";
 import Supplier from "@/models/supplier";
 import SuppliersSection from "@/components/site/home/suppliers-section";
+import ContactSection from "@/components/site/home/contact-section";
 
 const Index = ({
     technologies,
@@ -20,12 +21,14 @@ const Index = ({
     suppliers:    Supplier[];
 }) => {
     return (
-        <div className={"py-5"}>
+        <div>
             <HomeHero technologies={technologies} />
             <SpectrumLine className={"my-10"} />
             <ApplicationsSection applications={applications} />
             <NewsSection news={news} />
             <SuppliersSection suppliers={suppliers} />
+            <ContactSection />
+            <SpectrumLine />
         </div>
     );
 };
