@@ -55,6 +55,7 @@
     --color-navy-secondary: var(--navy-secondary);
     --color-danger: var(--danger);
     --color-paragraph: var(--paragraph);
+    --color-bg-secondary: var(--bg-secondary);
     --background-image-spectrum: var(--spectrum);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
@@ -117,6 +118,7 @@
     --navy-secondary: #1a5fb4;
     --danger: #d63b3b;
     --paragraph: var(--color-gray-500);
+    --bg-secondary: #f6f8fb;
 }
 
 .dark {
@@ -167,6 +169,7 @@
     --navy-secondary: #1a5fb4;
     --danger: #d63b3b;
     --paragraph: var(--color-gray-500);
+    --bg-secondary: #f6f8fb;
 }
 
 @layer base {
