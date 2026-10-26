@@ -3,10 +3,10 @@ import SectionKicker from "@/components/ui/section-kicker";
 import SectionTitle from "@/components/ui/section-title";
 import SectionDescription from "@/components/ui/section-description";
 import { Link } from "@inertiajs/react";
-import { MoveRightIcon } from "lucide-react";
 import { DynamicIcon } from "lucide-react/dynamic";
 import { Button } from "@/components/ui/button";
 import { translate } from "@/models/translatable";
+import MoveLink from "@/components/ui/move-link";
 
 const ApplicationsSection = ({
     applications,
@@ -25,15 +25,7 @@ const ApplicationsSection = ({
                 the requirement.
             </SectionDescription>
             {/*TODO: fix this link*/}
-            <Link
-                className={
-                    "font-bold text-xs text-danger flex flex-1 gap-1 hover:gap-2 transition-all items-center"
-                }
-                href={"#"}
-            >
-                View all applications
-                <MoveRightIcon className={"size-2"} />
-            </Link>
+            <MoveLink href={"#"}>View all applications</MoveLink>
             <div
                 className={"my-5 grid grid-cols-2 md:grid-cols-4 w-full gap-5"}
             >
@@ -44,7 +36,7 @@ const ApplicationsSection = ({
                         <Link
                             href={"#"}
                             key={a.id}
-                            className={`flex flex-col gap-3 rounded-md border border-gray-200 px-6 py-8 transition-all hover:-translate-y-0.5 hover:border-t-3 hover:border-t-(--theme-color) hover:shadow-2xl`}
+                            className={`flex flex-col h-full gap-3 rounded-md border border-gray-200 px-6 py-8 transition-all hover:-translate-y-0.5 hover:border-t-3 hover:border-t-(--theme-color) hover:shadow-2xl`}
                             style={{
                                 /*@ts-ignore*/
                                 "--theme-color": a.theme_color,

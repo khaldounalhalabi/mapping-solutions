@@ -25,6 +25,7 @@ class NewsArticleResource extends BaseResource
             'excerpt'          => $this->excerpt,
             'content'          => $this->content,
             'hero_image'       => $this->hero_image,
+            'created_at'       => $this->created_at?->format('Y-m-d'),
         ];
     }
 }

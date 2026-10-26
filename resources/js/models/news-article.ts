@@ -9,6 +9,7 @@ interface NewsArticle {
     content:          string;
     hero_image?:      Media | undefined;
     news_category?:   NewsCategory;
+    created_at:       string;
 }
 
 export default NewsArticle;
