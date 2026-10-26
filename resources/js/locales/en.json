@@ -287,6 +287,7 @@
             "fields": {
                 "name": "Name",
                 "icon_key": "Icon",
+                "theme_color": "Theme color",
                 "summary": "Summary",
                 "description": "Description",
                 "is_featured": "Featured"

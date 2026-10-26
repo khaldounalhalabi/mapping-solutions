@@ -15,6 +15,7 @@ use App\Serializers\Translatable as TranslatableSerializer;
  * @property int                    $id
  * @property TranslatableSerializer $name
  * @property string                 $icon_key
+ * @property string                 $theme_color
  * @property TranslatableSerializer $summary
  * @property TranslatableSerializer $description
  * @property bool                   $is_featured
@@ -27,6 +28,7 @@ use App\Serializers\Translatable as TranslatableSerializer;
  */
 #[Fillable(['name',
     'icon_key',
+    'theme_color',
     'summary',
     'description',
     'is_featured',
@@ -52,6 +54,7 @@ class MarketApplication extends Model
         return [
             'name',
             'icon_key',
+            'theme_color',
             'summary',
             'description',
             'is_featured',

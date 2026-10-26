@@ -43,6 +43,21 @@ const Show = ({
                         }
                     />
                     <DetailItem
+                        label={t("models.MarketApplication.fields.theme_color")}
+                        value={
+                            <span className="flex items-center gap-2">
+                                <span
+                                    className="size-5 rounded-full border border-border"
+                                    style={{
+                                        backgroundColor:
+                                            marketApplication.theme_color,
+                                    }}
+                                />
+                                {marketApplication.theme_color}
+                            </span>
+                        }
+                    />
+                    <DetailItem
                         label={t("models.MarketApplication.fields.is_featured")}
                         value={
                             marketApplication.is_featured

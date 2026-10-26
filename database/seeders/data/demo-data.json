@@ -826,6 +826,7 @@
                 "en": "Environment and agriculture"
             },
             "icon_key": "trending-up",
+            "theme_color": "#22c55e",
             "summary": {
                 "en": "Vegetation condition, water quality, coastal change and habitat mapping."
             },
@@ -838,6 +839,7 @@
                 "en": "Defence and intelligence"
             },
             "icon_key": "shield",
+            "theme_color": "#3b82f6",
             "summary": {
                 "en": "ISR payloads, target detection and airborne reconnaissance."
             },
@@ -850,6 +852,7 @@
                 "en": "Research and laboratory"
             },
             "icon_key": "flask-conical",
+            "theme_color": "#a855f7",
             "summary": {
                 "en": "Spectroscopy, materials analysis and field measurement campaigns."
             },
@@ -862,6 +865,7 @@
                 "en": "Infrastructure and survey"
             },
             "icon_key": "house",
+            "theme_color": "#f97316",
             "summary": {
                 "en": "Corridor mapping, topographic survey and asset inspection."
             },

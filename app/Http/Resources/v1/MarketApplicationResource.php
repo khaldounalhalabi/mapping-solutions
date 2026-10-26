@@ -20,6 +20,7 @@ class MarketApplicationResource extends BaseResource
             'id'          => $this->id,
             'name'        => $this->name,
             'icon_key'    => $this->icon_key,
+            'theme_color' => $this->theme_color,
             'summary'     => $this->summary,
             'description' => $this->description,
             'is_featured' => $this->is_featured,

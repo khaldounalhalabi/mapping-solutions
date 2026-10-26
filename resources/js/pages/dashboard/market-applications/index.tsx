@@ -56,6 +56,21 @@ const Index = () => {
                     render:   (data) => <DynamicIcon name={data} />,
                 },
                 {
+                    name:  "theme_color",
+                    label: t("models.MarketApplication.fields.theme_color"),
+                    render(data) {
+                        return (
+                            <span className="flex items-center gap-2">
+                                <span
+                                    className="size-5 rounded-full border border-border"
+                                    style={{ backgroundColor: data }}
+                                />
+                                {data}
+                            </span>
+                        );
+                    },
+                },
+                {
                     name:     "is_featured",
                     label:    t("models.MarketApplication.fields.is_featured"),
                     sortable: true,

@@ -10,6 +10,7 @@ import MarketApplication from "@/models/market-application";
 import FormIconPicker from "@/components/form/fields/form-icon-picker";
 import TranslatableTextEditor from "@/components/form/fields/translatable-text-editor";
 import Checkbox from "@/components/form/fields/checkbox";
+import Input from "@/components/form/fields/input";
 
 const Edit = ({
     marketApplication,
@@ -22,6 +23,7 @@ const Edit = ({
             _method?:    "PUT" | "POST";
             name:        string;
             icon_key:    string;
+            theme_color: string;
             summary:     string;
             description: string;
             is_featured: boolean;
@@ -30,6 +32,7 @@ const Edit = ({
         _method:     "PUT",
         name:        marketApplication?.name,
         icon_key:    marketApplication?.icon_key,
+        theme_color: marketApplication?.theme_color,
         summary:     marketApplication?.summary,
         description: marketApplication?.description,
         is_featured: marketApplication?.is_featured,
@@ -73,16 +76,31 @@ const Edit = ({
                             defaultValue={marketApplication.icon_key}
                             required
                         />
-                        <Checkbox
-                            name="is_featured"
+                        <Input
+                            name="theme_color"
                             label={t(
-                                "models.MarketApplication.fields.is_featured",
+                                "models.MarketApplication.fields.theme_color",
                             )}
-                            checked={marketApplication.is_featured}
-                            onChange={(value) =>
-                                setData("is_featured", value === true)
+                            type="color"
+                            defaultValue={marketApplication.theme_color}
+                            onChange={(event) =>
+                                setData("theme_color", event.target.value)
                             }
+                            className="h-12 cursor-pointer p-1"
+                            required
                         />
+                        <div className={"md:col-span-2"}>
+                            <Checkbox
+                                name="is_featured"
+                                label={t(
+                                    "models.MarketApplication.fields.is_featured",
+                                )}
+                                checked={marketApplication.is_featured}
+                                onChange={(value) =>
+                                    setData("is_featured", value === true)
+                                }
+                            />
+                        </div>
                         <div className="md:col-span-2">
                             <TranslatableTextarea
                                 name="summary"

@@ -16,6 +16,7 @@ class MarketApplicationFactory extends Factory
         return [
             'name'        => Translatable::fake('firstName')->toJson(),
             'icon_key'    => 'x-mark',
+            'theme_color' => fake()->hexColor(),
             'summary'     => Translatable::fake('text')->toJson(),
             'description' => Translatable::fake('text')->toJson(),
             'is_featured' => false,

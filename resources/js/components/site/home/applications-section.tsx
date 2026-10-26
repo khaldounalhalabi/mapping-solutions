@@ -40,17 +40,32 @@ const ApplicationsSection = ({
                 {applications
                     .filter((a) => a.is_featured)
                     .map((a) => (
-                        <div
-                            className={
-                                "flex flex-col gap-3 border border-gray-200 rounded-md py-8 px-6 hover:-translate-y-1 hover:shadow-2xl transition-all hover:before:opacity-10 hover:border-t-2 hover:border-t-red-400"
-                            }
+                        // TODO: fix this link
+                        <Link
+                            href={"#"}
+                            key={a.id}
+                            className={`flex flex-col gap-3 rounded-md border border-gray-200 px-6 py-8 transition-all hover:-translate-y-0.5 hover:border-t-3 hover:border-t-(--theme-color) hover:shadow-2xl`}
+                            style={{
+                                /*@ts-ignore*/
+                                "--theme-color": a.theme_color,
+                            }}
                         >
                             <Button
                                 variant={"outline"}
                                 size={"icon-lg"}
-                                className={"p-4"}
+                                className={
+                                    "p-5 border-transparent hover:bg-(--theme-color)/20 bg-(--theme-color)/20"
+                                }
+                                style={{
+                                    color:           a.theme_color,
+                                    /*@ts-ignore*/
+                                    "--theme-color": a.theme_color,
+                                }}
                             >
-                                <DynamicIcon name={a.icon_key} />
+                                <DynamicIcon
+                                    name={a.icon_key}
+                                    className={"size-5"}
+                                />
                             </Button>
                             <div className={"flex flex-col items-start gap-2"}>
                                 <h2
@@ -64,7 +79,7 @@ const ApplicationsSection = ({
                                     {translate(a.summary)}
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
             </div>
         </div>
