@@ -1,6 +1,6 @@
 # Detection Checklist
 
-Every dimension here is a genuine fork: Laravel offers two or more valid approaches, the app's choice changes what the next agent writes, and no active project tool can pick for you. Left out on purpose: pure formatting (Pint owns it), any form an installed and enabled Rector rule rewrites to one canonical shape (`$casts` to `casts()`, `$fillable` to attributes, pipe-string rules to arrays, named to anonymous migrations, `$signature` to `#[Signature]`), and framework defaults any agent writes unprompted (`ShouldQueue` jobs, relation return types, `HasFactory`).
+Every dimension here is a genuine fork: Laravel, React, Inertia, or the frontend ecosystem offers two or more valid approaches, the app's choice changes what the next agent writes, and no active project tool can pick for you. Left out on purpose: pure formatting (Pint, Prettier, or an active formatter owns it), any form an installed and enabled Rector rule rewrites to one canonical shape (`$casts` to `casts()`, `$fillable` to attributes, pipe-string rules to arrays, named to anonymous migrations, `$signature` to `#[Signature]`), and framework defaults any agent writes unprompted (`ShouldQueue` jobs, relation return types, `HasFactory`).
 
 Each item gives the fork, then a hint (a grep or dir to spot which side the app takes). Hints are only a start. Read the matched files, never record on a raw count. Apply the ground rules to every verdict: a consistent choice that is a default or a tool's target form is not a pattern. Rows tagged (architecture) are the highest-signal, so record presence and deliberate absence.
 
@@ -75,7 +75,7 @@ Each item gives the fork, then a hint (a grep or dir to spot which side the app 
 27. Enums: backed vs pure; case naming; where they live.
     - Hint: `ls app/Enums`; grep `enum .*: string`, `enum .*: int`.
 
-## F. Frontend & views
+## F. Frontend stack & views
 
 This app ships a frontend stack, so the items below apply.
 
@@ -135,3 +135,72 @@ This app ships a frontend stack, so the items below apply.
 ---
 
 Genuine forks only. Every row survived the "no tool can decide this, and it isn't the default" filter. Give each applicable dimension exactly one verdict: pattern, conflict, default, no-signal, tooling-owned, or already-recorded. The rows tagged (architecture) are where the highest-value rules come from.
+
+---
+
+## K. React & Inertia architecture (when the stack is present)
+
+Apply these dimensions only to installed and actually used technologies. Check `package.json`, `composer.json`, `resources/js`, `vite.config.*`, `tsconfig*.json`, and any generated route/type configuration first. A framework starter kit is not automatically a project-specific convention. Compare equivalent use cases; do not treat different requirements as conflicting choices. All candidates require the same evidence bar and tool/default exclusions as the PHP dimensions.
+
+50. Frontend directory organization (architecture): feature/domain modules vs. global `pages`/`components`/`hooks`/`layouts` folders vs. mixed colocated structure. Record meaningful organization and deliberate absence of a feature layer.
+    - Hint: map all `resources/js` directories, including nonstandard roots; inspect import relationships and representative features.
+51. Inertia page organization (architecture): pages organized by resource/feature vs flat pages; page naming aligned to controller/action names vs independent names.
+    - Hint: inspect `resources/js/pages` or `Pages`, Inertia `resolvePageComponent`/`import.meta.glob`, and `Inertia::render` calls.
+52. Layout assignment: persistent `layout` property/function vs layout wrapping inside page JSX vs nested layout components; inspect whether pages use a shared default or explicit per-page layouts.
+    - Hint: inspect page exports, `.layout =`, `<*Layout`, and `createInertiaApp` setup.
+53. Page/component boundary (architecture): thin page components delegating to feature components vs pages containing most UI and behavior; reusable domain widgets vs only generic primitives.
+    - Hint: read several comparable pages and their imported components; map responsibilities, not line counts alone.
+54. Component declaration/export: named functions vs arrow components; named exports vs default exports, only where not prescribed by an active rule or generator.
+    - Hint: compare TSX/JSX component declarations and exports across similar directories.
+55. Component props contracts: inline props types vs named `type`/`interface` vs shared domain types; typed `children` and composition patterns where meaningful.
+    - Hint: inspect comparable component signatures and `resources/js/types` or feature-local types.
+56. Page props contracts: `usePage<T>()` vs typed page function arguments vs shared `PageProps` augmentation; handling of shared auth/flash props.
+    - Hint: inspect `usePage`, page signatures, `declare module '@inertiajs/core'`, and `HandleInertiaRequests`.
+57. Server/client data boundary (architecture): controllers pass ready-to-render props vs client transforms data vs shared serializers/resources/DTOs; record boundaries only when supported by corresponding PHP and TS/JS code.
+    - Hint: trace several `Inertia::render` calls into pages and shared type definitions.
+58. Forms: Inertia `useForm` vs `<Form>` component vs native React state + router/fetch vs a form library; distinguish genuinely different form requirements.
+    - Hint: inspect comparable create/edit forms for `useForm`, `Form`, `router.post`, `fetch`, and form libraries.
+59. Form validation/error presentation: `errors`/`processing` from Inertia vs separate client schema validation; shared field/error components vs inline messages.
+    - Hint: trace several forms, server Form Requests, `errors`, `setError`, and any Zod/Yup/React Hook Form use.
+60. Mutations and navigation: Inertia `router`/`Link` vs route helpers vs raw anchors/fetch; preserve intended external links and downloads as separate contexts.
+    - Hint: inspect internal links, `router.visit`, `router.get/post/put/delete`, `Link`, and route helper imports.
+61. Route generation: Wayfinder generated actions vs Ziggy `route()` vs literal paths vs project-specific route helpers; distinguish route names from navigation API.
+    - Hint: inspect `package.json`, Vite config, generated `routes`/`actions`, and calls in components.
+62. Partial reload and deferred data strategy: `only`/`except`/`reload` vs full visits; deferred props, `WhenVisible`, or polling in applicable data-heavy pages.
+    - Hint: inspect `router.reload`, `only:`, `except:`, `Deferred`, `WhenVisible`, `usePoll`, and matching server props.
+63. Filter/search/pagination state: URL query parameters + Inertia visits vs local state vs custom hooks; preserve distinct ephemeral UI state.
+    - Hint: inspect list/index pages, query params, `router.get`, `preserveState`, and pagination controls.
+64. State management (architecture): local `useState`/`useReducer` and props vs context/providers vs Zustand/Redux/Jotai or another store; record deliberate absence of a global store only with broad evidence.
+    - Hint: inspect `package.json`, providers, stores, hooks, and cross-page state use.
+65. Data fetching outside Inertia: server-delivered page props vs TanStack Query/SWR vs `fetch`/Axios; distinguish real-time widgets or third-party API calls from ordinary page data.
+    - Hint: inspect dependencies and API calls in comparable page components.
+66. Custom hooks and business logic (architecture): feature-specific hooks vs generic hooks vs inline component effects/logic; conventions for hook location and naming.
+    - Hint: inspect `resources/js/hooks`, feature-local hooks, and several complex pages.
+67. Side effects and subscriptions: custom hooks vs component-level `useEffect` vs event helpers; only compare equivalent effects and ignore tool-enforced lint rules.
+    - Hint: inspect `useEffect`, `useEventListener`, cleanup functions, and hook implementations.
+68. UI primitives and composition (architecture): shared design-system components vs direct HTML/headless primitives vs feature-local wrappers; note whether generated/shadcn components are customized or merely scaffolded.
+    - Hint: map `components/ui`, imports of Radix/headless packages, and feature components.
+69. Styling system: Tailwind utility classes vs CSS modules vs styled components vs authored stylesheets; class composition via `cn`/`clsx`/`cva` vs inline strings where not tooling-owned.
+    - Hint: inspect `package.json`, CSS entry points, Tailwind config, `className`, `cn(`, `cva(`.
+70. Variants and design tokens: CVA/variant props vs conditional classes; central theme tokens vs literal values where a deliberate reusable pattern exists.
+    - Hint: inspect shared buttons, badges, inputs, CSS variables, and Tailwind theme setup.
+71. TypeScript boundaries: shared generated server types vs handwritten types vs local inference; `type` vs `interface` only if not governed by lint rules.
+    - Hint: inspect `tsconfig`, generated types, `resources/js/types`, and comparable page/component signatures.
+72. Import organization: alias imports (`@/`) vs relative imports; barrel exports vs direct imports, excluding formatter/linter enforced ordering.
+    - Hint: inspect `tsconfig` paths, Vite aliases, `index.ts` barrels, and imports across several features.
+73. Error, flash, and notification handling: shared Inertia flash props/toast provider vs per-page alerts vs component-local messaging.
+    - Hint: inspect `HandleInertiaRequests`, flash prop access, toast imports, and comparable mutation flows.
+74. Localization: client translation library vs server-supplied translations vs literal UI strings; key organization and pluralization where actually used.
+    - Hint: inspect `package.json`, locale directories, `useTranslation`, `t(`, and shared props.
+75. Accessibility patterns beyond library defaults: project wrappers for dialogs/forms/feedback vs raw primitives; record only intentional architectural choices, not baseline accessibility obligations.
+    - Hint: inspect several dialogs, form fields, and shared accessibility helpers.
+76. Frontend tests: Vitest/Jest + React Testing Library vs browser tests (Playwright/Cypress) vs no established frontend testing; colocated vs dedicated test directories and mocking approach.
+    - Hint: inspect scripts, test configs, `*.test.*`, `*.spec.*`, and e2e directories. Absence alone is no-signal unless a deliberate documented policy is evident.
+77. Frontend-server contract tests: Inertia response assertions in Laravel feature tests vs frontend component tests vs both; compare equivalent page contracts, not different test layers.
+    - Hint: inspect `assertInertia`, `AssertableInertia`, frontend tests, and page prop contracts.
+78. Assets, icons, and media: central icon wrappers/library vs direct package imports; Vite-imported assets vs public paths vs project asset helpers.
+    - Hint: inspect icon imports, image components, `resources/images`, `public`, and Vite asset references.
+79. Async/optimistic UX: shared pending/disabled behavior, `preserveScroll`/`preserveState`, optimistic updates, or confirmation dialogs for comparable mutations.
+    - Hint: inspect several edit/delete flows and Inertia visit options.
+80. Inertia bootstrapping and providers (architecture): global providers and shared setup in `app.tsx`/`app.jsx` vs per-layout/per-page providers; custom resolver/default layout behavior.
+    - Hint: inspect `createInertiaApp`, provider nesting, SSR entrypoint, and layout components.
