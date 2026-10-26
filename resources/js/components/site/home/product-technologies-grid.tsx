@@ -22,6 +22,7 @@ const ProductTechnologiesGrid = ({
                         href={"#"}
                     >
                         {/*TODO: fix the URL routing when you implement the products-by-technology page */}
+                        {/*TODO: fix hovering issue (animation is not being triggered)*/}
                         <div
                             className="relative isolate flex h-4/5 w-full items-center justify-center overflow-hidden rounded-t-xl before:pointer-events-none before:absolute before:inset-y-0 before:-left-1/2 before:z-10 before:w-1/2 before:translate-x-0 before:skew-x-[-25deg] before:bg-linear-to-r before:from-transparent before:via-white/40 before:to-transparent before:transition-transform before:duration-700 before:ease-in-out group-hover:before:translate-x-[400%]"
                             style={{

@@ -9,7 +9,7 @@ const IsoWidget = () => {
         >
             <IsoCheckIcon />
             <div className={"flex flex-col items-start"}>
-                <strong className={"font-extrabold text-sm"}>ISO 901</strong>
+                <strong className={"font-extrabold text-sm"}>ISO 9001</strong>
                 <p
                     className={
                         "text-paragraph text-[0.6rem] uppercase tracking-wider"

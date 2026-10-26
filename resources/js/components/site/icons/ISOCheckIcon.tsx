@@ -1,4 +1,11 @@
-const IsoCheckIcon = () => {
+import { ComponentProps } from "react";
+
+const IsoCheckIcon = (
+    props: Omit<
+        ComponentProps<"svg">,
+        "width" | "height" | "viewBox" | "fill" | "aria-hidden"
+    >,
+) => {
     return (
         <svg
             width="26"
@@ -6,6 +13,7 @@ const IsoCheckIcon = () => {
             viewBox="0 0 48 48"
             fill="none"
             aria-hidden="true"
+            {...props}
         >
             <circle
                 cx="24"
