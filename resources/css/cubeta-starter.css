@@ -242,11 +242,13 @@
 }
 
 .bg-brand {
+    position: relative;
     background: radial-gradient(110% 140% at 20% 0%, #123a66, var(--navy) 70%);
 }
 
 .bg-brand::before {
     content: "";
+    pointer-events: none;
     position: absolute;
     inset: 0;
     background-image: radial-gradient(
