@@ -51,7 +51,9 @@ const ProductTechnologiesGrid = ({
                             </Button>
                         </div>
                         <div className="h-1/5 flex items-center gap-2 font-bold text-navy justify-center text-center">
-                            <span>{translate(tech.name)}</span>
+                            <span className={"text-sm font-extrabold"}>
+                                {translate(tech.name)}
+                            </span>
                             <ArrowRightIcon className="size-4 w-0 opacity-0 -translate-x-2 transition-all duration-500 ease-in-out group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0" />
                         </div>
                     </Link>
