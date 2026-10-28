@@ -25,7 +25,7 @@ class ProductFamilyController extends WebController
 
     public function data()
     {
-        $items = $this->productFamilyService->indexWithPagination($this->relations);
+        $items = $this->productFamilyService->paginate($this->relations);
 
         return rest()
             ->ok()

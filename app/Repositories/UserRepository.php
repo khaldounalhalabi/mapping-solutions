@@ -14,11 +14,14 @@ class UserRepository extends BaseRepository
 
     public function getUserByEmail(string $email): ?User
     {
-        return $this->globalQuery()->where('email', $email)->first();
+        return $this->query()->query()->where('email', $email)->first();
     }
 
     public function getUserByPasswordResetCode(string $code): ?User
     {
-        return $this->globalQuery()->where('reset_password_code', $code)->first();
+        return $this->query()
+            ->query()
+            ->where('reset_password_code', $code)
+            ->first();
     }
 }

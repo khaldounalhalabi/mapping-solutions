@@ -29,4 +29,13 @@ class SiteController extends WebController
             'suppliers'    => SupplierResource::collection($suppliers),
         ]);
     }
+
+    public function products()
+    {
+        $technologies = ProductTechnologyService::make()->index();
+
+        return Inertia::render('site/products/index', [
+            'technologies' => ProductTechnologyResource::collection($technologies),
+        ]);
+    }
 }

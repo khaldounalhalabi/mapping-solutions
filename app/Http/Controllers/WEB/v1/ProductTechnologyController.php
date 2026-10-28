@@ -26,7 +26,7 @@ class ProductTechnologyController extends WebController
 
     public function data()
     {
-        $items = $this->productTechnologyService->indexWithPagination($this->relations);
+        $items = $this->productTechnologyService->paginate($this->relations);
 
         return rest()
             ->ok()

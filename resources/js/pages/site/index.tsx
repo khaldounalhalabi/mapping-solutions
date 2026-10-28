@@ -21,7 +21,7 @@ const Index = ({
     suppliers:    Supplier[];
 }) => {
     return (
-        <div>
+        <div className={"pt-5"}>
             <HomeHero technologies={technologies} />
             <SpectrumLine className={"my-10"} />
             <ApplicationsSection applications={applications} />

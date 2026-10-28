@@ -26,7 +26,7 @@ class NewsletterEmailController extends WebController
 
     public function data()
     {
-        $items = $this->newsletterEmailService->indexWithPagination($this->relations);
+        $items = $this->newsletterEmailService->paginate($this->relations);
 
         return rest()
             ->ok()

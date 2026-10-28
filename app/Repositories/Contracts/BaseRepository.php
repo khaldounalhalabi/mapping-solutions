@@ -20,17 +20,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Exception as SpreadSheetException;
  */
 abstract class BaseRepository
 {
-    private array $filterKeys = [];
-
     private static $instance;
-
-    private array $modelTableColumns;
-
-    private array $relationSearchableKeys = [];
-
-    private array $searchableKeys = [];
-
-    private string $tableName;
 
     protected Model $model;
 
@@ -41,200 +31,53 @@ abstract class BaseRepository
     public function __construct()
     {
         $this->model = new $this->modelClass;
-        $this->tableName = $this->model->getTable();
-
-        if (method_exists($this->model, 'searchableArray')) {
-            $this->searchableKeys = $this->model->searchableArray();
-        }
-
-        if (method_exists($this->model, 'relationsSearchableArray')) {
-            $this->relationSearchableKeys = $this->model->relationsSearchableArray();
-        }
-
-        if (method_exists($this->model, 'filterArray')) {
-            $this->filterKeys = $this->model->filterArray();
-        }
-
-        $this->modelTableColumns = $this->getTableColumns();
     }
 
     /**
-     * @return Builder<MODEL>|MODEL
+     * query that is gonna be used by the frontend filters and searches ...
+     *
+     * @return BaseQuery<MODEL>
      */
-    private function addSearch($query): Builder|Model
+    protected function indexQuery(): BaseQuery
     {
-        if (! request()->has('search')) {
-            return $query;
-        }
-
-        $keyword = request()->string('search');
-
-        if (count($this->searchableKeys) > 0) {
-            foreach ($this->searchableKeys as $searchAttribute) {
-                $query->orWhere($searchAttribute, 'LIKE', "%{$keyword}%");
-            }
-        }
-
-        if (count($this->relationSearchableKeys) > 0) {
-
-            foreach ($this->relationSearchableKeys as $relation => $values) {
-                foreach ($values as $searchAttribute) {
-                    $query->orWhereHas($relation, function ($q) use ($keyword, $searchAttribute) {
-                        $q->where($searchAttribute, 'LIKE', "%{$keyword}%");
-                    });
-                }
-            }
-        }
-        $query->orWhere('id', $keyword);
-
-        return $query;
+        return BaseQuery::create($this->modelClass)
+            ->search()
+            ->filter()
+            ->order();
     }
 
     /**
-     * @return Builder<MODEL>|MODEL
+     * utility query
+     *
+     * @return BaseQuery<MODEL>
      */
-    private function filterFields(Builder $query): Builder|Model
+    protected function query(): BaseQuery
     {
-        foreach ($this->filterKeys as $filterFields) {
-            $field = $filterFields['field'] ?? $filterFields['name'];
-            $operator = $filterFields['operator'] ?? '=';
-            $relation = $filterFields['relation'] ?? null;
-            $method = $filterFields['method'] ?? 'where';
-            $callback = $filterFields['query'] ?? null;
-            $value = request($field);
-            $range = is_array($value);
-            $value = $this->unsetEmptyParams($value);
-            if ($range && isset($value)) {
-                $value = array_values($value);
-            }
-
-            if (! $value) {
-                continue;
-            }
-
-            if ($callback && is_callable($callback)) {
-                $query = call_user_func($callback, $query, $value);
-            } elseif ($relation) {
-                $tables = explode('.', $relation);
-                $col = $tables[count($tables) - 1];
-                unset($tables[count($tables) - 1]);
-                $relation = implode('.', $tables);
-
-                $query = $query->whereRelation($relation, function (Builder $q) use ($col, $range, $method, $operator, $value) {
-                    $relTable = $q->getModel()->getTable();
-                    if ($range) {
-                        return $this->handleRangeQuery($value, $q, $relTable, $col);
-                    }
-                    if ($operator === 'like') {
-                        return $q->{$method}("$relTable.$col", $operator, '%'.$value.'%');
-                    }
-
-                    return $q->{$method}("$relTable.$col", $operator, $value);
-                });
-            } else {
-                if ($range) {
-                    $query = $this->handleRangeQuery($value, $query, $this->tableName, $field);
-                } elseif ($operator == 'like') {
-                    $query = $query->{$method}($this->tableName.'.'.$field, $operator, '%'.$value.'%');
-                } else {
-                    $query = $query->{$method}($this->tableName.'.'.$field, $operator, $value);
-                }
-            }
-        }
-
-        return $query;
-    }
-
-    /**
-     * @return Builder<MODEL>|MODEL
-     */
-    private function handleRangeQuery(array $value, Builder $query, string $table, string $column): Builder|Model
-    {
-        if (count($value) == 2) {
-            if (! isset($value[0]) && isset($value[1])) {
-                $query = $query->where("$table.$column", '<=', $value[1]);
-            } elseif (isset($value[0]) && ! isset($value[1])) {
-                $query->where("$table.$column", '>=', $value[0]);
-            } elseif (isset($value[0]) && isset($value[1])) {
-                $query = $query->where("$table.$column", '>=', $value[0])
-                    ->where("$table.$column", '<=', $value[1]);
-            }
-        } elseif (count($value) > 2) {
-            $query->whereIn("$table.$column", array_values(array_filter($value)));
-        }
-
-        return $query;
-    }
-
-    /**
-     * @return Builder<MODEL>|MODEL
-     */
-    private function orderQueryBy($query): Builder|Model
-    {
-        $sortColumns = request('sort_col');
-        $sortDir = request()->string('sort_dir', 'asc');
-        if (empty($sortColumns)) {
-            return $query->orderBy('created_at', 'desc');
-        }
-        if (is_array($sortColumns)) {
-            foreach ($sortColumns as $col => $dir) {
-                if (in_array($col, $this->modelTableColumns)) {
-                    $query->orderBy($col, $dir);
-                }
-            }
-        } elseif (in_array($sortColumns, $this->modelTableColumns)) {
-            $query->orderBy($sortColumns, $sortDir);
-        }
-
-        return $query;
-
-    }
-
-    protected function unsetEmptyParams(string|array|null $param = null): string|array|null
-    {
-        if (! $param) {
-            return null;
-        }
-        if (is_array($param)) {
-            foreach ($param as $value) {
-                if (strlen(trim(preg_replace('/\s+/', '', $value))) != 0) {
-                    return $param;
-                }
-            }
-
-            return null;
-        } elseif (strlen(trim(preg_replace('/\s+/', '', $param))) == 0) {
-            return null;
-        } else {
-            return $param;
-        }
+        return BaseQuery::create($this->modelClass);
     }
 
     /**
      * @return Collection<MODEL>
      */
-    public function all(array $relationships = []): Collection
+    public function all(array $relationships = [], array $counts = []): Collection
     {
-        return $this->globalQuery($relationships)->get();
-    }
-
-    /**
-     * @return LengthAwarePaginator<int, MODEL>
-     */
-    public function allWithPagination(array $relationships = []): LengthAwarePaginator
-    {
-        return $this->globalQuery($relationships)->paginate($this->perPage);
+        return $this->indexQuery()
+            ->relations($relationships)
+            ->counts($counts)
+            ->query()
+            ->get();
     }
 
     /**
      * @return MODEL|Model
      */
-    public function create(array $data, array $relationships = []): Model
+    public function create(array $data, array $relationships = [], array $counts = []): Model
     {
-        $result = $this->model->create($data);
-        $result->refresh();
+        /** @var MODEL $result */
+        $result = $this->modelClass::create($data);
 
-        return $result->load($relationships);
+        return $result->load($relationships)
+            ->loadCount($counts);
     }
 
     /**
@@ -245,7 +88,7 @@ abstract class BaseRepository
         if ($id instanceof Model) {
             $result = $id;
         } else {
-            $result = $this->modelClass::find($id);
+            $result = $this->find($id);
         }
 
         return $result?->delete();
@@ -256,13 +99,15 @@ abstract class BaseRepository
      */
     public function export(array $ids = []): BinaryFileResponse
     {
-        if (! count($ids)) {
-            $collection = $this->globalQuery()->get();
-        } else {
-            $collection = $this->globalQuery()->whereIn('id', $ids)->get();
-        }
+        $collection = $this->query()
+            ->query()
+            ->when(
+                count($ids) > 0,
+                fn (Builder $query) => $query->whereIn($this->model->getKeyName(), $ids),
+            )
+            ->get();
 
-        $requestedColumns = request('columns') ?? null;
+        $requestedColumns = request()->array('columns');
 
         return Excel::download(
             new BaseExporter($collection, $this->model, $requestedColumns),
@@ -273,15 +118,14 @@ abstract class BaseRepository
     /**
      * @return Model|MODEL|null
      */
-    public function find(string|int $id, array $relationships = []): ?Model
+    public function find(string|int $id, array $relationships = [], array $counts = []): ?Model
     {
-        $result = $this->model->with($relationships)->find($id);
-
-        if ($result) {
-            return $result;
-        }
-
-        return null;
+        return $this->query()
+            ->relations($relationships)
+            ->counts($counts)
+            ->query()
+            ->whereKey($id)
+            ->first();
     }
 
     /**
@@ -294,31 +138,6 @@ abstract class BaseRepository
             new BaseExporter(collect(), $this->model, null, true),
             $this->model->getTable().'-example.xlsx',
         );
-    }
-
-    public function getTableColumns(): array
-    {
-        return $this->model->getFillable();
-    }
-
-    /**
-     * @return Builder<MODEL>|MODEL
-     */
-    public function globalQuery(array $relations = []): Builder|Model
-    {
-        $query = $this->model->with($relations);
-
-        if (request()->isMethod('GET')) {
-            $query = $query->where(function (Builder $builder) {
-                return $this->filterFields($builder);
-            });
-            $query = $query->where(function ($q) {
-                return $this->addSearch($q);
-            });
-            $query = $this->orderQueryBy($query);
-        }
-
-        return $query;
     }
 
     public function import(): void
@@ -340,15 +159,27 @@ abstract class BaseRepository
     }
 
     /**
+     * @return LengthAwarePaginator<int, MODEL>
+     */
+    public function paginate(array $relationships = [], array $counts = []): LengthAwarePaginator
+    {
+        return $this->indexQuery()
+            ->relations($relationships)
+            ->counts($counts)
+            ->query()
+            ->paginate($this->perPage);
+    }
+
+    /**
      * @param  string|int|Model|MODEL $id
      * @return MODEL|null|Model
      */
-    public function update(array $data, string|int|Model $id, array $relationships = []): ?Model
+    public function update(array $data, string|int|Model $id, array $relationships = [], array $counts = []): ?Model
     {
         if ($id instanceof Model) {
             $item = $id;
         } else {
-            $item = $this->modelClass::find($id);
+            $item = $this->find($id);
         }
 
         if (! $item) {
@@ -357,6 +188,9 @@ abstract class BaseRepository
 
         $item->update($data);
 
-        return $item->refresh()->load($relationships);
+        return $item
+            ->refresh()
+            ->load($relationships)
+            ->loadCount($counts);
     }
 }

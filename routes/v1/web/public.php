@@ -18,3 +18,4 @@ Route::inertia('/v1/dashboard/request-reset-password', 'dashboard/forget-passwor
 Route::inertia('/v1/dashboard/reset-password', 'dashboard/reset-password')->name('v1.web.public.reset.password.page');
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
+Route::get('/products', [SiteController::class, 'products'])->name('site.products');

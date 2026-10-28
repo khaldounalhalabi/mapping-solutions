@@ -18,7 +18,9 @@ class MarketApplicationRepository extends BaseRepository
      */
     public function featured(array $relations = []): Collection
     {
-        return $this->globalQuery($relations)
+        return $this->indexQuery()
+            ->relations($relations)
+            ->query()
             ->where('is_featured', true)
             ->get();
     }
@@ -29,7 +31,8 @@ class MarketApplicationRepository extends BaseRepository
     public function featuredCount(array $exceptIds = []): int
     {
         return $this
-            ->globalQuery()
+            ->query()
+            ->query()
             ->when(
                 ! empty($exceptIds),
                 fn ($query) => $query->whereNotIn('id', $exceptIds),

@@ -58,41 +58,41 @@ abstract class BaseService
     /**
      * @return Collection<MODEL>
      */
-    public function index(array $relations = []): Collection
+    public function index(array $relations = [], array $counts = []): Collection
     {
-        return $this->repository->all($relations);
+        return $this->repository->all($relations, $counts);
     }
 
     /**
      * @return LengthAwarePaginator<int , MODEL>
      */
-    public function indexWithPagination(array $relations = []): LengthAwarePaginator
+    public function paginate(array $relations = [], array $counts = []): LengthAwarePaginator
     {
-        return $this->repository->allWithPagination($relations);
+        return $this->repository->paginate($relations, $counts);
     }
 
     /**
      * @return MODEL|Model
      */
-    public function store(array $data, array $relationships = []): Model
+    public function store(array $data, array $relationships = [], array $counts = []): Model
     {
-        return $this->repository->create($data, $relationships);
+        return $this->repository->create($data, $relationships, $counts);
     }
 
     /**
-     * @param  string|int|Model|MODEL $id
+     * @param  int|string|Model|MODEL $id
      * @return MODEL|null|Model
      */
-    public function update(array $data, $id, array $relationships = []): ?Model
+    public function update(array $data, Model|int|string $id, array $relationships = [], array $counts = []): ?Model
     {
-        return $this->repository->update($data, $id, $relationships);
+        return $this->repository->update($data, $id, $relationships, $counts);
     }
 
     /**
      * @return Model|MODEL|null
      */
-    public function view($id, array $relationships = []): ?Model
+    public function view($id, array $relationships = [], array $counts = []): ?Model
     {
-        return $this->repository->find($id, $relationships);
+        return $this->repository->find($id, $relationships, $counts);
     }
 }

@@ -14,6 +14,7 @@ use Database\Factories\ProductTechnologyFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use App\Serializers\Translatable as TranslatableSerializer;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
@@ -31,7 +32,8 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  *
  * @use  HasFactory<ProductTechnologyFactory>
  *
- * @property EloquentCollection<Product>|null $products
+ * @property EloquentCollection<Product>|null  $products
+ * @property EloquentCollection<Supplier>|null $suppliers
  */
 #[Fillable([
     'name',
@@ -101,5 +103,20 @@ class ProductTechnology extends Model
                 'slug_col' => 'slug',
             ],
         ];
+    }
+
+    /**
+     * @return HasManyThrough<Supplier, Product, static>
+     */
+    public function suppliers(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Supplier::class,
+            Product::class,
+            'product_technology_id',
+            'id',
+            'id',
+            'supplier_id',
+        );
     }
 }

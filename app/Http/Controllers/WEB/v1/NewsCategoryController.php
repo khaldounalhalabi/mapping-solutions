@@ -26,7 +26,7 @@ class NewsCategoryController extends WebController
 
     public function data()
     {
-        $items = $this->newsCategoryService->indexWithPagination($this->relations);
+        $items = $this->newsCategoryService->paginate($this->relations);
 
         return rest()
             ->ok()

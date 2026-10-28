@@ -26,7 +26,7 @@ class VacancyController extends WebController
 
     public function data()
     {
-        $items = $this->vacancyService->indexWithPagination($this->relations);
+        $items = $this->vacancyService->paginate($this->relations);
 
         return rest()
             ->ok()

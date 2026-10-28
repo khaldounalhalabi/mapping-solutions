@@ -29,7 +29,7 @@ class NewsletterSubscriberController extends WebController
 
     public function data()
     {
-        $items = $this->newsletterSubscriberService->indexWithPagination($this->relations);
+        $items = $this->newsletterSubscriberService->paginate($this->relations);
 
         return rest()
             ->ok()

@@ -56,6 +56,7 @@
     --color-danger: var(--danger);
     --color-paragraph: var(--paragraph);
     --color-bg-secondary: var(--bg-secondary);
+    --color-navy-hero: var(--navy-hero);
     --background-image-spectrum: var(--spectrum);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
@@ -119,6 +120,7 @@
     --danger: #d63b3b;
     --paragraph: var(--color-gray-500);
     --bg-secondary: #f6f8fb;
+    --navy-hero: #8fc1ff;
 }
 
 .dark {
@@ -170,6 +172,7 @@
     --danger: #d63b3b;
     --paragraph: var(--color-gray-500);
     --bg-secondary: #f6f8fb;
+    --navy-hero: #8fc1ff;
 }
 
 @layer base {
@@ -262,6 +265,36 @@
         #000,
         transparent 75%
     );
+}
+
+.bg-hero {
+    background:
+        radial-gradient(
+            80% 140% at 88% -20%,
+            color-mix(in srgb, #1a5fb4 40%, transparent) 0%,
+            transparent 62%
+        ),
+        radial-gradient(
+            120% 110% at 78% 0%,
+            #1b4f8a 0%,
+            #0f3159 38%,
+            #08182f 78%
+        );
+}
+
+.bg-hero::after {
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.17) 1px,
+        transparent 1.6px
+    );
+    background-size: 42px 42px;
+    mask-image: radial-gradient(70% 90% at 80% 20%, #000 12%, transparent 76%);
+    -webkit-mask-image: radial-gradient(
+        70% 90% at 80% 20%,
+        #000 12%,
+        transparent 76%
+    );
+    pointer-events: none;
 }
 
 .h-btn {

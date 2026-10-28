@@ -20,7 +20,7 @@ class JobApplicationController extends WebController
 
     public function data()
     {
-        $items = $this->jobApplicationService->indexWithPagination($this->relations);
+        $items = $this->jobApplicationService->paginate($this->relations);
 
         return rest()
             ->ok()

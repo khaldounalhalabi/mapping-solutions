@@ -6,7 +6,7 @@ const SiteLayout = ({ children }: { children?: ReactNode }) => {
     return (
         <div className={"w-full h-full"}>
             <Navbar />
-            <main className={"pt-5"}>{children}</main>
+            <main>{children}</main>
             <Footer />
         </div>
     );

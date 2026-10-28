@@ -26,7 +26,7 @@ class MarketApplicationController extends WebController
 
     public function data()
     {
-        $items = $this->marketApplicationService->indexWithPagination($this->relations);
+        $items = $this->marketApplicationService->paginate($this->relations);
 
         return rest()
             ->ok()

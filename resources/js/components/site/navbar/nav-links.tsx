@@ -9,7 +9,7 @@ const NavLinks = () => {
             title: "home",
         },
         {
-            link:  "#",
+            link:  route("site.products"),
             title: "products",
         },
         {

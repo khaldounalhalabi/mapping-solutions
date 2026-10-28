@@ -19,8 +19,9 @@ class NewsArticleRepository extends BaseRepository
     public function recent(int $count = 3, array $relations = []): Collection
     {
         return $this
-            ->globalQuery($relations)
-            ->reorder()
+            ->query()
+            ->relations($relations)
+            ->query()
             ->orderByDesc('created_at')
             ->limit($count)
             ->get();

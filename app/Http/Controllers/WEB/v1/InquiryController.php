@@ -23,7 +23,7 @@ class InquiryController extends WebController
 
     public function data()
     {
-        $items = $this->inquiryService->indexWithPagination($this->relations);
+        $items = $this->inquiryService->paginate($this->relations);
 
         return rest()
             ->ok()

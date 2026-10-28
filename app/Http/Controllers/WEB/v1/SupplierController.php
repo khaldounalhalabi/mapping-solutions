@@ -25,7 +25,7 @@ class SupplierController extends WebController
 
     public function data()
     {
-        $items = $this->supplierService->indexWithPagination($this->relations);
+        $items = $this->supplierService->paginate($this->relations);
 
         return rest()
             ->ok()

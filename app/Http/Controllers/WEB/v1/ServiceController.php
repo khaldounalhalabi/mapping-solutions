@@ -26,7 +26,7 @@ class ServiceController extends WebController
 
     public function data()
     {
-        $items = $this->serviceService->indexWithPagination($this->relations);
+        $items = $this->serviceService->paginate($this->relations);
 
         return rest()
             ->ok()
