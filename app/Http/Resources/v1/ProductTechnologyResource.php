@@ -26,6 +26,7 @@ class ProductTechnologyResource extends BaseResource
             'products'        => ProductResource::collection($this->whenLoaded('products')),
             'suppliers_count' => $this->whenCounted('suppliers_count'),
             'products_count'  => $this->whenCounted('products'),
+            'suppliers'       => SupplierResource::collection($this->whenLoaded('suppliers')),
         ];
     }
 }

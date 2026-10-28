@@ -9,6 +9,7 @@ interface Supplier {
     logo?:             Media | undefined;
     product_families?: ProductFamily[];
     products?:         Product[];
+    products_count?:   number;
 }
 
 export default Supplier;

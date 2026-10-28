@@ -34,7 +34,7 @@ const IndexHeroSection = () => {
             </p>
             <div
                 className={
-                    "absolute z-10 -bottom-15 flex flex-col gap-4 items-start"
+                    "absolute -bottom-15 flex flex-col gap-4 items-start"
                 }
             >
                 <div className={"relative"}>

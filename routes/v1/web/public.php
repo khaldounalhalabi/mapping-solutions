@@ -19,3 +19,6 @@ Route::inertia('/v1/dashboard/reset-password', 'dashboard/reset-password')->name
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/products', [SiteController::class, 'products'])->name('site.products');
+Route::get('/suppliers', [SiteController::class, 'suppliers'])->name('site.suppliers');
+
+Route::get('/suppliers/data', [v1\SupplierController::class, 'data'])->name('suppliers.data');

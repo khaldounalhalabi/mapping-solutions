@@ -11,4 +11,11 @@ use App\Repositories\Contracts\BaseRepository;
 class SupplierRepository extends BaseRepository
 {
     protected string $modelClass = Supplier::class;
+
+    public function count(): int
+    {
+        return $this->query()
+            ->query()
+            ->count();
+    }
 }

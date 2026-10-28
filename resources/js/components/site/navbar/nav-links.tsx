@@ -17,7 +17,7 @@ const NavLinks = () => {
             title: "applications",
         },
         {
-            link:  "#",
+            link:  route("site.suppliers"),
             title: "suppliers",
         },
         {
@@ -43,18 +43,28 @@ const NavLinks = () => {
     ];
     return (
         <ul className={"flex gap-9 items-center justify-between"}>
-            {LINKS.map((l) => (
-                <Link
-                    href={l.link}
-                    key={l.link + "-id-" + l.title}
-                    className={cn(
-                        "uppercase hover:text-link font-bold text-sm",
-                        isUrlActive(l.link) ? "text-link" : "text-foreground",
-                    )}
-                >
-                    {l.title}
-                </Link>
-            ))}
+            {LINKS.map((l) => {
+                let isActive = isUrlActive(l.link);
+                if (
+                    l.link == route("site.index") &&
+                    !route().current("site.index")
+                ) {
+                    isActive = false;
+                }
+
+                return (
+                    <Link
+                        href={l.link}
+                        key={l.link + "-id-" + l.title}
+                        className={cn(
+                            "uppercase hover:text-link font-bold text-sm",
+                            isActive ? "text-link" : "text-foreground",
+                        )}
+                    >
+                        {l.title}
+                    </Link>
+                );
+            })}
         </ul>
     );
 };

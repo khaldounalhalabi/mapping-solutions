@@ -12,6 +12,7 @@ use App\Http\Resources\v1\NewsArticleResource;
 use App\Services\v1\NewsArticle\NewsArticleService;
 use App\Http\Resources\v1\MarketApplicationResource;
 use App\Http\Resources\v1\ProductTechnologyResource;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use App\Services\v1\MarketApplication\MarketApplicationService;
 use App\Services\v1\ProductTechnology\ProductTechnologyService;
 
@@ -47,6 +48,20 @@ class SiteController extends WebController
         ]);
 
         return Inertia::render('site/products/index', [
+            'technologies' => ProductTechnologyResource::collection($technologies),
+        ]);
+    }
+
+    public function suppliers()
+    {
+        $technologies = ProductTechnologyService::make()->index(
+            [
+                'suppliers' => fn (Builder|HasManyThrough $query): Builder|HasManyThrough => $query->withCount('products'),
+                'suppliers.productFamilies',
+            ],
+        );
+
+        return Inertia::render('site/suppliers/index', [
             'technologies' => ProductTechnologyResource::collection($technologies),
         ]);
     }

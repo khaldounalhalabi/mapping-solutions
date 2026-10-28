@@ -17,4 +17,9 @@ class SupplierService extends BaseService
     use Makable;
 
     protected string $repositoryClass = SupplierRepository::class;
+
+    public function count(): int
+    {
+        return $this->repository->count();
+    }
 }

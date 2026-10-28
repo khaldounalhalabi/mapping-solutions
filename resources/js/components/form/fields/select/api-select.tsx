@@ -12,6 +12,7 @@ import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useTranslation } from "@/hooks/use-translation";
+import { cn } from "@/lib/utils";
 
 function ApiSelect<
     TResponse,
@@ -335,7 +336,7 @@ function ApiSelect<
             ref={fullContainer}
         >
             {label && (
-                <FieldLabel className={styles?.labelClasses}>
+                <FieldLabel className={cn(styles?.labelClasses)}>
                     {label}
                     {required && <span className={"text-destructive"}>*</span>}
                 </FieldLabel>
@@ -343,7 +344,10 @@ function ApiSelect<
 
             <div
                 onClick={() => handleOpen()}
-                className={`dark:bg-input/30 flex cursor-pointer justify-between bg-transparent px-1.5 py-[0.470rem] transition-all duration-300 ${styles?.selectClasses ?? "text-primary w-full rounded-md border sm:text-sm"}`}
+                className={cn(
+                    "text-primary dark:bg-input/30 flex w-full cursor-pointer justify-between rounded-md border bg-transparent px-1.5 py-[0.470rem] transition-all duration-300 sm:text-sm",
+                    styles?.selectClasses,
+                )}
             >
                 <div
                     className="flex w-full items-center justify-between"
@@ -361,6 +365,9 @@ function ApiSelect<
                                     key={index}
                                 >
                                     <Badge
+                                        className={cn(
+                                            styles?.selectedItemsBadgeClasses,
+                                        )}
                                         onClick={(e) =>
                                             handleRemoveFromSelected(e, option)
                                         }
@@ -384,7 +391,7 @@ function ApiSelect<
                     )}
                     <div className="flex items-center gap-2">
                         {isLoading && (
-                            <div className="">
+                            <div>
                                 {styles?.loadingIcon ? (
                                     styles.loadingIcon()
                                 ) : (
@@ -402,16 +409,21 @@ function ApiSelect<
                             />
                         )}
                         <ChevronDown
-                            className={`text-primary h-5 w-5 font-extrabold transition-transform duration-300 ${isOpen && "rotate-180"}`}
+                            className={cn(
+                                "text-primary h-5 w-5 font-extrabold transition-transform duration-300",
+                                isOpen && "rotate-180",
+                            )}
                         />
                     </div>
                 </div>
                 <div
-                    className={`absolute left-0 z-50 overflow-y-scroll transition-all duration-300 ${
+                    className={cn(
+                        "bg-popover absolute left-0 z-50 w-full overflow-y-scroll rounded-lg border px-3 pb-3 shadow-2xl transition-all duration-300",
                         isOpen
                             ? "scale-100 opacity-100"
-                            : "pointer-events-none scale-95 opacity-0"
-                    } ${styles?.dropDownItemsContainerClasses ?? "bg-popover w-full rounded-lg border px-3 pb-3 shadow-2xl"}`}
+                            : "pointer-events-none scale-95 opacity-0",
+                        styles?.dropDownItemsContainerClasses,
+                    )}
                     style={{
                         top:       `${(fullContainer?.current?.clientHeight ?? 0) + 5}px`,
                         maxHeight: `${styles?.dropDownContainerMaxHeight ?? "200"}px`,
@@ -421,7 +433,10 @@ function ApiSelect<
                 >
                     <div className={`sticky top-1 bg-inherit`}>
                         <Input
-                            className={`${styles?.searchInputClasses ?? " "} text-primary my-2 w-full p-1 transition-shadow duration-300`}
+                            className={cn(
+                                "text-primary my-2 w-full p-1 transition-shadow duration-300",
+                                styles?.searchInputClasses,
+                            )}
                             onClick={(e) => handleClickingOnSearchInput(e)}
                             onChange={(e) => handleSearchChange(e)}
                             value={search ?? ""}
@@ -437,11 +452,14 @@ function ApiSelect<
                     ).map((item, index) => (
                         <div
                             key={index}
-                            className={`transition-colors duration-300 ${
-                                include(getOption(item), selected)
-                                    ? `${styles?.selectedDropDownItemClasses ?? "bg-foreground text-secondary"}`
-                                    : `${styles?.dropDownItemClasses ?? "hover:bg-foreground text-primary hover:text-secondary my-1 w-full cursor-pointer rounded-md p-2"}`
-                            } ${styles?.dropDownItemClasses ?? "hover:bg-foreground text-primary hover:text-secondary my-1 w-full cursor-pointer rounded-md p-2"}`}
+                            className={cn(
+                                "text-primary hover:bg-foreground hover:text-secondary my-1 w-full cursor-pointer rounded-md p-2 transition-colors duration-300",
+                                styles?.dropDownItemClasses,
+                                include(getOption(item), selected) &&
+                                    "bg-foreground text-secondary",
+                                include(getOption(item), selected) &&
+                                    styles?.selectedDropDownItemClasses,
+                            )}
                             onClick={(e) => handleChoseItem(e, item)}
                         >
                             {getOption(item).label ?? ""}

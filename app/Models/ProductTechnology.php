@@ -117,6 +117,6 @@ class ProductTechnology extends Model
             'id',
             'id',
             'supplier_id',
-        );
+        )->distinct();
     }
 }

@@ -24,6 +24,7 @@ class SupplierResource extends BaseResource
             'logo'             => $this->logo,
             'product_families' => ProductFamilyResource::collection($this->whenLoaded('productFamilies')),
             'products'         => ProductResource::collection($this->whenLoaded('products')),
+            'products_count'   => $this->whenCounted('products'),
         ];
     }
 }
