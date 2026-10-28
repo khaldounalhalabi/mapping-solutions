@@ -14,6 +14,7 @@ use App\Serializers\Translatable as TranslatableSerializer;
 /**
  * @property int                    $id
  * @property TranslatableSerializer $group
+ * @property string|null            $group_icon
  * @property TranslatableSerializer $name
  * @property TranslatableSerializer $summary
  * @property Carbon                 $created_at
@@ -23,7 +24,9 @@ use App\Serializers\Translatable as TranslatableSerializer;
  *
  * @use  HasFactory<ServiceFactory>
  */
-#[Fillable(['group',
+#[Fillable([
+    'group',
+    'group_icon',
     'name',
     'summary',
 ])]
@@ -44,6 +47,7 @@ class Service extends Model
     {
         return [
             'group',
+            'group_icon',
             'name',
             'summary',
         ];
@@ -60,6 +64,7 @@ class Service extends Model
     {
         return [
             'group',
+            'group_icon',
             'name',
             'summary',
         ];

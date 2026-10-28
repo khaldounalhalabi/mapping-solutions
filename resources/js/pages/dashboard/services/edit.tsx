@@ -7,21 +7,24 @@ import TranslatableTextarea from "@/components/form/fields/translatable-textarea
 import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
 import Service from "@/models/service";
+import FormIconPicker from "@/components/form/fields/form-icon-picker";
 
 const Edit = ({ service }: { service: Service }) => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            group:    string;
-            name:     string;
-            summary:  string;
+            _method?:   "PUT" | "POST";
+            group:      string;
+            group_icon: string;
+            name:       string;
+            summary:    string;
         }>
     >({
-        _method: "PUT",
-        group:   service?.group,
-        name:    service?.name,
-        summary: service?.summary,
+        _method:    "PUT",
+        group:      service?.group,
+        group_icon: service?.group_icon ?? undefined,
+        name:       service?.name,
+        summary:    service?.summary,
     });
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -46,6 +49,13 @@ const Edit = ({ service }: { service: Service }) => {
                             label={t("models.Service.fields.group")}
                             onChange={(v) => setData("group", v)}
                             defaultValue={service.group}
+                            required
+                        />
+                        <FormIconPicker
+                            name="group_icon"
+                            label={t("models.Service.fields.group_icon")}
+                            onChange={(value) => setData("group_icon", value)}
+                            defaultValue={service.group_icon ?? undefined}
                             required
                         />
                         <TranslatableInput

@@ -6,15 +6,17 @@ import { useTranslation } from "@/hooks/use-translation";
 import TranslatableTextarea from "@/components/form/fields/translatable-textarea";
 import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
+import FormIconPicker from "@/components/form/fields/form-icon-picker";
 
 const Create = () => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?: "PUT" | "POST";
-            group:    string;
-            name:     string;
-            summary:  string;
+            _method?:   "PUT" | "POST";
+            group:      string;
+            group_icon: string;
+            name:       string;
+            summary:    string;
         }>
     >();
 
@@ -39,6 +41,12 @@ const Create = () => {
                             name="group"
                             label={t("models.Service.fields.group")}
                             onChange={(v) => setData("group", v)}
+                            required
+                        />
+                        <FormIconPicker
+                            name="group_icon"
+                            label={t("models.Service.fields.group_icon")}
+                            onChange={(value) => setData("group_icon", value)}
                             required
                         />
                         <TranslatableInput

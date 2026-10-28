@@ -3,6 +3,7 @@ import Datatable from "@/components/datatable/datatable";
 import Http from "@/modules/http/http";
 import { useTranslation } from "@/hooks/use-translation";
 import Service from "@/models/service";
+import { DynamicIcon } from "lucide-react/dynamic";
 
 const Index = () => {
     const { t } = useTranslation();
@@ -46,6 +47,12 @@ const Index = () => {
                     label:        t("models.Service.fields.group"),
                     translatable: true,
                     sortable:     true,
+                },
+                {
+                    name:   "group_icon",
+                    label:  t("models.Service.fields.group_icon"),
+                    render: (groupIcon) =>
+                        groupIcon ? <DynamicIcon name={groupIcon} /> : null,
                 },
                 {
                     name:         "name",

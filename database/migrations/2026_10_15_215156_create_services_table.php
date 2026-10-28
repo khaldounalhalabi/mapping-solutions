@@ -24,6 +24,7 @@ return new class extends Migration
             $table->json('group');
             $table->json('name');
             $table->json('summary');
+            $table->string('group_icon');
             $table->timestamps();
         });
     }

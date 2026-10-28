@@ -298,6 +298,7 @@
             "plural": "Services",
             "fields": {
                 "group": "Group",
+                "group_icon": "Group Icon",
                 "name": "Name",
                 "summary": "Summary"
             }

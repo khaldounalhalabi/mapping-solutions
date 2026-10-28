@@ -879,6 +879,7 @@
             "group": {
                 "en": "Survey services"
             },
+            "group_icon": "plane",
             "name": {
                 "en": "Optical hyperspectral survey"
             },
@@ -890,6 +891,7 @@
             "group": {
                 "en": "Survey services"
             },
+            "group_icon": "plane",
             "name": {
                 "en": "Thermal hyperspectral survey"
             },
@@ -901,6 +903,7 @@
             "group": {
                 "en": "Survey services"
             },
+            "group_icon": "plane",
             "name": {
                 "en": "LiDAR & topographic survey"
             },
@@ -912,6 +915,7 @@
             "group": {
                 "en": "Survey services"
             },
+            "group_icon": "plane",
             "name": {
                 "en": "Digital aerial photography"
             },
@@ -923,6 +927,7 @@
             "group": {
                 "en": "Survey services"
             },
+            "group_icon": "plane",
             "name": {
                 "en": "Radar survey"
             },
@@ -934,6 +939,7 @@
             "group": {
                 "en": "Survey services"
             },
+            "group_icon": "plane",
             "name": {
                 "en": "Geophysical survey"
             },
@@ -945,6 +951,7 @@
             "group": {
                 "en": "Data processing"
             },
+            "group_icon": "database",
             "name": {
                 "en": "Image processing"
             },
@@ -956,6 +963,7 @@
             "group": {
                 "en": "Data processing"
             },
+            "group_icon": "database",
             "name": {
                 "en": "GIS solutions"
             },
@@ -967,6 +975,7 @@
             "group": {
                 "en": "Consultancy"
             },
+            "group_icon": "messages-square",
             "name": {
                 "en": "Technical consultancy"
             },
@@ -978,6 +987,7 @@
             "group": {
                 "en": "Consultancy"
             },
+            "group_icon": "messages-square",
             "name": {
                 "en": "Research & development"
             },
@@ -989,6 +999,7 @@
             "group": {
                 "en": "Training"
             },
+            "group_icon": "graduation-cap",
             "name": {
                 "en": "Thermal hyperspectral survey"
             },

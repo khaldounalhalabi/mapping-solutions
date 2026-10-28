@@ -14,9 +14,10 @@ class ServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'group'   => Translatable::fake()->toJson(),
-            'name'    => Translatable::fake('sentence')->toJson(),
-            'summary' => Translatable::fake('text')->toJson(),
+            'group'      => Translatable::fake()->toJson(),
+            'group_icon' => 'layers-3',
+            'name'       => Translatable::fake('sentence')->toJson(),
+            'summary'    => Translatable::fake('text')->toJson(),
         ];
     }
 }

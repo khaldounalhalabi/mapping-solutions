@@ -10,6 +10,8 @@ class StoreUpdateServiceDTO extends ValidatedDTO
 {
     public string $group;
 
+    public string $group_icon;
+
     public string $name;
 
     public string $summary;
@@ -20,9 +22,10 @@ class StoreUpdateServiceDTO extends ValidatedDTO
     protected function casts(): array
     {
         return [
-            'group'   => new StringCast,
-            'name'    => new StringCast,
-            'summary' => new StringCast,
+            'group'      => new StringCast,
+            'group_icon' => new StringCast,
+            'name'       => new StringCast,
+            'summary'    => new StringCast,
         ];
     }
 
@@ -42,9 +45,10 @@ class StoreUpdateServiceDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'group'   => ['json', new ValidTranslatableJson, 'required'],
-            'name'    => ['json', new ValidTranslatableJson, 'required'],
-            'summary' => ['json', new ValidTranslatableJson, 'required'],
+            'group'      => ['json', new ValidTranslatableJson, 'required'],
+            'group_icon' => ['required', 'string', 'max:255', 'min:3'],
+            'name'       => ['json', new ValidTranslatableJson, 'required'],
+            'summary'    => ['json', new ValidTranslatableJson, 'required'],
         ];
     }
 }
