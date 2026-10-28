@@ -1,5 +1,5 @@
 import SpectrumLine from "@/components/ui/spectrum-line";
-import ProductTechnologiesGrid from "@/components/site/home/product-technologies-grid";
+import ProductTechnologiesGrid from "@/components/site/product-technologies/product-technologies-grid";
 import ProductTechnology from "@/models/product-technology";
 import { Separator } from "@/components/ui/separator";
 import HeroCounts from "@/components/site/home/hero-counts";

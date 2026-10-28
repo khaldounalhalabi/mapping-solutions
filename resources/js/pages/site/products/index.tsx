@@ -1,6 +1,6 @@
 import IndexHeroSection from "@/components/site/products/index-hero-section";
 import ProductTechnology from "@/models/product-technology";
-import ProductTechnologiesGrid from "@/components/site/home/product-technologies-grid";
+import ProductTechnologiesGrid from "@/components/site/product-technologies/product-technologies-grid";
 import { Button } from "@/components/ui/button";
 import { Link } from "@inertiajs/react";
 
