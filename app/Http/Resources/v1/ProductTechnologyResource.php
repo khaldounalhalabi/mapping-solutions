@@ -17,13 +17,15 @@ class ProductTechnologyResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id'       => $this->id,
-            'name'     => $this->name,
-            'slug'     => $this->slug,
-            'color'    => $this->color,
-            'icon_key' => $this->icon_key,
-            'icon'     => $this->icon,
-            'products' => ProductResource::collection($this->whenLoaded('products')),
+            'id'              => $this->id,
+            'name'            => $this->name,
+            'slug'            => $this->slug,
+            'color'           => $this->color,
+            'icon_key'        => $this->icon_key,
+            'icon'            => $this->icon,
+            'products'        => ProductResource::collection($this->whenLoaded('products')),
+            'suppliers_count' => $this->whenCounted('suppliers_count'),
+            'products_count'  => $this->whenCounted('products'),
         ];
     }
 }

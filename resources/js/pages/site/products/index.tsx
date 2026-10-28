@@ -1,12 +1,13 @@
 import IndexHeroSection from "@/components/site/products/index-hero-section";
-import LinedTitle from "@/components/ui/lined-title";
+import ProductTechnology from "@/models/product-technology";
+import ProductTechnologiesGrid from "@/components/site/home/product-technologies-grid";
 
-const Index = () => {
+const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
     return (
         <>
             <IndexHeroSection />
             <div className={"px-page-padding py-18"}>
-                <LinedTitle>Browse by technology</LinedTitle>
+                <ProductTechnologiesGrid technologies={technologies} />
             </div>
         </>
     );

@@ -243,6 +243,9 @@ class BaseQuery
         return $query;
     }
 
+    /**
+     * @return BaseQuery<MODEL>
+     */
     public function counts(array|string $counts): BaseQuery
     {
         $this->counts = [
@@ -292,6 +295,9 @@ class BaseQuery
         }
     }
 
+    /**
+     * @return BaseQuery<MODEL>
+     */
     public function order(): BaseQuery
     {
         $this->query = $this->orderQueryBy($this->query);
@@ -302,13 +308,16 @@ class BaseQuery
     /**
      * @return Builder<MODEL>|MODEL
      */
-    public function query()
+    public function query(): Model|Builder
     {
         return $this->query
             ->with($this->relations)
-            ->withCount($this->relations);
+            ->withCount($this->counts);
     }
 
+    /**
+     * @return BaseQuery<MODEL>
+     */
     public function relations(array|string $relations): BaseQuery
     {
         $this->relations = [
@@ -319,6 +328,9 @@ class BaseQuery
         return $this;
     }
 
+    /**
+     * @return BaseQuery<MODEL>
+     */
     public function search(): BaseQuery
     {
         $this->query = $this->query->where(function ($q) {

@@ -13,7 +13,7 @@ const ProductTechnologiesGrid = ({
 }) => {
     return (
         <div className={"mt-5"}>
-            <LinedTitle>product categories</LinedTitle>
+            <LinedTitle>Browse by technology</LinedTitle>
             <div className={"grid gap-5 grid-cols-5"}>
                 {technologies.map((tech) => (
                     <Link
@@ -51,9 +51,24 @@ const ProductTechnologiesGrid = ({
                             </Button>
                         </div>
                         <div className="h-1/5 flex items-center gap-2 font-bold text-navy justify-center text-center">
-                            <span className={"text-sm font-extrabold"}>
-                                {translate(tech.name)}
-                            </span>
+                            <p className={"flex items-center flex-col"}>
+                                <span className={"text-sm font-extrabold"}>
+                                    {translate(tech.name)}
+                                </span>
+                                <span
+                                    className={
+                                        "text-paragraph text-xs font-light"
+                                    }
+                                >
+                                    {tech.suppliers_count} manufacturers
+                                    {tech.products_count &&
+                                    tech.products_count > 0 ? (
+                                        <span>
+                                            . {tech.products_count} products
+                                        </span>
+                                    ) : null}
+                                </span>
+                            </p>
                             <ArrowRightIcon className="size-4 w-0 opacity-0 -translate-x-2 transition-all duration-500 ease-in-out group-hover:w-4 group-hover:opacity-100 group-hover:translate-x-0" />
                         </div>
                     </Link>
