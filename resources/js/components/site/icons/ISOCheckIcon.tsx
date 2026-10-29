@@ -20,23 +20,23 @@ const IsoCheckIcon = (
                 cy="24"
                 r="21"
                 stroke="#0b2140"
-                stroke-width="2.6"
+                strokeWidth="2.6"
             ></circle>
             <circle
                 cx="24"
                 cy="24"
                 r="16.5"
                 stroke="#0b2140"
-                stroke-width="1"
-                stroke-dasharray="2 3"
+                strokeWidth="1"
+                strokeDasharray="2 3"
                 opacity=".4"
             ></circle>
             <path
                 d="M16 24.4l5.4 5.4L32.5 18.7"
                 stroke="#0e8074"
-                stroke-width="3.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="3.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             ></path>
         </svg>
     );

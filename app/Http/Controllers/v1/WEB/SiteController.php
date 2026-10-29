@@ -9,10 +9,12 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Http\Resources\v1\SupplierResource;
 use App\Services\v1\Supplier\SupplierService;
 use App\Http\Resources\v1\NewsArticleResource;
+use App\Http\Resources\v1\ServiceCategoryResource;
 use App\Services\v1\NewsArticle\NewsArticleService;
 use App\Http\Resources\v1\MarketApplicationResource;
 use App\Http\Resources\v1\ProductTechnologyResource;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use App\Services\v1\ServiceCategory\ServiceCategoryService;
 use App\Services\v1\MarketApplication\MarketApplicationService;
 use App\Services\v1\ProductTechnology\ProductTechnologyService;
 
@@ -49,6 +51,15 @@ class SiteController extends WebController
 
         return Inertia::render('site/products/index', [
             'technologies' => ProductTechnologyResource::collection($technologies),
+        ]);
+    }
+
+    public function services()
+    {
+        $categories = ServiceCategoryService::make()->index(['services']);
+
+        return Inertia::render('site/services/index', [
+            'categories' => ServiceCategoryResource::collection($categories),
         ]);
     }
 

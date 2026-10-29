@@ -21,7 +21,7 @@ const NavLinks = () => {
             title: "suppliers",
         },
         {
-            link:  "#",
+            link:  route("site.services"),
             title: "services",
         },
         {

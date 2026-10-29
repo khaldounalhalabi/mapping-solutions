@@ -57,3 +57,35 @@ export function isUrlActive(url: string) {
     const location = window.location.href;
     return location == url || location.startsWith(url);
 }
+
+type GroupKey = string | number | symbol;
+
+export function groupBy<T, K extends keyof T>(
+    items: readonly T[],
+    key: K,
+): Record<Extract<T[K], GroupKey>, T[]>;
+
+export function groupBy<T, K extends GroupKey>(
+    items: readonly T[],
+    callback: (item: T) => K,
+): Record<K, T[]>;
+
+export function groupBy<T>(
+    items: readonly T[],
+    keyOrCallback: keyof T | ((item: T) => GroupKey),
+): Record<GroupKey, T[]> {
+    return items.reduce<Record<GroupKey, T[]>>((groups, item) => {
+        const key =
+            typeof keyOrCallback === "function"
+                ? keyOrCallback(item)
+                : (item[keyOrCallback] as GroupKey);
+
+        (groups[key] ??= []).push(item);
+
+        return groups;
+    }, Object.create(null));
+}
+
+export function randomInt(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

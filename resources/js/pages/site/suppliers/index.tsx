@@ -74,7 +74,11 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                     </div>
                 </div>
             </section>
-            <div className={"flex flex-col items-start py-24 px-page-padding"}>
+            <div
+                className={
+                    "flex flex-col items-start py-24 px-page-padding gap-10"
+                }
+            >
                 {technologies
                     .filter((t) => (t.suppliers?.length ?? 0) > 0)
                     .map((t) => (
