@@ -17,11 +17,11 @@ class ServiceResource extends BaseResource
     public function toArray(Request $request): array
     {
         return [
-            'id'         => $this->id,
-            'group'      => $this->group,
-            'group_icon' => $this->group_icon,
-            'name'       => $this->name,
-            'summary'    => $this->summary,
+            'id'                  => $this->id,
+            'service_category'    => ServiceCategoryResource::make($this->whenLoaded('serviceCategory')),
+            'service_category_id' => $this->service_category_id,
+            'name'                => $this->name,
+            'summary'             => $this->summary,
         ];
     }
 }

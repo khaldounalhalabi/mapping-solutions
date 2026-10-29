@@ -2,17 +2,16 @@
 
 namespace App\DTOs\v1\Service;
 
+use Illuminate\Validation\Rule;
 use App\Rules\ValidTranslatableJson;
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 use WendellAdriel\ValidatedDTO\Casting\StringCast;
 
 class StoreUpdateServiceDTO extends ValidatedDTO
 {
-    public string $group;
-
-    public string $group_icon;
-
     public string $name;
+
+    public int $service_category_id;
 
     public string $summary;
 
@@ -22,10 +21,8 @@ class StoreUpdateServiceDTO extends ValidatedDTO
     protected function casts(): array
     {
         return [
-            'group'      => new StringCast,
-            'group_icon' => new StringCast,
-            'name'       => new StringCast,
-            'summary'    => new StringCast,
+            'name'    => new StringCast,
+            'summary' => new StringCast,
         ];
     }
 
@@ -45,10 +42,9 @@ class StoreUpdateServiceDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'group'      => ['json', new ValidTranslatableJson, 'required'],
-            'group_icon' => ['required', 'string', 'max:255', 'min:3'],
-            'name'       => ['json', new ValidTranslatableJson, 'required'],
-            'summary'    => ['json', new ValidTranslatableJson, 'required'],
+            'service_category_id' => ['required', 'integer', Rule::exists('service_categories', 'id')],
+            'name'                => ['json', new ValidTranslatableJson, 'required'],
+            'summary'             => ['json', new ValidTranslatableJson, 'required'],
         ];
     }
 }

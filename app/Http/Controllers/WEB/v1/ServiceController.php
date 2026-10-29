@@ -16,7 +16,7 @@ class ServiceController extends WebController
     {
         $this->serviceService = ServiceService::make();
         // place the relations you want to return them within the response
-        $this->relations = [];
+        $this->relations = ['serviceCategory'];
     }
 
     public function create()

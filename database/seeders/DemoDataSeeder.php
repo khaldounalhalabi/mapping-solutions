@@ -9,6 +9,7 @@ use App\Models\Supplier;
 use App\Models\NewsArticle;
 use App\Models\NewsCategory;
 use App\Models\ProductFamily;
+use App\Models\ServiceCategory;
 use Illuminate\Database\Seeder;
 use App\Models\MarketApplication;
 use App\Models\ProductTechnology;
@@ -17,6 +18,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class DemoDataSeeder extends Seeder
 {
+    /**
+     * @var array<string, array{title: string, excerpt: string}>
+     */
+    private const array SERVICE_CATEGORY_DETAILS = [
+        'Survey services' => [
+            'title'   => 'Airborne survey campaigns, start to finish',
+            'excerpt' => 'Full data acquisition using hyperspectral, LiDAR, radar and aerial camera systems — from flight planning and permissions through to corrected, delivery-ready data.',
+        ],
+        'Data processing' => [
+            'title'   => 'From raw data to answers',
+            'excerpt' => 'Geometric and atmospheric correction, spectral classification and GIS integration — turning survey datasets into something you can actually make decisions with.',
+        ],
+        'Consultancy' => [
+            'title'   => 'Independent advice, before you spend',
+            'excerpt' => "We'll tell you which instrument fits your application — and when it isn't one we sell. Plus collaborative R&D applying remote sensing to real-world problems.",
+        ],
+    ];
+
     /**
      * @return array<string, array<int, array<string, mixed>>>
      */
@@ -155,11 +174,34 @@ class DemoDataSeeder extends Seeder
     private function seedServices(array $rows): void
     {
         foreach ($rows as $row) {
+            $categoryName = $row['group'];
+            $categoryIconKey = $row['group_icon'];
+            $categoryDetails = self::SERVICE_CATEGORY_DETAILS[$categoryName['en']] ?? null;
+
+            $serviceCategory = ServiceCategory::query()
+                ->where('name->en', $categoryName['en'])
+                ->where('icon_key', $categoryIconKey)
+                ->first() ?? new ServiceCategory;
+
+            $serviceCategory->fill([
+                'name'  => $categoryName,
+                'title' => $categoryDetails === null
+                    ? $categoryName
+                    : ['en' => $categoryDetails['title']],
+                'excerpt' => $categoryDetails === null
+                    ? array_fill_keys(array_keys($categoryName), '')
+                    : ['en' => $categoryDetails['excerpt']],
+                'icon_key' => $categoryIconKey,
+            ])->save();
+
+            unset($row['group'], $row['group_icon']);
+
             $service = Service::query()
-                ->where('group->en', $row['group']['en'])
+                ->whereBelongsTo($serviceCategory)
                 ->where('name->en', $row['name']['en'])
                 ->first() ?? new Service;
 
+            $row['service_category_id'] = $serviceCategory->id;
             $service->fill($row)->save();
         }
     }

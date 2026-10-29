@@ -6,17 +6,19 @@ import { useTranslation } from "@/hooks/use-translation";
 import TranslatableTextarea from "@/components/form/fields/translatable-textarea";
 import TranslatableInput from "@/components/form/fields/translatable-input";
 import FormLocaleProvider from "@/providers/form-locale-provider";
-import FormIconPicker from "@/components/form/fields/form-icon-picker";
+import ApiSelect from "@/components/form/fields/select/api-select";
+import Http from "@/modules/http/http";
+import ServiceCategory from "@/models/service-category";
+import { translate } from "@/models/translatable";
 
 const Create = () => {
     const { t } = useTranslation();
     const { post, setData, processing } = useForm<
         Partial<{
-            _method?:   "PUT" | "POST";
-            group:      string;
-            group_icon: string;
-            name:       string;
-            summary:    string;
+            _method?:            "PUT" | "POST";
+            service_category_id: number;
+            name:                string;
+            summary:             string;
         }>
     >();
 
@@ -37,16 +39,33 @@ const Create = () => {
                     <div
                         className={`grid grid-cols-1 md:grid-cols-2 gap-5 items-start`}
                     >
-                        <TranslatableInput
-                            name="group"
-                            label={t("models.Service.fields.group")}
-                            onChange={(v) => setData("group", v)}
-                            required
-                        />
-                        <FormIconPicker
-                            name="group_icon"
-                            label={t("models.Service.fields.group_icon")}
-                            onChange={(value) => setData("group_icon", value)}
+                        <ApiSelect
+                            name="service_category_id"
+                            label={t(
+                                "models.Service.fields.service_category_id",
+                            )}
+                            api={(page, search) =>
+                                Http.make<ServiceCategory[]>().get(
+                                    route(
+                                        "v1.web.protected.service.categories.data",
+                                    ),
+                                    { page: page, search: search },
+                                )
+                            }
+                            getDataArray={(response) => response?.data ?? []}
+                            getIsLast={(data) =>
+                                data?.paginate?.is_last_page ?? false
+                            }
+                            getTotalPages={(data) =>
+                                data?.paginate?.total_pages ?? 0
+                            }
+                            onChange={(value) =>
+                                setData("service_category_id", value?.value)
+                            }
+                            getOptionLabel={(category) =>
+                                translate(category.name)
+                            }
+                            optionValue="id"
                             required
                         />
                         <TranslatableInput

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ServiceCategory;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -21,10 +22,9 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->json('group');
             $table->json('name');
             $table->json('summary');
-            $table->string('group_icon');
+            $table->foreignIdFor(ServiceCategory::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

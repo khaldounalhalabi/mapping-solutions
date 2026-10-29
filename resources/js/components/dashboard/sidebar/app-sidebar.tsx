@@ -82,6 +82,11 @@ export function AppSidebar({
                     icon:  <WrenchIcon />,
                 },
                 {
+                    title: t("models.ServiceCategory.plural"),
+                    href:  route("v1.web.protected.service.categories.index"),
+                    icon:  <FolderTreeIcon />,
+                },
+                {
                     title: t("models.Service.plural"),
                     href:  route("v1.web.protected.services.index"),
                     icon:  <Layers3Icon />,

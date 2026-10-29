@@ -297,8 +297,8 @@
             "singular": "Service",
             "plural": "Services",
             "fields": {
-                "group": "Group",
-                "group_icon": "Group Icon",
+                "service_category_id": "Service Category",
+                "category_icon": "Category Icon",
                 "name": "Name",
                 "summary": "Summary"
             }
@@ -410,6 +410,16 @@
                 "specifications_file": "Specifications File",
                 "datasheet": "Datasheet",
                 "manual": "Manual"
+            }
+        },
+        "ServiceCategory": {
+            "singular": "Service Category",
+            "plural": "Service Categories",
+            "fields": {
+                "name": "Name",
+                "title": "Title",
+                "excerpt": "Excerpt",
+                "icon_key": "Icon Key"
             }
         }
     },

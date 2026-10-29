@@ -6,7 +6,6 @@ import { useTranslation } from "@/hooks/use-translation";
 import DetailItem from "@/components/ui/detail-item";
 import { translate } from "@/models/translatable";
 import Service from "@/models/service";
-import { DynamicIcon } from "lucide-react/dynamic";
 
 const Show = ({ service }: { service: Service }) => {
     const { t } = useTranslation();
@@ -26,18 +25,8 @@ const Show = ({ service }: { service: Service }) => {
             <FieldGroup>
                 <div className="gap-5 grid grid-cols-1 md:grid-cols-2">
                     <DetailItem
-                        label={t("models.Service.fields.group")}
-                        value={translate(service.group)}
-                    />
-                    <DetailItem
-                        label={t("models.Service.fields.group_icon")}
-                        value={
-                            service.group_icon ? (
-                                <DynamicIcon name={service.group_icon} />
-                            ) : (
-                                "—"
-                            )
-                        }
+                        label={t("models.Service.fields.service_category_id")}
+                        value={translate(service.service_category?.name)}
                     />
                     <DetailItem
                         label={t("models.Service.fields.name")}

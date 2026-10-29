@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Service;
+use App\Models\ServiceCategory;
 use App\Serializers\Translatable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -14,10 +15,9 @@ class ServiceFactory extends Factory
     public function definition(): array
     {
         return [
-            'group'      => Translatable::fake()->toJson(),
-            'group_icon' => 'layers-3',
-            'name'       => Translatable::fake('sentence')->toJson(),
-            'summary'    => Translatable::fake('text')->toJson(),
+            'service_category_id' => ServiceCategory::factory(),
+            'name'                => Translatable::fake('sentence')->toJson(),
+            'summary'             => Translatable::fake('text')->toJson(),
         ];
     }
 }

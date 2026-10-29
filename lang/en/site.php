@@ -369,5 +369,15 @@ return [
                 'manual'                => 'Manual',
             ],
         ],
+        'ServiceCategory' => [
+            'singular' => 'Service Category',
+            'plural'   => 'Service Categories',
+            'fields'   => [
+                'name'     => 'Name',
+                'title'    => 'Title',
+                'excerpt'  => 'Excerpt',
+                'icon_key' => 'Icon Key',
+            ],
+        ],
     ],
 ];
