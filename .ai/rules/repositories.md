@@ -20,3 +20,8 @@ Use the shared repository pagination path backed by paginate() so index response
 ## Generic spreadsheet integration
 
 Route spreadsheet import and export through BaseImporter and BaseExporter rather than implementing spreadsheet handling in feature repositories.
+
+## Model-declared list search metadata
+
+Declare searchable fields on models with searchableArray () and relationsSearchableArray (); consume them through the
+shared BaseQuery pipeline.

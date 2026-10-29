@@ -20,3 +20,8 @@ Customize spreadsheet behavior through exportable, importable, export, or import
 ## Trait-driven slug generation
 
 Add Sluggable to slugged models and define source, destination, and optional separator settings in sluggable().
+
+## Model-declared list search metadata
+
+Declare searchable fields on models with searchableArray () and relationsSearchableArray (); consume them through the
+shared BaseQuery pipeline.
