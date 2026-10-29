@@ -40,6 +40,15 @@ class SiteController extends WebController
         ]);
     }
 
+    public function newsArticles()
+    {
+        $articles = NewsArticleService::make()->index();
+
+        return Inertia::render('site/news/index', [
+            'articles' => NewsArticleResource::collection($articles),
+        ]);
+    }
+
     public function products()
     {
         $technologies = ProductTechnologyService::make()->index([], [
@@ -74,15 +83,6 @@ class SiteController extends WebController
 
         return Inertia::render('site/suppliers/index', [
             'technologies' => ProductTechnologyResource::collection($technologies),
-        ]);
-    }
-
-    public function newsArticles()
-    {
-        $articles = NewsArticleService::make()->index();
-
-        return Inertia::render('site/news/index', [
-            'articles' => NewsArticleResource::collection($articles),
         ]);
     }
 }
