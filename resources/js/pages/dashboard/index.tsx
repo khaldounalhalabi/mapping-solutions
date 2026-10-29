@@ -1,12 +1,7 @@
-import { useTranslation } from "@/hooks/use-translation";
-
 const Index = () => {
-    const { t } = useTranslation();
     return (
         <div>
-            <h1 className="text-5xl dark:text-white">
-                {t("dashboard.welcome")}
-            </h1>
+            <h1 className="text-5xl dark:text-white">Hello Amer</h1>
         </div>
     );
 };
