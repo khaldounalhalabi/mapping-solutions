@@ -25,7 +25,7 @@ const NavLinks = () => {
             title: "services",
         },
         {
-            link:  "#",
+            link:  route("site.news"),
             title: "news",
         },
         {

@@ -76,4 +76,13 @@ class SiteController extends WebController
             'technologies' => ProductTechnologyResource::collection($technologies),
         ]);
     }
+
+    public function newsArticles()
+    {
+        $articles = NewsArticleService::make()->index();
+
+        return Inertia::render('site/news/index', [
+            'articles' => NewsArticleResource::collection($articles),
+        ]);
+    }
 }

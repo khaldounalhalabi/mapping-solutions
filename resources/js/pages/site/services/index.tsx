@@ -119,6 +119,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                     return (
                         <a
                             className={`flex items-center font-bold text-sm transition-shadow duration-200 text-navy ${groupColor.border}`}
+                            href={`#service-group-${c.id}`}
                         >
                             <Button
                                 variant={"link"}
@@ -140,7 +141,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                         return (
                             <div
                                 className={"flex flex-col items-start gap-5"}
-                                id={`service-group-${translate(c.name)}`}
+                                id={`service-group-${c.id}`}
                             >
                                 <div className={"flex items-center gap-1"}>
                                     <div
@@ -197,6 +198,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                                                     {translate(s.summary)}
                                                 </p>
                                             </div>
+                                            {/*TODO: adjust this link*/}
                                             <MoveLink href={"#"}>
                                                 Request a quote
                                             </MoveLink>
