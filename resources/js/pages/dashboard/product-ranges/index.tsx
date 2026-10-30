@@ -57,9 +57,10 @@ const Index = () => {
                     sortable: true,
                 },
                 {
-                    name:     "title",
-                    label:    t("models.ProductRange.fields.title"),
-                    sortable: true,
+                    name:         "title",
+                    translatable: true,
+                    label:        t("models.ProductRange.fields.title"),
+                    sortable:     true,
                 },
                 {
                     name:     "sort_order",

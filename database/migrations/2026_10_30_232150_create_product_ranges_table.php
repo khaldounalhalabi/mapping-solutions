@@ -21,7 +21,7 @@ return new class extends Migration
     {
         Schema::create('product_ranges', function (Blueprint $table) {
             $table->id();
-            $table->string('label');
+            $table->text('label');
             $table->string('range');
             $table->string('colour');
             $table->string('title');

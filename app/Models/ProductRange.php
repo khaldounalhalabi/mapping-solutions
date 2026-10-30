@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Casts\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Database\Factories\ProductRangeFactory;
@@ -40,7 +41,10 @@ class ProductRange extends Model
     protected function casts(): array
     {
         return [
-            'sort_order' => 'integer',
+            'sort_order'  => 'integer',
+            'title'       => Translatable::class,
+            'description' => Translatable::class,
+            'uses'        => Translatable::class,
         ];
     }
 

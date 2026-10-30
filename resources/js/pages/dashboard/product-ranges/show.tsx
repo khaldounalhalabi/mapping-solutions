@@ -1,3 +1,4 @@
+import { translate } from "@/models/translatable";
 import { Button } from "@/components/ui/button";
 import PageCard from "@/components/ui/page-card";
 import { Link } from "@inertiajs/react";
@@ -40,7 +41,7 @@ const Show = ({ productRange }: { productRange: ProductRange }) => {
                     />
                     <DetailItem
                         label={t("models.ProductRange.fields.title")}
-                        value={productRange.title}
+                        value={translate(productRange.title)}
                     />
                     <DetailItem
                         label={t("models.ProductRange.fields.sort_order")}
@@ -50,13 +51,13 @@ const Show = ({ productRange }: { productRange: ProductRange }) => {
 
                 <DetailItem
                     label={t("models.ProductRange.fields.description")}
-                    value={productRange.description}
+                    value={translate(productRange.description)}
                     orientation="vertical"
                     className="md:col-span-2"
                 />
                 <DetailItem
                     label={t("models.ProductRange.fields.uses")}
-                    value={productRange.uses}
+                    value={translate(productRange.uses)}
                     orientation="vertical"
                     className="md:col-span-2"
                 />

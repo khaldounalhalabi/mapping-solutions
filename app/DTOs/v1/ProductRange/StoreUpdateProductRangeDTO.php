@@ -2,6 +2,7 @@
 
 namespace App\DTOs\v1\ProductRange;
 
+use App\Rules\ValidTranslatableJson;
 use WendellAdriel\ValidatedDTO\ValidatedDTO;
 use WendellAdriel\ValidatedDTO\Casting\StringCast;
 use WendellAdriel\ValidatedDTO\Casting\IntegerCast;
@@ -57,10 +58,10 @@ class StoreUpdateProductRangeDTO extends ValidatedDTO
             'label'       => ['required', 'string', 'max:255', 'min:3'],
             'range'       => ['required', 'string', 'max:255', 'min:3'],
             'colour'      => ['required', 'regex:/^#[0-9a-fA-F]{6}$/'],
-            'title'       => ['required', 'string', 'max:255', 'min:3'],
+            'title'       => ['required', 'json', new ValidTranslatableJson],
             'sort_order'  => ['required', 'integer', 'min:0'],
-            'description' => ['required', 'max:5000', 'min:0'],
-            'uses'        => ['required', 'max:5000', 'min:0'],
+            'description' => ['required', 'json', new ValidTranslatableJson],
+            'uses'        => ['required', 'json', new ValidTranslatableJson],
         ];
     }
 }

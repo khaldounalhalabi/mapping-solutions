@@ -1,3 +1,4 @@
+import { translate } from "@/models/translatable";
 import { Link } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import Supplier from "@/models/supplier";
@@ -5,6 +6,9 @@ import ProductRange from "@/models/product-range";
 import { buttonVariants } from "@/components/ui/button";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import LightSpectrum from "@/components/site/icons/light-spectrum";
+
+const rangeTranslation = (value: string) =>
+    translate(value) || translate(value, true).en || "";
 
 const steps = [
     {
@@ -30,7 +34,7 @@ const Index = ({
     ranges,
 }: {
     suppliers: Supplier[];
-    ranges: ProductRange[];
+    ranges:    ProductRange[];
 }) => {
     const bands = ranges;
     const [activeBand, setActiveBand] = useState(0);
@@ -346,14 +350,14 @@ const Index = ({
                         >
                             <div>
                                 <h3 className="text-xl font-extrabold tracking-tight">
-                                    {band.title}
+                                    {rangeTranslation(band.title)}
                                 </h3>
                                 <p className="mt-3 text-sm leading-[1.82] text-[#b8cfe8]">
-                                    {band.description}
+                                    {rangeTranslation(band.description)}
                                 </p>
                             </div>
                             <ul className="flex flex-col gap-3">
-                                {band.uses
+                                {rangeTranslation(band.uses)
                                     .split(/\r?\n/)
                                     .filter(Boolean)
                                     .map((use) => (

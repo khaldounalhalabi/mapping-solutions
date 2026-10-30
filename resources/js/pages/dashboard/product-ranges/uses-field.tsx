@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { FieldError } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { useFormLocale } from "@/providers/form-locale-provider";
+import { translate } from "@/models/translatable";
 import { useTranslation } from "@/hooks/use-translation";
 import { usePage } from "@inertiajs/react";
 import { Plus, Trash2 } from "lucide-react";
@@ -15,6 +17,24 @@ export default function UsesField({
     initialValue = "",
     onChange,
 }: UsesFieldProps) {
+    const { locale } = useFormLocale();
+    const [translations, setTranslations] = useState<Record<string, string>>(
+        () => (initialValue ? translate(initialValue, true) : {}),
+    );
+    return (
+        <UsesRows
+            key={locale}
+            initialValue={translations[locale ?? "en"] ?? ""}
+            onChange={(value) => {
+                const updated = { ...translations, [locale ?? "en"]: value };
+                setTranslations(updated);
+                onChange(JSON.stringify(updated));
+            }}
+        />
+    );
+}
+
+function UsesRows({ initialValue = "", onChange }: UsesFieldProps) {
     const { t } = useTranslation();
     const { errors } = usePage().props;
     const nextId = useRef(0);

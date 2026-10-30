@@ -3,8 +3,9 @@ import PageCard from "@/components/ui/page-card";
 import Form from "@/components/form/form";
 import React from "react";
 import { useTranslation } from "@/hooks/use-translation";
-import Textarea from "@/components/form/fields/textarea";
-import { ChangeEvent } from "react";
+import TranslatableTextarea from "@/components/form/fields/translatable-textarea";
+import TranslatableInput from "@/components/form/fields/translatable-input";
+import FormLocaleProvider from "@/providers/form-locale-provider";
 import Input from "@/components/form/fields/input";
 import UsesField from "./uses-field";
 import ProductRange from "@/models/product-range";
@@ -45,73 +46,77 @@ const Edit = ({ productRange }: { productRange: ProductRange }) => {
                 model: t("models.ProductRange.singular"),
             })}
         >
-            <Form onSubmit={onSubmit} processing={processing}>
-                <div
-                    className={`grid grid-cols-1 md:grid-cols-2 gap-5 items-start`}
-                >
-                    <Input
-                        name="label"
-                        label={t("models.ProductRange.fields.label")}
-                        type={"text"}
-                        onChange={(e) => setData("label", e.target?.value)}
-                        defaultValue={productRange.label}
-                        required
-                    />
-                    <Input
-                        name="range"
-                        label={t("models.ProductRange.fields.range")}
-                        type={"text"}
-                        onChange={(e) => setData("range", e.target?.value)}
-                        defaultValue={productRange.range}
-                        required
-                    />
-                    <Input
-                        name="colour"
-                        label={t("models.ProductRange.fields.colour")}
-                        type="color"
-                        id="colour_id"
-                        className="h-10 cursor-pointer p-1"
-                        onChange={(e) => setData("colour", e.target?.value)}
-                        defaultValue={productRange.colour}
-                        required
-                    />
-                    <Input
-                        name="title"
-                        label={t("models.ProductRange.fields.title")}
-                        type={"text"}
-                        onChange={(e) => setData("title", e.target?.value)}
-                        defaultValue={productRange.title}
-                        required
-                    />
-                    <Input
-                        name="sort_order"
-                        label={t("models.ProductRange.fields.sort_order")}
-                        type={"number"}
-                        onChange={(e) =>
-                            setData("sort_order", e.target?.valueAsNumber)
-                        }
-                        defaultValue={productRange.sort_order}
-                        required
-                    />
-                    <div className="md:col-span-2">
-                        <Textarea
-                            name="description"
-                            label={t("models.ProductRange.fields.description")}
-                            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-                                setData("description", e.target.value)
-                            }
-                            defaultValue={productRange.description}
+            <FormLocaleProvider>
+                <Form onSubmit={onSubmit} processing={processing}>
+                    <div
+                        className={`grid grid-cols-1 md:grid-cols-2 gap-5 items-start`}
+                    >
+                        <Input
+                            name="label"
+                            label={t("models.ProductRange.fields.label")}
+                            type={"text"}
+                            onChange={(e) => setData("label", e.target?.value)}
+                            defaultValue={productRange.label}
                             required
                         />
-                    </div>
-                    <div className="md:col-span-2">
-                        <UsesField
-                            initialValue={productRange.uses}
-                            onChange={(value) => setData("uses", value)}
+                        <Input
+                            name="range"
+                            label={t("models.ProductRange.fields.range")}
+                            type={"text"}
+                            onChange={(e) => setData("range", e.target?.value)}
+                            defaultValue={productRange.range}
+                            required
                         />
+                        <Input
+                            name="colour"
+                            label={t("models.ProductRange.fields.colour")}
+                            type="color"
+                            id="colour_id"
+                            className="h-10 cursor-pointer p-1"
+                            onChange={(e) => setData("colour", e.target?.value)}
+                            defaultValue={productRange.colour}
+                            required
+                        />
+                        <TranslatableInput
+                            name="title"
+                            label={t("models.ProductRange.fields.title")}
+                            type={"text"}
+                            onChange={(value) => setData("title", value)}
+                            defaultValue={productRange.title}
+                            required
+                        />
+                        <Input
+                            name="sort_order"
+                            label={t("models.ProductRange.fields.sort_order")}
+                            type={"number"}
+                            onChange={(e) =>
+                                setData("sort_order", e.target?.valueAsNumber)
+                            }
+                            defaultValue={productRange.sort_order}
+                            required
+                        />
+                        <div className="md:col-span-2">
+                            <TranslatableTextarea
+                                name="description"
+                                label={t(
+                                    "models.ProductRange.fields.description",
+                                )}
+                                onChange={(value) =>
+                                    setData("description", value)
+                                }
+                                defaultValue={productRange.description}
+                                required
+                            />
+                        </div>
+                        <div className="md:col-span-2">
+                            <UsesField
+                                initialValue={productRange.uses}
+                                onChange={(value) => setData("uses", value)}
+                            />
+                        </div>
                     </div>
-                </div>
-            </Form>
+                </Form>
+            </FormLocaleProvider>
         </PageCard>
     );
 };
