@@ -6,6 +6,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import Textarea from "@/components/form/fields/textarea";
 import { ChangeEvent } from "react";
 import Input from "@/components/form/fields/input";
+import UsesField from "./uses-field";
 
 const Create = () => {
     const { t } = useTranslation();
@@ -20,7 +21,7 @@ const Create = () => {
             description: string;
             uses:        string;
         }>
-    >();
+    >({ colour: "#1a9ed4", uses: "" });
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -55,7 +56,10 @@ const Create = () => {
                     <Input
                         name="colour"
                         label={t("models.ProductRange.fields.colour")}
-                        type={"text"}
+                        type="color"
+                        id="colour_id"
+                        defaultValue="#1a9ed4"
+                        className="h-10 cursor-pointer p-1"
                         onChange={(e) => setData("colour", e.target?.value)}
                         required
                     />
@@ -86,14 +90,8 @@ const Create = () => {
                         />
                     </div>
                     <div className="md:col-span-2">
-                        <Textarea
-                            placeholder="One use per line"
-                            name="uses"
-                            label={t("models.ProductRange.fields.uses")}
-                            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-                                setData("uses", e.target.value)
-                            }
-                            required
+                        <UsesField
+                            onChange={(value) => setData("uses", value)}
                         />
                     </div>
                 </div>

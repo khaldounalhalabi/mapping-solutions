@@ -6,6 +6,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import Textarea from "@/components/form/fields/textarea";
 import { ChangeEvent } from "react";
 import Input from "@/components/form/fields/input";
+import UsesField from "./uses-field";
 import ProductRange from "@/models/product-range";
 
 const Edit = ({ productRange }: { productRange: ProductRange }) => {
@@ -67,7 +68,9 @@ const Edit = ({ productRange }: { productRange: ProductRange }) => {
                     <Input
                         name="colour"
                         label={t("models.ProductRange.fields.colour")}
-                        type={"text"}
+                        type="color"
+                        id="colour_id"
+                        className="h-10 cursor-pointer p-1"
                         onChange={(e) => setData("colour", e.target?.value)}
                         defaultValue={productRange.colour}
                         required
@@ -102,15 +105,9 @@ const Edit = ({ productRange }: { productRange: ProductRange }) => {
                         />
                     </div>
                     <div className="md:col-span-2">
-                        <Textarea
-                            placeholder="One use per line"
-                            name="uses"
-                            label={t("models.ProductRange.fields.uses")}
-                            onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
-                                setData("uses", e.target.value)
-                            }
-                            defaultValue={productRange.uses}
-                            required
+                        <UsesField
+                            initialValue={productRange.uses}
+                            onChange={(value) => setData("uses", value)}
                         />
                     </div>
                 </div>

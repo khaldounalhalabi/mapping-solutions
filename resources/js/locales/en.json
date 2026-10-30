@@ -433,7 +433,10 @@
                 "sort_order": "Sort Order",
                 "description": "Description",
                 "uses": "Uses"
-            }
+            },
+            "add_use": "Add use",
+            "use_number": "Use :number",
+            "remove_use": "Remove use :number"
         }
     },
     "enums": {
