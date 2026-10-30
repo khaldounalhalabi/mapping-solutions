@@ -20,6 +20,11 @@ use App\Services\v1\ProductTechnology\ProductTechnologyService;
 
 class SiteController extends WebController
 {
+    public function about()
+    {
+        return Inertia::render('site/about/index');
+    }
+
     public function index()
     {
         $technologies = ProductTechnologyService::make()->index([], [

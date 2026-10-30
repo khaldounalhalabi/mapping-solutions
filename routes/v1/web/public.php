@@ -22,5 +22,6 @@ Route::get('/products', [SiteController::class, 'products'])->name('site.product
 Route::get('/suppliers', [SiteController::class, 'suppliers'])->name('site.suppliers');
 Route::get('/services', [SiteController::class, 'services'])->name('site.services');
 Route::get('/news', [SiteController::class, 'newsArticles'])->name('site.news');
+Route::get('/about', [SiteController::class, 'about'])->name('site.about');
 
 Route::get('/suppliers/data', [v1\SupplierController::class, 'data'])->name('suppliers.data');
