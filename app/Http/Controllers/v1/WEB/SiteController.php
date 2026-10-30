@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\WEB;
 
 use Inertia\Inertia;
+use Inertia\Response;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\WebController;
 use Illuminate\Database\Eloquent\Builder;
@@ -20,9 +21,11 @@ use App\Services\v1\ProductTechnology\ProductTechnologyService;
 
 class SiteController extends WebController
 {
-    public function about()
+    public function about(): Response
     {
-        return Inertia::render('site/about/index');
+        return Inertia::render('site/about/index', [
+            'suppliers' => SupplierResource::collection(SupplierService::make()->index()),
+        ]);
     }
 
     public function index()
