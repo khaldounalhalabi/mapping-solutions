@@ -379,5 +379,18 @@ return [
                 'icon_key' => 'Icon Key',
             ],
         ],
+        'ProductRange' => [
+            'singular' => 'Product Range',
+            'plural'   => 'Product Ranges',
+            'fields'   => [
+                'label'       => 'Label',
+                'range'       => 'Range',
+                'colour'      => 'Colour',
+                'title'       => 'Title',
+                'sort_order'  => 'Sort Order',
+                'description' => 'Description',
+                'uses'        => 'Uses',
+            ],
+        ],
     ],
 ];

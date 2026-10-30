@@ -684,6 +684,56 @@
             ],
             "relations": [],
             "version": "v1"
+        },
+        {
+            "model_name": "ProductRange",
+            "table_name": "product_ranges",
+            "attributes": [
+                {
+                    "name": "label",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "range",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "colour",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "sort_order",
+                    "type": "integer",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "uses",
+                    "type": "text",
+                    "nullable": false,
+                    "unique": false
+                }
+            ],
+            "relations": [],
+            "version": "v1"
         }
     ]
 }

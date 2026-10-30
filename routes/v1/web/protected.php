@@ -63,3 +63,6 @@ Route::resource('/v1/inquiries', v1\InquiryController::class)
         'destroy',
         'index',
     ])->names('v1.web.protected.inquiries');
+
+Route::get('/v1/product-ranges/data', [v1\ProductRangeController::class, 'data'])->name('v1.web.protected.product.ranges.data');
+Route::resource('/v1/product-ranges', v1\ProductRangeController::class)->names('v1.web.protected.product.ranges');

@@ -70,6 +70,11 @@ export function AppSidebar({
                     href:  route("v1.web.protected.products.index"),
                     icon:  <PackageIcon />,
                 },
+                {
+                    title: t("models.ProductRange.plural"),
+                    href: route("v1.web.protected.product.ranges.index"),
+                    icon: <Layers3Icon />,
+                },
             ],
         },
         {

@@ -1,82 +1,10 @@
 import { Link } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import Supplier from "@/models/supplier";
+import ProductRange from "@/models/product-range";
 import { buttonVariants } from "@/components/ui/button";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import LightSpectrum from "@/components/site/icons/light-spectrum";
-
-const bands = [
-    {
-        label:  "VNIR",
-        range:  "400–1000 nm",
-        colour: "#1a9ed4",
-        title:  "VNIR — visible and near infrared",
-        copy:   "Pigments, chlorophyll and water content produce clear features in this range, which is why VNIR sensors are the most widely used in environmental and agricultural survey.",
-        uses:   [
-            "Vegetation health and species mapping",
-            "Water quality and algal blooms",
-            "Coastal and habitat change",
-            "Precision agriculture",
-        ],
-        swatch: "from-[#2b3fd4] to-[#1a9ed4]",
-    },
-    {
-        label:  "SWIR",
-        range:  "1000–2500 nm",
-        colour: "#12b886",
-        title:  "SWIR — shortwave infrared",
-        copy:   "Minerals, moisture and many manufactured materials have distinctive absorption features in the shortwave infrared that are not detectable at shorter wavelengths.",
-        uses:   [
-            "Mineral identification and mining",
-            "Soil moisture and composition",
-            "Material and plastics sorting",
-            "Geological mapping",
-        ],
-        swatch: "from-[#1a9ed4] to-[#12b886]",
-    },
-    {
-        label:  "MWIR",
-        range:  "3–5 µm",
-        colour: "#f2c037",
-        title:  "MWIR — midwave infrared",
-        copy:   "The midwave range captures emission from combustion and high-temperature processes, which makes it well suited to gas and hot-target work.",
-        uses:   [
-            "Gas detection and flare monitoring",
-            "Industrial process inspection",
-            "Hot target detection",
-            "Defence and ISR",
-        ],
-        swatch: "from-[#12b886] to-[#f2c037]",
-    },
-    {
-        label:  "LWIR",
-        range:  "8–12 µm",
-        colour: "#f2762e",
-        title:  "LWIR — thermal infrared",
-        copy:   "All surfaces emit in the longwave. Thermal hyperspectral can distinguish gas plumes by species and map surface temperature across a site or city, including at night.",
-        uses:   [
-            "Gas plume identification",
-            "Urban heat mapping",
-            "Building and energy loss survey",
-            "Night-time acquisition",
-        ],
-        swatch: "from-[#f2c037] to-[#f2762e]",
-    },
-    {
-        label:  "LiDAR",
-        range:  "1064 / 1550 nm",
-        colour: "#d63b3b",
-        title:  "LiDAR — active laser ranging",
-        copy:   "LiDAR emits its own pulses and times the return, so rather than what a surface is made of, it measures precisely where that surface is — in three dimensions, through vegetation, and in some systems through water.",
-        uses:   [
-            "Topographic and corridor mapping",
-            "Forestry structure and canopy",
-            "Bathymetric survey",
-            "Asset and infrastructure inspection",
-        ],
-        swatch: "from-[#f2762e] to-[#d63b3b]",
-    },
-];
 
 const steps = [
     {
@@ -97,7 +25,14 @@ const steps = [
     },
 ];
 
-const Index = ({ suppliers }: { suppliers: Supplier[] }) => {
+const Index = ({
+    suppliers,
+    ranges,
+}: {
+    suppliers: Supplier[];
+    ranges: ProductRange[];
+}) => {
+    const bands = ranges;
     const [activeBand, setActiveBand] = useState(0);
     const [isCycling, setIsCycling] = useState(true);
     const explorerRef = useRef<HTMLElement>(null);
@@ -304,133 +239,144 @@ const Index = ({ suppliers }: { suppliers: Supplier[] }) => {
                 </p>
             </section>
 
-            <section
-                ref={explorerRef}
-                aria-labelledby="spectrum-heading"
-                className="relative isolate overflow-hidden bg-[#08182f] py-17.5 text-white min-[981px]:py-26"
-            >
-                <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(#ffffff21_1px,transparent_1.6px)] bg-size-[44px_44px] mask-[radial-gradient(70%_70%_at_50%_40%,black,transparent_78%)]"
-                />
-                <div className="mx-auto max-w-295 px-6.5">
-                    <h2
-                        id="spectrum-heading"
-                        className="max-w-[22ch] text-[clamp(1.65rem,3.3vw,2.3rem)] leading-tight font-extrabold tracking-tight"
-                    >
-                        Different questions live in different bands
-                    </h2>
-                    <p className="mt-4 max-w-[58ch] text-[15.5px] leading-relaxed text-[#a9c4e2]">
-                        A quick tour of the ranges we supply instruments for,
-                        and what each one is used to measure. Pick a band or
-                        watch it cycle.
-                    </p>
-                    <div className="relative mt-11">
-                        <div
-                            role="tablist"
-                            aria-label="Instrument wavelength bands"
-                            className="grid grid-cols-5 gap-1"
-                        >
-                            {bands.map((item, index) => (
-                                <button
-                                    key={item.label}
-                                    ref={(node) => {
-                                        bandRefs.current[index] = node;
-                                    }}
-                                    type="button"
-                                    role="tab"
-                                    id={`band-${index}`}
-                                    aria-controls="band-detail"
-                                    aria-selected={activeBand === index}
-                                    tabIndex={activeBand === index ? 0 : -1}
-                                    onClick={() => selectBand(index)}
-                                    onKeyDown={(event) => {
-                                        let next = index;
-                                        if (event.key === "ArrowRight") {
-                                            next = (index + 1) % bands.length;
-                                        } else if (event.key === "ArrowLeft") {
-                                            next =
-                                                (index + bands.length - 1) %
-                                                bands.length;
-                                        } else if (event.key === "Home") {
-                                            next = 0;
-                                        } else if (event.key === "End") {
-                                            next = bands.length - 1;
-                                        } else {
-                                            return;
-                                        }
-                                        event.preventDefault();
-                                        selectBand(next);
-                                        bandRefs.current[next]?.focus();
-                                    }}
-                                    className="relative min-w-0 cursor-pointer text-left outline-offset-4 focus-visible:outline-2 focus-visible:outline-white"
-                                >
-                                    <span
-                                        className={`mt-3 block text-[10px] font-bold tracking-wide min-[621px]:text-[11.5px] ${activeBand === index ? "text-white" : "text-[#7d9dc4]"}`}
-                                    >
-                                        {item.label}
-                                    </span>
-                                    <span className="mt-0.75 hidden text-[10.5px] text-[#5f80a8] min-[621px]:block">
-                                        {item.range}
-                                    </span>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
+            {band && (
+                <section
+                    ref={explorerRef}
+                    aria-labelledby="spectrum-heading"
+                    className="relative isolate overflow-hidden bg-[#08182f] py-17.5 text-white min-[981px]:py-26"
+                >
                     <div
                         aria-hidden="true"
-                        className={`mt-6.5 h-0.5 overflow-hidden rounded-xs bg-white/12 transition-opacity duration-400 motion-reduce:opacity-0 ${isCycling ? "opacity-100" : "opacity-0"}`}
-                    >
-                        <div
-                            ref={progressRef}
-                            style={{ backgroundColor: band.colour }}
-                            className="h-full origin-left transform-[scaleX(0)] rounded-xs transition-colors duration-350"
-                        />
-                    </div>
-                    <button
-                        type="button"
-                        onClick={() => setIsCycling(!isCycling)}
-                        aria-pressed={isCycling}
-                        className="sr-only rounded text-xs text-white focus:not-sr-only focus:mt-3 focus:p-2 focus:outline-2 focus:outline-white"
-                    >
-                        {isCycling
-                            ? "Pause automatic cycling"
-                            : "Resume automatic cycling"}
-                    </button>
-                    <div
-                        id="band-detail"
-                        role="tabpanel"
-                        aria-labelledby={`band-${activeBand}`}
-                        tabIndex={0}
-                        style={{ borderLeftColor: band.colour }}
-                        className="mt-6.5 grid gap-6 rounded-[18px] border border-white/13 border-l-4 bg-white/5 px-6 py-6.5 outline-offset-4 min-[981px]:min-h-44 min-[981px]:grid-cols-[1.12fr_0.88fr] min-[981px]:gap-10 min-[981px]:px-9 min-[981px]:py-8.5"
-                    >
-                        <div>
-                            <h3 className="text-xl font-extrabold tracking-tight">
-                                {band.title}
-                            </h3>
-                            <p className="mt-3 text-sm leading-[1.82] text-[#b8cfe8]">
-                                {band.copy}
-                            </p>
+                        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(#ffffff21_1px,transparent_1.6px)] bg-size-[44px_44px] mask-[radial-gradient(70%_70%_at_50%_40%,black,transparent_78%)]"
+                    />
+                    <div className="mx-auto max-w-295 px-6.5">
+                        <h2
+                            id="spectrum-heading"
+                            className="max-w-[22ch] text-[clamp(1.65rem,3.3vw,2.3rem)] leading-tight font-extrabold tracking-tight"
+                        >
+                            Different questions live in different bands
+                        </h2>
+                        <p className="mt-4 max-w-[58ch] text-[15.5px] leading-relaxed text-[#a9c4e2]">
+                            A quick tour of the ranges we supply instruments
+                            for, and what each one is used to measure. Pick a
+                            band or watch it cycle.
+                        </p>
+                        <div className="relative mt-11">
+                            <div
+                                role="tablist"
+                                aria-label="Instrument wavelength bands"
+                                className="grid grid-cols-5 gap-1"
+                            >
+                                {bands.map((item, index) => (
+                                    <button
+                                        key={item.label}
+                                        ref={(node) => {
+                                            bandRefs.current[index] = node;
+                                        }}
+                                        type="button"
+                                        role="tab"
+                                        id={`band-${index}`}
+                                        aria-controls="band-detail"
+                                        aria-selected={activeBand === index}
+                                        tabIndex={activeBand === index ? 0 : -1}
+                                        onClick={() => selectBand(index)}
+                                        onKeyDown={(event) => {
+                                            let next = index;
+                                            if (event.key === "ArrowRight") {
+                                                next =
+                                                    (index + 1) % bands.length;
+                                            } else if (
+                                                event.key === "ArrowLeft"
+                                            ) {
+                                                next =
+                                                    (index + bands.length - 1) %
+                                                    bands.length;
+                                            } else if (event.key === "Home") {
+                                                next = 0;
+                                            } else if (event.key === "End") {
+                                                next = bands.length - 1;
+                                            } else {
+                                                return;
+                                            }
+                                            event.preventDefault();
+                                            selectBand(next);
+                                            bandRefs.current[next]?.focus();
+                                        }}
+                                        className="relative min-w-0 cursor-pointer text-left outline-offset-4 focus-visible:outline-2 focus-visible:outline-white"
+                                    >
+                                        <span
+                                            className={`mt-3 block text-[10px] font-bold tracking-wide min-[621px]:text-[11.5px] ${activeBand === index ? "text-white" : "text-[#7d9dc4]"}`}
+                                        >
+                                            {item.label}
+                                        </span>
+                                        <span className="mt-0.75 hidden text-[10.5px] text-[#5f80a8] min-[621px]:block">
+                                            {item.range}
+                                        </span>
+                                    </button>
+                                ))}
+                            </div>
                         </div>
-                        <ul className="flex flex-col gap-3">
-                            {band.uses.map((use) => (
-                                <li
-                                    key={use}
-                                    className="flex items-start gap-3 text-sm leading-relaxed text-[#d3e3f5]"
-                                >
-                                    <span
-                                        aria-hidden="true"
-                                        style={{ backgroundColor: band.colour }}
-                                        className="mt-2 size-1.75 shrink-0 rounded-full"
-                                    />
-                                    {use}
-                                </li>
-                            ))}
-                        </ul>
+                        <div
+                            aria-hidden="true"
+                            className={`mt-6.5 h-0.5 overflow-hidden rounded-xs bg-white/12 transition-opacity duration-400 motion-reduce:opacity-0 ${isCycling ? "opacity-100" : "opacity-0"}`}
+                        >
+                            <div
+                                ref={progressRef}
+                                style={{ backgroundColor: band.colour }}
+                                className="h-full origin-left transform-[scaleX(0)] rounded-xs transition-colors duration-350"
+                            />
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => setIsCycling(!isCycling)}
+                            aria-pressed={isCycling}
+                            className="sr-only rounded text-xs text-white focus:not-sr-only focus:mt-3 focus:p-2 focus:outline-2 focus:outline-white"
+                        >
+                            {isCycling
+                                ? "Pause automatic cycling"
+                                : "Resume automatic cycling"}
+                        </button>
+                        <div
+                            id="band-detail"
+                            role="tabpanel"
+                            aria-labelledby={`band-${activeBand}`}
+                            tabIndex={0}
+                            style={{ borderLeftColor: band.colour }}
+                            className="mt-6.5 grid gap-6 rounded-[18px] border border-white/13 border-l-4 bg-white/5 px-6 py-6.5 outline-offset-4 min-[981px]:min-h-44 min-[981px]:grid-cols-[1.12fr_0.88fr] min-[981px]:gap-10 min-[981px]:px-9 min-[981px]:py-8.5"
+                        >
+                            <div>
+                                <h3 className="text-xl font-extrabold tracking-tight">
+                                    {band.title}
+                                </h3>
+                                <p className="mt-3 text-sm leading-[1.82] text-[#b8cfe8]">
+                                    {band.description}
+                                </p>
+                            </div>
+                            <ul className="flex flex-col gap-3">
+                                {band.uses
+                                    .split(/\r?\n/)
+                                    .filter(Boolean)
+                                    .map((use) => (
+                                        <li
+                                            key={use}
+                                            className="flex items-start gap-3 text-sm leading-relaxed text-[#d3e3f5]"
+                                        >
+                                            <span
+                                                aria-hidden="true"
+                                                style={{
+                                                    backgroundColor:
+                                                        band.colour,
+                                                }}
+                                                className="mt-2 size-1.75 shrink-0 rounded-full"
+                                            />
+                                            {use}
+                                        </li>
+                                    ))}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
             <section
                 aria-labelledby="process-heading"
                 className="mx-auto max-w-7xl px-6 py-18 sm:px-10 lg:px-16 lg:py-27"
