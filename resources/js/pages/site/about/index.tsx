@@ -437,14 +437,13 @@ const Index = ({
                                 key={supplier.id}
                                 href={route("site.suppliers")}
                                 aria-label={`Explore ${supplier.name} instruments`}
-                                className="flex h-22 items-center justify-center overflow-hidden rounded-xl border bg-white p-3 focus-visible:outline-2 focus-visible:outline-navy"
+                                className="flex items-center justify-center overflow-hidden rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
                             >
                                 {supplier.logo?.url ? (
                                     <img
-                                        src={supplier.logo.url}
-                                        alt={`${supplier.name} logo`}
-                                        loading="lazy"
-                                        className="h-full w-full object-contain"
+                                        src={supplier.logo?.url}
+                                        alt={supplier.name + "-logo"}
+                                        className="h-full w-full object-fill"
                                     />
                                 ) : (
                                     <span className="text-center text-sm font-bold text-navy">
