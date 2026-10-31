@@ -6,45 +6,49 @@ import Textarea from "@/components/form/fields/textarea";
 import Select from "@/components/form/fields/select/select";
 import PublicReveals from "@/components/site/public-reveals";
 import { useTranslation } from "@/hooks/use-translation";
+import useSettings from "@/hooks/use-settings";
+import SettingKeyEnum from "@/enums/setting-key-enum";
 
 export default function Contact() {
+    const { valueOf } = useSettings();
     const { t } = useTranslation();
     const form = useForm({
         first_name: "",
-        last_name: "",
-        company: "",
-        country: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
+        last_name:  "",
+        company:    "",
+        country:    "",
+        email:      "",
+        phone:      "",
+        subject:    "",
+        message:    "",
     });
     const cards = [
         {
             title: "Call us",
-            text: "+44 8251 99303",
-            note: "Monday to Friday, 9am–5pm UK time",
-            href: "tel:+44825199303",
-            Icon: Phone,
+            text:  valueOf(SettingKeyEnum.CONTACT_PHONE),
+            note:  "Monday to Friday, 9am–5pm UK time",
+            href:  `tel:${valueOf(SettingKeyEnum.CONTACT_PHONE)}`,
+            Icon:  Phone,
             color: "#1a5fb4",
-            bg: "#e8f1fb",
+            bg:    "#e8f1fb",
         },
         {
             title: "Email us",
-            text: "info@mapping-solutions.co.uk",
-            note: "We reply within one working day",
-            href: "mailto:info@mapping-solutions.co.uk",
-            Icon: Mail,
+            text:  valueOf(SettingKeyEnum.CONTACT_EMAIL),
+            note:  "We reply within one working day",
+            href:  `mailto:${valueOf(SettingKeyEnum.CONTACT_EMAIL)}`,
+            Icon:  Mail,
             color: "#0e8074",
-            bg: "#e2f3f0",
+            bg:    "#e2f3f0",
         },
         {
             title: "Visit us",
-            text: "69 Hamilton Road, Manchester, M13 0PD, United Kingdom",
-            note: "Please arrange visits in advance",
-            Icon: MapPin,
+            text:  valueOf(SettingKeyEnum.ADDRESS),
+            href:  valueOf(SettingKeyEnum.ADDRESS_GOOGLE_MAP_URL),
+            note:  "Please arrange visits in advance",
+            Icon:  MapPin,
             color: "#b96a00",
-            bg: "#fdf3e3",
+            bg:    "#fdf3e3",
         },
     ];
     return (
@@ -85,7 +89,12 @@ export default function Contact() {
                                 </>
                             );
                             return href ? (
-                                <a className="card" key={title} href={href}>
+                                <a
+                                    className="card"
+                                    key={title}
+                                    href={href}
+                                    target={"_blank"}
+                                >
                                     {body}
                                 </a>
                             ) : (
@@ -152,10 +161,10 @@ export default function Contact() {
                                     <div
                                         className="form-name-grid"
                                         style={{
-                                            display: "grid",
+                                            display:             "grid",
                                             gridTemplateColumns:
                                                 "repeat(auto-fit, minmax(min(100%, 180px), 1fr))",
-                                            gap: 20,
+                                            gap:                 20,
                                         }}
                                     >
                                         <Input
