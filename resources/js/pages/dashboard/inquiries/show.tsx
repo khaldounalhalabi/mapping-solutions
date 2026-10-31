@@ -69,20 +69,22 @@ const Show = ({ inquiry }: { inquiry: Inquiry }) => {
                         <DetailItem
                             label={t("models.Inquiry.fields.product_id")}
                             value={
-                                <Link
-                                    href={route(
-                                        "v1.web.protected.products.show",
-                                        inquiry.product_id,
-                                    )}
-                                >
-                                    <Button>
-                                        <DetailItemValue
-                                            value={translate(
-                                                inquiry?.product?.name,
-                                            )}
-                                        />
-                                    </Button>
-                                </Link>
+                                inquiry.product ? (
+                                    <Link
+                                        href={route(
+                                            "v1.web.protected.products.show",
+                                            inquiry.product_id,
+                                        )}
+                                    >
+                                        <Button>
+                                            <DetailItemValue
+                                                value={translate(
+                                                    inquiry?.product?.name,
+                                                )}
+                                            />
+                                        </Button>
+                                    </Link>
+                                ) : null
                             }
                         />
                     </div>

@@ -27,6 +27,8 @@ return new class extends Migration
             $table->json('description');
             $table->boolean('is_featured')->default(false);
             $table->string('theme_color')->default('#0ea5e9');
+            $table->boolean('is_visible')->default(true);
+            $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
         });
     }

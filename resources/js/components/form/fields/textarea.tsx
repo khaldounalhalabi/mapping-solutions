@@ -31,6 +31,7 @@ const Textarea: React.FC<TextareaProps> = ({
             )}
             <ShadcnTextarea
                 id={`${name}_id`}
+                required={required}
                 rows={4}
                 name={name ?? ""}
                 {...props}

@@ -7,6 +7,7 @@ use WendellAdriel\ValidatedDTO\ValidatedDTO;
 use App\Rules\MaximumFeaturedMarketApplications;
 use WendellAdriel\ValidatedDTO\Casting\StringCast;
 use WendellAdriel\ValidatedDTO\Casting\BooleanCast;
+use WendellAdriel\ValidatedDTO\Casting\IntegerCast;
 
 class StoreUpdateMarketApplicationDTO extends ValidatedDTO
 {
@@ -16,7 +17,11 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
 
     public bool $is_featured;
 
+    public bool $is_visible;
+
     public string $name;
+
+    public int $sort_order;
 
     public string $summary;
 
@@ -34,6 +39,8 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
             'summary'     => new StringCast,
             'description' => new StringCast,
             'is_featured' => new BooleanCast,
+            'is_visible'  => new BooleanCast,
+            'sort_order'  => new IntegerCast,
         ];
     }
 
@@ -44,6 +51,8 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
     {
         return [
             'is_featured' => false,
+            'is_visible'  => true,
+            'sort_order'  => 0,
         ];
     }
 
@@ -53,6 +62,8 @@ class StoreUpdateMarketApplicationDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
+            'is_visible'  => ['boolean'],
+            'sort_order'  => ['integer', 'min:0', 'max:100000'],
             'name'        => ['json', new ValidTranslatableJson, 'required'],
             'icon_key'    => ['required', 'string', 'max:255', 'min:3'],
             'theme_color' => ['required', 'hex_color'],

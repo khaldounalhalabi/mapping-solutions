@@ -32,7 +32,7 @@ class StoreJobApplicationDTO extends ValidatedDTO
 
     public ?string $relevant_experience = null;
 
-    public int $vacancy_id;
+    public ?int $vacancy_id = null;
 
     /**
      * Get the type casting for the DTO properties.
@@ -71,9 +71,9 @@ class StoreJobApplicationDTO extends ValidatedDTO
     protected function rules(): array
     {
         return [
-            'vacancy_id' => ['numeric', 'required', Rule::exists('vacancies', 'id')],
-            'first_name' => ['required', 'string', 'max:255', 'min:3'],
-            'last_name'  => ['required', 'string', 'max:255', 'min:3'],
+            'vacancy_id' => ['nullable', 'integer', Rule::exists('vacancies', 'id')->where(fn ($query) => $query->whereDate('closing_date', '>=', today()))],
+            'first_name' => ['required', 'string', 'max:255', 'min:1'],
+            'last_name'  => ['required', 'string', 'max:255', 'min:1'],
             'email'      => [
                 'required',
                 'string',
@@ -83,22 +83,14 @@ class StoreJobApplicationDTO extends ValidatedDTO
                 Rule::unique('job_applications', 'email')
                     ->where('vacancy_id', data_get($this->dtoData, 'vacancy_id')),
             ],
-            'phone' => [
-                'required',
-                'string',
-                'max:255',
-                'min:3',
-                'phone:INTERNATIONAL',
-                Rule::unique('job_applications', 'phone')
-                    ->where('vacancy_id', data_get($this->dtoData, 'vacancy_id')),
-            ],
-            'referral_source'        => ['nullable', 'string', 'max:255', 'min:3'],
+            'phone'                  => ['required', 'string', 'max:255', 'phone:INTERNATIONAL'],
+            'referral_source'        => ['nullable', 'string', Rule::in(['Website', 'LinkedIn', 'Job Board', 'Referral', 'Other'])],
             'eligible_to_work_in_uk' => ['required', 'boolean'],
-            'notice_period'          => ['nullable', 'string', 'max:255', 'min:3'],
-            'gdpr_consent'           => ['required', 'boolean'],
-            'cover_letter'           => ['required', 'max:5000', 'min:0'],
-            'relevant_experience'    => ['nullable', 'max:5000', 'min:0'],
-            'linkedin_url'           => ['nullable', 'max:5000', 'min:0', 'url:linkedin'],
+            'notice_period'          => ['nullable', 'string', Rule::in(['Immediate', '1 Month', '2 Months', '3 Months', 'Other'])],
+            'gdpr_consent'           => ['required', 'accepted'],
+            'cover_letter'           => ['required', 'string', 'max:5000'],
+            'relevant_experience'    => ['nullable', 'string', 'max:5000'],
+            'linkedin_url'           => ['nullable', 'string', 'max:2048', 'url:http,https', 'regex:~^https?://([a-z]{2,3}\.)?(www\.)?linkedin\.com/[^\s]*$~i'],
         ];
     }
 }

@@ -22,9 +22,13 @@ const Create = () => {
             summary:     string;
             description: string;
             is_featured: boolean;
+            is_visible:  boolean;
+            sort_order:  number;
         }>
     >({
         is_featured: false,
+        is_visible:  true,
+        sort_order:  0,
         theme_color: "#0ea5e9",
     });
 
@@ -74,6 +78,20 @@ const Create = () => {
                             required
                         />
 
+                        <Input
+                            name="sort_order"
+                            type="number"
+                            min={0}
+                            max={100000}
+                            label={t(
+                                "models.MarketApplication.fields.sort_order",
+                            )}
+                            defaultValue={0}
+                            onChange={(e) =>
+                                setData("sort_order", Number(e.target.value))
+                            }
+                        />
+
                         <div className={"md:col-span-2"}>
                             <Checkbox
                                 name="is_featured"
@@ -82,6 +100,18 @@ const Create = () => {
                                 )}
                                 onChange={(value) =>
                                     setData("is_featured", value === true)
+                                }
+                            />
+                        </div>
+                        <div className={"md:col-span-2"}>
+                            <Checkbox
+                                name="is_visible"
+                                label={t(
+                                    "models.MarketApplication.fields.is_visible",
+                                )}
+                                checked={true}
+                                onChange={(v) =>
+                                    setData("is_visible", v === true)
                                 }
                             />
                         </div>

@@ -18,9 +18,12 @@ const EnquirySection = () => {
                     notes, events and training workshops.
                 </p>
             </div>
-            {/*TODO: implement this*/}
+
             <div className={"flex items-center"}>
-                <MoveLink href={"#"} className={"hover:text-white"}>
+                <MoveLink
+                    href={route("site.contact")}
+                    className={"hover:text-white"}
+                >
                     Make an enquiry
                 </MoveLink>
             </div>

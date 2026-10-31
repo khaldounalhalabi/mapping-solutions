@@ -8,6 +8,8 @@ interface MarketApplication {
     summary:     string;
     description: string;
     is_featured: boolean;
+    is_visible:  boolean;
+    sort_order:  number;
 }
 
 export default MarketApplication;

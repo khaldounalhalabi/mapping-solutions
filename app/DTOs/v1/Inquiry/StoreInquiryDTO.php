@@ -62,14 +62,14 @@ class StoreInquiryDTO extends ValidatedDTO
     {
         return [
             'product_id' => ['numeric', 'nullable', Rule::exists('products', 'id')],
-            'first_name' => ['required', 'string', 'max:255', 'min:3'],
-            'last_name'  => ['required', 'string', 'max:255', 'min:3'],
-            'company'    => ['required', 'string', 'max:255', 'min:3'],
-            'country'    => ['required', 'string', 'max:255', 'min:3'],
+            'first_name' => ['required', 'string', 'max:255', 'min:1'],
+            'last_name'  => ['required', 'string', 'max:255', 'min:1'],
+            'company'    => ['required', 'string', 'max:255', 'min:1'],
+            'country'    => ['required', 'string', 'max:255', 'min:1'],
             'email'      => ['required', 'string', 'max:255', 'email', 'min:6'],
-            'phone'      => ['required', 'string', 'max:255', 'min:3'],
-            'subject'    => ['required', 'string', 'max:255', 'min:3'],
-            'message'    => ['required', 'max:5000', 'min:0'],
+            'phone'      => ['required', 'string', 'max:255', 'min:1'],
+            'subject'    => ['required', 'string', Rule::in(['General enquiry', 'Product enquiry', 'Request a quote', 'Survey services', 'Training course', 'Technical support'])],
+            'message'    => ['required', 'string', 'max:5000'],
         ];
     }
 }

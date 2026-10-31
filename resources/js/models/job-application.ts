@@ -1,7 +1,7 @@
 import Vacancy from "@/models/vacancy";
 interface JobApplication {
     id:                     number;
-    vacancy_id:             number;
+    vacancy_id:             number | null;
     first_name:             string;
     last_name:              string;
     email:                  string;

@@ -26,6 +26,7 @@ type SelectProps<T extends string> = {
     placeholder?: string;
     onChange?:    (value: T) => void;
     name?:        string;
+    required?:    boolean;
 };
 
 const isOptionObject = <T extends string>(
@@ -54,6 +55,7 @@ const Select = <T extends string>({
     placeholder,
     onChange,
     name,
+    required = false,
 }: SelectProps<T>) => {
     const { t } = useTranslation();
     const errors = usePage().props.errors as Record<string, string>;
@@ -65,10 +67,16 @@ const Select = <T extends string>({
 
     return (
         <Field>
-            {label && <FieldLabel>{label}</FieldLabel>}
+            {label && (
+                <FieldLabel htmlFor={name ? `${name}_id` : undefined}>
+                    {label}
+                    {required && <span className="text-destructive">*</span>}
+                </FieldLabel>
+            )}
 
             <ShadcnSelect
                 name={name}
+                required={required}
                 defaultValue={selected}
                 onValueChange={(value) => {
                     setDisplayLabel(
@@ -78,7 +86,11 @@ const Select = <T extends string>({
                     onChange?.(value as T);
                 }}
             >
-                <SelectTrigger className="w-full">
+                <SelectTrigger
+                    id={name ? `${name}_id` : undefined}
+                    aria-invalid={name && errors[name] ? true : undefined}
+                    className="w-full"
+                >
                     <SelectValue
                         placeholder={
                             placeholder ?? t("dashboard.form.select_item")

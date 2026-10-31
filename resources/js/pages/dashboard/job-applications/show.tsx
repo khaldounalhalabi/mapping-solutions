@@ -66,20 +66,24 @@ const Show = ({ jobApplication }: { jobApplication: JobApplication }) => {
                     <DetailItem
                         label={t("models.JobApplication.fields.vacancy_id")}
                         value={
-                            <Link
-                                href={route(
-                                    "v1.web.protected.vacancies.show",
-                                    jobApplication.vacancy_id,
-                                )}
-                            >
-                                <Button>
-                                    <DetailItemValue
-                                        value={translate(
-                                            jobApplication?.vacancy?.title,
-                                        )}
-                                    />
-                                </Button>
-                            </Link>
+                            jobApplication.vacancy_id ? (
+                                <Link
+                                    href={route(
+                                        "v1.web.protected.vacancies.show",
+                                        jobApplication.vacancy_id,
+                                    )}
+                                >
+                                    <Button>
+                                        <DetailItemValue
+                                            value={translate(
+                                                jobApplication?.vacancy?.title,
+                                            )}
+                                        />
+                                    </Button>
+                                </Link>
+                            ) : (
+                                t("publicForms.speculative")
+                            )
                         }
                     />
                     <DetailItem

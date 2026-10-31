@@ -109,20 +109,20 @@ const Index = () => {
                     label:        t("models.JobApplication.fields.vacancy_id"),
                     translatable: true,
                     render:       (_cell, record) => {
-                        return (
-                            record?.vacancy_id && (
-                                <Link
-                                    className="hover:text-primary underline"
-                                    href={route(
-                                        "v1.web.protected.vacancies.show",
-                                        record?.vacancy_id,
-                                    )}
-                                >
-                                    <Button size={"sm"}>
-                                        {translate(record?.vacancy?.title)}
-                                    </Button>
-                                </Link>
-                            )
+                        return record?.vacancy_id ? (
+                            <Link
+                                className="hover:text-primary underline"
+                                href={route(
+                                    "v1.web.protected.vacancies.show",
+                                    record?.vacancy_id,
+                                )}
+                            >
+                                <Button size={"sm"}>
+                                    {translate(record?.vacancy?.title)}
+                                </Button>
+                            </Link>
+                        ) : (
+                            t("publicForms.speculative")
                         );
                     },
                 },

@@ -24,17 +24,21 @@ const ApplicationsSection = ({
                 accuracy, and our engineers will identify the systems suited to
                 the requirement.
             </SectionDescription>
-            {/*TODO: fix this link*/}
-            <MoveLink href={"#"}>View all applications</MoveLink>
+
+            <MoveLink href={route("site.applications")}>
+                View all applications
+            </MoveLink>
             <div
                 className={"my-5 grid grid-cols-2 md:grid-cols-4 w-full gap-5"}
             >
                 {applications
                     .filter((a) => a.is_featured)
                     .map((a) => (
-                        // TODO: fix this link
                         <Link
-                            href={"#"}
+                            href={
+                                route("site.applications") +
+                                `#application-${a.id}`
+                            }
                             key={a.id}
                             className={`flex flex-col h-full gap-3 rounded-md border border-gray-200 px-6 py-8 transition-all hover:-translate-y-0.5 hover:border-t-3 hover:border-t-(--theme-color) hover:shadow-2xl`}
                             style={{

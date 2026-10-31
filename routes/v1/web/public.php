@@ -25,3 +25,10 @@ Route::get('/news', [SiteController::class, 'newsArticles'])->name('site.news');
 Route::get('/about', [SiteController::class, 'about'])->name('site.about');
 
 Route::get('/suppliers/data', [v1\SupplierController::class, 'data'])->name('suppliers.data');
+
+Route::get('/careers', [SiteController::class, 'careers'])->name('site.careers');
+Route::get('/vacancy/{slug}', [SiteController::class, 'vacancy'])->name('site.vacancy');
+Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact');
+Route::get('/applications', [SiteController::class, 'applications'])->name('site.applications');
+Route::post('/contact', [SiteController::class, 'storeInquiry'])->middleware('throttle:5,1,contact')->name('site.contact.store');
+Route::post('/careers/apply', [SiteController::class, 'storeJobApplication'])->middleware('throttle:5,1,careers')->name('site.careers.apply');

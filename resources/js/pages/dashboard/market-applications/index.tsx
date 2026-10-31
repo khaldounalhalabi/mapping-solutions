@@ -39,6 +39,20 @@ const Index = () => {
             }
             schema={[
                 {
+                    name: "is_visible",
+                    label: t("models.MarketApplication.fields.is_visible"),
+                    sortable: true,
+                    render: (value) =>
+                        value
+                            ? t("dashboard.boolean.yes")
+                            : t("dashboard.boolean.no"),
+                },
+                {
+                    name: "sort_order",
+                    label: t("models.MarketApplication.fields.sort_order"),
+                    sortable: true,
+                },
+                {
                     name:     "id",
                     label:    t("dashboard.table.id"),
                     sortable: true,

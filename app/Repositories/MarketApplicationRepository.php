@@ -22,6 +22,8 @@ class MarketApplicationRepository extends BaseRepository
             ->relations($relations)
             ->query()
             ->where('is_featured', true)
+            ->where('is_visible', true)
+            ->orderBy('sort_order')->orderBy('id')
             ->get();
     }
 
@@ -36,6 +38,18 @@ class MarketApplicationRepository extends BaseRepository
             ->when(
                 ! empty($exceptIds),
                 fn ($query) => $query->whereNotIn('id', $exceptIds),
-            )->count();
+            )->where('is_featured', true)->count();
+    }
+
+    /** @return Collection<int, MarketApplication> */
+    public function visible(): Collection
+    {
+        return $this
+            ->query()
+            ->query()
+            ->where('is_visible', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
     }
 }

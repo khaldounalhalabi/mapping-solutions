@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div
             className={
-                "bg-brand px-page-padding py-10 grid grid-cols-2 md:grid-cols-4 w-full justify-between"
+                "bg-brand px-page-padding py-10 grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4 w-full justify-between max-[1100px]:px-[26px] [&>*]:min-w-0"
             }
         >
             <AddressSection />

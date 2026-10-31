@@ -65,6 +65,14 @@ const Show = ({
                                 : t("dashboard.boolean.no")
                         }
                     />
+                    <DetailItem
+                        label={t("models.MarketApplication.fields.is_visible")}
+                        value={marketApplication.is_visible}
+                    />
+                    <DetailItem
+                        label={t("models.MarketApplication.fields.sort_order")}
+                        value={marketApplication.sort_order}
+                    />
                 </div>
 
                 <DetailItem

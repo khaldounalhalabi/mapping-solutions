@@ -32,6 +32,8 @@ use App\Serializers\Translatable as TranslatableSerializer;
     'summary',
     'description',
     'is_featured',
+    'is_visible',
+    'sort_order',
 ])]
 class MarketApplication extends Model
 {
@@ -46,6 +48,8 @@ class MarketApplication extends Model
             'summary'     => Translatable::class,
             'description' => Translatable::class,
             'is_featured' => 'boolean',
+            'is_visible'  => 'boolean',
+            'sort_order'  => 'integer',
         ];
     }
 
@@ -58,6 +62,8 @@ class MarketApplication extends Model
             'summary',
             'description',
             'is_featured',
+            'is_visible',
+            'sort_order',
         ];
     }
 

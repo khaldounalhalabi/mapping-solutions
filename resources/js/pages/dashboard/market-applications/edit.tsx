@@ -27,6 +27,8 @@ const Edit = ({
             summary:     string;
             description: string;
             is_featured: boolean;
+            is_visible:  boolean;
+            sort_order:  number;
         }>
     >({
         _method:     "PUT",
@@ -36,6 +38,8 @@ const Edit = ({
         summary:     marketApplication?.summary,
         description: marketApplication?.description,
         is_featured: marketApplication?.is_featured,
+        is_visible:  marketApplication.is_visible,
+        sort_order:  marketApplication.sort_order,
     });
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
@@ -89,6 +93,31 @@ const Edit = ({
                             className="h-12 cursor-pointer p-1"
                             required
                         />
+                        <Input
+                            name="sort_order"
+                            type="number"
+                            min={0}
+                            max={100000}
+                            label={t(
+                                "models.MarketApplication.fields.sort_order",
+                            )}
+                            defaultValue={marketApplication.sort_order}
+                            onChange={(e) =>
+                                setData("sort_order", Number(e.target.value))
+                            }
+                        />
+                        <div className={"md:col-span-2"}>
+                            <Checkbox
+                                name="is_visible"
+                                label={t(
+                                    "models.MarketApplication.fields.is_visible",
+                                )}
+                                checked={marketApplication.is_visible}
+                                onChange={(v) =>
+                                    setData("is_visible", v === true)
+                                }
+                            />
+                        </div>
                         <div className={"md:col-span-2"}>
                             <Checkbox
                                 name="is_featured"

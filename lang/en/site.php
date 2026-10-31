@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'inquiry_received'                     => 'Thank you. Your message has been received.',
+    'application_received'                 => 'Thank you. Your application has been received. Please email your CV to careers@mapping-solutions.co.uk.',
     'credentials_not_match_records'        => 'Credentials not match records',
     'successfully_logged_in'               => 'Successfully logged in',
     'logout_success'                       => 'Logout successfully',

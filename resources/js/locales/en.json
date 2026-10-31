@@ -290,7 +290,9 @@
                 "theme_color": "Theme color",
                 "summary": "Summary",
                 "description": "Description",
-                "is_featured": "Featured"
+                "is_featured": "Featured",
+                "is_visible": "Visible on website",
+                "sort_order": "Display order"
             }
         },
         "Service": {
@@ -444,5 +446,30 @@
         "paid_internship": "Paid Internship",
         "part_time": "Part Time",
         "unpaid_internship": "Unpaid Internship"
+    },
+    "publicForms": {
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email": "Email",
+        "email_address": "Email Address",
+        "phone": "Phone Number",
+        "telephone": "Telephone",
+        "company": "Company / Organisation",
+        "country": "Country",
+        "subject": "Subject",
+        "message": "How Can We Help?",
+        "referral": "How did you hear about us?",
+        "cover_letter": "Cover Letter",
+        "experience": "Relevant Experience",
+        "linkedin": "LinkedIn Profile URL",
+        "eligible": "Eligible to work in the UK?",
+        "notice": "Notice Period",
+        "consent": "I consent to Mapping Solutions Ltd storing my personal data for recruitment purposes",
+        "role": "Applying for",
+        "speculative": "Speculative application",
+        "submit": "Submit Form",
+        "sending": "Sending…",
+        "contact_success": "Thank you. Your message has been received.",
+        "application_success": "Thank you. Your application has been received. Please email your CV to careers@mapping-solutions.co.uk."
     }
 }

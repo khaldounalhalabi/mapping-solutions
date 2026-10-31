@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @property int         $id
- * @property int         $vacancy_id
+ * @property int|null    $vacancy_id
  * @property string      $first_name
  * @property string      $last_name
  * @property string      $email

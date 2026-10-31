@@ -22,7 +22,7 @@ return new class extends Migration
     {
         Schema::create('job_applications', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Vacancy::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Vacancy::class)->nullable()->constrained()->cascadeOnDelete();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
@@ -35,7 +35,6 @@ return new class extends Migration
             $table->text('relevant_experience')->nullable();
             $table->text('linkedin_url')->nullable();
             $table->unique(['email', 'vacancy_id']);
-            $table->unique(['email', 'phone']);
             $table->timestamps();
         });
     }

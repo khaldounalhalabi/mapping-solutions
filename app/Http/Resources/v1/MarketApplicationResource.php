@@ -24,6 +24,8 @@ class MarketApplicationResource extends BaseResource
             'summary'     => $this->summary,
             'description' => $this->description,
             'is_featured' => $this->is_featured,
+            'is_visible'  => $this->is_visible,
+            'sort_order'  => $this->sort_order,
         ];
     }
 }

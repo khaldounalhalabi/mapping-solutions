@@ -26,4 +26,10 @@ class MarketApplicationService extends BaseService
     {
         return $this->repository->featured($relations);
     }
+
+    /** @return Collection<int, MarketApplication> */
+    public function visible(): Collection
+    {
+        return $this->repository->visible();
+    }
 }
