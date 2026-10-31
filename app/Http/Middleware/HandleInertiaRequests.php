@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Modules\Settings\App\Services\SettingService;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -41,6 +42,7 @@ class HandleInertiaRequests extends Middleware
             'baseUrl'          => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
             'error'            => session()->get('error') ?? null,
             'success'          => session()->get('success') ?? null,
+            'settings'         => SettingService::make()->all(),
         ]);
     }
 

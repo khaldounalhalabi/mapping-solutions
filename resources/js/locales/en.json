@@ -439,6 +439,12 @@
             "add_use": "Add use",
             "use_number": "Use :number",
             "remove_use": "Remove use :number"
+        },
+        "Setting": {
+            "singular": "Setting",
+            "plural": "Settings",
+            "label": "Label",
+            "value": "Value"
         }
     },
     "enums": {

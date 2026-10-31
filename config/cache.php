@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Str;
+use App\Modules\Settings\App\Models\Setting;
+use Illuminate\Database\Eloquent\Collection;
 
 return [
 
@@ -131,6 +133,8 @@ return [
     |
      */
 
-    'serializable_classes' => false,
-
+    'serializable_classes' => [
+        Collection::class,
+        Setting::class,
+    ],
 ];

@@ -38,7 +38,7 @@ export function NavMain({
     return (
         <SidebarGroup>
             <SidebarGroupContent className="flex flex-col gap-2">
-                <SidebarMenu>
+                <SidebarMenu className={"space-y-1"}>
                     <Link href={route("v1.web.protected.index")}>
                         <SidebarMenuItem className="flex items-center gap-2">
                             <SidebarMenuButton

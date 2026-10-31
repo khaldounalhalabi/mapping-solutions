@@ -6,6 +6,8 @@ import ProductRange from "@/models/product-range";
 import { buttonVariants } from "@/components/ui/button";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import LightSpectrum from "@/components/site/icons/light-spectrum";
+import useSettings from "@/hooks/use-settings";
+import SettingKeyEnum from "@/enums/setting-key-enum";
 
 const rangeTranslation = (value: string) =>
     translate(value) || translate(value, true).en || "";
@@ -43,6 +45,7 @@ const Index = ({
     const progressRef = useRef<HTMLDivElement>(null);
     const bandRefs = useRef<(HTMLButtonElement | null)[]>([]);
     const band = bands[activeBand];
+    const { valueOf } = useSettings();
 
     useEffect(() => {
         const preference = window.matchMedia(
@@ -152,7 +155,10 @@ const Index = ({
                                         "text-3xl text-band font-extrabold"
                                     }
                                 >
-                                    {new Date().getFullYear() - 2004}+
+                                    {new Date().getFullYear() -
+                                        (valueOf(SettingKeyEnum.START_YEAR) ??
+                                            0)}
+                                    +
                                 </h2>
                                 <p
                                     className={
@@ -453,17 +459,26 @@ const Index = ({
                             </Link>
                         ))}
                     </div>
-                    {/*TODO: settings api*/}
                     <div className="mt-12 grid gap-4 sm:grid-cols-3">
-                        <div className="rounded-xl border bg-white p-6">
+                        <div className="h-full rounded-xl border bg-white p-6">
                             <p className="text-[11px] font-extrabold tracking-widest text-paragraph uppercase">
                                 Where we work
                             </p>
-                            <p className="mt-2 text-[15px] leading-relaxed font-bold text-navy">
-                                United Kingdom, Middle East &amp; North Africa
-                            </p>
+                            <a
+                                href={valueOf(
+                                    SettingKeyEnum.ADDRESS_GOOGLE_MAP_URL,
+                                    "#",
+                                )}
+                                target={"_blank"}
+                                className="mt-2 inline-block text-[15px] leading-relaxed font-bold text-navy hover:underline"
+                            >
+                                {valueOf(
+                                    SettingKeyEnum.ADDRESS,
+                                    "United Kingdom, Middle East; North Africa",
+                                )}
+                            </a>
                         </div>
-                        <div className="rounded-xl border bg-white p-6">
+                        <div className="h-full rounded-xl border bg-white p-6">
                             <p className="text-[11px] font-extrabold tracking-widest text-paragraph uppercase">
                                 Languages
                             </p>
@@ -471,15 +486,19 @@ const Index = ({
                                 English · Arabic · French
                             </p>
                         </div>
-                        <div className="rounded-xl border bg-white p-6">
+                        <div className="h-full rounded-xl border bg-white p-6">
                             <p className="text-[11px] font-extrabold tracking-widest text-paragraph uppercase">
                                 Speak to us
                             </p>
                             <a
-                                href="tel:+44825199303"
+                                href={`tel:${valueOf(SettingKeyEnum.CONTACT_PHONE, "+44 8251 99303")}`}
                                 className="mt-2 inline-block text-[15px] leading-relaxed font-bold text-navy hover:underline"
+                                target={"_blank"}
                             >
-                                +44 8251 99303
+                                {valueOf(
+                                    SettingKeyEnum.CONTACT_PHONE,
+                                    "+44 8251 99303",
+                                )}
                             </a>
                         </div>
                     </div>

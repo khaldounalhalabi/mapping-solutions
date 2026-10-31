@@ -1,6 +1,9 @@
 import { GlobeIcon } from "lucide-react";
+import useSettings from "@/hooks/use-settings";
+import SettingKeyEnum from "@/enums/setting-key-enum";
 
 const AddressSection = () => {
+    const { valueOf } = useSettings();
     return (
         <div
             className={"flex flex-col items-start justify-between h-full gap-3"}
@@ -11,16 +14,24 @@ const AddressSection = () => {
                     Mapping Solutions Ltd
                 </h1>
             </div>
-            {/*Implement this open a google map location*/}
-            <a href={"#"}>
-                <p className={"text-white/60 text-sm"}>
-                    69 Hamilton Road, Manchester,
+            <a
+                href={`${valueOf(SettingKeyEnum.ADDRESS_GOOGLE_MAP_URL)}`}
+                target="_blank"
+            >
+                <p
+                    className={
+                        "text-white/60 text-sm  max-w-50 wrap-break-word"
+                    }
+                >
+                    {valueOf(SettingKeyEnum.ADDRESS)}
                 </p>
-                <p className={"text-white/60 text-sm"}> M13 0PD, UK</p>
             </a>
-            {/*TODO: settings API*/}
-            <a href={"tel:+44 8251 99303 "} className={"text-white/60 text-sm"}>
-                Tel: +44 8251 99303
+            <a
+                href={`tel:${valueOf(SettingKeyEnum.CONTACT_PHONE)}`}
+                className={"text-white/60 text-sm"}
+                target={"_blank"}
+            >
+                {valueOf(SettingKeyEnum.CONTACT_PHONE)}
             </a>
             <div className={"flex items-center justify-between gap-2"}>
                 {/*TODO: fix this link*/}

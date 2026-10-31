@@ -7,8 +7,11 @@ import {
     FaLinkedinIn,
     FaYoutube,
 } from "react-icons/fa";
+import useSettings from "@/hooks/use-settings";
+import SettingKeyEnum from "@/enums/setting-key-enum";
 
 const NewsletterSection = () => {
+    const { valueOf } = useSettings();
     return (
         <div
             className={"flex flex-col items-start justify-between h-full gap-3"}
@@ -42,34 +45,34 @@ const NewsletterSection = () => {
                 </Button>
             </div>
             <div className={"flex items-center justify-between gap-2"}>
-                {/*TODO: fix this link*/}
                 <a
                     className={"text-white hover:text-white text-xs font-bold"}
-                    href={"#"}
+                    href={valueOf(SettingKeyEnum.LINKEDIN_URL) ?? undefined}
+                    target={"_blank"}
                 >
                     <FaLinkedinIn className={"size-5"} />
                 </a>
 
-                {/*TODO: fix this link*/}
                 <a
                     className={"text-white hover:text-white text-xs font-bold"}
-                    href={"#"}
+                    href={valueOf(SettingKeyEnum.YOUTUBE_URL) ?? undefined}
+                    target={"_blank"}
                 >
                     <FaYoutube className={"size-5"} />
                 </a>
 
-                {/*TODO: fix this link*/}
                 <a
                     className={"text-white hover:text-white text-xs font-bold"}
-                    href={"#"}
+                    href={valueOf(SettingKeyEnum.FACEBOOK_URL) ?? undefined}
+                    target={"_blank"}
                 >
                     <FaFacebook className={"size-5"} />
                 </a>
 
-                {/*TODO: fix this link*/}
                 <a
                     className={"text-white hover:text-white text-xs font-bold"}
-                    href={"#"}
+                    href={valueOf(SettingKeyEnum.INSTAGRAM_URL) ?? undefined}
+                    target={"_blank"}
                 >
                     <FaInstagram className={"size-5"} />
                 </a>

@@ -1,12 +1,17 @@
 // TODO: Replace with values from settings
 import AnimatedCounter from "@/components/ui/animated-counter";
 import { useMemo } from "react";
+import useSettings from "@/hooks/use-settings";
+import SettingKeyEnum from "@/enums/setting-key-enum";
 
 const HeroCounts = () => {
+    const { valueOf } = useSettings();
+    const years =
+        new Date().getFullYear() - (valueOf(SettingKeyEnum.START_YEAR) ?? 0);
     const heroStats = useMemo(
         () => [
             {
-                value:       22,
+                value:       years,
                 suffix:      "+",
                 description:
                     "Years supplying remote sensing instrumentation to research, defence and industry",

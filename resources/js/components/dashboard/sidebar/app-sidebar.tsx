@@ -15,6 +15,7 @@ import {
     MessageSquareMoreIcon,
     NewspaperIcon,
     PackageIcon,
+    SettingsIcon,
     WrenchIcon,
 } from "lucide-react";
 import { NavMain } from "@/components/dashboard/sidebar/nav-main";
@@ -72,8 +73,8 @@ export function AppSidebar({
                 },
                 {
                     title: t("models.ProductRange.plural"),
-                    href: route("v1.web.protected.product.ranges.index"),
-                    icon: <Layers3Icon />,
+                    href:  route("v1.web.protected.product.ranges.index"),
+                    icon:  <Layers3Icon />,
                 },
             ],
         },
@@ -146,6 +147,11 @@ export function AppSidebar({
             title: t("models.Inquiry.plural"),
             href:  route("v1.web.protected.inquiries.index"),
             icon:  <MessageSquareMoreIcon />,
+        },
+        {
+            title: t("models.Setting.plural"),
+            href:  route("v1.web.protected.settings.index"),
+            icon:  <SettingsIcon />,
         },
     ];
 
