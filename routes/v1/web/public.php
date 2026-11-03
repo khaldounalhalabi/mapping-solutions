@@ -18,8 +18,11 @@ Route::inertia('/v1/dashboard/request-reset-password', 'dashboard/forget-passwor
 Route::inertia('/v1/dashboard/reset-password', 'dashboard/reset-password')->name('v1.web.public.reset.password.page');
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
+
 Route::get('/products', [SiteController::class, 'products'])->name('site.products');
 Route::get('/products/product-technologies/{productTechnologySlug}', [SiteController::class, 'productTechnologyBySlug'])->name('site.products.product.technologies.show');
+Route::get('/products/product-technologies/{productTechnologySlug}/suppliers/{supplierSlug}', [SiteController::class, 'productsBySupplierAndProductTechnology'])->name('site.products.product.technologies.suppliers.index');
+
 Route::get('/suppliers', [SiteController::class, 'suppliers'])->name('site.suppliers');
 Route::get('/services', [SiteController::class, 'services'])->name('site.services');
 Route::get('/news', [SiteController::class, 'newsArticles'])->name('site.news');

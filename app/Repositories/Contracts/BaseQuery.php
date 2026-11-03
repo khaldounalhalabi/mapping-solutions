@@ -11,6 +11,8 @@ use Illuminate\Support\Traits\Conditionable;
 
 /**
  * @template MODEL of Model
+ *
+ * @mixin Builder<MODEL>|MODEL
  */
 class BaseQuery
 {
@@ -241,6 +243,15 @@ class BaseQuery
         }
 
         return $query;
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        if (! method_exists($this, $name)) {
+            return $this->query()->{$name}(...$arguments);
+        }
+
+        return $this->{$name}(...$arguments);
     }
 
     /**

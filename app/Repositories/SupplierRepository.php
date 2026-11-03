@@ -15,6 +15,15 @@ class SupplierRepository extends BaseRepository
 {
     protected string $modelClass = Supplier::class;
 
+    public function bySlug(string $slug, array $relations = [], array $counts = []): ?Supplier
+    {
+        return $this->query()
+            ->counts($counts)
+            ->relations($relations)
+            ->where('slug', $slug)
+            ->first();
+    }
+
     public function count(): int
     {
         return $this->query()

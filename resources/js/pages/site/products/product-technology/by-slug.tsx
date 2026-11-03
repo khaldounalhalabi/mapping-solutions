@@ -7,6 +7,7 @@ import LinedTitle from "@/components/ui/lined-title";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "@inertiajs/react";
+import MoveLink from "@/components/ui/move-link";
 
 const BySlug = ({
     productTechnology,
@@ -70,8 +71,15 @@ const BySlug = ({
                     }
                 >
                     {productTechnology.suppliers?.map((s) => (
-                        // TODO: implement this link
                         <Link
+                            href={route(
+                                "site.products.product.technologies.suppliers.index",
+                                {
+                                    productTechnologySlug:
+                                        productTechnology.slug,
+                                    supplierSlug:          s.slug,
+                                },
+                            )}
                             className={
                                 "flex items-center justify-between px-10 py-8 w-full border-b border-gray-200 hover:bg-wash/10 transition-all hover:border-s-4 hover:border-s-wash"
                             }
@@ -128,6 +136,39 @@ const BySlug = ({
                         </Link>
                     ))}
                 </div>
+
+                <div
+                    className={
+                        "my-10 w-full flex items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
+                    }
+                >
+                    <div
+                        className={"flex flex-col gap-3 items-start max-w-1/2"}
+                    >
+                        <h1 className={"font-extrabold text-navy-secondary"}>
+                            Comparing options in{" "}
+                            {translate(productTechnology.name)}
+                        </h1>
+                        <p className={"text-sm text-paragraph"}>
+                            Our engineers can put the candidates side by side
+                            against your requirement and budget.
+                        </p>
+                    </div>
+                    {/*TODO: configure this link*/}
+                    <Link>
+                        <Button variant={"navy-secondary"} size={"hero"}>
+                            Talk it through with us
+                        </Button>
+                    </Link>
+                </div>
+
+                <MoveLink
+                    href={route("site.products")}
+                    dir={"back"}
+                    className={"text-navy-secondary font-extrabold"}
+                >
+                    All Categories
+                </MoveLink>
             </div>
         </div>
     );

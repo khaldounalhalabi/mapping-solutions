@@ -19,6 +19,11 @@ class SupplierService extends BaseService
 
     protected string $repositoryClass = SupplierRepository::class;
 
+    public function bySlug(string $slug, array $relations = [], array $counts = []): ?Supplier
+    {
+        return $this->repository->bySlug($slug, $relations, $counts);
+    }
+
     public function count(): int
     {
         return $this->repository->count();

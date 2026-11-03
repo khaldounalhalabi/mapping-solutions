@@ -10,9 +10,11 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\WebController;
 use App\DTOs\v1\Inquiry\StoreInquiryDTO;
 use Illuminate\Database\Eloquent\Builder;
+use App\Http\Resources\v1\ProductResource;
 use App\Http\Resources\v1\VacancyResource;
 use App\Http\Resources\v1\SupplierResource;
 use App\Services\v1\Inquiry\InquiryService;
+use App\Services\v1\Product\ProductService;
 use App\Services\v1\Vacancy\VacancyService;
 use App\Services\v1\Supplier\SupplierService;
 use App\Http\Resources\v1\NewsArticleResource;
@@ -98,6 +100,23 @@ class SiteController extends WebController
 
         return Inertia::render('site/products/index', [
             'technologies' => ProductTechnologyResource::collection($technologies),
+        ]);
+    }
+
+    public function productsBySupplierAndProductTechnology($productTechnologySlug, $supplierSlug)
+    {
+        $supplier = SupplierService::make()->bySlug($supplierSlug);
+        if (! $supplier) {
+            abort(404);
+        }
+
+        $productTechnology = ProductTechnologyService::make()->bySlug($productTechnologySlug);
+        $products = ProductService::make()->getBySupplierAndProductTechnology($supplier->id, $productTechnology->id, ['productFamily']);
+
+        return Inertia::render('site/products/product-technology/supplier/products/products-by-supplier-and-product-technology', [
+            'supplier'          => SupplierResource::make($supplier),
+            'productTechnology' => ProductTechnologyResource::make($productTechnology),
+            'products'          => ProductResource::collection($products),
         ]);
     }
 
