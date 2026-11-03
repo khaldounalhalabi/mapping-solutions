@@ -11,4 +11,14 @@ use App\Repositories\Contracts\BaseRepository;
 class ProductTechnologyRepository extends BaseRepository
 {
     protected string $modelClass = ProductTechnology::class;
+
+    public function bySlug(string $slug, array $relations = [], array $counts = []): ?ProductTechnology
+    {
+        return $this->query()
+            ->counts($counts)
+            ->relations($relations)
+            ->query()
+            ->where('slug', $slug)
+            ->first();
+    }
 }

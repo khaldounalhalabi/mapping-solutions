@@ -6,6 +6,7 @@ use App\Traits\Makable;
 use App\Models\Supplier;
 use App\Services\Contracts\BaseService;
 use App\Repositories\SupplierRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  * @extends BaseService<Supplier>
@@ -21,5 +22,13 @@ class SupplierService extends BaseService
     public function count(): int
     {
         return $this->repository->count();
+    }
+
+    /**
+     * @return Collection<int , Supplier>
+     */
+    public function getByProductTechnology(string $productTechnologySlug, array $relations = [], array $counts = []): Collection
+    {
+        return $this->repository->getByProductTechnology($productTechnologySlug, $relations, $counts);
     }
 }

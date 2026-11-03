@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use App\Serializers\Translatable as TranslatableSerializer;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
@@ -29,7 +30,8 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  *
  * @mixin Builder<Supplier>
  *
- * @property EloquentCollection<Product>|null $products
+ * @property EloquentCollection<Product>|null           $products
+ * @property EloquentCollection<ProductTechnology>|null $productTechnologies
  */
 #[Fillable([
     'name',
@@ -77,6 +79,21 @@ class Supplier extends Model
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    /**
+     * @return HasManyThrough<ProductTechnology, Product, static>
+     */
+    public function productTechnologies(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            ProductTechnology::class,
+            Product::class,
+            'supplier_id',
+            'id',
+            'id',
+            'product_technology_id',
+        )->distinct();
     }
 
     public static function relationsSearchableArray(): array

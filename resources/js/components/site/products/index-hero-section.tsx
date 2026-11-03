@@ -37,6 +37,7 @@ const IndexHeroSection = () => {
                     "absolute -bottom-15 flex flex-col gap-4 items-start"
                 }
             >
+                {/*TODO: implement this search , it is for suppliers and products*/}
                 <div className={"relative"}>
                     <SearchIcon
                         className={

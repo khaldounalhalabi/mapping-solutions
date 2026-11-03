@@ -101,6 +101,18 @@ class SiteController extends WebController
         ]);
     }
 
+    public function productTechnologyBySlug($productTechnologySlug)
+    {
+        $productTechnology = ProductTechnologyService::make()->bySlug($productTechnologySlug, [
+            'suppliers' => fn (Builder|HasManyThrough $query): Builder|HasManyThrough => $query->withCount('products'),
+            'suppliers.productFamilies',
+        ]);
+
+        return Inertia::render('site/products/product-technology/by-slug', [
+            'productTechnology' => ProductTechnologyResource::make($productTechnology),
+        ]);
+    }
+
     public function services()
     {
         $categories = ServiceCategoryService::make()->index(['services']);
@@ -110,7 +122,7 @@ class SiteController extends WebController
         ]);
     }
 
-//    TODO: move it to it controller
+    //    TODO: move it to it controller
     public function storeInquiry(StoreInquiryDTO $dto): RedirectResponse
     {
         InquiryService::make()->store($dto->toArray());
