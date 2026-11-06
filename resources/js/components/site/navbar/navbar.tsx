@@ -39,6 +39,9 @@ const Navbar = () => {
                     Menu
                 </summary>
                 <div className="absolute top-full right-0 left-0 max-h-[calc(100dvh-76px)] max-sm:max-h-[calc(100dvh-70px)] overflow-y-auto border-t bg-background px-[26px] py-4 shadow-lg">
+                    <div className="mb-4">
+                        <SearchInput />
+                    </div>
                     <NavLinks mobile />
                 </div>
             </details>

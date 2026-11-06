@@ -4,7 +4,7 @@ const IsoWidget = () => {
     return (
         <div
             className={
-                "flex items-center border rounded-md px-3 py-1 gap-2 hover:border-gray-300 hover:shadow-sm"
+                "flex shrink-0 items-center whitespace-nowrap border rounded-md px-3 py-1 gap-2 hover:border-gray-300 hover:shadow-sm"
             }
         >
             <IsoCheckIcon />

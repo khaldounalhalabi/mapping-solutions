@@ -39,7 +39,7 @@ const NewsletterSection = () => {
                 <Button
                     size={"default"}
                     className={
-                        "w-auto min-w-16 shrink-0 rounded-l-none md:py-5 md:px-4 font-extrabold whitespace-nowrap!"
+                        "w-auto min-w-16 shrink-0 rounded-l-none py-5 px-4 font-extrabold whitespace-nowrap!"
                     }
                     variant={"secondary"}
                 >

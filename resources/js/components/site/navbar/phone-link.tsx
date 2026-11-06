@@ -7,7 +7,9 @@ const PhoneLink = () => {
     return (
         <a
             href={`tel:${valueOf(SettingKeyEnum.CONTACT_PHONE)}`}
-            className={"flex items-center gap-2 hover:text-link"}
+            className={
+                "flex shrink-0 items-center gap-2 whitespace-nowrap hover:text-link"
+            }
         >
             <PhoneIcon className={"text-success"} />
             <p className={"font-extrabold text-xl"}>

@@ -2390,22 +2390,3 @@
         scroll-margin-top: 90px;
     }
 }
-
-.site-layout [data-slot="button"] {
-    max-width: 100%;
-}
-
-@media (max-width: 639px) {
-    .site-layout [data-slot="button"] {
-        white-space: normal;
-        height: auto;
-        min-height: 2.75rem;
-    }
-}
-
-.site-layout [data-slot="badge"] {
-    max-width: 100%;
-    height: auto;
-    min-height: 1.25rem;
-    white-space: normal;
-}
