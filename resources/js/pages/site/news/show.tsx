@@ -21,7 +21,7 @@ const Show = ({
         <div>
             <section
                 className={
-                    "relative flex h-full bg-hero flex-col items-start px-48 py-10 gap-5"
+                    "relative flex h-full bg-hero flex-col items-start px-5 sm:px-10 lg:px-16 xl:px-48 py-10 gap-5"
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
@@ -41,7 +41,7 @@ const Show = ({
                 </h1>
                 <p
                     className={
-                        "text-xs text-white/80 max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
+                        "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
                     {article.created_at}
@@ -53,7 +53,7 @@ const Show = ({
                 }
             >
                 {article.hero_image && (
-                    <div className={"max-w-2/3  bg-white p-1"}>
+                    <div className={"max-w-full lg:max-w-2/3  bg-white p-1"}>
                         <img
                             className={"object-contain"}
                             src={article.hero_image?.url}
@@ -94,11 +94,13 @@ const Show = ({
 
                 <div
                     className={
-                        "my-10 w-full flex items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
+                        "my-10 w-full flex flex-col items-start gap-5 lg:flex-row lg:items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
                     }
                 >
                     <div
-                        className={"flex flex-col gap-3 items-start max-w-1/2"}
+                        className={
+                            "flex flex-col gap-3 items-start max-w-full lg:max-w-1/2"
+                        }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
                             Question about something in this article?
@@ -119,7 +121,7 @@ const Show = ({
                     <div className={"flex justify-start w-full"}>
                         <a
                             className={
-                                "hover:cursor-pointer max-w-1/3 flex flex-col items-start gap-3 p-5 border rounded-lg group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-navy-secondary/50 hover:border-navy-secondary"
+                                "hover:cursor-pointer max-w-full lg:max-w-1/3 flex flex-col items-start gap-3 p-5 border rounded-lg group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-navy-secondary/50 hover:border-navy-secondary"
                             }
                             href={route("site.news.show", prevArticle.slug)}
                         >

@@ -6,7 +6,7 @@ const DownloadableCard = ({ name, media }: { name: string; media: Media }) => {
     return (
         <a
             className={
-                "flex items-center gap-3 p-5 border rounded-lg group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-navy-secondary/50 hover:border-navy-secondary"
+                "flex flex-wrap min-w-0 items-center gap-3 p-5 border rounded-lg group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-navy-secondary/50 hover:border-navy-secondary"
             }
             download
             href={media.url}
@@ -26,7 +26,9 @@ const DownloadableCard = ({ name, media }: { name: string; media: Media }) => {
                 </p>
             </div>
 
-            <MoveLink className={"text-navy-secondary font-extrabold"}>Download</MoveLink>
+            <MoveLink className={"text-navy-secondary font-extrabold"}>
+                Download
+            </MoveLink>
         </a>
     );
 };

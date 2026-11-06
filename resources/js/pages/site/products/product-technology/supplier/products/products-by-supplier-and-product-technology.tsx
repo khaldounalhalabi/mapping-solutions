@@ -29,7 +29,7 @@ const ProductsBySupplierAndProductTechnology = ({
         <div>
             <section
                 className={
-                    "relative flex h-full bg-hero flex-col items-start px-48 py-10 gap-5"
+                    "relative flex h-full bg-hero flex-col items-start px-5 sm:px-10 lg:px-16 xl:px-48 py-10 gap-5"
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
@@ -60,7 +60,7 @@ const ProductsBySupplierAndProductTechnology = ({
                 </h1>
                 <div
                     className={
-                        "absolute -bottom-15 flex flex-col gap-4 items-start"
+                        "w-full max-w-2xl lg:absolute lg:-bottom-15 flex flex-col gap-4 items-start"
                     }
                 >
                     <CatalogueSearch
@@ -88,7 +88,7 @@ const ProductsBySupplierAndProductTechnology = ({
                                 </LinedTitle>
                                 <div
                                     className={
-                                        "grid grid-cols-2 md:grid-cols-5 gap-5 my-10"
+                                        "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 my-10"
                                     }
                                 >
                                     {products.map((p) => (
@@ -144,11 +144,13 @@ const ProductsBySupplierAndProductTechnology = ({
 
                 <div
                     className={
-                        "my-10 w-full flex items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
+                        "my-10 w-full flex flex-col items-start gap-5 lg:flex-row lg:items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
                     }
                 >
                     <div
-                        className={"flex flex-col gap-3 items-start max-w-1/2"}
+                        className={
+                            "flex flex-col gap-3 items-start max-w-full lg:max-w-1/2"
+                        }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
                             Need a quote or a specification?
@@ -166,7 +168,7 @@ const ProductsBySupplierAndProductTechnology = ({
                     </Link>
                 </div>
 
-                <div className={"flex items-center gap-5"}>
+                <div className={"flex flex-wrap items-center gap-5"}>
                     <MoveLink
                         href={route("site.products.product.technologies.show", {
                             productTechnologySlug: productTechnology.slug,

@@ -18,7 +18,7 @@ const BySlug = ({
         <div>
             <section
                 className={
-                    "relative flex h-full bg-hero flex-col items-start px-48 py-10 gap-5"
+                    "relative flex h-full bg-hero flex-col items-start px-5 sm:px-10 lg:px-16 xl:px-48 py-10 gap-5"
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
@@ -38,7 +38,7 @@ const BySlug = ({
                 </h1>
                 <div
                     className={
-                        "absolute -bottom-15 flex flex-col gap-4 items-start"
+                        "w-full max-w-2xl lg:absolute lg:-bottom-15 flex flex-col gap-4 items-start"
                     }
                 >
                     <CatalogueSearch
@@ -71,13 +71,17 @@ const BySlug = ({
                                 },
                             )}
                             className={
-                                "flex items-center justify-between px-10 py-8 w-full border-b border-gray-200 hover:bg-navy-secondary/10 transition-all hover:border-s-4 hover:border-s-navy-secondary"
+                                "flex flex-col items-start gap-5 lg:flex-row lg:items-center justify-between px-5 sm:px-10 py-8 w-full border-b border-gray-200 hover:bg-navy-secondary/10 transition-all hover:border-s-4 hover:border-s-navy-secondary"
                             }
                         >
-                            <div className={"flex items-center gap-3"}>
+                            <div
+                                className={
+                                    "flex w-full min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-center"
+                                }
+                            >
                                 <div
                                     key={s.id}
-                                    className="w-32 flex items-center justify-center overflow-hidden rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+                                    className="w-24 sm:w-32 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
                                 >
                                     <img
                                         src={s.logo?.url}
@@ -86,7 +90,11 @@ const BySlug = ({
                                     />
                                 </div>
 
-                                <div className={"flex flex-col items-start"}>
+                                <div
+                                    className={
+                                        "flex min-w-0 flex-col items-start"
+                                    }
+                                >
                                     <h2 className={"font-extrabold text-navy"}>
                                         {s.name}
                                     </h2>
@@ -103,15 +111,27 @@ const BySlug = ({
                                     </div>
                                 </div>
                             </div>
-                            <div className={"flex items-center gap-3"}>
+                            <div
+                                className={
+                                    "flex w-full min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-center"
+                                }
+                            >
                                 <Badge
                                     variant={"secondary"}
                                     className={"text-xs font-bold"}
                                 >
                                     {s.products_count ?? 0} Products
                                 </Badge>
-                                {/*TODO: implement this link*/}
-                                <Link>
+                                <Link
+                                    href={route(
+                                        "site.products.product.technologies.suppliers.index",
+                                        {
+                                            productTechnologySlug:
+                                                productTechnology.slug,
+                                            supplierSlug:          s.slug,
+                                        },
+                                    )}
+                                >
                                     <Button
                                         className={
                                             "text-xs font-extrabold text-navy-secondary"
@@ -129,11 +149,13 @@ const BySlug = ({
 
                 <div
                     className={
-                        "my-10 w-full flex items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
+                        "my-10 w-full flex flex-col items-start gap-5 lg:flex-row lg:items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
                     }
                 >
                     <div
-                        className={"flex flex-col gap-3 items-start max-w-1/2"}
+                        className={
+                            "flex flex-col gap-3 items-start max-w-full lg:max-w-1/2"
+                        }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
                             Comparing options in{" "}

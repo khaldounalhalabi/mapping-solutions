@@ -2317,3 +2317,95 @@
 .public-form textarea::placeholder {
     color: #8b9bad;
 }
+
+/* Public-site sizing stays local to the public layout. */
+.site-layout {
+    --spacing-page-padding: var(--page-padding);
+    overflow-wrap: anywhere;
+}
+
+.site-layout main,
+.site-layout .public-prose,
+.site-layout .public-form,
+.site-layout .public-form fieldset {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.site-layout .public-form [data-slot="radio-group"] {
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1279px) {
+    .site-layout {
+        --page-padding: 4rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .site-layout {
+        --page-padding: 2.5rem;
+    }
+
+    .site-layout main .max-w-2\/3 {
+        max-width: 100%;
+    }
+
+    .site-layout main :is(h1, h2).text-4xl {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 639px) {
+    .site-layout {
+        --page-padding: 1.25rem;
+    }
+
+    .site-layout .cr .bens,
+    .site-layout .ct .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .site-layout :is(.cr .apply-grid, .ct .grid) > * {
+        min-width: 0;
+    }
+
+    .site-layout
+        .public-form
+        :is(input, textarea, [data-slot="select-trigger"]) {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+    .site-layout .public-form button[type="submit"] {
+        white-space: normal;
+    }
+
+    .site-layout
+        :is(
+            .cr #vacancies,
+            .cr #application-form,
+            .applications-page section[id]
+        ) {
+        scroll-margin-top: 90px;
+    }
+}
+
+.site-layout [data-slot="button"] {
+    max-width: 100%;
+}
+
+@media (max-width: 639px) {
+    .site-layout [data-slot="button"] {
+        white-space: normal;
+        height: auto;
+        min-height: 2.75rem;
+    }
+}
+
+.site-layout [data-slot="badge"] {
+    max-width: 100%;
+    height: auto;
+    min-height: 1.25rem;
+    white-space: normal;
+}

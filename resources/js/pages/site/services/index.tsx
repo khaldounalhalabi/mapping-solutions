@@ -80,7 +80,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
         <div>
             <section
                 className={
-                    "relative flex h-full bg-hero flex-col items-start px-48 py-10 gap-5"
+                    "relative flex h-full bg-hero flex-col items-start px-5 sm:px-10 lg:px-16 xl:px-48 py-10 gap-5"
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
@@ -100,7 +100,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                 </h1>
                 <p
                     className={
-                        "text-xs text-white/80 max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
+                        "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
                     Full airborne survey campaigns, data processing and GIS,
@@ -111,7 +111,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
             </section>
             <div
                 className={
-                    "w-full flex items-center shadow-xl gap-8 px-page-padding py-3"
+                    "w-full flex flex-wrap items-center shadow-xl gap-8 px-page-padding py-3"
                 }
             >
                 {categories.map((c) => {
@@ -167,14 +167,14 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                                 </h2>
                                 <p
                                     className={
-                                        "text-paragraph text-sm font-bold max-w-2/3"
+                                        "text-paragraph text-sm font-bold max-w-full lg:max-w-2/3"
                                     }
                                 >
                                     {translate(c.excerpt)}
                                 </p>
                                 <div
                                     className={
-                                        "grid grid-cols-2 md:grid-cols-3 gap-5"
+                                        "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
                                     }
                                 >
                                     {c.services?.map((s, index) => (
@@ -212,7 +212,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
             </div>
             <div
                 className={
-                    "w-full py-24 px-52 flex flex-col items-center justify-center bg-brand gap-5"
+                    "w-full py-24 px-5 sm:px-10 lg:px-16 xl:px-52 flex flex-col items-center justify-center bg-brand gap-5"
                 }
             >
                 <h2

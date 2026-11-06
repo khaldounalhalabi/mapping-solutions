@@ -29,16 +29,18 @@ const NewsletterSection = () => {
                 </p>
             </div>
             {/*TODO: implement this*/}
-            <div className={"flex items-center"}>
+            <div className={"flex w-full min-w-0 items-center"}>
                 <Input
                     className={
-                        "rounded-sm rounded-r-none placeholder-gray-500 border-gray-600 border outline-none border-r-0 py-[1.20rem]"
+                        "min-w-0 rounded-sm rounded-r-none placeholder-gray-500 border-gray-600 border outline-none border-r-0 py-[1.20rem]"
                     }
                     placeholder={"Email Address"}
                 />
                 <Button
-                    size={"icon-lg"}
-                    className={"rounded-l-none py-5 px-7 font-extrabold"}
+                    size={"default"}
+                    className={
+                        "w-auto min-w-16 shrink-0 rounded-l-none md:py-5 md:px-4 font-extrabold whitespace-nowrap!"
+                    }
                     variant={"secondary"}
                 >
                     Join

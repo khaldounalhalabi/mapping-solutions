@@ -18,10 +18,12 @@ const Show = ({ product }: { product: Product }) => {
         <div>
             <section
                 className={
-                    "flex relative h-full bg-hero px-48 py-10 items-center justify-between w-full"
+                    "flex flex-col gap-8 lg:flex-row lg:gap-0 relative h-full bg-hero px-5 sm:px-10 lg:px-16 xl:px-48 py-10 items-center justify-between w-full"
                 }
             >
-                <div className={"flex flex-col w-full items-start gap-5"}>
+                <div
+                    className={"flex flex-col w-full min-w-0 items-start gap-5"}
+                >
                     <SpectrumLine className={"w-16 h-1"} />
                     <h2
                         className={
@@ -42,17 +44,21 @@ const Show = ({ product }: { product: Product }) => {
                     </Badge>
                     <p
                         className={
-                            "text-sm text-white/80 max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
+                            "text-sm text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                         }
                     >
                         {translate(product.excerpt)}
                     </p>
-                    <Button variant={"hero"} size={"hero"}>
+                    <Button
+                        className={"hidden md:block"}
+                        variant={"hero"}
+                        size={"hero"}
+                    >
                         Request a quote
                     </Button>
                     <p
                         className={
-                            "text-xs text-white/80 max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
+                            "hidden md:block text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                         }
                     >
                         No obligation — we reply within one working day with
@@ -62,10 +68,11 @@ const Show = ({ product }: { product: Product }) => {
 
                 <div
                     className={
-                        "bg-white rounded-md shadow-md max-w-1/2 animate-slow-bounce transition-all"
+                        "bg-white rounded-md shadow-md w-full lg:w-auto max-w-full lg:max-w-1/2 animate-slow-bounce transition-all"
                     }
                 >
                     <img
+                        className="w-full max-h-96 object-contain lg:max-h-none"
                         src={product.hero_image?.url}
                         alt={product.hero_image?.name}
                     />
@@ -73,12 +80,12 @@ const Show = ({ product }: { product: Product }) => {
 
                 <div
                     className={
-                        "absolute bg-white -bottom-18 grid grid-cols-3 shadow-xl max-w-[75vw] rounded-lg"
+                        "relative w-full lg:w-auto lg:absolute bg-white lg:-bottom-18 grid grid-cols-1 sm:grid-cols-3 shadow-xl lg:max-w-[75vw] rounded-lg"
                     }
                 >
                     <div
                         className={
-                            "flex flex-col gap-2 items-start p-4 border-r"
+                            "flex flex-col gap-2 items-start p-4 border-b sm:border-b-0 sm:border-r"
                         }
                     >
                         <div className={"flex items-center gap-2"}>
@@ -106,7 +113,7 @@ const Show = ({ product }: { product: Product }) => {
 
                     <div
                         className={
-                            "flex flex-col gap-2 items-start p-4 border-r"
+                            "flex flex-col gap-2 items-start p-4 border-b sm:border-b-0 sm:border-r"
                         }
                     >
                         <div className={"flex items-center gap-2"}>
@@ -172,39 +179,43 @@ const Show = ({ product }: { product: Product }) => {
 
             <div
                 className={
-                    "flex flex-col items-start gap-5 px-page-padding py-26"
+                    "flex flex-col items-start gap-5 px-page-padding py-12 lg:py-26"
                 }
             >
                 <SectionKicker>Product Details</SectionKicker>
                 <SectionTitle>Everything about this product</SectionTitle>
-                <p className={"text-paragraph text-xs max-w-1/2 text-wrap"}>
+                <p
+                    className={
+                        "text-paragraph text-xs max-w-full lg:max-w-1/2 text-wrap"
+                    }
+                >
                     Move between a plain-English overview, the full technical
                     specifications, downloadable documents, and typical
                     applications.
                 </p>
 
-                <Tabs defaultValue={"overview"}>
-                    <TabsList className="flex gap-3 h-14 items-center justify-between rounded-md border border-slate-200 bg-slate-50 px-2 py-7">
+                <Tabs defaultValue={"overview"} className="w-full min-w-0">
+                    <TabsList className="max-w-full overflow-x-auto shrink-0 flex gap-3 h-14 items-center justify-between rounded-md border border-slate-200 bg-slate-50 px-2 py-7">
                         <TabsTrigger
-                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"overview"}
                         >
                             Overview
                         </TabsTrigger>
                         <TabsTrigger
-                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"specifications"}
                         >
                             Specifications
                         </TabsTrigger>
                         <TabsTrigger
-                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"downloads"}
                         >
                             Downloads
                         </TabsTrigger>
                         <TabsTrigger
-                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"applications"}
                         >
                             Applications
@@ -224,7 +235,7 @@ const Show = ({ product }: { product: Product }) => {
                                 (isImage(product.specifications_file) ? (
                                     <div
                                         className={
-                                            "max-w-3/4 p-1 border rounded-md"
+                                            "max-w-full lg:max-w-3/4 p-1 border rounded-md"
                                         }
                                     >
                                         <img
@@ -251,7 +262,7 @@ const Show = ({ product }: { product: Product }) => {
                     <TabsContent value={"downloads"}>
                         <div
                             className={
-                                "w-full grid grid-cols-2 md:grid-cols-3 my-5"
+                                "w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 my-5"
                             }
                         >
                             {product.datasheet && (
@@ -327,7 +338,7 @@ const Show = ({ product }: { product: Product }) => {
                         </div>
                     </div>
                 </div>
-                <div className={"flex items-center w-full gap-5"}>
+                <div className={"flex flex-wrap items-center w-full gap-5"}>
                     <MoveLink
                         href={route(
                             "site.products.product.technologies.suppliers.index",

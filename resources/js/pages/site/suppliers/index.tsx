@@ -16,7 +16,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
         <div>
             <section
                 className={
-                    "relative flex h-full bg-hero flex-col items-start px-48 py-10 gap-5"
+                    "relative flex h-full bg-hero flex-col items-start px-5 sm:px-10 lg:px-16 xl:px-48 py-10 gap-5"
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
@@ -36,7 +36,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                 </h1>
                 <p
                     className={
-                        "text-xs text-white/80 max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
+                        "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
                     We work directly with 9 specialist instrument makers across
@@ -46,10 +46,10 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                 </p>
                 <div
                     className={
-                        "absolute -bottom-5 flex flex-col gap-4 items-start"
+                        "w-full lg:absolute lg:-bottom-5 lg:w-auto flex flex-col gap-4 items-start"
                     }
                 >
-                    <div className={"min-w-92 bg-white rounded-md"}>
+                    <div className={"w-full lg:min-w-92 bg-white rounded-md"}>
                         {/*TODO: implement this filter*/}
                         <ApiSelect
                             api={(page, search) =>

@@ -29,7 +29,9 @@ const ApplicationsSection = ({
                 View all applications
             </MoveLink>
             <div
-                className={"my-5 grid grid-cols-2 md:grid-cols-4 w-full gap-5"}
+                className={
+                    "my-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full gap-5"
+                }
             >
                 {applications
                     .filter((a) => a.is_featured)

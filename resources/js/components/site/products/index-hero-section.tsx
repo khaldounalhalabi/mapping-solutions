@@ -7,7 +7,7 @@ const IndexHeroSection = () => {
     return (
         <section
             className={
-                "relative flex h-full bg-hero flex-col items-start px-48 py-10 gap-5"
+                "relative flex h-full bg-hero flex-col items-start px-5 sm:px-10 lg:px-16 xl:px-48 py-10 gap-5"
             }
         >
             <SpectrumLine className={"w-16 h-1"} />
@@ -27,7 +27,7 @@ const IndexHeroSection = () => {
             </h1>
             <p
                 className={
-                    "text-xs text-white/80 max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
+                    "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                 }
             >
                 Browse by what you need to measure. Every instrument comes with
@@ -35,7 +35,7 @@ const IndexHeroSection = () => {
             </p>
             <div
                 className={
-                    "absolute -bottom-15 flex flex-col gap-4 items-start"
+                    "w-full max-w-2xl lg:absolute lg:-bottom-15 flex flex-col gap-4 items-start"
                 }
             >
                 <CatalogueSearch />

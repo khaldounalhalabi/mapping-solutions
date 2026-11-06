@@ -106,7 +106,7 @@ export default function Contact() {
                     )}
                 </div>
             </div>
-            <div className="w main">
+            <div className="w main px-5!">
                 <div className="grid">
                     <div className="aside rv">
                         <span className="k2">Send a message</span>

@@ -12,11 +12,13 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                 <ProductTechnologiesGrid technologies={technologies} />
                 <div
                     className={
-                        "my-10 w-full flex items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
+                        "my-10 w-full flex flex-col items-start gap-5 lg:flex-row lg:items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
                     }
                 >
                     <div
-                        className={"flex flex-col gap-3 items-start max-w-1/2"}
+                        className={
+                            "flex flex-col gap-3 items-start max-w-full lg:max-w-1/2"
+                        }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
                             Not sure where to start ?

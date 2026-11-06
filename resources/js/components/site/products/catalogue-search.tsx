@@ -16,10 +16,10 @@ const emptyResults: SearchResults = { products: [] };
 
 export default function CatalogueSearch({
     product_technology_id,
-    supplier_id
+    supplier_id,
 }: {
     product_technology_id?: number;
-    supplier_id?: number;
+    supplier_id?:           number;
 }) {
     const { t } = useTranslation();
     const id = useId();
@@ -57,8 +57,8 @@ export default function CatalogueSearch({
         if (supplier_id) {
             filters = {
                 ...filters,
-                supplier_id
-            }
+                supplier_id,
+            };
         }
 
         return isEmptyObject(filters) ? null : filters;
@@ -115,7 +115,7 @@ export default function CatalogueSearch({
     return (
         <div
             ref={container}
-            className="relative w-2xl max-w-[calc(100vw-2rem)]"
+            className="relative w-full max-w-2xl min-w-0"
             onBlur={(event) => {
                 if (!event.currentTarget.contains(event.relatedTarget as Node))
                     setOpen(false);

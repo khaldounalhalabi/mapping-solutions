@@ -16,7 +16,7 @@ const SuppliersSection = ({ suppliers }: { suppliers: Supplier[] }) => {
                 We work directly with manufacturers, providing factory-level
                 expertise alongside UK-based service, training and calibration.
             </SectionDescription>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-5">
+            <div className="grid w-full grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-5">
                 {suppliers.map((s) => (
                     <div
                         key={s.id}

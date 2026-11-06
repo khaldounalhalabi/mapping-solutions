@@ -8,7 +8,7 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
         <div>
             <section
                 className={
-                    "relative flex h-full bg-hero flex-col items-start px-48 py-10 gap-5"
+                    "relative flex h-full bg-hero flex-col items-start px-5 sm:px-10 lg:px-16 xl:px-48 py-10 gap-5"
                 }
             >
                 <h1
@@ -20,7 +20,7 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
                 </h1>
                 <p
                     className={
-                        "text-xs text-white/80 max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
+                        "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
                     Stay up to date with our latest announcements, exciting

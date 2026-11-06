@@ -16,7 +16,11 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                 Product releases, training workshops and project announcements.
             </SectionDescription>
             <MoveLink href={route("site.news")}>View all news</MoveLink>
-            <div className={"grid grid-cols-2 md:grid-cols-3 gap-5 my-10"}>
+            <div
+                className={
+                    "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 my-10"
+                }
+            >
                 {news.map((n) => (
                     <Link
                         href={route("site.news.show", n.slug)}

@@ -30,7 +30,7 @@ const HeroCounts = () => {
         [],
     );
     return (
-        <div className="grid grid-cols-3 w-full items-start gap-10 justify-between">
+        <div className="grid grid-cols-1 sm:grid-cols-3 w-full items-start gap-10 justify-between">
             {heroStats.map((stat, index) => (
                 <div key={index} className="flex items-start flex-col">
                     <h1 className="text-4xl font-extrabold text-navy">

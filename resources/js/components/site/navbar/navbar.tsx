@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <nav
             className={
-                "z-10 bg-background sticky top-0 w-full px-22 py-5 shadow-2xl flex items-center justify-between max-[1100px]:h-[76px] max-[1100px]:px-[26px] max-[1100px]:py-3 max-sm:h-[70px]"
+                "z-10 bg-background sticky top-0 w-full px-8 xl:px-22 py-5 shadow-2xl flex items-center justify-between max-[1100px]:h-[76px] max-[1100px]:px-[26px] max-[1100px]:py-3 max-sm:h-[70px] max-sm:px-5"
             }
         >
             <Link
@@ -38,7 +38,7 @@ const Navbar = () => {
                     <Menu size={20} />
                     Menu
                 </summary>
-                <div className="absolute top-full right-0 left-0 max-h-[calc(100dvh-76px)] overflow-y-auto border-t bg-background px-[26px] py-4 shadow-lg">
+                <div className="absolute top-full right-0 left-0 max-h-[calc(100dvh-76px)] max-sm:max-h-[calc(100dvh-70px)] overflow-y-auto border-t bg-background px-[26px] py-4 shadow-lg">
                     <NavLinks mobile />
                 </div>
             </details>
