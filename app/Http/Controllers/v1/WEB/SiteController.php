@@ -5,6 +5,8 @@ namespace App\Http\Controllers\v1\WEB;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\ProductRange;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\WebController;
@@ -89,7 +91,7 @@ class SiteController extends WebController
         ]);
     }
 
-    public function products()
+    public function products(): Response
     {
         $technologies = ProductTechnologyService::make()->index([], [
             'suppliers' => static fn (Builder $query): Builder => $query->select(
@@ -130,6 +132,22 @@ class SiteController extends WebController
         return Inertia::render('site/products/product-technology/by-slug', [
             'productTechnology' => ProductTechnologyResource::make($productTechnology),
         ]);
+    }
+
+    public function searchProducts(Request $request): JsonResponse
+    {
+        $request->validate(['search' => ['nullable', 'string', 'max:200']]);
+        $keyword = trim($request->string('search')->toString());
+
+        if (mb_strlen($keyword) < 2) {
+            return rest()->ok()->data(['products' => []])->send();
+        }
+
+        $request->merge(['search' => $keyword]);
+
+        return rest()->ok()->data([
+            'products' => ProductResource::collection(ProductService::make()->searchSuggestions()),
+        ])->send();
     }
 
     public function services()

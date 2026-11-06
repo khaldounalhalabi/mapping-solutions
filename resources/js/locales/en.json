@@ -478,5 +478,16 @@
         "sending": "Sending…",
         "contact_success": "Thank you. Your message has been received.",
         "application_success": "Thank you. Your application has been received. Please email your CV to careers@mapping-solutions.co.uk."
+    },
+    "site": {
+        "catalogue": {
+            "search_placeholder": "Search products",
+            "search_hint": "Try a product name, model number, manufacturer, or technology — results appear as you type.",
+            "searching": "Searching…",
+            "search_error": "Search could not be loaded. Please try again.",
+            "no_results": "No matching products.",
+            "retry": "Try again",
+            "search_results": "Search results"
+        }
     }
 }

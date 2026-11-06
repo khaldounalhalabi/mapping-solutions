@@ -1,8 +1,9 @@
 import SpectrumLine from "@/components/ui/spectrum-line";
-import { SearchIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import CatalogueSearch from "@/components/site/products/catalogue-search";
+import { useTranslation } from "@/hooks/use-translation";
 
 const IndexHeroSection = () => {
+    const { t } = useTranslation();
     return (
         <section
             className={
@@ -37,22 +38,10 @@ const IndexHeroSection = () => {
                     "absolute -bottom-15 flex flex-col gap-4 items-start"
                 }
             >
-                {/*TODO: implement this search , it is for suppliers and products*/}
-                <div className={"relative"}>
-                    <SearchIcon
-                        className={
-                            "absolute top-3.5 inset-s-2 size-4.5 text-navy-secondary stroke-3"
-                        }
-                    />
-                    <Input
-                        className={"bg-white w-2xl py-6 shadow-xl px-10"}
-                        placeholder={"Search products and suppliers"}
-                    />
-                </div>
+                <CatalogueSearch />
 
                 <p className={"text-paragraph text-xs"}>
-                    Try a product name, model number, or manufacturer — results
-                    appear as you type.
+                    {t("site.catalogue.search_hint")}
                 </p>
             </div>
         </section>

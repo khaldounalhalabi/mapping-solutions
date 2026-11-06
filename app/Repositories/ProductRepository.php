@@ -35,4 +35,20 @@ class ProductRepository extends BaseRepository
             ->where('product_technology_id', $productTechnologyId)
             ->get();
     }
+
+    /**
+     * @return Collection<int, Product>
+     */
+    public function searchSuggestions(): Collection
+    {
+        return $this->query()
+            ->search()
+            ->filter()
+            ->relations(['supplier', 'productTechnology'])
+            ->query()
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
+            ->limit(5)
+            ->get();
+    }
 }

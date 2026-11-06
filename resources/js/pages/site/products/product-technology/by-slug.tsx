@@ -1,13 +1,13 @@
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ProductTechnology from "@/models/product-technology";
-import { MoveRightIcon, SearchIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { MoveRightIcon } from "lucide-react";
 import { translate } from "@/models/translatable";
 import LinedTitle from "@/components/ui/lined-title";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "@inertiajs/react";
 import MoveLink from "@/components/ui/move-link";
+import CatalogueSearch from "@/components/site/products/catalogue-search";
 
 const BySlug = ({
     productTechnology,
@@ -36,24 +36,14 @@ const BySlug = ({
                 >
                     {translate(productTechnology.name)}
                 </h1>
-                {/*TODO: this search is for the products and suppliers*/}
                 <div
                     className={
                         "absolute -bottom-15 flex flex-col gap-4 items-start"
                     }
                 >
-                    <div className={"relative"}>
-                        <SearchIcon
-                            className={
-                                "absolute top-3.5 inset-s-2 size-4.5 text-navy-secondary stroke-3"
-                            }
-                        />
-                        <Input
-                            className={"bg-white w-2xl py-6 shadow-xl px-10"}
-                            placeholder={"Search products and suppliers"}
-                        />
-                    </div>
-
+                    <CatalogueSearch
+                        product_technology_id={productTechnology.id}
+                    />
                     <p className={"text-paragraph text-xs"}>
                         Try a product name, model number, or manufacturer —
                         results appear as you type.

@@ -89,3 +89,7 @@ export function groupBy<T>(
 export function randomInt(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function isEmptyObject(obj: object) {
+    return Object.keys(obj).length === 0;
+}

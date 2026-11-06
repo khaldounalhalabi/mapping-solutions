@@ -119,6 +119,18 @@ class Product extends Model
         ];
     }
 
+    public function filterArray(): array
+    {
+        return [
+            [
+                'name' => 'product_technology_id',
+            ],
+            [
+                'name' => 'supplier_id',
+            ],
+        ];
+    }
+
     /**
      * @return HasMany<Inquiry, static>
      */

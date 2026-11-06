@@ -31,4 +31,12 @@ class ProductService extends BaseService
     {
         return $this->repository->getBySupplierAndProductTechnology($supplierId, $productTechnologyId, $relations, $counts);
     }
+
+    /**
+     * @return Collection<int, Product>
+     */
+    public function searchSuggestions(): Collection
+    {
+        return $this->repository->searchSuggestions();
+    }
 }
