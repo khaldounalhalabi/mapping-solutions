@@ -34,7 +34,7 @@ const Show = ({ product }: { product: Product }) => {
                     />
                     <DetailItem
                         label={t("models.product.fields.price_note")}
-                        value={product?.price_note}
+                        value={translate(product?.price_note)}
                     />
                     <DetailItem
                         label={t("models.product.fields.external_url")}

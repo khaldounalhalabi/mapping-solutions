@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  * @property int|null                    $product_family_id
  * @property int|null                    $product_technology_id
  * @property TranslatableSerializer      $name
- * @property string|null                 $price_note
+ * @property TranslatableSerializer|null $price_note
  * @property string                      $slug
  * @property TranslatableSerializer|null $excerpt
  * @property TranslatableSerializer|null $overview
@@ -81,6 +81,7 @@ class Product extends Model
             'key_specs'      => Translatable::class,
             'specifications' => Translatable::class,
             'applications'   => Translatable::class,
+            'price_note'     => Translatable::class,
 
             'brochure'            => MediaCast::single(private: false),
             'hero_image'          => MediaCast::single(private: false),

@@ -11,6 +11,7 @@ import DownloadableCard from "@/components/site/products/downloadable-card";
 import { isImage } from "@/models/media";
 import { Link } from "@inertiajs/react";
 import MoveLink from "@/components/ui/move-link";
+import { ExternalLink } from "lucide-react";
 
 const Show = ({ product }: { product: Product }) => {
     return (
@@ -158,6 +159,18 @@ const Show = ({ product }: { product: Product }) => {
                         </p>
                     </div>
                 </div>
+
+                {product?.external_url ? (
+                    <a
+                        href={product?.external_url}
+                        target={"_blank"}
+                        className={"absolute top-5 inset-e-5"}
+                    >
+                        <Button variant={"hero"} size="icon">
+                            <ExternalLink />
+                        </Button>
+                    </a>
+                ) : undefined}
             </section>
 
             <div

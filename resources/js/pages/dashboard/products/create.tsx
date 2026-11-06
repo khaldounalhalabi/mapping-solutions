@@ -63,15 +63,17 @@ const Create = () => {
                             onChange={(v) => setData("name", v)}
                             required
                         />
-                        <Input
+                        <TranslatableInput
                             name="price_note"
                             label={t("models.product.fields.price_note")}
                             type={"text"}
-                            onChange={(e) =>
-                                setData("price_note", e.target?.value)
-                            }
+                            onChange={(e) => setData("price_note", e)}
                         />
-
+                        <TranslatableInput
+                            name="key_specs"
+                            label={t("models.product.fields.key_specs")}
+                            onChange={(e) => setData("key_specs", e)}
+                        />
                         <Input
                             name="external_url"
                             label={t("models.product.fields.external_url")}
@@ -164,13 +166,6 @@ const Create = () => {
                                 name="overview"
                                 label={t("models.product.fields.overview")}
                                 onChange={(e) => setData("overview", e)}
-                            />
-                        </div>
-                        <div className="md:col-span-2">
-                            <TranslatableTextEditor
-                                name="key_specs"
-                                label={t("models.product.fields.key_specs")}
-                                onChange={(e) => setData("key_specs", e)}
                             />
                         </div>
                         <div className="md:col-span-2">

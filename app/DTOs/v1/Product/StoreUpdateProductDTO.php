@@ -85,7 +85,7 @@ class StoreUpdateProductDTO extends ValidatedDTO
             'product_family_id'     => ['numeric', 'nullable', Rule::exists('product_families', 'id')],
             'product_technology_id' => ['numeric', 'nullable', Rule::exists('product_technologies', 'id')],
             'name'                  => ['json', new ValidTranslatableJson, 'required'],
-            'price_note'            => ['nullable', 'string', 'max:255', 'min:3'],
+            'price_note'            => ['json', new ValidTranslatableJson, 'required'],
             'excerpt'               => ['json', new ValidTranslatableJson, 'required'],
             'overview'              => ['json', new ValidTranslatableJson, 'required'],
             'key_specs'             => ['json', new ValidTranslatableJson, 'required'],

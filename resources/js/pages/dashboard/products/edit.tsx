@@ -83,16 +83,20 @@ const Edit = ({ product }: { product: Product }) => {
                             required
                             defaultValue={product.name}
                         />
-                        <Input
+                        <TranslatableInput
                             name="price_note"
                             label={t("models.product.fields.price_note")}
                             type={"text"}
-                            onChange={(e) =>
-                                setData("price_note", e.target?.value)
-                            }
+                            onChange={(e) => setData("price_note", e)}
                             defaultValue={product.price_note}
                         />
 
+                        <TranslatableInput
+                            name="key_specs"
+                            label={t("models.product.fields.key_specs")}
+                            onChange={(e) => setData("key_specs", e)}
+                            defaultValue={product.key_specs}
+                        />
                         <Input
                             name="external_url"
                             label={t("models.product.fields.external_url")}
@@ -191,14 +195,6 @@ const Edit = ({ product }: { product: Product }) => {
                                 label={t("models.product.fields.overview")}
                                 onChange={(e) => setData("overview", e)}
                                 defaultValue={product.overview}
-                            />
-                        </div>
-                        <div className="md:col-span-2">
-                            <TranslatableTextEditor
-                                name="key_specs"
-                                label={t("models.product.fields.key_specs")}
-                                onChange={(e) => setData("key_specs", e)}
-                                defaultValue={product.key_specs}
                             />
                         </div>
                         <div className="md:col-span-2">

@@ -52,11 +52,6 @@ const Index = () => {
                     sortable:     true,
                 },
                 {
-                    name:     "price_note",
-                    label:    t("models.product.fields.price_note"),
-                    sortable: true,
-                },
-                {
                     name:   "hero_image",
                     label:  t("models.product.fields.hero_image"),
                     render: (cell) => {

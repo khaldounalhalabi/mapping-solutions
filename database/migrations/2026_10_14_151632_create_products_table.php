@@ -28,7 +28,7 @@ return new class extends Migration
             $table->foreignIdFor(ProductFamily::class)->nullable()->constrained()->cascadeOnDelete();
             $table->foreignIdFor(ProductTechnology::class)->nullable()->constrained()->cascadeOnDelete();
             $table->json('name');
-            $table->string('price_note')->nullable();
+            $table->json('price_note')->nullable();
             $table->string('slug')->unique();
             $table->json('excerpt')->nullable();
             $table->json('overview')->nullable();
