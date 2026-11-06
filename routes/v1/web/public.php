@@ -33,6 +33,10 @@ Route::get('/about', [SiteController::class, 'about'])->name('site.about');
 
 Route::get('/suppliers/data', [v1\SupplierController::class, 'data'])->name('suppliers.data');
 
+Route::get('/product-ranges/data', [v1\ProductRangeController::class, 'data'])->name('product-ranges.data');
+
+Route::get('/product-technologies/data', [v1\ProductTechnologyController::class, 'data'])->name('product.technologies.data');
+
 Route::get('/careers', [SiteController::class, 'careers'])->name('site.careers');
 Route::get('/vacancy/{slug}', [SiteController::class, 'vacancy'])->name('site.vacancy');
 Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact');
