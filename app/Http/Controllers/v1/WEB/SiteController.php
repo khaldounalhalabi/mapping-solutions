@@ -141,6 +141,23 @@ class SiteController extends WebController
         ]);
     }
 
+    public function showProduct($productSlug)
+    {
+        $product = ProductService::make()->bySlug($productSlug, [
+            'productTechnology',
+            'productFamily',
+            'supplier'
+        ], []);
+
+        if (! $product) {
+            abort(404);
+        }
+
+        return Inertia::render('site/products/show', [
+            'product' => ProductResource::make($product),
+        ]);
+    }
+
     //    TODO: move it to it controller
     public function storeInquiry(StoreInquiryDTO $dto): RedirectResponse
     {

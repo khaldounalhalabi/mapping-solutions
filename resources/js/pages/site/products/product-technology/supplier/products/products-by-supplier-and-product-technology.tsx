@@ -101,8 +101,11 @@ const ProductsBySupplierAndProductTechnology = ({
                                     }
                                 >
                                     {products.map((p) => (
-                                        // TODO: implement this link
                                         <Link
+                                            href={route(
+                                                "site.products.show",
+                                                p.slug,
+                                            )}
                                             className={
                                                 "border rounded-md border-gray-200 flex flex-col h-full group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-wash/50 hover:border-wash"
                                             }
@@ -128,8 +131,11 @@ const ProductsBySupplierAndProductTechnology = ({
                                                 >
                                                     {translate(p.name)}
                                                 </h2>
-                                                {/*TODO: implement this link*/}
                                                 <MoveLink
+                                                    href={route(
+                                                        "site.products.show",
+                                                        p.slug,
+                                                    )}
                                                     className={
                                                         "font-extrabold text-wash"
                                                     }
@@ -169,7 +175,7 @@ const ProductsBySupplierAndProductTechnology = ({
                     </Link>
                 </div>
 
-                <div className={"flex items-center gap-5 max-w-md"}>
+                <div className={"flex items-center gap-5"}>
                     <MoveLink
                         href={route("site.products.product.technologies.show", {
                             productTechnologySlug: productTechnology.slug,

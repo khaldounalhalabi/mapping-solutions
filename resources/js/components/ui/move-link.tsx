@@ -16,7 +16,7 @@ const MoveLink = ({
     return (
         <Link
             className={cn(
-                "group-hover:gap-2 font-bold text-xs text-danger flex flex-1 gap-1 hover:gap-2 transition-all items-center",
+                "group-hover:gap-2 font-bold text-xs text-danger flex gap-1 hover:gap-2 transition-all items-center",
                 className,
             )}
             {...props}

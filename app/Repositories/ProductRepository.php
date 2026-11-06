@@ -13,6 +13,16 @@ class ProductRepository extends BaseRepository
 {
     protected string $modelClass = Product::class;
 
+    public function bySlug(string $slug, array $relations = [], array $counts = []): ?Product
+    {
+        return $this
+            ->query()
+            ->relations($relations)
+            ->counts($counts)
+            ->where('slug', $slug)
+            ->first();
+    }
+
     /**
      * @return Collection<int , Product>
      */

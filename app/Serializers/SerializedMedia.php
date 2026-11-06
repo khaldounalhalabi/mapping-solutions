@@ -272,6 +272,7 @@ class SerializedMedia implements Arrayable, Jsonable, JsonSerializable, Stringab
             'extension'    => $this->extension,
             'mime_type'    => $this->mimeType,
             'storage_path' => $this->storagePath,
+            'name'         => $this->name(),
         ];
     }
 

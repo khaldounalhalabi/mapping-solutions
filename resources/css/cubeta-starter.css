@@ -68,6 +68,15 @@
     --radius-4xl: calc(var(--radius) * 2.6);
     --spacing-page-padding: var(--page-padding);
     --shadow-card: 0 16px 38px rgb(11 33 64 / 12%);
+    --animate-slow-bounce: slow-bounce 3s ease-in-out infinite;
+    @keyframes slow-bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-12px);
+        }
+    }
 }
 
 :root {

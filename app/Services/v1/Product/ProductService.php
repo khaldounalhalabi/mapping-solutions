@@ -19,6 +19,11 @@ class ProductService extends BaseService
 
     protected string $repositoryClass = ProductRepository::class;
 
+    public function bySlug(string $slug, array $relations = [], array $counts = []): ?Product
+    {
+        return $this->repository->bySlug($slug, $relations, $counts);
+    }
+
     /**
      * @return Collection<int , Product>
      */

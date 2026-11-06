@@ -3,6 +3,11 @@ interface Media {
     size:      number;
     extension: string;
     mime_type: string;
+    name:      string;
+}
+
+export function isImage(media: Media): boolean {
+    return media.mime_type.toLowerCase().startsWith("image/");
 }
 
 export function getFileNameFromUrl(url: string): string {
