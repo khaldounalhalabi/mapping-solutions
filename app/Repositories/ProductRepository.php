@@ -24,6 +24,18 @@ class ProductRepository extends BaseRepository
     }
 
     /**
+     * @return Collection<int, Product>
+     */
+    public function bySupplier(int $supplierId, array $relations = [], array $counts = []): Collection
+    {
+        return $this->query()
+            ->relations($relations)
+            ->counts($counts)
+            ->where('supplier_id', $supplierId)
+            ->get();
+    }
+
+    /**
      * @return Collection<int , Product>
      */
     public function getBySupplierAndProductTechnology(int $supplierId, int $productTechnologyId, array $relations = [], array $counts = []): Collection

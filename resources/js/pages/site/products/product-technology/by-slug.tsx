@@ -113,7 +113,7 @@ const BySlug = ({
                             </div>
                             <div
                                 className={
-                                    "flex w-full min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-center"
+                                    "flex w-full md:w-auto min-w-0 flex-col items-start gap-3 sm:flex-row sm:items-center"
                                 }
                             >
                                 <Badge

@@ -3,13 +3,13 @@ import Product from "@/models/product";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import { translate } from "@/models/translatable";
 import ProductTechnology from "@/models/product-technology";
-import { groupBy, uniqueBy } from "@/helper";
-import LinedTitle from "@/components/ui/lined-title";
+import { uniqueBy } from "@/helper";
 import ProductFamily from "@/models/product-family";
 import { Link } from "@inertiajs/react";
 import MoveLink from "@/components/ui/move-link";
 import { Button } from "@/components/ui/button";
 import CatalogueSearch from "@/components/site/products/catalogue-search";
+import ProductsList from "@/components/site/products/products-list";
 
 const ProductsBySupplierAndProductTechnology = ({
     supplier,
@@ -75,72 +75,7 @@ const ProductsBySupplierAndProductTechnology = ({
                 </div>
             </section>
             <div className={"py-16 px-page-padding"}>
-                {Object.entries(groupBy(products, "product_family_id")).map(
-                    ([productFamilyId, products]) => {
-                        const family = families.find(
-                            (f) => f.id === Number(productFamilyId),
-                        );
-
-                        return (
-                            <div>
-                                <LinedTitle>
-                                    {translate(family?.name)}
-                                </LinedTitle>
-                                <div
-                                    className={
-                                        "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 my-10"
-                                    }
-                                >
-                                    {products.map((p) => (
-                                        <Link
-                                            href={route(
-                                                "site.products.show",
-                                                p.slug,
-                                            )}
-                                            className={
-                                                "border rounded-md border-gray-200 flex flex-col h-full group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-navy-secondary/50 hover:border-navy-secondary"
-                                            }
-                                        >
-                                            <div className={"h-3/4 border-b"}>
-                                                <img
-                                                    src={p.hero_image?.url}
-                                                    alt={p.name}
-                                                    className={
-                                                        "w-full h-full object-contain"
-                                                    }
-                                                />
-                                            </div>
-                                            <div
-                                                className={
-                                                    "h-1/4 flex flex-col items-start justify-center py-5 px-3"
-                                                }
-                                            >
-                                                <h2
-                                                    className={
-                                                        "text-navy font-extrabold text-sm"
-                                                    }
-                                                >
-                                                    {translate(p.name)}
-                                                </h2>
-                                                <MoveLink
-                                                    href={route(
-                                                        "site.products.show",
-                                                        p.slug,
-                                                    )}
-                                                    className={
-                                                        "font-extrabold text-navy-secondary"
-                                                    }
-                                                >
-                                                    View product
-                                                </MoveLink>
-                                            </div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-                        );
-                    },
-                )}
+                <ProductsList items={products} />
 
                 <div
                     className={

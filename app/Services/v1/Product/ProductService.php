@@ -24,6 +24,11 @@ class ProductService extends BaseService
         return $this->repository->bySlug($slug, $relations, $counts);
     }
 
+    public function bySupplier(int $supplierId, array $relations = [], array $counts = [])
+    {
+        return $this->repository->bySupplier($supplierId, $relations, $counts);
+    }
+
     /**
      * @return Collection<int , Product>
      */

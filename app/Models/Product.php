@@ -170,7 +170,6 @@ class Product extends Model
             'productTechnology' => [
                 'name',
                 'slug',
-                'icon_key',
             ],
         ];
     }

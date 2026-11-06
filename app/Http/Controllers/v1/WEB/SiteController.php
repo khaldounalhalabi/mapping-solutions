@@ -105,6 +105,22 @@ class SiteController extends WebController
         ]);
     }
 
+    public function productsBySupplier($supplierSlug)
+    {
+        $supplier = SupplierService::make()->bySlug($supplierSlug);
+
+        if (! $supplier) {
+            abort(404);
+        }
+
+        $products = ProductService::make()->bySupplier($supplier->id, ['productFamily']);
+
+        return Inertia::render('site/products/by-supplier', [
+            'products' => ProductResource::collection($products),
+            'supplier' => SupplierResource::make($supplier),
+        ]);
+    }
+
     public function productsBySupplierAndProductTechnology($productTechnologySlug, $supplierSlug)
     {
         $supplier = SupplierService::make()->bySlug($supplierSlug);
@@ -183,7 +199,7 @@ class SiteController extends WebController
             'productTechnology',
             'productFamily',
             'supplier',
-        ], []);
+        ]);
 
         if (! $product) {
             abort(404);

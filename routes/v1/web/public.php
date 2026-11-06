@@ -26,6 +26,8 @@ Route::get('/products/search', [SiteController::class, 'searchProducts'])->name(
 Route::get('/products/{productSlug}', [SiteController::class, 'showProduct'])->name('site.products.show');
 
 Route::get('/suppliers', [SiteController::class, 'suppliers'])->name('site.suppliers');
+Route::get('/suppliers/{supplierSlug}/products', [SiteController::class , 'productsBySupplier'])->name('site.suppliers.products');
+
 Route::get('/services', [SiteController::class, 'services'])->name('site.services');
 Route::get('/news', [SiteController::class, 'newsArticles'])->name('site.news');
 Route::get('/news/{newsArticleSlug}', [SiteController::class, 'showArticle'])->name('site.news.show');

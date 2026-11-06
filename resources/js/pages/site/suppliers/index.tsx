@@ -72,7 +72,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                             getDataArray={(r) => r.data ?? []}
                             getIsLast={(r) => r.paginate?.is_last_page ?? true}
                             getTotalPages={(r) => r.paginate?.total_pages ?? 0}
-                            getOptionLabel={i => translate(i.name)}
+                            getOptionLabel={(i) => translate(i.name)}
                             optionValue={"id"}
                             onChange={(option) =>
                                 setSelectedTechnologyId(option?.value)
@@ -140,9 +140,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 }
                                             >
                                                 <span
-                                                    className={
-                                                        "font-extrabold"
-                                                    }
+                                                    className={"font-extrabold"}
                                                 >
                                                     {s.name}
                                                 </span>
@@ -155,11 +153,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 </Badge>
                                             </div>
                                         </div>
-                                        <p
-                                            className={
-                                                "text-paragraph text-xs"
-                                            }
-                                        >
+                                        <p className={"text-paragraph text-xs"}>
                                             {translate(s.description)}
                                         </p>
                                         <h3
@@ -174,23 +168,17 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 "flex flex-wrap gap-2 w-full items-center"
                                             }
                                         >
-                                            {s.product_families?.map(
-                                                (f) => (
-                                                    // TODO: fix this link
-                                                    <Link href={"#"}>
-                                                        <Badge
-                                                            variant={"navy"}
-                                                            className={
-                                                                "p-3"
-                                                            }
-                                                        >
-                                                            {translate(
-                                                                f.name,
-                                                            )}
-                                                        </Badge>
-                                                    </Link>
-                                                ),
-                                            )}
+                                            {s.product_families?.map((f) => (
+                                                // TODO: fix this link
+                                                <Link href={"#"}>
+                                                    <Badge
+                                                        variant={"navy"}
+                                                        className={"p-3"}
+                                                    >
+                                                        {translate(f.name)}
+                                                    </Badge>
+                                                </Link>
+                                            ))}
                                         </div>
                                         <div
                                             className={
@@ -204,12 +192,15 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 }
                                             >
                                                 {/*TODO: Fix this link*/}
-                                                <Link href={"#"}>
+                                                <Link
+                                                    href={route(
+                                                        "site.suppliers.products",
+                                                        s.slug,
+                                                    )}
+                                                >
                                                     <Button
                                                         variant={"hero"}
-                                                        className={
-                                                            "px-6 py-5"
-                                                        }
+                                                        className={"px-6 py-5"}
                                                     >
                                                         View Products
                                                         <MoveRightIcon />
