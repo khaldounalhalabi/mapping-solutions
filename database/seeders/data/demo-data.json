@@ -172,7 +172,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-20-at-15.25.05.png",
             "datasheet": "2026/07/HySpex-Classic-SWIR-384-Data-Sheet-1.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -201,7 +204,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-20-at-14.13.59.png",
             "datasheet": "2026/07/69fc5d84fd99edc0a27887e9_HySpex-Baldur-S-640i-N-Data-Sheet-1.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -232,7 +238,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-18.06.49.png",
             "datasheet": "2026/07/HySpex-Baldur-V-1024-N-Data-Sheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -261,7 +270,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-14.47.11.png",
             "datasheet": "2026/07/HySpex-VNIR-3000N-Datasheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -292,7 +304,10 @@
             "specifications_file": "2026/07/spec_HySpex-SWIR-384.png",
             "datasheet": "2026/07/HySpex-Classic-SWIR-384-Data-Sheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -323,7 +338,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.03.13.png",
             "datasheet": "2026/07/HySpex-Classic-SWIR-640-Data-Sheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -354,7 +372,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.10.45.png",
             "datasheet": "2026/07/HySpex-Classic-VS-1200-Data-Sheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -383,7 +404,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-20-at-11.27.23.png",
             "datasheet": "2026/07/HySpex-Classic-VNIR-1800-Data-Sheet-1.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -414,7 +438,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.59.35.png",
             "datasheet": "2026/07/Mjolnir-V-1240-OEM-Data-Sheet-VIEW.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -445,7 +472,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.52.22.png",
             "datasheet": "2026/07/Mjolnir-S-620-OEM-Data-Sheet-VIEW.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -476,7 +506,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.20.34.png",
             "datasheet": "2026/07/HySpex-Mjolnir-V-1240-Data-Sheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -507,7 +540,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.39.28.png",
             "datasheet": "2026/07/HySpex-Mjolnir-S-620-Data-Sheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "hyspex",
@@ -538,7 +574,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-17-at-17.46.27.png",
             "datasheet": "2026/07/HySpex-Mjolnir-VS-620-Data-Sheet.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -569,7 +608,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.43.30.png",
             "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-SWIR.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -600,7 +642,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.37.36.png",
             "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-IR-L-Plus.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -631,7 +676,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.32.54.png",
             "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-IR-L.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -662,7 +710,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.27.46.png",
             "datasheet": null,
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -693,7 +744,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.19.55.png",
             "datasheet": "2026/07/FP6Ymk-Resonon-Camera-Data-Sheets-Pika-IR.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -724,7 +778,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.13.17.png",
             "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-XC2.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -755,7 +812,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-22-at-14.02.04.png",
             "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-L-F.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -786,7 +846,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-20-at-16.01.04.png",
             "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-L.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         },
         {
             "supplier_slug": "resonon",
@@ -817,7 +880,10 @@
             "specifications_file": "2026/07/Screenshot-2026-07-20-at-15.43.06.png",
             "datasheet": "2026/07/Resonon-Camera-Data-Sheets-Pika-UV.pdf",
             "manual": null,
-            "brochure": null
+            "brochure": null,
+            "support": {
+                "en": "UK-based advice, training and after-sales support included with every system."
+            }
         }
     ],
     "market_applications": [

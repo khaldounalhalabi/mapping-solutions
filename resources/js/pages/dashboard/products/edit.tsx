@@ -31,6 +31,7 @@ const Edit = ({ product }: { product: Product }) => {
             excerpt?:               string;
             overview?:              string;
             key_specs?:             string;
+            support?:               string;
             specifications?:        string;
             applications?:          string;
             external_url?:          string;
@@ -89,6 +90,7 @@ const Edit = ({ product }: { product: Product }) => {
                             type={"text"}
                             onChange={(e) => setData("price_note", e)}
                             defaultValue={product.price_note}
+                            required
                         />
 
                         <TranslatableInput
@@ -96,6 +98,14 @@ const Edit = ({ product }: { product: Product }) => {
                             label={t("models.product.fields.key_specs")}
                             onChange={(e) => setData("key_specs", e)}
                             defaultValue={product.key_specs}
+                            required
+                        />
+                        <TranslatableInput
+                            name="support"
+                            label={t("models.product.fields.support")}
+                            onChange={(e) => setData("support", e)}
+                            defaultValue={product.support}
+                            required
                         />
                         <Input
                             name="external_url"

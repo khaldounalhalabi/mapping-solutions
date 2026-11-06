@@ -44,6 +44,8 @@ class StoreUpdateProductDTO extends ValidatedDTO
 
     public int $supplier_id;
 
+    public ?string $support = null;
+
     /**
      * Get the type casting for the DTO properties.
      */
@@ -89,6 +91,7 @@ class StoreUpdateProductDTO extends ValidatedDTO
             'excerpt'               => ['json', new ValidTranslatableJson, 'required'],
             'overview'              => ['json', new ValidTranslatableJson, 'required'],
             'key_specs'             => ['json', new ValidTranslatableJson, 'required'],
+            'support'               => ['json', new ValidTranslatableJson, 'required'],
             'specifications'        => ['json', new ValidTranslatableJson, 'required'],
             'applications'          => ['json', new ValidTranslatableJson, 'required'],
             'external_url'          => ['nullable', 'max:5000', 'min:0', 'active_url'],

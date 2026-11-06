@@ -38,6 +38,7 @@ const Create = () => {
             specifications_file?:   Media | File | null;
             datasheet?:             Media | File | null;
             manual?:                Media | File | null;
+            support:                string;
         }>
     >();
 
@@ -68,11 +69,19 @@ const Create = () => {
                             label={t("models.product.fields.price_note")}
                             type={"text"}
                             onChange={(e) => setData("price_note", e)}
+                            required
                         />
                         <TranslatableInput
                             name="key_specs"
                             label={t("models.product.fields.key_specs")}
                             onChange={(e) => setData("key_specs", e)}
+                            required
+                        />
+                        <TranslatableInput
+                            name="support"
+                            label={t("models.product.fields.support")}
+                            onChange={(e) => setData("support", e)}
+                            required
                         />
                         <Input
                             name="external_url"

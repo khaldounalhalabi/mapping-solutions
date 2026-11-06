@@ -29,10 +29,11 @@ return new class extends Migration
             $table->foreignIdFor(ProductTechnology::class)->nullable()->constrained()->cascadeOnDelete();
             $table->json('name');
             $table->json('price_note')->nullable();
+            $table->json('key_specs')->nullable();
+            $table->json('support')->nullable();
             $table->string('slug')->unique();
             $table->json('excerpt')->nullable();
             $table->json('overview')->nullable();
-            $table->json('key_specs')->nullable();
             $table->json('specifications')->nullable();
             $table->json('applications')->nullable();
             $table->text('external_url')->nullable();

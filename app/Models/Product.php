@@ -25,10 +25,11 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
  * @property int|null                    $product_technology_id
  * @property TranslatableSerializer      $name
  * @property TranslatableSerializer|null $price_note
+ * @property TranslatableSerializer|null $key_specs
+ * @property TranslatableSerializer|null $support
  * @property string                      $slug
  * @property TranslatableSerializer|null $excerpt
  * @property TranslatableSerializer|null $overview
- * @property TranslatableSerializer|null $key_specs
  * @property TranslatableSerializer|null $specifications
  * @property TranslatableSerializer|null $applications
  * @property string|null                 $external_url
@@ -67,6 +68,7 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
     'specifications_file',
     'datasheet',
     'manual',
+    'support',
 ])]
 class Product extends Model
 {
@@ -78,10 +80,11 @@ class Product extends Model
             'name'           => Translatable::class,
             'excerpt'        => Translatable::class,
             'overview'       => Translatable::class,
-            'key_specs'      => Translatable::class,
             'specifications' => Translatable::class,
             'applications'   => Translatable::class,
             'price_note'     => Translatable::class,
+            'support'        => Translatable::class,
+            'key_specs'      => Translatable::class,
 
             'brochure'            => MediaCast::single(private: false),
             'hero_image'          => MediaCast::single(private: false),

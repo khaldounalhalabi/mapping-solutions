@@ -37,6 +37,15 @@ const Show = ({ product }: { product: Product }) => {
                         value={translate(product?.price_note)}
                     />
                     <DetailItem
+                        label={t("models.product.fields.key_specs")}
+                        value={translate(product?.key_specs)}
+                    />
+                    <DetailItem
+                        label={t("models.product.fields.support")}
+                        value={translate(product?.support)}
+                    />
+
+                    <DetailItem
                         label={t("models.product.fields.external_url")}
                         value={
                             product?.external_url ? (
@@ -174,13 +183,6 @@ const Show = ({ product }: { product: Product }) => {
                 <DetailItem
                     label={t("models.product.fields.overview")}
                     value={translate(product?.overview)}
-                    orientation="vertical"
-                    className="md:col-span-2"
-                    html
-                />
-                <DetailItem
-                    label={t("models.product.fields.key_specs")}
-                    value={translate(product?.key_specs)}
                     orientation="vertical"
                     className="md:col-span-2"
                     html

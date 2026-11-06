@@ -128,7 +128,6 @@ const Show = ({ product }: { product: Product }) => {
                                 "text-navy text-xs font-bold text-wrap text-start"
                             }
                         >
-                            {/*TODO: current now this isn't a translatable within the products table (as for dashboard) we need to make it translatable*/}
                             {translate(product.price_note)}
                         </p>
                     </div>
@@ -153,9 +152,7 @@ const Show = ({ product }: { product: Product }) => {
                                 "text-navy text-xs font-bold text-wrap text-start"
                             }
                         >
-                            {/*TODO: make this included in the product table*/}
-                            UK-based advice, training and after-sales support
-                            included with every system.
+                            {translate(product.support)}
                         </p>
                     </div>
                 </div>

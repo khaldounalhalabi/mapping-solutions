@@ -14,6 +14,7 @@ interface Product {
     excerpt?:               string;
     overview?:              string;
     key_specs?:             string;
+    support:                string;
     specifications?:        string;
     applications?:          string;
     external_url?:          string;
