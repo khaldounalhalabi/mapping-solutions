@@ -81,7 +81,7 @@ const BySlug = ({
                                 },
                             )}
                             className={
-                                "flex items-center justify-between px-10 py-8 w-full border-b border-gray-200 hover:bg-wash/10 transition-all hover:border-s-4 hover:border-s-wash"
+                                "flex items-center justify-between px-10 py-8 w-full border-b border-gray-200 hover:bg-navy-secondary/10 transition-all hover:border-s-4 hover:border-s-navy-secondary"
                             }
                         >
                             <div className={"flex items-center gap-3"}>
