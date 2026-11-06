@@ -107,7 +107,7 @@ const ProductsBySupplierAndProductTechnology = ({
                                                 p.slug,
                                             )}
                                             className={
-                                                "border rounded-md border-gray-200 flex flex-col h-full group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-wash/50 hover:border-wash"
+                                                "border rounded-md border-gray-200 flex flex-col h-full group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-navy-secondary/50 hover:border-navy-secondary"
                                             }
                                         >
                                             <div className={"h-3/4 border-b"}>
@@ -137,7 +137,7 @@ const ProductsBySupplierAndProductTechnology = ({
                                                         p.slug,
                                                     )}
                                                     className={
-                                                        "font-extrabold text-wash"
+                                                        "font-extrabold text-navy-secondary"
                                                     }
                                                 >
                                                     View product
@@ -181,7 +181,7 @@ const ProductsBySupplierAndProductTechnology = ({
                             productTechnologySlug: productTechnology.slug,
                         })}
                         dir={"back"}
-                        className={"text-wash font-extrabold"}
+                        className={"text-navy-secondary font-extrabold"}
                     >
                         Back to {translate(productTechnology.name)}
                     </MoveLink>

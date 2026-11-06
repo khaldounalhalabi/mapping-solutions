@@ -64,7 +64,10 @@ const Show = ({ product }: { product: Product }) => {
                         "bg-white rounded-md shadow-md max-w-1/2 animate-slow-bounce transition-all"
                     }
                 >
-                    <img src={product.hero_image?.url} />
+                    <img
+                        src={product.hero_image?.url}
+                        alt={product.hero_image?.name}
+                    />
                 </div>
 
                 <div
@@ -78,10 +81,14 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     >
                         <div className={"flex items-center gap-2"}>
-                            <span className={"bg-wash rounded-full size-2"} />
+                            <span
+                                className={
+                                    "bg-navy-secondary rounded-full size-2"
+                                }
+                            />
                             <h2
                                 className={
-                                    "uppercase text-wash font-extrabold text-xs"
+                                    "uppercase text-navy-secondary font-extrabold text-xs"
                                 }
                             >
                                 Key Specifications
@@ -102,10 +109,14 @@ const Show = ({ product }: { product: Product }) => {
                         }
                     >
                         <div className={"flex items-center gap-2"}>
-                            <span className={"bg-wash rounded-full size-2"} />
+                            <span
+                                className={
+                                    "bg-navy-secondary rounded-full size-2"
+                                }
+                            />
                             <h2
                                 className={
-                                    "uppercase text-wash font-extrabold text-xs"
+                                    "uppercase text-navy-secondary font-extrabold text-xs"
                                 }
                             >
                                 Pricing
@@ -123,10 +134,14 @@ const Show = ({ product }: { product: Product }) => {
 
                     <div className={"flex flex-col gap-2 items-start p-4"}>
                         <div className={"flex items-center gap-2"}>
-                            <span className={"bg-wash rounded-full size-2"} />
+                            <span
+                                className={
+                                    "bg-navy-secondary rounded-full size-2"
+                                }
+                            />
                             <h2
                                 className={
-                                    "uppercase text-wash font-extrabold text-xs"
+                                    "uppercase text-navy-secondary font-extrabold text-xs"
                                 }
                             >
                                 Support
@@ -161,25 +176,25 @@ const Show = ({ product }: { product: Product }) => {
                 <Tabs defaultValue={"overview"}>
                     <TabsList className="flex gap-3 h-14 items-center justify-between rounded-md border border-slate-200 bg-slate-50 px-2 py-7">
                         <TabsTrigger
-                            className="h-full data-active:shadow-wash/50 data-active:border-wash flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-wash data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"overview"}
                         >
                             Overview
                         </TabsTrigger>
                         <TabsTrigger
-                            className="h-full data-active:shadow-wash/50 data-active:border-wash flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-wash data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"specifications"}
                         >
                             Specifications
                         </TabsTrigger>
                         <TabsTrigger
-                            className="h-full data-active:shadow-wash/50 data-active:border-wash flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-wash data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"downloads"}
                         >
                             Downloads
                         </TabsTrigger>
                         <TabsTrigger
-                            className="h-full data-active:shadow-wash/50 data-active:border-wash flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-wash data-active:hover:text-white data-active:text-white data-active:shadow-md"
+                            className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"applications"}
                         >
                             Applications
@@ -263,23 +278,27 @@ const Show = ({ product }: { product: Product }) => {
 
                 <div
                     className={
-                        "my-10 w-full md:max-w-3/4 flex items-center justify-between bg-wash/20 px-5 py-5 rounded-lg border border-wash/20 border-s-4 border-s-wash"
+                        "my-10 w-full md:max-w-3/4 flex items-center justify-between bg-navy-secondary/20 px-5 py-5 rounded-lg border border-navy-secondary/20 border-s-4 border-s-navy-secondary"
                     }
                 >
                     <div className={"flex items-start gap-5 w-full"}>
                         <div
                             className={
-                                "rounded-full bg-wash/30 size-6 text-center"
+                                "rounded-full bg-navy-secondary/30 size-6 text-center"
                             }
                         >
-                            ?
+                            <span className={"text-navy-secondary font-bold"}>
+                                ?
+                            </span>
                         </div>
                         <div
                             className={
                                 "flex flex-col items-start gap-2 max-w-5/6"
                             }
                         >
-                            <h1 className={"font-extrabold text-wash"}>
+                            <h1
+                                className={"font-extrabold text-navy-secondary"}
+                            >
                                 Not sure this is the right instrument?
                             </h1>
                             <p className={"text-sm text-paragraph"}>
@@ -288,7 +307,7 @@ const Show = ({ product }: { product: Product }) => {
                                 fits — or point you at something that does.{" "}
                                 <Link
                                     className={
-                                        "text-wash font-bold hover:underline"
+                                        "text-navy-secondary font-bold hover:underline"
                                     }
                                     href={route("site.contact")}
                                 >
@@ -309,7 +328,7 @@ const Show = ({ product }: { product: Product }) => {
                             },
                         )}
                         dir={"back"}
-                        className={"text-wash font-extrabold"}
+                        className={"text-navy-secondary font-extrabold"}
                     >
                         Back to {product.supplier?.name}
                     </MoveLink>
