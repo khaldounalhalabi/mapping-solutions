@@ -82,10 +82,10 @@ class SiteController extends WebController
 
     public function newsArticles()
     {
-        $articles = NewsArticleService::make()->index();
+        $articles = NewsArticleService::make()->paginate();
 
         return Inertia::render('site/news/index', [
-            'articles' => NewsArticleResource::collection($articles),
+            'articles' => Inertia::scroll(fn () => NewsArticleResource::collection($articles)),
         ]);
     }
 

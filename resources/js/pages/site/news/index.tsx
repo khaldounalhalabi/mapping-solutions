@@ -1,8 +1,9 @@
 import NewsArticle from "@/models/news-article";
 import { translate } from "@/models/translatable";
-import { Link } from "@inertiajs/react";
+import { InfiniteScroll, Link } from "@inertiajs/react";
+import { Paginated } from "@/global";
 
-const Index = ({ articles }: { articles: NewsArticle[] }) => {
+const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
     return (
         <div>
             <section
@@ -27,12 +28,13 @@ const Index = ({ articles }: { articles: NewsArticle[] }) => {
                     progress, and see what we've been working on.
                 </p>
             </section>
-            <div
+            <InfiniteScroll
                 className={
                     "py-10 px-page-padding flex flex-col items-start gap-10"
                 }
+                data={"articles"}
             >
-                {articles.map((a) => (
+                {articles.data.map((a) => (
                     <Link
                         className={
                             "flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 hover:shadow-2xl p-3 rounded-md border w-full"
@@ -51,7 +53,7 @@ const Index = ({ articles }: { articles: NewsArticle[] }) => {
                         </p>
                     </Link>
                 ))}
-            </div>
+            </InfiniteScroll>
         </div>
     );
 };
