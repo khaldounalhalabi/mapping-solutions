@@ -33,11 +33,11 @@ const Index = ({ articles }: { articles: NewsArticle[] }) => {
                 }
             >
                 {articles.map((a) => (
-                    // TODO: adjust this link
                     <Link
                         className={
                             "flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 hover:shadow-2xl p-3 rounded-md border w-full"
                         }
+                        href={route("site.news.show", a.slug)}
                     >
                         <h1 className={"text-navy text-xl font-extrabold"}>
                             {translate(a.title)}

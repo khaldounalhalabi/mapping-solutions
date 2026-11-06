@@ -16,7 +16,7 @@ class StoreUpdateNewsArticleDTO extends ValidatedDTO
 
     public string $excerpt;
 
-    public ?UploadedFile $hero_image = null;
+    public UploadedFile|array|null $hero_image = null;
 
     public int $news_category_id;
 

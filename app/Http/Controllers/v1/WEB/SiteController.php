@@ -141,12 +141,30 @@ class SiteController extends WebController
         ]);
     }
 
+    public function showArticle($newsArticleSlug)
+    {
+        $article = NewsArticleService::make()->bySlug($newsArticleSlug, [
+            'newsCategory',
+        ]);
+
+        if (! $article) {
+            abort(404);
+        }
+
+        $prevArticle = NewsArticleService::make()->previousTo($article->created_at);
+
+        return Inertia::render('site/news/show', [
+            'article'     => NewsArticleResource::make($article),
+            'prevArticle' => $prevArticle ? NewsArticleResource::make($prevArticle) : null,
+        ]);
+    }
+
     public function showProduct($productSlug)
     {
         $product = ProductService::make()->bySlug($productSlug, [
             'productTechnology',
             'productFamily',
-            'supplier'
+            'supplier',
         ], []);
 
         if (! $product) {

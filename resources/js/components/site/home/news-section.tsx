@@ -15,12 +15,11 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
             <SectionDescription className={"my-5"}>
                 Product releases, training workshops and project announcements.
             </SectionDescription>
-            {/*TODO: fix this link*/}
-            <MoveLink href={"#"}>View all news</MoveLink>
+            <MoveLink href={route("site.news")}>View all news</MoveLink>
             <div className={"grid grid-cols-2 md:grid-cols-3 gap-5 my-10"}>
                 {news.map((n) => (
                     <Link
-                        href={"#"}
+                        href={route("site.news.show", n.slug)}
                         key={n.id}
                         className={`group h-full flex flex-col gap-3 rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl`}
                     >
