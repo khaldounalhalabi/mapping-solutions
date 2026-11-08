@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Check, ChevronDown, Globe2, Loader } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { languageSwitchUrl } from "@/lib/language-switch-url";
 
 const languageNames = { en: "English", ar: "العربية", fr: "Français" };
 
@@ -38,7 +39,9 @@ const LanguageDropdown = ({
                 if (!response.ok()) {
                     throw new Error("Language change failed");
                 }
-                location.reload();
+                window.location.assign(
+                    languageSwitchUrl(window.location.href, locale),
+                );
             })
             .catch(() => {
                 setLoading(false);

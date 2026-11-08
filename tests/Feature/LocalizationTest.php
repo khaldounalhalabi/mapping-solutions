@@ -69,6 +69,29 @@ class LocalizationTest extends TestCase
         });
     }
 
+    public function test_explicit_url_language_overrides_session_cookie_and_browser_preferences(): void
+    {
+        $this->withSession(['locale' => 'en'])
+            ->withCookie('locale', 'fr')
+            ->withHeader('Accept-Language', 'en')
+            ->get('/?lang=ar')
+            ->assertOk()
+            ->assertSee('lang="ar"', false)
+            ->assertSee('dir="rtl"', false)
+            ->assertInertia(fn (AssertableInertia $page) => $page->where('currentLocale', 'ar'))
+            ->assertSessionHas('locale', 'en');
+    }
+
+    public function test_invalid_url_language_preserves_the_session_preference(): void
+    {
+        foreach (['de', '', ['ar']] as $lang) {
+            $this->withSession(['locale' => 'fr'])
+                ->get('/?'.http_build_query(['lang' => $lang]))
+                ->assertOk()
+                ->assertInertia(fn (AssertableInertia $page) => $page->where('currentLocale', 'fr'));
+        }
+    }
+
     public function test_language_choice_is_saved_in_session_and_cookie(): void
     {
         $this->withoutMiddleware(HandleInertiaRequests::class);

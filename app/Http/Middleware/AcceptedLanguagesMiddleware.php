@@ -15,7 +15,11 @@ class AcceptedLanguagesMiddleware
     {
 
         $availableLocales = config('cubeta-starter.available_locales');
-        $locale = $request->session()->get('locale');
+        $locale = $request->query('lang');
+
+        if (! is_string($locale) || ! in_array($locale, $availableLocales, true)) {
+            $locale = $request->session()->get('locale');
+        }
 
         if (! in_array($locale, $availableLocales, true)) {
             $locale = $request->cookie('locale');

@@ -2,8 +2,16 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { translate } from '../../resources/js/models/translatable.ts';
+import { languageSwitchUrl } from '../../resources/js/lib/language-switch-url.ts';
 
 globalThis.document = { documentElement: { lang: 'en' } };
+
+test('switching language replaces the explicit language and preserves filters and fragments', () => {
+    assert.equal(languageSwitchUrl('https://example.com/products?lang=ar&page=2#details', 'fr'),
+        'https://example.com/products?lang=fr&page=2#details');
+    assert.equal(languageSwitchUrl('https://example.com/products?page=2#details', 'fr'),
+        'https://example.com/products?page=2#details');
+});
 
 function flatten(value, prefix = '') {
     return Object.fromEntries(Object.entries(value).flatMap(([key, entry]) =>

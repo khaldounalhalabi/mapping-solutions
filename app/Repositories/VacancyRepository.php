@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Vacancy;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use App\Repositories\Contracts\BaseRepository;
 
@@ -12,6 +13,12 @@ use App\Repositories\Contracts\BaseRepository;
 class VacancyRepository extends BaseRepository
 {
     protected string $modelClass = Vacancy::class;
+
+    /** @return Builder<Vacancy> */
+    protected function sitemapQuery(): Builder
+    {
+        return parent::sitemapQuery()->whereDate('closing_date', '>=', today());
+    }
 
     /** @return Collection<int, Vacancy> */
     public function current(): Collection

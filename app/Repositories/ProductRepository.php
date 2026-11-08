@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use Illuminate\Support\LazyCollection;
 use Illuminate\Database\Eloquent\Collection;
 use App\Repositories\Contracts\BaseRepository;
 
@@ -69,5 +70,20 @@ class ProductRepository extends BaseRepository
             ->orderByDesc('id')
             ->limit(5)
             ->get();
+    }
+
+    /** @return LazyCollection<int, Product> */
+    public function sitemapTechnologySupplierRecords(): LazyCollection
+    {
+        return $this->model->newQuery()
+            ->join('suppliers', 'suppliers.id', '=', 'products.supplier_id')
+            ->join('product_technologies', 'product_technologies.id', '=', 'products.product_technology_id')
+            ->select(['suppliers.slug as supplier_slug', 'product_technologies.slug as technology_slug'])
+            ->where('suppliers.slug', '!=', '')
+            ->where('product_technologies.slug', '!=', '')
+            ->distinct()
+            ->orderBy('product_technologies.slug')
+            ->orderBy('suppliers.slug')
+            ->lazy(500);
     }
 }

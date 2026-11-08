@@ -35,10 +35,9 @@ const AddressSection = () => {
                 {valueOf(SettingKeyEnum.CONTACT_PHONE)}
             </a>
             <div className={"flex items-center justify-between gap-2"}>
-                {/*TODO: fix this link*/}
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
-                    href={"#"}
+                    href="/sitemap.xml"
                 >
                     {translateKey("site.copy.sitemap")}{" "}
                 </a>

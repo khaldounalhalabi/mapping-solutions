@@ -5,6 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Excel\BaseExporter;
 use App\Excel\BaseImporter;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\LazyCollection;
 use Illuminate\Database\Eloquent\Model;
 use PhpOffice\PhpSpreadsheet\Exception;
 use Illuminate\Database\Eloquent\Builder;
@@ -54,6 +55,15 @@ abstract class BaseRepository
     protected function query(): BaseQuery
     {
         return BaseQuery::create($this->modelClass);
+    }
+
+    /** @return Builder<MODEL> */
+    protected function sitemapQuery(): Builder
+    {
+        return $this->model->newQuery()
+            ->select(['id', 'slug', 'updated_at'])
+            ->whereNotNull('slug')
+            ->where('slug', '!=', '');
     }
 
     /**
@@ -168,6 +178,12 @@ abstract class BaseRepository
             ->counts($counts)
             ->query()
             ->paginate($this->perPage);
+    }
+
+    /** @return LazyCollection<int, MODEL> */
+    public function sitemapRecords(): LazyCollection
+    {
+        return $this->sitemapQuery()->lazyById(500);
     }
 
     /**
