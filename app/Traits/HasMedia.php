@@ -88,10 +88,8 @@ trait HasMedia
         );
     }
 
-    protected static function boot(): void
+    protected static function bootHasMedia(): void
     {
-        parent::boot();
-
         self::saved(function (Model $model) {
             foreach (self::mediaAttributes($model) as $attribute) {
                 $removed = self::orphanedMedia($model, $attribute);

@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Inertia\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use App\Services\v1\Product\ProductService;
+use App\Services\v1\Supplier\SupplierService;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -43,12 +45,14 @@ class HandleInertiaRequests extends Middleware
                 'issued_at' => now()->timestamp,
                 'session'   => hash('sha256', $request->session()->getId()),
             ], JSON_THROW_ON_ERROR)),
-            'authUser' => auth()->user(),
-            'asset'    => asset('/'),
-            'baseUrl'  => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
-            'error'    => session()->get('error') ?? null,
-            'success'  => session()->get('success') ?? null,
-            'settings' => SettingResource::collection(SettingService::make()->all()),
+            'authUser'        => auth()->user(),
+            'asset'           => asset('/'),
+            'baseUrl'         => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
+            'error'           => session()->get('error') ?? null,
+            'success'         => session()->get('success') ?? null,
+            'settings'        => SettingResource::collection(SettingService::make()->all()),
+            'suppliers_count' => SupplierService::make()->count(),
+            'products_count'  => ProductService::make()->count(),
         ]);
     }
 

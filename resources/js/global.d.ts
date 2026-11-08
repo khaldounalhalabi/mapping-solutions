@@ -34,6 +34,8 @@ declare module "@inertiajs/core" {
             asset:               string;
             baseUrl:             string;
             settings:            Setting[];
+            suppliers_count:     number;
+            products_count:      number;
         };
         flashDataType: {
             error?:   string;

@@ -74,6 +74,21 @@ class Product extends Model
 {
     use HasFactory, HasMedia, Sluggable;
 
+    public const string PRODUCTS_COUNT_CACHE_KEY = 'cache:products_count';
+
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        self::saved(function () {
+            cache()->forget(self::PRODUCTS_COUNT_CACHE_KEY);
+        });
+
+        self::deleted(function () {
+            cache()->forget(self::PRODUCTS_COUNT_CACHE_KEY);
+        });
+    }
+
     protected function casts(): array
     {
         return [

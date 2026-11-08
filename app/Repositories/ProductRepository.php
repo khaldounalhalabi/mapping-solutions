@@ -35,6 +35,13 @@ class ProductRepository extends BaseRepository
             ->get();
     }
 
+    public function count(): int
+    {
+        return $this
+            ->query()
+            ->count();
+    }
+
     /**
      * @return Collection<int , Product>
      */
@@ -51,7 +58,7 @@ class ProductRepository extends BaseRepository
     /**
      * @return Collection<int, Product>
      */
-    public function searchSuggestions(array $relations = [] , array $counts = []): Collection
+    public function searchSuggestions(array $relations = [], array $counts = []): Collection
     {
         return $this->query()
             ->search()

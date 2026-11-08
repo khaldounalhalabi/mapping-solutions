@@ -26,9 +26,7 @@ class SupplierRepository extends BaseRepository
 
     public function count(): int
     {
-        return $this->query()
-            ->query()
-            ->count();
+        return $this->query()->count();
     }
 
     /**

@@ -26,7 +26,11 @@ class SupplierService extends BaseService
 
     public function count(): int
     {
-        return $this->repository->count();
+        return cache()->remember(
+            Supplier::SUPPLIERS_COUNT_CACHE_KEY,
+            now()->addMinutes(30),
+            fn () => $this->repository->count()
+        );
     }
 
     /**

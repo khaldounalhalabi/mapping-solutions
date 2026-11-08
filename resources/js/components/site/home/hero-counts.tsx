@@ -1,13 +1,16 @@
-// TODO: Replace with values from settings
 import AnimatedCounter from "@/components/ui/animated-counter";
 import { useMemo } from "react";
 import useSettings from "@/hooks/use-settings";
 import SettingKeyEnum from "@/enums/setting-key-enum";
+import { usePage } from "@inertiajs/react";
 
 const HeroCounts = () => {
     const { valueOf } = useSettings();
     const years =
         new Date().getFullYear() - (valueOf(SettingKeyEnum.START_YEAR) ?? 0);
+    const {
+        props: { suppliers_count, products_count },
+    } = usePage();
     const heroStats = useMemo(
         () => [
             {
@@ -17,12 +20,12 @@ const HeroCounts = () => {
                     "Years supplying remote sensing instrumentation to research, defence and industry",
             },
             {
-                value:       9,
+                value:       suppliers_count,
                 description:
                     "Manufacturers represented, with factory-level technical support",
             },
             {
-                value:       24,
+                value:       products_count,
                 description:
                     "Instruments listed, each with complete specifications",
             },

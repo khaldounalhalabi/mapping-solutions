@@ -24,9 +24,21 @@ class ProductService extends BaseService
         return $this->repository->bySlug($slug, $relations, $counts);
     }
 
-    public function bySupplier(int $supplierId, array $relations = [], array $counts = [])
+    /**
+     * @return Collection<int, Product>
+     */
+    public function bySupplier(int $supplierId, array $relations = [], array $counts = []): Collection
     {
         return $this->repository->bySupplier($supplierId, $relations, $counts);
+    }
+
+    public function count(): int
+    {
+        return cache()->remember(
+            Product::PRODUCTS_COUNT_CACHE_KEY,
+            now()->addMinutes(30),
+            fn () => $this->repository->count()
+        );
     }
 
     /**
@@ -40,8 +52,8 @@ class ProductService extends BaseService
     /**
      * @return Collection<int, Product>
      */
-    public function searchSuggestions(array $relations = [] , array $counts = []): Collection
+    public function searchSuggestions(array $relations = [], array $counts = []): Collection
     {
-        return $this->repository->searchSuggestions($relations , $counts);
+        return $this->repository->searchSuggestions($relations, $counts);
     }
 }

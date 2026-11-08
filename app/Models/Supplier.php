@@ -45,6 +45,21 @@ class Supplier extends Model
     use HasMedia;
     use Sluggable;
 
+    public const string SUPPLIERS_COUNT_CACHE_KEY = 'cache:suppliers_count';
+
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        self::saved(function () {
+            cache()->forget(self::SUPPLIERS_COUNT_CACHE_KEY);
+        });
+
+        self::deleted(function () {
+            cache()->forget(self::SUPPLIERS_COUNT_CACHE_KEY);
+        });
+    }
+
     protected function casts(): array
     {
         return [
