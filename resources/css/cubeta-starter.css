@@ -13,8 +13,9 @@
 }
 
 @theme inline {
-    --font-sans: "Nunito Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+    --font-sans:
+        "Nunito Variable", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
     --font-heading: var(--font-sans);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
@@ -70,7 +71,8 @@
     --shadow-card: 0 16px 38px rgb(11 33 64 / 12%);
     --animate-slow-bounce: slow-bounce 3s ease-in-out infinite;
     @keyframes slow-bounce {
-        0%, 100% {
+        0%,
+        100% {
             transform: translateY(0);
         }
         50% {
@@ -132,7 +134,7 @@
     --bg-secondary: #f6f8fb;
     --navy-hero: #8fc1ff;
     --band: #62d9c6;
-    --wash: #5856D6
+    --wash: #5856d6;
 }
 
 .dark {
@@ -186,7 +188,7 @@
     --bg-secondary: #f6f8fb;
     --navy-hero: #8fc1ff;
     --band: #62d9c6;
-    --wash: #5856D6
+    --wash: #5856d6;
 }
 
 @layer base {
@@ -212,10 +214,11 @@
     .dashboard-scrollbars,
     .dashboard-scrollbars * {
         scrollbar-color: color-mix(
-            in oklab,
-            var(--muted-foreground) 45%,
-            transparent
-        ) transparent;
+                in oklab,
+                var(--muted-foreground) 45%,
+                transparent
+            )
+            transparent;
         scrollbar-width: thin;
     }
 
@@ -281,17 +284,18 @@
 }
 
 .bg-hero {
-    background: radial-gradient(
-        80% 140% at 88% -20%,
-        color-mix(in srgb, #1a5fb4 40%, transparent) 0%,
-        transparent 62%
-    ),
-    radial-gradient(
-        120% 110% at 78% 0%,
-        #1b4f8a 0%,
-        #0f3159 38%,
-        #08182f 78%
-    );
+    background:
+        radial-gradient(
+            80% 140% at 88% -20%,
+            color-mix(in srgb, #1a5fb4 40%, transparent) 0%,
+            transparent 62%
+        ),
+        radial-gradient(
+            120% 110% at 78% 0%,
+            #1b4f8a 0%,
+            #0f3159 38%,
+            #08182f 78%
+        );
 }
 
 .bg-hero::after {
@@ -316,8 +320,9 @@
     font-size: 14.5px;
     font-weight: 700;
     text-decoration: none;
-    transition: transform 0.16s ease,
-    box-shadow 0.16s ease;
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease;
 }
 
 .h-btn:hover {
@@ -522,8 +527,9 @@
 .cr .rv {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.78s cubic-bezier(0.2, 0.75, 0.3, 1),
-    transform 0.78s cubic-bezier(0.2, 0.75, 0.3, 1);
+    transition:
+        opacity 0.78s cubic-bezier(0.2, 0.75, 0.3, 1),
+        transform 0.78s cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
 .cr .rv.on {
@@ -534,8 +540,9 @@
 .cr .stag > * {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.7s cubic-bezier(0.2, 0.75, 0.3, 1),
-    transform 0.7s cubic-bezier(0.2, 0.75, 0.3, 1);
+    transition:
+        opacity 0.7s cubic-bezier(0.2, 0.75, 0.3, 1),
+        transform 0.7s cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
 .cr .stag.on > * {
@@ -620,12 +627,15 @@
 .cr .hero-dots {
     position: absolute;
     inset: -20%;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.26) 1px, transparent 1.6px),
-    radial-gradient(rgba(126, 206, 255, 0.18) 1px, transparent 1.6px);
-    background-size: 42px 42px,
-    88px 88px;
-    background-position: 0 0,
-    20px 30px;
+    background-image:
+        radial-gradient(rgba(255, 255, 255, 0.26) 1px, transparent 1.6px),
+        radial-gradient(rgba(126, 206, 255, 0.18) 1px, transparent 1.6px);
+    background-size:
+        42px 42px,
+        88px 88px;
+    background-position:
+        0 0,
+        20px 30px;
     animation: cr-drift 46s linear infinite;
     mask-image: radial-gradient(70% 62% at 74% 28%, #000 18%, transparent 78%);
     -webkit-mask-image: radial-gradient(
@@ -831,16 +841,16 @@
     padding: 28px 26px;
     position: relative;
     overflow: hidden;
-    transition: box-shadow 0.2s ease,
-    transform 0.2s ease;
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
 .cr .ben::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    inset-inline: 0;
     height: 3px;
     background: var(--acc, var(--pp-blue));
     opacity: 0;
@@ -895,14 +905,15 @@
     border-bottom: 1px solid var(--border);
     text-decoration: none;
     position: relative;
-    transition: padding-left 0.22s ease,
-    background 0.22s ease;
+    transition:
+        padding-inline-start 0.22s ease,
+        background 0.22s ease;
 }
 
 .cr .vac::before {
     content: "";
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     bottom: 0;
     width: 3px;
@@ -912,7 +923,7 @@
 }
 
 .cr .vac:hover {
-    padding-left: 20px;
+    padding-inline-start: 20px;
     background: #fff;
 }
 
@@ -1173,8 +1184,9 @@
 .ct .rv {
     opacity: 0;
     transform: translateY(22px);
-    transition: opacity 0.75s cubic-bezier(0.2, 0.75, 0.3, 1),
-    transform 0.75s cubic-bezier(0.2, 0.75, 0.3, 1);
+    transition:
+        opacity 0.75s cubic-bezier(0.2, 0.75, 0.3, 1),
+        transform 0.75s cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
 .ct .rv.on {
@@ -1185,8 +1197,9 @@
 .ct .stag > * {
     opacity: 0;
     transform: translateY(18px);
-    transition: opacity 0.65s cubic-bezier(0.2, 0.75, 0.3, 1),
-    transform 0.65s cubic-bezier(0.2, 0.75, 0.3, 1);
+    transition:
+        opacity 0.65s cubic-bezier(0.2, 0.75, 0.3, 1),
+        transform 0.65s cubic-bezier(0.2, 0.75, 0.3, 1);
 }
 
 .ct .stag.on > * {
@@ -1327,8 +1340,9 @@
     text-decoration: none;
     display: block;
     box-shadow: 0 10px 30px rgba(8, 24, 47, 0.09);
-    transition: box-shadow 0.2s ease,
-    transform 0.2s ease;
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
 .ct .card:hover {
@@ -1566,11 +1580,12 @@
         #f2762e,
         #d63b3b
     );
-    font-family: "Nunito",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+    font-family:
+        "Nunito",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 }
 
 .jb-page *,
@@ -1742,7 +1757,7 @@
     padding: 16px 22px;
     background: #fce4e4;
     border: 1px solid #f3c9c9;
-    border-left: 4px solid #c03434;
+    border-inline-start: 4px solid #c03434;
     border-radius: 10px;
     font-size: 13.5px;
     line-height: 1.65;
@@ -1804,7 +1819,7 @@
     content: "";
     position: absolute;
     top: -1px;
-    left: 0;
+    inset-inline-start: 0;
     width: 46px;
     height: 3px;
     border-radius: 2px;
@@ -1821,12 +1836,12 @@
 .jb-page .jb-prose ul,
 .jb-page .jb-prose ol {
     margin: 0 0 24px;
-    padding-left: 24px;
+    padding-inline-start: 24px;
 }
 
 .jb-page .jb-prose li {
     margin-bottom: 10px;
-    padding-left: 5px;
+    padding-inline-start: 5px;
 }
 
 .jb-page .jb-prose ul li::marker {
@@ -1862,7 +1877,7 @@
     margin: 32px 0;
     padding: 22px 28px;
     background: var(--jb-sky);
-    border-left: 4px solid var(--jb-blue);
+    border-inline-start: 4px solid var(--jb-blue);
     border-radius: 0 12px 12px 0;
     font-size: 17px;
     line-height: 1.68;
@@ -1919,8 +1934,7 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    inset-inline: 0;
     height: 3px;
     background: var(--spectrum);
 }
@@ -2224,13 +2238,13 @@
 
 .public-prose ul {
     list-style: disc;
-    padding-left: 24px;
+    padding-inline-start: 24px;
     margin-bottom: 18px;
 }
 
 .public-prose ol {
     list-style: decimal;
-    padding-left: 24px;
+    padding-inline-start: 24px;
 }
 
 .public-prose a {
@@ -2389,4 +2403,34 @@
         ) {
         scroll-margin-top: 90px;
     }
+}
+
+html[lang="ar"] {
+    --font-sans: Tahoma, "Segoe UI", Arial, sans-serif;
+    --font-heading: var(--font-sans);
+    letter-spacing: normal;
+}
+html[lang="ar"] :is(h1, h2, h3, .jb-title) {
+    letter-spacing: normal;
+}
+html[dir="rtl"] .origin-inline-start {
+    transform-origin: right;
+}
+html[dir="ltr"] .origin-inline-start {
+    transform-origin: left;
+}
+a[href^="tel:"],
+a[href^="mailto:"],
+input[type="email"],
+input[type="tel"],
+input[type="url"] {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+html[lang="ar"] .jb-page {
+    font-family: var(--font-sans);
+}
+html[lang="ar"] :is(.jb-kicker, .k2, .jb-fact-l) {
+    letter-spacing: normal;
 }

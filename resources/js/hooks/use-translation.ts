@@ -38,26 +38,48 @@ function getTranslation(
     }, translations);
 }
 
+export function translateKey(
+    key: LocalizationKey,
+    replacements: Replacements = {},
+    locale = typeof document === "undefined"
+        ? "en"
+        : document.documentElement.lang,
+): string {
+    const translated =
+        getTranslation(translationsFor(locale), key) ??
+        getTranslation(englishTranslations, key);
+    const value = typeof translated === "string" ? translated : key;
+    return Object.entries(replacements).reduce(
+        (result, [name, replacement]) =>
+            result.replaceAll(`:${name}`, String(replacement)),
+        value,
+    );
+}
+
 export function useTranslation() {
     const { currentLocale } = usePage().props;
-    const fallbackTranslations: Translations = englishTranslations;
-    const translations = translationsFor(currentLocale);
-
-    const t = (
-        key: LocalizationKey,
-        replacements: Replacements = {},
-    ): string => {
-        const translated =
-            getTranslation(translations, key) ??
-            getTranslation(fallbackTranslations, key);
-        const value = typeof translated === "string" ? translated : key;
-
-        return Object.entries(replacements).reduce(
-            (result, [name, replacement]) =>
-                result.replaceAll(`:${name}`, String(replacement)),
-            value,
-        );
+    return {
+        t:      (key: LocalizationKey, replacements: Replacements = {}) =>
+            translateKey(key, replacements, currentLocale),
+        locale: currentLocale,
     };
+}
 
-    return { t };
+export function formatDate(
+    value: string,
+    options: Intl.DateTimeFormatOptions = { dateStyle: "long" },
+): string {
+    const date = new Date(
+        /^\d{4}-\d{2}-\d{2}$/.test(value) ? `${value}T12:00:00` : value,
+    );
+    if (Number.isNaN(date.getTime())) return value;
+    return new Intl.DateTimeFormat(
+        document.documentElement.lang || "en",
+        options,
+    ).format(date);
+}
+export function formatNumber(value: number): string {
+    return new Intl.NumberFormat(document.documentElement.lang || "en").format(
+        value,
+    );
 }

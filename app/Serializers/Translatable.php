@@ -130,10 +130,14 @@ class Translatable implements Arrayable, JsonSerializable, Stringable
         return json_encode($this->data, JSON_UNESCAPED_SLASHES + JSON_UNESCAPED_UNICODE);
     }
 
-    public function translate(?string $locale = null)
+    public function translate(?string $locale = null): string
     {
         $locale = $locale ?? app()->getLocale();
 
-        return $this->{$locale};
+        $value = $this->{$locale};
+
+        return is_string($value) && trim($value) !== ''
+            ? $value
+            : ($this->data[config('cubeta-starter.default_locale')] ?? '');
     }
 }

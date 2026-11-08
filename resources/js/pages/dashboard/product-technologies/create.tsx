@@ -104,7 +104,7 @@ const Create = () => {
                                     {t(
                                         "models.product_technology.fields.icon_source",
                                     )}
-                                    <span className="ml-1 text-destructive">
+                                    <span className="ms-1 text-destructive">
                                         *
                                     </span>
                                 </label>
@@ -136,7 +136,7 @@ const Create = () => {
                                             aria-pressed={isSelected}
                                             className={`
                                                 group relative flex items-start gap-3
-                                                rounded-xl border p-4 text-left
+                                                rounded-xl border p-4 text-start
                                                 transition-all duration-200
                                                 focus-visible:outline-none
                                                 focus-visible:ring-2

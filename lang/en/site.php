@@ -398,4 +398,18 @@ return [
             ],
         ],
     ],
+    'mail' => [
+        'greeting'             => 'Hello :name,',
+        'reset_subject'        => 'Reset password',
+        'reset_message'        => 'Your reset password code is:',
+        'subscription_reason'  => 'You are receiving this email because you subscribed to our newsletter.',
+        'unsubscribe'          => 'Unsubscribe',
+        'unsubscribed'         => 'Unsubscribed',
+        'unsubscribed_title'   => 'You have been unsubscribed',
+        'unsubscribed_message' => 'You will no longer receive newsletter emails from us.',
+    ],
+    'validation' => [
+        'translatable' => 'The :attribute must be an object containing only text in supported languages.',
+        'media'        => 'Invalid media file',
+    ],
 ];

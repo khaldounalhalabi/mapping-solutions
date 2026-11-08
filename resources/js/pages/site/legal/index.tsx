@@ -5,7 +5,7 @@ import useSettings from "@/hooks/use-settings";
 import { useTranslation } from "@/hooks/use-translation";
 import { translate } from "@/models/translatable";
 import { Head, Link } from "@inertiajs/react";
-import { ArrowUpRight } from "lucide-react";
+import ArrowUpRightIcon from "@/components/site/icons/arrow-up-right-icon";
 
 export default function LegalPage({
     policy,
@@ -105,7 +105,7 @@ export default function LegalPage({
                             className="inline-flex shrink-0 items-center gap-2 text-sm font-bold text-navy underline underline-offset-4"
                         >
                             {t("site.legal.contact")}{" "}
-                            <ArrowUpRight
+                            <ArrowUpRightIcon
                                 className="size-4"
                                 aria-hidden="true"
                             />

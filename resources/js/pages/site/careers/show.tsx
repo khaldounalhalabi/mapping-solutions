@@ -1,3 +1,4 @@
+import { formatDate, translateKey } from "@/hooks/use-translation";
 import { Head, Link } from "@inertiajs/react";
 import { BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react";
 import Vacancy from "@/models/vacancy";
@@ -10,23 +11,36 @@ export default function Show({ vacancy }: { vacancy: Vacancy }) {
     const title = translate(vacancy.title);
     const email = `mailto:careers@mapping-solutions.co.uk?subject=${encodeURIComponent(`Application: ${title}`)}`;
     const facts = [
-        { label: "Contract", value: vacancy.job_type, Icon: BriefcaseBusiness },
-        { label: "Location", value: vacancy.location, Icon: MapPin },
         {
-            label: "Closing date",
-            value: vacancy.closing_date.split("-").reverse().join("/"),
-            Icon: CalendarDays,
+            label: translateKey("site.copy.contract"),
+            value: translateKey(`enums.${vacancy.job_type}`),
+            Icon:  BriefcaseBusiness,
+        },
+        {
+            label: translateKey("site.copy.location"),
+            value: vacancy.location,
+            Icon:  MapPin,
+        },
+        {
+            label: translateKey("site.copy.closing_date"),
+            value: formatDate(vacancy.closing_date),
+            Icon:  CalendarDays,
         },
     ];
     return (
         <PublicReveals className="jb-page">
-            <Head title={`${title} | Careers | Mapping Solutions`}>
+            <Head
+                title={`${title} | ${translateKey("site.copy.careers")} | Mapping Solutions`}
+            >
                 <meta name="description" content={translate(vacancy.excerpt)} />
             </Head>
             <section className="jb-hero">
                 <div className="jb-col jb-hero-in">
                     <div className="jb-bar" />
-                    <span className="jb-kicker">Careers · Vacancy</span>
+                    <span className="jb-kicker">
+                        {" "}
+                        {translateKey("site.copy.careers_vacancy")}{" "}
+                    </span>
                     <h1 className="jb-title">{title}</h1>
                 </div>
             </section>
@@ -52,29 +66,41 @@ export default function Show({ vacancy }: { vacancy: Vacancy }) {
                     <PublicRichText html={translate(vacancy.content)} />
                 </div>
                 <div className="jb-apply">
-                    <h3>Ready to apply?</h3>
+                    <h3> {translateKey("site.copy.ready_to_apply")} </h3>
                     <p>
-                        Fill in the form below, and email your CV to{" "}
-                        <a href={email}>careers@mapping-solutions.co.uk</a> with
-                        the job title in the subject line.
+                        {" "}
+                        {translateKey(
+                            "site.copy.fill_in_the_form_below_and_email_your_cv_to",
+                        )}{" "}
+                        <a href={email}>careers@mapping-solutions.co.uk</a>{" "}
+                        {translateKey(
+                            "site.copy.with_the_job_title_in_the_subject_line",
+                        )}{" "}
                     </p>
                     <div className="jb-apply-row">
                         <a href="#application-form" className="jb-btn">
-                            Go to the form ↓
+                            {" "}
+                            {translateKey("site.copy.go_to_the_form")}{" "}
                         </a>
                         <a href={email} className="jb-btn-ghost">
-                            Email your CV
+                            {" "}
+                            {translateKey("site.copy.email_your_cv")}{" "}
                         </a>
                     </div>
                 </div>
                 <div className="jb-form" id="application-form">
                     <div className="jb-form-head">
-                        <p className="jb-kicker-2">Step 2</p>
-                        <h2>Application form</h2>
+                        <p className="jb-kicker-2">
+                            {" "}
+                            {translateKey("site.copy.step_2")}{" "}
+                        </p>
+                        <h2> {translateKey("site.copy.application_form")} </h2>
                         <p>
-                            Email your CV to{" "}
+                            {" "}
+                            {translateKey("site.copy.email_your_cv_to")}{" "}
                             <a href={email}>careers@mapping-solutions.co.uk</a>{" "}
-                            with “{title}” in the subject line.
+                            {translateKey("site.copy.with")} {title}{" "}
+                            {translateKey("site.copy.in_the_subject_line")}{" "}
                         </p>
                     </div>
                     <div className="jb-form-card">
@@ -83,7 +109,10 @@ export default function Show({ vacancy }: { vacancy: Vacancy }) {
                 </div>
             </div>
             <div className="jb-wide jb-back">
-                <Link href={route("site.careers")}>← All vacancies</Link>
+                <Link href={route("site.careers")}>
+                    {" "}
+                    {translateKey("site.copy.all_vacancies")}{" "}
+                </Link>
             </div>
         </PublicReveals>
     );

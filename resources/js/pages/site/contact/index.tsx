@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { Head, useForm } from "@inertiajs/react";
 import { Check, Mail, MapPin, Phone } from "lucide-react";
@@ -26,7 +27,7 @@ export default function Contact() {
     });
     const cards = [
         {
-            title: "Call us",
+            title: translateKey("site.copy.call_us"),
             text:  valueOf(SettingKeyEnum.CONTACT_PHONE),
             note:  "Monday to Friday, 9am–5pm UK time",
             href:  `tel:${valueOf(SettingKeyEnum.CONTACT_PHONE)}`,
@@ -35,19 +36,19 @@ export default function Contact() {
             bg:    "#e8f1fb",
         },
         {
-            title: "Email us",
+            title: translateKey("site.copy.email_us"),
             text:  valueOf(SettingKeyEnum.CONTACT_EMAIL),
-            note:  "We reply within one working day",
+            note:  translateKey("site.extra.we_reply_within_one_working_day"),
             href:  `mailto:${valueOf(SettingKeyEnum.CONTACT_EMAIL)}`,
             Icon:  Mail,
             color: "#0e8074",
             bg:    "#e2f3f0",
         },
         {
-            title: "Visit us",
+            title: translateKey("site.copy.visit_us"),
             text:  valueOf(SettingKeyEnum.ADDRESS),
             href:  valueOf(SettingKeyEnum.ADDRESS_GOOGLE_MAP_URL),
-            note:  "Please arrange visits in advance",
+            note:  translateKey("site.extra.please_arrange_visits_in_advance"),
             Icon:  MapPin,
             color: "#b96a00",
             bg:    "#fdf3e3",
@@ -55,21 +56,32 @@ export default function Contact() {
     ];
     return (
         <PublicReveals className="ct">
-            <Head title="Contact | Mapping Solutions">
+            <Head title={translateKey("site.copy.contact_mapping_solutions")}>
                 <meta
                     name="description"
-                    content="Contact Mapping Solutions for remote sensing instruments, surveys, training and technical support."
+                    content={translateKey(
+                        "site.extra.contact_mapping_solutions_for_remote_sensing_instruments_surveys_training_and_technical_su",
+                    )}
                 />
             </Head>
             <section className="hero">
                 <div className="w hero-in">
                     <div className="spectrum" />
-                    <p className="kick">Contact</p>
-                    <h1>Talk to us about your project</h1>
+                    <p className="kick">
+                        {" "}
+                        {translateKey("site.copy.contact")}{" "}
+                    </p>
+                    <h1>
+                        {" "}
+                        {translateKey(
+                            "site.copy.talk_to_us_about_your_project",
+                        )}{" "}
+                    </h1>
                     <p>
-                        Whether it's a product enquiry, a survey to plan, or a
-                        question about training, tell us what you're trying to
-                        measure and we'll come back with practical advice.
+                        {" "}
+                        {translateKey(
+                            "site.copy.whether_it_s_a_product_enquiry_a_survey_to_plan_or_a_question_about_training_tell_us_what_",
+                        )}{" "}
                     </p>
                 </div>
             </section>
@@ -111,30 +123,61 @@ export default function Contact() {
             <div className="w main px-5!">
                 <div className="grid">
                     <div className="aside rv">
-                        <span className="k2">Send a message</span>
-                        <h2 className="h2">Tell us what you need to measure</h2>
+                        <span className="k2">
+                            {" "}
+                            {translateKey("site.copy.send_a_message")}{" "}
+                        </span>
+                        <h2 className="h2">
+                            {" "}
+                            {translateKey(
+                                "site.copy.tell_us_what_you_need_to_measure",
+                            )}{" "}
+                        </h2>
                         <p className="sub">
-                            The more you can tell us about the application — the
-                            target, the area, the accuracy — the more useful our
-                            first reply will be.
+                            {" "}
+                            {translateKey(
+                                "site.copy.the_more_you_can_tell_us_about_the_application_the_target_the_area_the_accuracy_the_more_u",
+                            )}{" "}
                         </p>
                         <ul className="aside-list">
                             {[
-                                "Product enquiries and quotes",
-                                "Airborne survey and data processing",
-                                "Training courses and consultancy",
-                                "Support, calibration and repair",
+                                {
+                                    value: "Product enquiries and quotes",
+                                    label: translateKey(
+                                        "site.extra.product_enquiries_and_quotes",
+                                    ),
+                                },
+                                {
+                                    value: "Airborne survey and data processing",
+                                    label: translateKey(
+                                        "site.extra.airborne_survey_and_data_processing",
+                                    ),
+                                },
+                                {
+                                    value: "Training courses and consultancy",
+                                    label: translateKey(
+                                        "site.extra.training_courses_and_consultancy",
+                                    ),
+                                },
+                                {
+                                    value: "Support, calibration and repair",
+                                    label: translateKey(
+                                        "site.extra.support_calibration_and_repair",
+                                    ),
+                                },
                             ].map((item) => (
-                                <li key={item}>
+                                <li key={item.value}>
                                     <Check size={16} color="#0e8074" />
-                                    <span>{item}</span>
+                                    <span>{item.label}</span>
                                 </li>
                             ))}
                         </ul>
                         <div className="aside-note">
                             <p>
-                                We work in English, Arabic and French — write to
-                                us in whichever you prefer.
+                                {" "}
+                                {translateKey(
+                                    "site.copy.we_work_in_english_arabic_and_french_write_to_us_in_whichever_you_prefer",
+                                )}{" "}
                             </p>
                         </div>
                     </div>
@@ -175,7 +218,9 @@ export default function Contact() {
                                             name="first_name"
                                             id="first_name_id"
                                             label={t("publicForms.first_name")}
-                                            placeholder="First Name"
+                                            placeholder={translateKey(
+                                                "site.copy.first_name",
+                                            )}
                                             autoComplete="given-name"
                                             required
                                             value={form.data.first_name}
@@ -190,7 +235,9 @@ export default function Contact() {
                                             name="last_name"
                                             id="last_name_id"
                                             label={t("publicForms.last_name")}
-                                            placeholder="Last Name"
+                                            placeholder={translateKey(
+                                                "site.copy.last_name",
+                                            )}
                                             autoComplete="family-name"
                                             required
                                             value={form.data.last_name}
@@ -236,7 +283,9 @@ export default function Contact() {
                                         type="email"
                                         label={t("publicForms.email")}
                                         autoComplete="email"
-                                        placeholder="your.email@example.com"
+                                        placeholder={translateKey(
+                                            "site.copy.your_email_example_com",
+                                        )}
                                         required
                                         value={form.data.email}
                                         onChange={(e) =>
@@ -262,18 +311,50 @@ export default function Contact() {
                                             )
                                         }
                                     />
-                                    <Select
+                                    <Select<string>
                                         required
                                         name="subject"
                                         label={t("publicForms.subject")}
-                                        placeholder="- Select -"
+                                        placeholder={translateKey(
+                                            "site.copy.select",
+                                        )}
                                         data={[
-                                            "General enquiry",
-                                            "Product enquiry",
-                                            "Request a quote",
-                                            "Survey services",
-                                            "Training course",
-                                            "Technical support",
+                                            {
+                                                value: "General enquiry",
+                                                label: translateKey(
+                                                    "site.extra.general_enquiry",
+                                                ),
+                                            },
+                                            {
+                                                value: "Product enquiry",
+                                                label: translateKey(
+                                                    "site.extra.product_enquiry",
+                                                ),
+                                            },
+                                            {
+                                                value: "Request a quote",
+                                                label: translateKey(
+                                                    "site.extra.request_a_quote",
+                                                ),
+                                            },
+                                            {
+                                                value: "Survey services",
+                                                label: translateKey(
+                                                    "site.extra.survey_services",
+                                                ),
+                                            },
+                                            {
+                                                value: "Training course",
+                                                label: translateKey(
+                                                    "site.extra.training_course",
+                                                ),
+                                            },
+                                            {
+                                                value: "Technical support",
+                                                label: translateKey(
+                                                    "site.extra.technical_support",
+                                                ),
+                                            },
                                         ]}
                                         onChange={(v) =>
                                             form.setData("subject", v)
@@ -282,7 +363,9 @@ export default function Contact() {
                                     <Textarea
                                         name="message"
                                         label={t("publicForms.message")}
-                                        placeholder="Please describe your enquiry, including which products or services you are interested in and your application area."
+                                        placeholder={translateKey(
+                                            "site.copy.please_describe_your_enquiry_including_which_products_or_services_you_are_interested_in_an",
+                                        )}
                                         required
                                         value={form.data.message}
                                         onChange={(e) =>

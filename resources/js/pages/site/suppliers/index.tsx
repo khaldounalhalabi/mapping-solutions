@@ -1,3 +1,4 @@
+import { formatNumber, translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ApiSelect from "@/components/form/fields/select/api-select";
 import Http from "@/modules/http/http";
@@ -8,8 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "@inertiajs/react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { MoveRightIcon } from "lucide-react";
 import { useState } from "react";
+import MoveRightIcon from "@/components/site/icons/move-right-icon";
 
 const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
     const [selectedTechnologyId, setSelectedTechnologyId] = useState<
@@ -35,24 +36,28 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
-                    Partnerships · since 2004
+                    {" "}
+                    {translateKey("site.copy.partnerships_since_2004")}{" "}
                 </h2>
                 <h1
                     className={
                         "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
                     }
                 >
-                    The manufacturers we represent
+                    {" "}
+                    {translateKey(
+                        "site.copy.the_manufacturers_we_represent",
+                    )}{" "}
                 </h1>
                 <p
                     className={
                         "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
-                    We work directly with 9 specialist instrument makers across
-                    hyperspectral, thermal, LiDAR and spectroradiometry — which
-                    means factory-level technical backing, combined with
-                    UK-based advice, training and after-sales support.
+                    {" "}
+                    {translateKey(
+                        "site.copy.we_work_directly_with_9_specialist_instrument_makers_across_hyperspectral_thermal_lidar_an",
+                    )}{" "}
                 </p>
                 <div
                     className={
@@ -77,9 +82,9 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                             onChange={(option) =>
                                 setSelectedTechnologyId(option?.value)
                             }
-                            placeHolder={
-                                "All product technologies or select one to filter"
-                            }
+                            placeHolder={translateKey(
+                                "site.extra.all_product_technologies_or_select_one_to_filter",
+                            )}
                             styles={{
                                 dropDownItemClasses:         "hover:bg-navy",
                                 selectedDropDownItemClasses: "bg-navy",
@@ -100,7 +105,8 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                         className={"flex gap-8 flex-col items-start w-full"}
                     >
                         <SectionKicker>
-                            {t.suppliers?.length} Manufacturers
+                            {formatNumber(t.suppliers?.length ?? 0)}{" "}
+                            {translateKey("site.copy.manufacturers_2")}{" "}
                         </SectionKicker>
                         <h2 className={"text-2xl font-extrabold"}>
                             {translate(t.name)}
@@ -148,8 +154,12 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                     variant={"secondary"}
                                                     className={"p-3"}
                                                 >
-                                                    {s.products_count}
-                                                    Products
+                                                    {formatNumber(
+                                                        s.products_count ?? 0,
+                                                    )}{" "}
+                                                    {translateKey(
+                                                        "site.copy.products_2",
+                                                    )}{" "}
                                                 </Badge>
                                             </div>
                                         </div>
@@ -161,7 +171,10 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 "text-paragraph text-xs font-extrabold uppercase"
                                             }
                                         >
-                                            Product Ranges
+                                            {" "}
+                                            {translateKey(
+                                                "site.copy.product_ranges",
+                                            )}{" "}
                                         </h3>
                                         <div
                                             className={
@@ -198,7 +211,9 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                         variant={"hero"}
                                                         className={"px-6 py-5"}
                                                     >
-                                                        View Products
+                                                        {translateKey(
+                                                            "site.copy.view_products",
+                                                        )}
                                                         <MoveRightIcon />
                                                     </Button>
                                                 </Link>
@@ -211,7 +226,10 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                         }
                                                         variant={"link"}
                                                     >
-                                                        Request a quote
+                                                        {" "}
+                                                        {translateKey(
+                                                            "site.copy.request_a_quote",
+                                                        )}{" "}
                                                     </Button>
                                                 </Link>
                                             </div>

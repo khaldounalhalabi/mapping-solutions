@@ -1,3 +1,4 @@
+import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import { translate } from "@/models/translatable";
@@ -44,7 +45,7 @@ const Show = ({
                         "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
-                    {article.created_at}
+                    {formatDate(article.created_at)}
                 </p>
             </section>
             <div
@@ -64,7 +65,10 @@ const Show = ({
                 <PublicRichText html={translate(article.content)} />
                 <Separator />
                 <div className={"flex items-center gap-3"}>
-                    <h2 className={"uppercase text-xs font-bold"}>Share</h2>
+                    <h2 className={"uppercase text-xs font-bold"}>
+                        {" "}
+                        {translateKey("site.copy.share")}{" "}
+                    </h2>
                     <a
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
                         target="_blank"
@@ -103,16 +107,22 @@ const Show = ({
                         }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
-                            Question about something in this article?
+                            {" "}
+                            {translateKey(
+                                "site.copy.question_about_something_in_this_article",
+                            )}{" "}
                         </h1>
                         <p className={"text-sm text-paragraph"}>
-                            Our engineers can talk through how it applies to
-                            your measurement requirement.
+                            {" "}
+                            {translateKey(
+                                "site.copy.our_engineers_can_talk_through_how_it_applies_to_your_measurement_requirement",
+                            )}{" "}
                         </p>
                     </div>
                     <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
-                            Get in touch
+                            {" "}
+                            {translateKey("site.copy.get_in_touch")}{" "}
                         </Button>
                     </Link>
                 </div>
@@ -130,7 +140,8 @@ const Show = ({
                                 dir={"back"}
                                 className={"text-navy-secondary"}
                             >
-                                Previous
+                                {" "}
+                                {translateKey("site.copy.previous")}{" "}
                             </MoveLink>
                             <h2 className={"text-sm font-bold"}>
                                 {translate(prevArticle.title)}
@@ -145,7 +156,8 @@ const Show = ({
                         dir={"back"}
                         className={"text-navy-secondary"}
                     >
-                        Back to news
+                        {" "}
+                        {translateKey("site.copy.back_to_news")}{" "}
                     </MoveLink>
                 </div>
             </div>

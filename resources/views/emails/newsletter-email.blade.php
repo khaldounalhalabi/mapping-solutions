@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,8 +11,8 @@
     <hr />
 
     <p>
-        You are receiving this email because you subscribed to our newsletter.
-        <a href="{{ $unsubscribeUrl }}">Unsubscribe</a>
+        {{ __('site.mail.subscription_reason') }}
+        <a href="{{ $unsubscribeUrl }}">{{ __('site.mail.unsubscribe') }}</a>
     </p>
 </body>
 </html>

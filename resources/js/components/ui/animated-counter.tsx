@@ -1,3 +1,4 @@
+import { formatNumber } from "@/hooks/use-translation";
 import { useEffect, useRef, useState } from "react";
 
 interface AnimatedCounterProps {
@@ -71,7 +72,7 @@ const AnimatedCounter = ({
 
     return (
         <span ref={ref}>
-            {count}
+            {formatNumber(count)}
             {suffix}
         </span>
     );

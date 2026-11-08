@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import CatalogueSearch from "@/components/site/products/catalogue-search";
 import { useTranslation } from "@/hooks/use-translation";
@@ -16,22 +17,28 @@ const IndexHeroSection = () => {
                     "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                 }
             >
-                product catalogue
+                {" "}
+                {translateKey("site.copy.product_catalogue")}{" "}
             </h2>
             <h1
                 className={
                     "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
                 }
             >
-                Instruments for measurement beyond the visible spectrum
+                {" "}
+                {translateKey(
+                    "site.copy.instruments_for_measurement_beyond_the_visible_spectrum",
+                )}{" "}
             </h1>
             <p
                 className={
                     "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                 }
             >
-                Browse by what you need to measure. Every instrument comes with
-                UK technical support and training.
+                {" "}
+                {translateKey(
+                    "site.copy.browse_by_what_you_need_to_measure_every_instrument_comes_with_uk_technical_support_and_tr",
+                )}{" "}
             </p>
             <div
                 className={

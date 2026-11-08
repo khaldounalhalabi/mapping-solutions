@@ -1,3 +1,4 @@
+import { useTranslation } from "@/hooks/use-translation";
 import AnimatedCounter from "@/components/ui/animated-counter";
 import { useMemo } from "react";
 import useSettings from "@/hooks/use-settings";
@@ -5,6 +6,7 @@ import SettingKeyEnum from "@/enums/setting-key-enum";
 import { usePage } from "@inertiajs/react";
 
 const HeroCounts = () => {
+    const { t } = useTranslation();
     const { valueOf } = useSettings();
     const years =
         new Date().getFullYear() - (valueOf(SettingKeyEnum.START_YEAR) ?? 0);
@@ -16,21 +18,18 @@ const HeroCounts = () => {
             {
                 value:       years,
                 suffix:      "+",
-                description:
-                    "Years supplying remote sensing instrumentation to research, defence and industry",
+                description: t("site.home.years"),
             },
             {
                 value:       suppliers_count,
-                description:
-                    "Manufacturers represented, with factory-level technical support",
+                description: t("site.home.manufacturers"),
             },
             {
                 value:       products_count,
-                description:
-                    "Instruments listed, each with complete specifications",
+                description: t("site.home.instruments"),
             },
         ],
-        [],
+        [years, suppliers_count, products_count, t],
     );
     return (
         <div className="grid grid-cols-1 sm:grid-cols-3 w-full items-start gap-10 justify-between">

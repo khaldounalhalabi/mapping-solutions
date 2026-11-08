@@ -418,7 +418,7 @@ function ApiSelect<
                 </div>
                 <div
                     className={cn(
-                        "bg-popover absolute left-0 z-50 w-full overflow-y-scroll rounded-lg border px-3 pb-3 shadow-2xl transition-all duration-300",
+                        "bg-popover absolute start-0 z-50 w-full overflow-y-scroll rounded-lg border px-3 pb-3 shadow-2xl transition-all duration-300",
                         isOpen
                             ? "scale-100 opacity-100"
                             : "pointer-events-none scale-95 opacity-0",

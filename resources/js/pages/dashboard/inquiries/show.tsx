@@ -1,3 +1,4 @@
+import { formatDate } from "@/hooks/use-translation";
 import { Button } from "@/components/ui/button";
 import PageCard from "@/components/ui/page-card";
 import { Link, useForm } from "@inertiajs/react";
@@ -122,9 +123,10 @@ const Show = ({ inquiry }: { inquiry: Inquiry }) => {
                                 label={t("models.Inquiry.fields.responded_at")}
                                 value={
                                     inquiry.responded_at
-                                        ? new Date(
-                                              inquiry.responded_at,
-                                          ).toLocaleString()
+                                        ? formatDate(inquiry.responded_at, {
+                                              dateStyle: "long",
+                                              timeStyle: "short",
+                                          })
                                         : "—"
                                 }
                             />

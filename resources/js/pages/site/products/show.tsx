@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import Product from "@/models/product";
 import { translate } from "@/models/translatable";
@@ -54,15 +55,18 @@ const Show = ({ product }: { product: Product }) => {
                         variant={"hero"}
                         size={"hero"}
                     >
-                        Request a quote
+                        {" "}
+                        {translateKey("site.copy.request_a_quote")}{" "}
                     </Button>
                     <p
                         className={
                             "hidden md:block text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                         }
                     >
-                        No obligation — we reply within one working day with
-                        pricing and availability.
+                        {" "}
+                        {translateKey(
+                            "site.copy.no_obligation_we_reply_within_one_working_day_with_pricing_and_availability",
+                        )}{" "}
                     </p>
                 </div>
 
@@ -99,7 +103,10 @@ const Show = ({ product }: { product: Product }) => {
                                     "uppercase text-navy-secondary font-extrabold text-xs"
                                 }
                             >
-                                Key Specifications
+                                {" "}
+                                {translateKey(
+                                    "site.copy.key_specifications",
+                                )}{" "}
                             </h2>
                         </div>
                         <p
@@ -127,7 +134,8 @@ const Show = ({ product }: { product: Product }) => {
                                     "uppercase text-navy-secondary font-extrabold text-xs"
                                 }
                             >
-                                Pricing
+                                {" "}
+                                {translateKey("site.copy.pricing")}{" "}
                             </h2>
                         </div>
                         <p
@@ -151,7 +159,8 @@ const Show = ({ product }: { product: Product }) => {
                                     "uppercase text-navy-secondary font-extrabold text-xs"
                                 }
                             >
-                                Support
+                                {" "}
+                                {translateKey("site.copy.support")}{" "}
                             </h2>
                         </div>
                         <p
@@ -182,16 +191,25 @@ const Show = ({ product }: { product: Product }) => {
                     "flex flex-col items-start gap-5 px-page-padding py-12 lg:py-26"
                 }
             >
-                <SectionKicker>Product Details</SectionKicker>
-                <SectionTitle>Everything about this product</SectionTitle>
+                <SectionKicker>
+                    {" "}
+                    {translateKey("site.copy.product_details")}{" "}
+                </SectionKicker>
+                <SectionTitle>
+                    {" "}
+                    {translateKey(
+                        "site.copy.everything_about_this_product",
+                    )}{" "}
+                </SectionTitle>
                 <p
                     className={
                         "text-paragraph text-xs max-w-full lg:max-w-1/2 text-wrap"
                     }
                 >
-                    Move between a plain-English overview, the full technical
-                    specifications, downloadable documents, and typical
-                    applications.
+                    {" "}
+                    {translateKey(
+                        "site.copy.move_between_a_plain_english_overview_the_full_technical_specifications_downloadable_docum",
+                    )}{" "}
                 </p>
 
                 <Tabs defaultValue={"overview"} className="w-full min-w-0">
@@ -200,25 +218,29 @@ const Show = ({ product }: { product: Product }) => {
                             className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"overview"}
                         >
-                            Overview
+                            {" "}
+                            {translateKey("site.copy.overview")}{" "}
                         </TabsTrigger>
                         <TabsTrigger
                             className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"specifications"}
                         >
-                            Specifications
+                            {" "}
+                            {translateKey("site.copy.specifications")}{" "}
                         </TabsTrigger>
                         <TabsTrigger
                             className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"downloads"}
                         >
-                            Downloads
+                            {" "}
+                            {translateKey("site.copy.downloads")}{" "}
                         </TabsTrigger>
                         <TabsTrigger
                             className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"applications"}
                         >
-                            Applications
+                            {" "}
+                            {translateKey("site.copy.applications_2")}{" "}
                         </TabsTrigger>
                     </TabsList>
                     <TabsContent value={"overview"}>
@@ -249,7 +271,9 @@ const Show = ({ product }: { product: Product }) => {
                                     </div>
                                 ) : (
                                     <DownloadableCard
-                                        name={"Specification File"}
+                                        name={translateKey(
+                                            "site.extra.specification_file",
+                                        )}
                                         media={product.specifications_file}
                                     />
                                 ))}
@@ -267,21 +291,23 @@ const Show = ({ product }: { product: Product }) => {
                         >
                             {product.datasheet && (
                                 <DownloadableCard
-                                    name={"Technical Datasheet"}
+                                    name={translateKey(
+                                        "site.extra.technical_datasheet",
+                                    )}
                                     media={product.datasheet}
                                 />
                             )}
 
                             {product.manual && (
                                 <DownloadableCard
-                                    name={"Manual"}
+                                    name={translateKey("site.extra.manual")}
                                     media={product.manual}
                                 />
                             )}
 
                             {product.brochure && (
                                 <DownloadableCard
-                                    name={"Brocure"}
+                                    name={translateKey("site.extra.brocure")}
                                     media={product.brochure}
                                 />
                             )}
@@ -320,19 +346,26 @@ const Show = ({ product }: { product: Product }) => {
                             <h1
                                 className={"font-extrabold text-navy-secondary"}
                             >
-                                Not sure this is the right instrument?
+                                {" "}
+                                {translateKey(
+                                    "site.copy.not_sure_this_is_the_right_instrument",
+                                )}{" "}
                             </h1>
                             <p className={"text-sm text-paragraph"}>
-                                Tell us what you're surveying, over what area,
-                                and to what accuracy. We'll confirm whether this
-                                fits — or point you at something that does.{" "}
+                                {" "}
+                                {translateKey(
+                                    "site.copy.tell_us_what_you_re_surveying_over_what_area_and_to_what_accuracy_we_ll_confirm_whether_th",
+                                )}{" "}
                                 <Link
                                     className={
                                         "text-navy-secondary font-bold hover:underline"
                                     }
                                     href={route("site.contact")}
                                 >
-                                    Ask our technical team.
+                                    {" "}
+                                    {translateKey(
+                                        "site.copy.ask_our_technical_team",
+                                    )}{" "}
                                 </Link>
                             </p>
                         </div>
@@ -351,7 +384,9 @@ const Show = ({ product }: { product: Product }) => {
                         dir={"back"}
                         className={"text-navy-secondary font-extrabold"}
                     >
-                        Back to {product.supplier?.name}
+                        {" "}
+                        {translateKey("site.copy.back_to")}{" "}
+                        {product.supplier?.name}
                     </MoveLink>
                     <MoveLink
                         href={route("site.products.product.technologies.show", {
@@ -368,7 +403,8 @@ const Show = ({ product }: { product: Product }) => {
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >
-                        All Categories
+                        {" "}
+                        {translateKey("site.copy.all_categories")}{" "}
                     </MoveLink>
                 </div>
             </div>

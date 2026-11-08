@@ -7,7 +7,8 @@
         "dev": "vite",
         "typecheck": "tsc -b --noEmit",
         "format": "prettier --write .",
-        "prepare": "husky"
+        "prepare": "husky",
+        "test:localization": "node tests/Unit/localization.test.mjs"
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,json,css,scss,md,yml,yaml}": [

@@ -16,10 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function () {
 
-            Route::middleware(['web', 'locale'])
+            Route::middleware(['web'])
                 ->group(base_path('routes/v1/web/public.php'));
 
-            Route::middleware(['web', 'locale', 'authenticated:web'])
+            Route::middleware(['web', 'authenticated:web'])
                 ->group(base_path('routes/v1/web/protected.php'));
 
         },
@@ -33,6 +33,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->web(append: [
+            AcceptedLanguagesMiddleware::class,
             HandleInertiaRequests::class,
         ]);
     })->withExceptions(function (Exceptions $exceptions): void {

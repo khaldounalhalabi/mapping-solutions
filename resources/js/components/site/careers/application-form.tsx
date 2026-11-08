@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { useForm } from "@inertiajs/react";
 import Form from "@/components/form/form";
@@ -57,7 +58,7 @@ export default function ApplicationForm({
                     }}
                 >
                     {!vacancy && (
-                        <Select
+                        <Select<string>
                             name="vacancy_id"
                             label={t("publicForms.role")}
                             selected="speculative"
@@ -91,7 +92,7 @@ export default function ApplicationForm({
                             onChange={(e) =>
                                 form.setData("first_name", e.target.value)
                             }
-                            placeholder="First Name"
+                            placeholder={translateKey("site.copy.first_name")}
                         />
                         <Input
                             name="last_name"
@@ -103,7 +104,7 @@ export default function ApplicationForm({
                             onChange={(e) =>
                                 form.setData("last_name", e.target.value)
                             }
-                            placeholder="Last Name"
+                            placeholder={translateKey("site.copy.last_name")}
                         />
                     </div>
                     <Input
@@ -115,7 +116,9 @@ export default function ApplicationForm({
                         required
                         value={form.data.email}
                         onChange={(e) => form.setData("email", e.target.value)}
-                        placeholder="your.email@example.com"
+                        placeholder={translateKey(
+                            "site.copy.your_email_example_com",
+                        )}
                     />
                     <Input
                         name="phone"
@@ -126,18 +129,33 @@ export default function ApplicationForm({
                         required
                         value={form.data.phone}
                         onChange={(e) => form.setData("phone", e.target.value)}
-                        placeholder="e.g. +44 7123 456789"
+                        placeholder={t("publicForms.phone_example")}
                     />
-                    <Select
+                    <Select<string>
                         name="referral_source"
                         label={t("publicForms.referral")}
-                        placeholder="- Select -"
+                        placeholder={translateKey("site.copy.select")}
                         data={[
-                            "Website",
-                            "LinkedIn",
-                            "Job Board",
-                            "Referral",
-                            "Other",
+                            {
+                                value: "Website",
+                                label: translateKey("site.extra.website"),
+                            },
+                            {
+                                value: "LinkedIn",
+                                label: translateKey("site.extra.linkedin"),
+                            },
+                            {
+                                value: "Job Board",
+                                label: translateKey("site.extra.job_board"),
+                            },
+                            {
+                                value: "Referral",
+                                label: translateKey("site.extra.referral"),
+                            },
+                            {
+                                value: "Other",
+                                label: translateKey("site.extra.other"),
+                            },
                         ]}
                         onChange={(v) => form.setData("referral_source", v)}
                     />
@@ -149,7 +167,9 @@ export default function ApplicationForm({
                         onChange={(e) =>
                             form.setData("cover_letter", e.target.value)
                         }
-                        placeholder="Tell us why you are interested in this position"
+                        placeholder={translateKey(
+                            "site.copy.tell_us_why_you_are_interested_in_this_position",
+                        )}
                     />
                     <Textarea
                         name="relevant_experience"
@@ -158,7 +178,9 @@ export default function ApplicationForm({
                         onChange={(e) =>
                             form.setData("relevant_experience", e.target.value)
                         }
-                        placeholder="Describe your experience in remote sensing, LiDAR, GIS or related fields"
+                        placeholder={translateKey(
+                            "site.copy.describe_your_experience_in_remote_sensing_lidar_gis_or_related_fields",
+                        )}
                     />
                     <Input
                         name="linkedin_url"
@@ -175,23 +197,41 @@ export default function ApplicationForm({
                         name="eligible_to_work_in_uk"
                         label={t("publicForms.eligible")}
                         items={[
-                            { value: "1", label: "Yes" },
-                            { value: "0", label: "No" },
+                            {
+                                value: "1",
+                                label: translateKey("site.copy.yes"),
+                            },
+                            { value: "0", label: translateKey("site.copy.no") },
                         ]}
                         onChange={(v) =>
                             form.setData("eligible_to_work_in_uk", v)
                         }
                     />
-                    <Select
+                    <Select<string>
                         name="notice_period"
                         label={t("publicForms.notice")}
-                        placeholder="- Select -"
+                        placeholder={translateKey("site.copy.select")}
                         data={[
-                            "Immediate",
-                            "1 Month",
-                            "2 Months",
-                            "3 Months",
-                            "Other",
+                            {
+                                value: "Immediate",
+                                label: translateKey("site.extra.immediate"),
+                            },
+                            {
+                                value: "1 Month",
+                                label: translateKey("site.extra.1_month"),
+                            },
+                            {
+                                value: "2 Months",
+                                label: translateKey("site.extra.2_months"),
+                            },
+                            {
+                                value: "3 Months",
+                                label: translateKey("site.extra.3_months"),
+                            },
+                            {
+                                value: "Other",
+                                label: translateKey("site.extra.other"),
+                            },
                         ]}
                         onChange={(v) => form.setData("notice_period", v)}
                     />

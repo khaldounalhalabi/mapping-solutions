@@ -1,44 +1,46 @@
+import { useTranslation } from "@/hooks/use-translation";
 import { Link } from "@inertiajs/react";
 import { cn } from "@/lib/utils";
 import { isUrlActive } from "@/helper";
 
 const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
+    const { t } = useTranslation();
     const LINKS = [
         {
             link:  route("site.index"),
-            title: "home",
+            title: t("site.navigation.home"),
         },
         {
             link:  route("site.products"),
-            title: "products",
+            title: t("site.navigation.products"),
         },
         {
             link:  route("site.applications"),
-            title: "applications",
+            title: t("site.navigation.applications"),
         },
         {
             link:  route("site.suppliers"),
-            title: "suppliers",
+            title: t("site.navigation.suppliers"),
         },
         {
             link:  route("site.services"),
-            title: "services",
+            title: t("site.navigation.services"),
         },
         {
             link:  route("site.news"),
-            title: "news",
+            title: t("site.navigation.news"),
         },
         {
             link:  route("site.about"),
-            title: "about",
+            title: t("site.navigation.about"),
         },
         {
             link:  route("site.careers"),
-            title: "careers",
+            title: t("site.navigation.careers"),
         },
         {
             link:  route("site.contact"),
-            title: "contact",
+            title: t("site.navigation.contact"),
         },
     ];
     return (

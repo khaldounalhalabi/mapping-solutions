@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
@@ -9,15 +10,20 @@ const ContactSection = () => {
         >
             <div className={"flex flex-col items-center gap-6"}>
                 <h1 className={"text-white font-bold text-4xl"}>
-                    Technical guidance on instrument selection
+                    {" "}
+                    {translateKey(
+                        "site.copy.technical_guidance_on_instrument_selection",
+                    )}{" "}
                 </h1>
                 <p className={"text-white/60 text-sm text-center md:max-w-1/2"}>
-                    Provide the measurement requirement, the area to be covered
-                    and the accuracy required, and our engineers will recommend
-                    the most appropriate system for the application.
+                    {" "}
+                    {translateKey(
+                        "site.copy.provide_the_measurement_requirement_the_area_to_be_covered_and_the_accuracy_required_and_o",
+                    )}{" "}
                 </p>
                 <Button variant={"hero"} size={"hero"}>
-                    Contact our technical team
+                    {" "}
+                    {translateKey("site.copy.contact_our_technical_team")}{" "}
                 </Button>
             </div>
         </div>

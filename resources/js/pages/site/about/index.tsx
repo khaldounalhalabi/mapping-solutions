@@ -1,3 +1,5 @@
+import { formatNumber } from "@/hooks/use-translation";
+import { translateKey } from "@/hooks/use-translation";
 import { translate } from "@/models/translatable";
 import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
@@ -14,20 +16,28 @@ const rangeTranslation = (value: string) =>
 
 const steps = [
     {
-        title: "Understand the measurement",
-        copy:  "What needs to be detected, over what area, at what resolution and from which platform. These four answers narrow the field considerably, and often rule out instruments that looked suitable on paper.",
+        title: translateKey("site.copy.understand_the_measurement"),
+        copy:  translateKey(
+            "site.copy.what_needs_to_be_detected_over_what_area_at_what_resolution_and_from_which_platform_these_",
+        ),
     },
     {
-        title: "Match it independently",
-        copy:  "We represent specialist manufacturers across hyperspectral, thermal, LiDAR and spectroradiometry, so the recommendation follows the application rather than a single product line.",
+        title: translateKey("site.copy.match_it_independently"),
+        copy:  translateKey(
+            "site.copy.we_represent_specialist_manufacturers_across_hyperspectral_thermal_lidar_and_spectroradiom",
+        ),
     },
     {
-        title: "Or fly it for you",
-        copy:  "We operate our own airborne survey capability, covering hyperspectral, LiDAR, thermal, photography and radar acquisition. Where a project needs the data rather than the hardware, a survey campaign is often the more sensible route.",
+        title: translateKey("site.copy.or_fly_it_for_you"),
+        copy:  translateKey(
+            "site.copy.we_operate_our_own_airborne_survey_capability_covering_hyperspectral_lidar_thermal_photogr",
+        ),
     },
     {
-        title: "Support and training",
-        copy:  "Technical support, calibration and repair are handled in the UK. We also run hands-on training in image processing, GIS and remote sensing online or at your own facility.",
+        title: translateKey("site.copy.support_and_training"),
+        copy:  translateKey(
+            "site.copy.technical_support_calibration_and_repair_are_handled_in_the_uk_we_also_run_hands_on_traini",
+        ),
     },
 ];
 
@@ -128,16 +138,25 @@ const Index = ({
                                 "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                             }
                         >
-                            About Mapping Solutions
+                            {" "}
+                            {translateKey(
+                                "site.copy.about_mapping_solutions",
+                            )}{" "}
                         </h2>
                         <h1
                             className={
                                 "text-[clamp(2.3rem,5.2vw,3.9rem)] leading-[1.05] tracking-tight text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
                             }
                         >
-                            Remote sensing instruments and{" "}
+                            {" "}
+                            {translateKey(
+                                "site.copy.remote_sensing_instruments_and",
+                            )}{" "}
                             <span className="about-spectrum-text bg-spectrum bg-clip-text text-transparent">
-                                the people who fly them
+                                {" "}
+                                {translateKey(
+                                    "site.copy.the_people_who_fly_them",
+                                )}{" "}
                             </span>
                         </h1>
                         <p
@@ -145,10 +164,10 @@ const Index = ({
                                 "text-base leading-relaxed text-white/80 max-w-[48ch] starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                             }
                         >
-                            Founded in 2004, we supply LiDAR, hyperspectral and
-                            spectroradiometer systems from leading
-                            manufacturers, and operate our own airborne survey
-                            capability.
+                            {" "}
+                            {translateKey(
+                                "site.copy.founded_in_2004_we_supply_lidar_hyperspectral_and_spectroradiometer_systems_from_leading_m",
+                            )}{" "}
                         </p>
                         <div className={"grid grid-cols-3 w-full gap-3"}>
                             <div className={"space-y-1"}>
@@ -167,7 +186,8 @@ const Index = ({
                                         "text-white/50 text-[11px] font-bold uppercase tracking-wider"
                                     }
                                 >
-                                    Years
+                                    {" "}
+                                    {translateKey("site.copy.years")}{" "}
                                 </p>
                             </div>
                             <div className={"space-y-1"}>
@@ -176,14 +196,17 @@ const Index = ({
                                         "text-3xl text-band font-extrabold"
                                     }
                                 >
-                                    {suppliers_count}
+                                    {formatNumber(suppliers_count ?? 0)}
                                 </h2>
                                 <p
                                     className={
                                         "text-white/50 text-[11px] font-bold uppercase tracking-wider"
                                     }
                                 >
-                                    Manufacturers
+                                    {" "}
+                                    {translateKey(
+                                        "site.copy.manufacturers_2",
+                                    )}{" "}
                                 </p>
                             </div>
                             <div className={"space-y-1"}>
@@ -192,14 +215,15 @@ const Index = ({
                                         "text-3xl text-band font-extrabold"
                                     }
                                 >
-                                    {products_count}
+                                    {formatNumber(products_count ?? 0)}
                                 </h2>
                                 <p
                                     className={
                                         "text-white/50 text-[11px] font-bold uppercase tracking-wider"
                                     }
                                 >
-                                    Instruments
+                                    {" "}
+                                    {translateKey("site.copy.instruments")}{" "}
                                 </p>
                             </div>
                         </div>
@@ -222,13 +246,17 @@ const Index = ({
                         "max-w-[22ch] text-navy text-[clamp(1.55rem,3.6vw,2.5rem)] leading-tight font-extrabold starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
-                    A hyperspectral sensor doesn't take a{" "}
+                    {" "}
+                    {translateKey(
+                        "site.copy.a_hyperspectral_sensor_doesn_t_take_a",
+                    )}{" "}
                     <span
                         className={
                             "border-b-4 [border-image:var(--spectrum)_1]"
                         }
                     >
-                        photograph
+                        {" "}
+                        {translateKey("site.copy.photograph")}{" "}
                     </span>
                 </h1>
                 <p
@@ -236,18 +264,19 @@ const Index = ({
                         "max-w-[58ch] text-paragraph text-[15.5px] leading-[1.88] starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
-                    It records hundreds of narrow wavelength bands for every
-                    pixel, so a mineral, a crop disease or a gas plume can be
-                    identified by its spectral signature rather than its
-                    appearance. Which bands you need, at what resolution, from
-                    which platform, depends entirely on the question being asked
-                    and{" "}
+                    {" "}
+                    {translateKey(
+                        "site.copy.it_records_hundreds_of_narrow_wavelength_bands_for_every_pixel_so_a_mineral_a_crop_disease",
+                    )}{" "}
                     <strong className={"font-bold text-navy"}>
-                        an instrument specified for the wrong question can't be
-                        corrected afterwards.
+                        {" "}
+                        {translateKey(
+                            "site.copy.an_instrument_specified_for_the_wrong_question_can_t_be_corrected_afterwards",
+                        )}{" "}
                     </strong>{" "}
-                    Helping customers get that decision right is most of what we
-                    do.
+                    {translateKey(
+                        "site.copy.helping_customers_get_that_decision_right_is_most_of_what_we_do",
+                    )}{" "}
                 </p>
             </section>
 
@@ -266,17 +295,23 @@ const Index = ({
                             id="spectrum-heading"
                             className="max-w-[22ch] text-[clamp(1.65rem,3.3vw,2.3rem)] leading-tight font-extrabold tracking-tight"
                         >
-                            Different questions live in different bands
+                            {" "}
+                            {translateKey(
+                                "site.copy.different_questions_live_in_different_bands",
+                            )}{" "}
                         </h2>
                         <p className="mt-4 max-w-[58ch] text-[15.5px] leading-relaxed text-[#a9c4e2]">
-                            A quick tour of the ranges we supply instruments
-                            for, and what each one is used to measure. Pick a
-                            band or watch it cycle.
+                            {" "}
+                            {translateKey(
+                                "site.copy.a_quick_tour_of_the_ranges_we_supply_instruments_for_and_what_each_one_is_used_to_measure_",
+                            )}{" "}
                         </p>
                         <div className="relative mt-11">
                             <div
                                 role="tablist"
-                                aria-label="Instrument wavelength bands"
+                                aria-label={translateKey(
+                                    "site.copy.instrument_wavelength_bands",
+                                )}
                                 className="grid grid-cols-5 gap-1"
                             >
                                 {bands.map((item, index) => (
@@ -314,7 +349,7 @@ const Index = ({
                                             selectBand(next);
                                             bandRefs.current[next]?.focus();
                                         }}
-                                        className="relative min-w-0 cursor-pointer text-left outline-offset-4 focus-visible:outline-2 focus-visible:outline-white"
+                                        className="relative min-w-0 cursor-pointer text-start outline-offset-4 focus-visible:outline-2 focus-visible:outline-white"
                                     >
                                         <span
                                             className={`mt-3 block text-[10px] font-bold tracking-wide min-[621px]:text-[11.5px] ${activeBand === index ? "text-white" : "text-[#7d9dc4]"}`}
@@ -335,7 +370,7 @@ const Index = ({
                             <div
                                 ref={progressRef}
                                 style={{ backgroundColor: band.colour }}
-                                className="h-full origin-left transform-[scaleX(0)] rounded-xs transition-colors duration-350"
+                                className="h-full origin-inline-start transform-[scaleX(0)] rounded-xs transition-colors duration-350"
                             />
                         </div>
                         <button
@@ -345,8 +380,12 @@ const Index = ({
                             className="sr-only rounded text-xs text-white focus:not-sr-only focus:mt-3 focus:p-2 focus:outline-2 focus:outline-white"
                         >
                             {isCycling
-                                ? "Pause automatic cycling"
-                                : "Resume automatic cycling"}
+                                ? translateKey(
+                                      "site.extra.pause_automatic_cycling",
+                                  )
+                                : translateKey(
+                                      "site.extra.resume_automatic_cycling",
+                                  )}
                         </button>
                         <div
                             id="band-detail"
@@ -354,7 +393,7 @@ const Index = ({
                             aria-labelledby={`band-${activeBand}`}
                             tabIndex={0}
                             style={{ borderLeftColor: band.colour }}
-                            className="mt-6.5 grid gap-6 rounded-[18px] border border-white/13 border-l-4 bg-white/5 px-6 py-6.5 outline-offset-4 min-[981px]:min-h-44 min-[981px]:grid-cols-[1.12fr_0.88fr] min-[981px]:gap-10 min-[981px]:px-9 min-[981px]:py-8.5"
+                            className="mt-6.5 grid gap-6 rounded-[18px] border border-white/13 border-s-4 bg-white/5 px-6 py-6.5 outline-offset-4 min-[981px]:min-h-44 min-[981px]:grid-cols-[1.12fr_0.88fr] min-[981px]:gap-10 min-[981px]:px-9 min-[981px]:py-8.5"
                         >
                             <div>
                                 <h3 className="text-xl font-extrabold tracking-tight">
@@ -394,15 +433,19 @@ const Index = ({
                 className="mx-auto max-w-7xl px-6 py-18 sm:px-10 lg:px-16 lg:py-27"
             >
                 <p className="text-xs font-extrabold tracking-[0.2em] text-navy-secondary uppercase">
-                    How we work
+                    {" "}
+                    {translateKey("site.copy.how_we_work")}{" "}
                 </p>
                 <h2
                     id="process-heading"
                     className="mt-6 max-w-[27ch] text-[clamp(1.65rem,3.3vw,2.3rem)] leading-tight font-extrabold tracking-tight text-navy"
                 >
-                    From the measurement, to the instrument, to the data
+                    {" "}
+                    {translateKey(
+                        "site.copy.from_the_measurement_to_the_instrument_to_the_data",
+                    )}{" "}
                 </h2>
-                <ol className="relative mt-14 before:absolute before:inset-y-8 before:left-6 before:w-0.75 before:bg-spectrum lg:before:left-7">
+                <ol className="relative mt-14 before:absolute before:inset-y-8 before:start-6 before:w-0.75 before:bg-spectrum lg:before:start-7">
                     {steps.map((step, index) => (
                         <li
                             key={step.title}
@@ -432,12 +475,16 @@ const Index = ({
                         id="manufacturers-heading"
                         className="text-3xl font-extrabold tracking-tight text-navy"
                     >
-                        Manufacturers we represent
+                        {" "}
+                        {translateKey(
+                            "site.copy.manufacturers_we_represent",
+                        )}{" "}
                     </h2>
                     <p className="mt-4 max-w-[58ch] text-[15px] leading-relaxed text-paragraph">
-                        We work directly with the manufacturers, which means
-                        technical questions reach the people who built the
-                        instrument.
+                        {" "}
+                        {translateKey(
+                            "site.copy.we_work_directly_with_the_manufacturers_which_means_technical_questions_reach_the_people_w",
+                        )}{" "}
                     </p>
                     <div className="mt-11 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-6">
                         {suppliers.map((supplier) => (
@@ -464,7 +511,8 @@ const Index = ({
                     <div className="mt-12 grid gap-4 sm:grid-cols-3">
                         <div className="h-full rounded-xl border bg-white p-6">
                             <p className="text-[11px] font-extrabold tracking-widest text-paragraph uppercase">
-                                Where we work
+                                {" "}
+                                {translateKey("site.copy.where_we_work")}{" "}
                             </p>
                             <a
                                 href={valueOf(
@@ -482,15 +530,20 @@ const Index = ({
                         </div>
                         <div className="h-full rounded-xl border bg-white p-6">
                             <p className="text-[11px] font-extrabold tracking-widest text-paragraph uppercase">
-                                Languages
+                                {" "}
+                                {translateKey("site.copy.languages")}{" "}
                             </p>
                             <p className="mt-2 text-[15px] leading-relaxed font-bold text-navy">
-                                English · Arabic · French
+                                {" "}
+                                {translateKey(
+                                    "site.copy.english_arabic_french",
+                                )}{" "}
                             </p>
                         </div>
                         <div className="h-full rounded-xl border bg-white p-6">
                             <p className="text-[11px] font-extrabold tracking-widest text-paragraph uppercase">
-                                Speak to us
+                                {" "}
+                                {translateKey("site.copy.speak_to_us")}{" "}
                             </p>
                             <a
                                 href={`tel:${valueOf(SettingKeyEnum.CONTACT_PHONE, "+44 8251 99303")}`}
@@ -512,12 +565,16 @@ const Index = ({
                     className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(110%_150%_at_20%_0%,#0f3159,#08182f_72%)]"
                 />
                 <h2 className="text-[clamp(1.75rem,3.7vw,2.5rem)] leading-tight font-extrabold tracking-tight">
-                    Tell us what you need to measure
+                    {" "}
+                    {translateKey(
+                        "site.copy.tell_us_what_you_need_to_measure",
+                    )}{" "}
                 </h2>
                 <p className="mx-auto mt-4 max-w-[56ch] text-base leading-relaxed text-[#a9c4e2]">
-                    Send us the measurement problem and we'll advise on the
-                    band, the instrument and the platform — or whether a survey
-                    campaign would serve you better than a purchase.
+                    {" "}
+                    {translateKey(
+                        "site.copy.send_us_the_measurement_problem_and_we_ll_advise_on_the_band_the_instrument_and_the_platfo",
+                    )}{" "}
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3">
                     <a
@@ -529,13 +586,15 @@ const Index = ({
                                 "motion-reduce:transform-none motion-reduce:transition-none",
                         })}
                     >
-                        Talk to our team
+                        {" "}
+                        {translateKey("site.copy.talk_to_our_team")}{" "}
                     </a>
                     <Link
                         href={route("site.products")}
                         className="inline-flex items-center justify-center rounded-lg border border-white/40 px-8 py-4 text-sm font-bold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                     >
-                        Browse the catalogue
+                        {" "}
+                        {translateKey("site.copy.browse_the_catalogue")}{" "}
                     </Link>
                 </div>
             </section>

@@ -51,9 +51,11 @@ const TranslatableTextarea: React.FC<TranslatableProps> = ({
     return (
         <Field>
             <FieldSet>
-                {availableLocales.map((lang, index) => (
+                {availableLocales.map((lang) => (
                     <div
-                        key={index}
+                        key={lang}
+                        lang={lang}
+                        dir={lang === "ar" ? "rtl" : "ltr"}
                         className={lang !== locale ? "hidden" : ""}
                     >
                         <Textarea

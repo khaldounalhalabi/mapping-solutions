@@ -3,8 +3,8 @@ import ApiResponse from "@/modules/http/api-response";
 class Http<RESPONSE extends any = any> {
     private static instance: Http | undefined = undefined;
     private baseHeaders = {
-        Accept:            "application/html",
-        "Accept-Language": window.localStorage.getItem("locale") ?? "en",
+        Accept:            "application/json",
+        "Accept-Language": document.documentElement.lang || "en",
     };
     private isFile = false;
 
@@ -208,6 +208,7 @@ class Http<RESPONSE extends any = any> {
                 headers: {
                     ...headers,
                     ...this.baseHeaders,
+                    "Accept-Language": document.documentElement.lang || "en",
                 },
             };
 

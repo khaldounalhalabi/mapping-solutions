@@ -34,7 +34,7 @@ const FormLocaleProvider = ({
                     <ToggleGroup
                         variant={"outline"}
                         onValueChange={(v) =>
-                            setLocale(v[0] as AvailableLocales)
+                            v[0] && setLocale(v[0] as AvailableLocales)
                         }
                         multiple={false}
                         itemType={"single"}

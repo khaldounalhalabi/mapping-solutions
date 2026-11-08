@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import { FileTextIcon } from "lucide-react";
 import Media from "@/models/media";
 import MoveLink from "@/components/ui/move-link";
@@ -22,12 +23,17 @@ const DownloadableCard = ({ name, media }: { name: string; media: Media }) => {
             <div className={"flex flex-col gap-1"}>
                 <h3 className={"font-bold text-sm text-navy"}>{name}</h3>
                 <p className={"text-paragraph text-xs"}>
-                    Full Specifications for Engineers - {media.extension}
+                    {" "}
+                    {translateKey(
+                        "site.copy.full_specifications_for_engineers",
+                    )}{" "}
+                    {media.extension}
                 </p>
             </div>
 
             <MoveLink className={"text-navy-secondary font-extrabold"}>
-                Download
+                {" "}
+                {translateKey("site.copy.download")}{" "}
             </MoveLink>
         </a>
     );

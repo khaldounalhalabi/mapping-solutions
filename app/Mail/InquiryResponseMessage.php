@@ -15,7 +15,10 @@ class InquiryResponseMessage extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public Inquiry $inquiry) {}
+    public function __construct(public Inquiry $inquiry)
+    {
+        $this->locale(config('cubeta-starter.default_locale'));
+    }
 
     /**
      * Get the attachments for the message.

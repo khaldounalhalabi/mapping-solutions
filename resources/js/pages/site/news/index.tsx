@@ -1,3 +1,4 @@
+import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import { translate } from "@/models/translatable";
 import { InfiniteScroll, Link } from "@inertiajs/react";
@@ -16,16 +17,18 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
                         "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
                     }
                 >
-                    Our latest news
+                    {" "}
+                    {translateKey("site.copy.our_latest_news")}{" "}
                 </h1>
                 <p
                     className={
                         "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
-                    Stay up to date with our latest announcements, exciting
-                    developments, and stories. Discover what's new, explore our
-                    progress, and see what we've been working on.
+                    {" "}
+                    {translateKey(
+                        "site.copy.stay_up_to_date_with_our_latest_announcements_exciting_developments_and_stories_discover_w",
+                    )}{" "}
                 </p>
             </section>
             <InfiniteScroll
@@ -45,7 +48,7 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
                             {translate(a.title)}
                         </h1>
                         <p className={"text-paragraph text-sm font-extrabold"}>
-                            {a.created_at}
+                            {formatDate(a.created_at)}
                         </p>
 
                         <p className={"text-paragraph text-xs font-bold"}>

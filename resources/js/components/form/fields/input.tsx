@@ -59,7 +59,7 @@ const Input: React.FC<InputProps> = ({
                     <button
                         type="button"
                         onClick={() => setShowPassword((current) => !current)}
-                        className="text-muted-foreground hover:text-foreground absolute inset-y-0 right-0 flex cursor-pointer items-center px-3"
+                        className="text-muted-foreground hover:text-foreground absolute inset-y-0 end-0 flex cursor-pointer items-center px-3"
                         aria-label={
                             showPassword
                                 ? t("dashboard.accessibility.hide_password")

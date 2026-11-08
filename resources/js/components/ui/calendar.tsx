@@ -1,3 +1,5 @@
+import { usePage } from "@inertiajs/react";
+import { arSA, fr, enGB } from "date-fns/locale";
 import * as React from "react";
 import { cn } from "cn";
 import {
@@ -27,6 +29,8 @@ function Calendar({
 }: React.ComponentProps<typeof DayPicker> & {
     buttonVariant?: React.ComponentProps<typeof Button>["variant"];
 }) {
+    const { currentLocale } = usePage().props;
+    locale ??= { en: enGB, ar: arSA, fr }[currentLocale];
     const defaultClassNames = getDefaultClassNames();
 
     return (
@@ -40,6 +44,7 @@ function Calendar({
             )}
             captionLayout={captionLayout}
             locale={locale}
+            dir={currentLocale === "ar" ? "rtl" : "ltr"}
             formatters={{
                 formatMonthDropdown: (date) =>
                     date.toLocaleString(locale?.code, { month: "short" }),

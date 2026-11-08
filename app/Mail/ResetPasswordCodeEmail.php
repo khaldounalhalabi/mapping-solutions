@@ -21,6 +21,7 @@ class ResetPasswordCodeEmail extends Mailable
     {
         $this->code = $code;
         $this->email = $email;
+        $this->locale(app()->getLocale());
     }
 
     /**
@@ -53,7 +54,7 @@ class ResetPasswordCodeEmail extends Mailable
     {
         return new Envelope(
             to: $this->email,
-            subject: 'Reset password',
+            subject: trans('site.mail.reset_subject'),
         );
     }
 }

@@ -1,3 +1,4 @@
+import { formatDate, translateKey } from "@/hooks/use-translation";
 import { Head, Link } from "@inertiajs/react";
 import { CSSProperties } from "react";
 import { CalendarDays, MapPin } from "lucide-react";
@@ -11,38 +12,52 @@ export default function Careers({
     today,
 }: {
     vacancies: Vacancy[];
-    today: string;
+    today:     string;
 }) {
     const count = vacancies.length;
     return (
         <PublicReveals className="cr">
-            <Head title="Careers | Mapping Solutions">
+            <Head title={translateKey("site.copy.careers_mapping_solutions")}>
                 <meta
                     name="description"
-                    content="Explore careers in remote sensing, geospatial science and specialist instrumentation at Mapping Solutions."
+                    content={translateKey(
+                        "site.extra.explore_careers_in_remote_sensing_geospatial_science_and_specialist_instrumentation_at_map",
+                    )}
                 />
             </Head>
             <section className="hero">
                 <div className="hero-dots" aria-hidden="true" />
                 <div className="w hero-in">
                     <div className="spectrum" />
-                    <p className="kick">Careers</p>
+                    <p className="kick">
+                        {" "}
+                        {translateKey("site.copy.careers")}{" "}
+                    </p>
                     <h1>
                         <span className="line">
-                            <span>Work on instruments</span>
+                            <span>
+                                {" "}
+                                {translateKey(
+                                    "site.copy.work_on_instruments",
+                                )}{" "}
+                            </span>
                         </span>
                         <span className="line">
                             <span>
-                                <em>most people never see</em>
+                                <em>
+                                    {" "}
+                                    {translateKey(
+                                        "site.copy.most_people_never_see",
+                                    )}{" "}
+                                </em>
                             </span>
                         </span>
                     </h1>
                     <p className="hero-lede">
-                        We're a small specialist team supplying and operating
-                        remote sensing instruments for research, defence,
-                        environmental science and industry. If you have a
-                        background in geospatial science, photonics or
-                        instrumentation, we'd like to hear from you.
+                        {" "}
+                        {translateKey(
+                            "site.copy.we_re_a_small_specialist_team_supplying_and_operating_remote_sensing_instruments_for_resea",
+                        )}{" "}
                     </p>
                     <a href="#vacancies" className="hero-pill">
                         <span className="pip" />
@@ -55,9 +70,15 @@ export default function Careers({
             <section className="sec">
                 <div className="w">
                     <div className="head rv">
-                        <span className="k2">Why work with us</span>
+                        <span className="k2">
+                            {" "}
+                            {translateKey("site.copy.why_work_with_us")}{" "}
+                        </span>
                         <h2 className="h2">
-                            A small team, working on specialist equipment
+                            {" "}
+                            {translateKey(
+                                "site.copy.a_small_team_working_on_specialist_equipment",
+                            )}{" "}
                         </h2>
                     </div>
                     <div className="bens stag">
@@ -65,7 +86,7 @@ export default function Careers({
                             className="ben"
                             style={
                                 {
-                                    "--acc": "var(--pp-blue)",
+                                    "--acc":      "var(--pp-blue)",
                                     "--acc-soft": "var(--pp-sky)",
                                 } as CSSProperties
                             }
@@ -98,11 +119,17 @@ export default function Careers({
                                     />
                                 </svg>
                             </span>
-                            <h3>Small team, direct involvement</h3>
+                            <h3>
+                                {" "}
+                                {translateKey(
+                                    "site.copy.small_team_direct_involvement",
+                                )}{" "}
+                            </h3>
                             <p>
-                                A close-knit specialist team, where individual
-                                work is visible in the outcome rather than
-                                absorbed into a department.
+                                {" "}
+                                {translateKey(
+                                    "site.copy.a_close_knit_specialist_team_where_individual_work_is_visible_in_the_outcome_rather_than_a",
+                                )}{" "}
                             </p>
                         </div>
 
@@ -110,7 +137,7 @@ export default function Careers({
                             className="ben"
                             style={
                                 {
-                                    "--acc": "var(--pp-green)",
+                                    "--acc":      "var(--pp-green)",
                                     "--acc-soft": "var(--pp-leaf)",
                                 } as CSSProperties
                             }
@@ -136,11 +163,17 @@ export default function Careers({
                                     />
                                 </svg>
                             </span>
-                            <h3>Learning and development</h3>
+                            <h3>
+                                {" "}
+                                {translateKey(
+                                    "site.copy.learning_and_development",
+                                )}{" "}
+                            </h3>
                             <p>
-                                Access to training courses, industry
-                                conferences, and hands-on time with current
-                                hyperspectral and LiDAR systems.
+                                {" "}
+                                {translateKey(
+                                    "site.copy.access_to_training_courses_industry_conferences_and_hands_on_time_with_current_hyperspectr",
+                                )}{" "}
                             </p>
                         </div>
 
@@ -148,7 +181,7 @@ export default function Careers({
                             className="ben"
                             style={
                                 {
-                                    "--acc": "var(--pp-teal)",
+                                    "--acc":      "var(--pp-teal)",
                                     "--acc-soft": "var(--pp-mint)",
                                 } as CSSProperties
                             }
@@ -175,10 +208,17 @@ export default function Careers({
                                     />
                                 </svg>
                             </span>
-                            <h3>Flexible working</h3>
+                            <h3>
+                                {" "}
+                                {translateKey(
+                                    "site.copy.flexible_working",
+                                )}{" "}
+                            </h3>
                             <p>
-                                Flexible arrangements, including remote working
-                                where the role allows it.
+                                {" "}
+                                {translateKey(
+                                    "site.copy.flexible_arrangements_including_remote_working_where_the_role_allows_it",
+                                )}{" "}
                             </p>
                         </div>
 
@@ -186,7 +226,7 @@ export default function Careers({
                             className="ben"
                             style={
                                 {
-                                    "--acc": "var(--pp-amber)",
+                                    "--acc":      "var(--pp-amber)",
                                     "--acc-soft": "var(--pp-cream)",
                                 } as CSSProperties
                             }
@@ -212,10 +252,17 @@ export default function Careers({
                                     />
                                 </svg>
                             </span>
-                            <h3>International work</h3>
+                            <h3>
+                                {" "}
+                                {translateKey(
+                                    "site.copy.international_work",
+                                )}{" "}
+                            </h3>
                             <p>
-                                Opportunities to travel for airborne survey
-                                campaigns, exhibitions and client visits.
+                                {" "}
+                                {translateKey(
+                                    "site.copy.opportunities_to_travel_for_airborne_survey_campaigns_exhibitions_and_client_visits",
+                                )}{" "}
                             </p>
                         </div>
                     </div>
@@ -227,9 +274,12 @@ export default function Careers({
                         <span className="k2">
                             {count
                                 ? `${count} open ${count === 1 ? "role" : "roles"}`
-                                : "Vacancies"}
+                                : translateKey("site.extra.vacancies")}
                         </span>
-                        <h2 className="h2">Current vacancies</h2>
+                        <h2 className="h2">
+                            {" "}
+                            {translateKey("site.copy.current_vacancies")}{" "}
+                        </h2>
                     </div>
                     {count > 0 && (
                         <div className="vacs rv">
@@ -248,11 +298,16 @@ export default function Careers({
                                         <div>
                                             <div className="vac-tags">
                                                 <span className="tg tg--type">
-                                                    {v.job_type}
+                                                    {translateKey(
+                                                        `enums.${v.job_type}`,
+                                                    )}
                                                 </span>
                                                 {days <= 14 && (
                                                     <span className="tg tg--soon">
-                                                        Closing soon ·{" "}
+                                                        {" "}
+                                                        {translateKey(
+                                                            "site.copy.closing_soon",
+                                                        )}{" "}
                                                         {days === 0
                                                             ? "today"
                                                             : `${days}d left`}
@@ -281,19 +336,24 @@ export default function Careers({
                                                         color="#b96a00"
                                                     />
                                                     <span>
-                                                        Closes{" "}
+                                                        {" "}
+                                                        {translateKey(
+                                                            "site.copy.closes",
+                                                        )}{" "}
                                                         <strong>
-                                                            {v.closing_date
-                                                                .split("-")
-                                                                .reverse()
-                                                                .join("/")}
+                                                            {formatDate(
+                                                                v.closing_date,
+                                                            )}
                                                         </strong>
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
                                         <span className="vac-go">
-                                            View role →
+                                            {" "}
+                                            {translateKey(
+                                                "site.copy.view_role",
+                                            )}{" "}
                                         </span>
                                     </Link>
                                 );
@@ -304,8 +364,12 @@ export default function Careers({
                         <div className="spec-in">
                             <h3>
                                 {count
-                                    ? "Nothing here that fits?"
-                                    : "No open positions at the moment"}
+                                    ? translateKey(
+                                          "site.extra.nothing_here_that_fits",
+                                      )
+                                    : translateKey(
+                                          "site.extra.no_open_positions_at_the_moment",
+                                      )}
                             </h3>
                             <p>
                                 {count
@@ -313,7 +377,10 @@ export default function Careers({
                                     : "We don't have any vacancies advertised right now, but roles come up as projects do. If your background is in remote sensing, geospatial science, photonics or instrumentation, send us a CV and we'll keep it on file."}
                             </p>
                             <a href="#application-form" className="btn">
-                                Send a speculative application
+                                {" "}
+                                {translateKey(
+                                    "site.copy.send_a_speculative_application",
+                                )}{" "}
                             </a>
                         </div>
                     </div>
@@ -322,20 +389,34 @@ export default function Careers({
             <section className="apply" id="application-form">
                 <div className="w apply-grid">
                     <div className="apply-aside rv">
-                        <span className="k2">Apply</span>
-                        <h2 className="h2">Send us your application</h2>
+                        <span className="k2">
+                            {" "}
+                            {translateKey("site.copy.apply")}{" "}
+                        </span>
+                        <h2 className="h2">
+                            {" "}
+                            {translateKey(
+                                "site.copy.send_us_your_application",
+                            )}{" "}
+                        </h2>
                         <p className="sub">
-                            Complete the form and email your CV. If you're
-                            applying for an advertised role, select the job
-                            title so it reaches the right person.
+                            {" "}
+                            {translateKey(
+                                "site.copy.complete_the_form_and_email_your_cv_if_you_re_applying_for_an_advertised_role_select_the_j",
+                            )}{" "}
                         </p>
                         <div className="apply-note">
                             <p>
-                                Email your CV directly to{" "}
+                                {" "}
+                                {translateKey(
+                                    "site.copy.email_your_cv_directly_to",
+                                )}{" "}
                                 <a href="mailto:careers@mapping-solutions.co.uk">
                                     careers@mapping-solutions.co.uk
                                 </a>{" "}
-                                with the job title in the subject line.
+                                {translateKey(
+                                    "site.copy.with_the_job_title_in_the_subject_line",
+                                )}{" "}
                             </p>
                         </div>
                     </div>

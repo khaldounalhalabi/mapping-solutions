@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import Supplier from "@/models/supplier";
 import Product from "@/models/product";
 import SpectrumLine from "@/components/ui/spectrum-line";
@@ -27,7 +28,7 @@ const BySupplier = ({
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
-                    {supplier.name} Products
+                    {supplier.name} {translateKey("site.copy.products_2")}{" "}
                 </h2>
                 <div
                     key={supplier.id}
@@ -55,8 +56,10 @@ const BySupplier = ({
                     <CatalogueSearch supplier_id={supplier.id} />
 
                     <p className={"text-paragraph text-xs"}>
-                        Try a product name, model number, or manufacturer —
-                        results appear as you type.
+                        {" "}
+                        {translateKey(
+                            "site.copy.try_a_product_name_model_number_or_manufacturer_results_appear_as_you_type",
+                        )}{" "}
                     </p>
                 </div>
             </section>
@@ -73,16 +76,24 @@ const BySupplier = ({
                         }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
-                            Need a quote or a specification?
+                            {" "}
+                            {translateKey(
+                                "site.copy.need_a_quote_or_a_specification",
+                            )}{" "}
                         </h1>
                         <p className={"text-sm text-paragraph"}>
-                            We'll confirm configuration, accessories and lead
-                            time before you commit.
+                            {" "}
+                            {translateKey(
+                                "site.copy.we_ll_confirm_configuration_accessories_and_lead_time_before_you_commit",
+                            )}{" "}
                         </p>
                     </div>
                     <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
-                            Talk it through with us
+                            {" "}
+                            {translateKey(
+                                "site.copy.talk_it_through_with_us",
+                            )}{" "}
                         </Button>
                     </Link>
                 </div>
@@ -93,7 +104,8 @@ const BySupplier = ({
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >
-                        All Suppliers
+                        {" "}
+                        {translateKey("site.copy.all_suppliers")}{" "}
                     </MoveLink>
                 </div>
             </div>

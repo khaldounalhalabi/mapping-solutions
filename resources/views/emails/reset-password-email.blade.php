@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <!--[if gte mso 9]>
         <xml>
@@ -294,7 +294,7 @@
                                                         &quot;Raleway&quot;,
                                                         sans-serif;
                                                 "
-                                                align="left"
+                                                align="{{ app()->getLocale() === 'ar' ? 'right' : 'left' }}"
                                             >
                                                 <table
                                                     role="presentation"
@@ -364,7 +364,7 @@
                                                         &quot;Raleway&quot;,
                                                         sans-serif;
                                                 "
-                                                align="left"
+                                                align="{{ app()->getLocale() === 'ar' ? 'right' : 'left' }}"
                                             >
                                                 <!--[if mso]>
                                                 <table role="presentation" width="100%">
@@ -502,7 +502,7 @@
                                                     &quot;Raleway&quot;,
                                                     sans-serif;
                                             "
-                                            align="left"
+                                            align="{{ app()->getLocale() === 'ar' ? 'right' : 'left' }}"
                                         >
                                             <!--[if mso]>
                                                 <table role="presentation" width="100%">
@@ -513,13 +513,13 @@
                                                 style="
                                                     margin: 0;
                                                     line-height: 140%;
-                                                    text-align: left;
+                                                    text-align: {{ app()->getLocale() === 'ar' ? 'right' : 'left' }};
                                                     word-wrap: break-word;
                                                     font-size: 16px;
                                                     font-weight: 400;
                                                 "
                                             >
-                                                Your reset password code is:
+                                                {{ __('site.mail.reset_message') }}
                                             </h1>
                                             <!--[if mso[endif]-->
                                         </td>

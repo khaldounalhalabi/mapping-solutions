@@ -91,7 +91,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
                             disabled={disabled}
                             data-empty={!date}
                             className={cn(
-                                "data-[empty=true]:text-muted-foreground w-full justify-between text-left font-normal",
+                                "data-[empty=true]:text-muted-foreground w-full justify-between text-start font-normal",
                                 error && "border-destructive",
                             )}
                         >

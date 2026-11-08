@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import IsoCheckIcon from "@/components/site/icons/ISOCheckIcon";
 
 import { Link } from "@inertiajs/react";
@@ -23,14 +24,16 @@ const IsoCertifiedSection = () => {
                                 "text-navy font-bold text-[0.6rem] uppercase tracking-wider"
                             }
                         >
-                            Certified · Quality
+                            {" "}
+                            {translateKey("site.copy.certified_quality")}{" "}
                         </p>
                         <p
                             className={
                                 "text-navy font-bold text-[0.6rem] uppercase tracking-wider"
                             }
                         >
-                            Management
+                            {" "}
+                            {translateKey("site.copy.management")}{" "}
                         </p>
                     </div>
                 </div>
@@ -54,7 +57,9 @@ const IsoCertifiedSection = () => {
                     </Link>
                 </nav>
                 <p className={"text-white text-sm font-bold text-center"}>
-                    Mapping Solutions © 2026. All rights reserved
+                    {translateKey("site.copy.copyright", {
+                        year: new Date().getFullYear(),
+                    })}
                 </p>
             </div>
         </div>

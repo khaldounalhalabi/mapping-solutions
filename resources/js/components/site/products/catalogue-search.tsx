@@ -119,7 +119,7 @@ export default function CatalogueSearch({
                 <button
                     type="button"
                     aria-label={t("site.catalogue.search_placeholder")}
-                    className="rounded-r-md absolute inset-e-0 top-0 h-10 w-10 bg-navy text-white flex items-center justify-center"
+                    className="rounded-e-md absolute inset-e-0 top-0 h-10 w-10 bg-navy text-white flex items-center justify-center"
                     onClick={() => {
                         if (options.length) {
                             setOpen(false);

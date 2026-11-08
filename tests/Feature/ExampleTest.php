@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 
 class ExampleTest extends TestCase
 {
+    use LazilyRefreshDatabase;
+
     /**
      * A basic test example.
      */

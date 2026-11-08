@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import MarketApplication from "@/models/market-application";
 import SectionKicker from "@/components/ui/section-kicker";
 import SectionTitle from "@/components/ui/section-title";
@@ -15,18 +16,26 @@ const ApplicationsSection = ({
 }) => {
     return (
         <div className={"flex flex-col items-start px-page-padding"}>
-            <SectionKicker>applications</SectionKicker>
+            <SectionKicker>
+                {" "}
+                {translateKey("site.copy.applications")}{" "}
+            </SectionKicker>
             <SectionTitle>
-                Applications across research, industry and defence
+                {" "}
+                {translateKey(
+                    "site.copy.applications_across_research_industry_and_defence",
+                )}{" "}
             </SectionTitle>
             <SectionDescription className={"my-5"}>
-                Specify what must be detected, over what area and to what
-                accuracy, and our engineers will identify the systems suited to
-                the requirement.
+                {" "}
+                {translateKey(
+                    "site.copy.specify_what_must_be_detected_over_what_area_and_to_what_accuracy_and_our_engineers_will_i",
+                )}{" "}
             </SectionDescription>
 
             <MoveLink href={route("site.applications")}>
-                View all applications
+                {" "}
+                {translateKey("site.copy.view_all_applications")}{" "}
             </MoveLink>
             <div
                 className={

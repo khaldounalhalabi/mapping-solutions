@@ -20,7 +20,9 @@ class NewsletterEmailMessage extends Mailable implements ShouldQueue
     public function __construct(
         public NewsletterEmail $newsletterEmail,
         public string $unsubscribeUrl,
-    ) {}
+    ) {
+        $this->locale(config('cubeta-starter.default_locale'));
+    }
 
     /**
      * Get the attachments for the message.

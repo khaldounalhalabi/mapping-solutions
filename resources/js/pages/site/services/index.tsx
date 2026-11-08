@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import { randomInt } from "@/helper";
 import { translate } from "@/models/translatable";
@@ -89,24 +90,28 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
-                    Services · since 2004
+                    {" "}
+                    {translateKey("site.copy.services_since_2004")}{" "}
                 </h2>
                 <h1
                     className={
                         "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
                     }
                 >
-                    We don't just sell the instruments — we fly them
+                    {" "}
+                    {translateKey(
+                        "site.copy.we_don_t_just_sell_the_instruments_we_fly_them",
+                    )}{" "}
                 </h1>
                 <p
                     className={
                         "text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
                     }
                 >
-                    Full airborne survey campaigns, data processing and GIS,
-                    independent technical consultancy and hands-on training. The
-                    same engineers who support our customers' instruments run
-                    the surveys themselves.
+                    {" "}
+                    {translateKey(
+                        "site.copy.full_airborne_survey_campaigns_data_processing_and_gis_independent_technical_consultancy_a",
+                    )}{" "}
                 </p>
             </section>
             <div
@@ -201,7 +206,10 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                                             <MoveLink
                                                 href={route("site.contact")}
                                             >
-                                                Request a quote
+                                                {" "}
+                                                {translateKey(
+                                                    "site.copy.request_a_quote",
+                                                )}{" "}
                                             </MoveLink>
                                         </div>
                                     ))}
@@ -219,15 +227,18 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                 <h2
                     className={"text-4xl font-extrabold text-center text-white"}
                 >
-                    Got a survey to plan?
+                    {" "}
+                    {translateKey("site.copy.got_a_survey_to_plan")}{" "}
                 </h2>
                 <p className={"text-white/60 text-sm text-center md:max-w-1/2"}>
-                    Tell us the area, the target and the accuracy you need —
-                    we'll tell you what's achievable, what it takes, and whether
-                    flying it is even the right answer.
+                    {" "}
+                    {translateKey(
+                        "site.copy.tell_us_the_area_the_target_and_the_accuracy_you_need_we_ll_tell_you_what_s_achievable_wha",
+                    )}{" "}
                 </p>
                 <Button variant={"hero"} size={"hero"}>
-                    Contact our technical team
+                    {" "}
+                    {translateKey("site.copy.contact_our_technical_team")}{" "}
                 </Button>
             </div>
             <SpectrumLine />

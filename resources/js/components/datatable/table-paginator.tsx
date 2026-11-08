@@ -1,3 +1,4 @@
+import { formatNumber } from "@/hooks/use-translation";
 import { TablePaginatorProps } from "@/components/datatable/types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -42,7 +43,7 @@ function TablePaginator<ApiResponse>({
             {getTotalRecords && (
                 <div className="justify-start">
                     {t("dashboard.table.total_records", {
-                        count: getTotalRecords(response),
+                        count: formatNumber(getTotalRecords(response)),
                     })}
                 </div>
             )}
@@ -56,7 +57,7 @@ function TablePaginator<ApiResponse>({
                         disabled={isFirstPage()}
                         aria-label={t("dashboard.table.previous_page")}
                     >
-                        <ChevronLeft />
+                        <ChevronLeft className="rtl:rotate-180" />
                     </Button>
                 </li>
 
@@ -66,7 +67,7 @@ function TablePaginator<ApiResponse>({
 
                     if (index < 3 || index >= paginationArray.length - 1) {
                         return (
-                            <li key={`page-${pageNumber}`}>
+                            <li key={`page-${formatNumber(pageNumber)}`}>
                                 <Button
                                     type="button"
                                     size="icon"
@@ -75,7 +76,7 @@ function TablePaginator<ApiResponse>({
                                     }
                                     onClick={() => setPage(pageNumber)}
                                 >
-                                    {pageNumber}
+                                    {formatNumber(pageNumber)}
                                 </Button>
                             </li>
                         );
@@ -85,13 +86,13 @@ function TablePaginator<ApiResponse>({
                             page < paginationArray.length - 4)
                     ) {
                         return (
-                            <li key={`page-${pageNumber}`}>
+                            <li key={`page-${formatNumber(pageNumber)}`}>
                                 <span>...</span>
                             </li>
                         );
                     } else if (index >= page - 2 && index <= page + 1) {
                         return (
-                            <li key={`page-${pageNumber}`}>
+                            <li key={`page-${formatNumber(pageNumber)}`}>
                                 <Button
                                     type="button"
                                     size="icon"
@@ -100,7 +101,7 @@ function TablePaginator<ApiResponse>({
                                     }
                                     onClick={() => setPage(pageNumber)}
                                 >
-                                    {pageNumber}
+                                    {formatNumber(pageNumber)}
                                 </Button>
                             </li>
                         );
@@ -118,7 +119,7 @@ function TablePaginator<ApiResponse>({
                         disabled={isLastPage()}
                         aria-label={t("dashboard.table.next_page")}
                     >
-                        <ChevronRight />
+                        <ChevronRight className="rtl:rotate-180" />
                     </Button>
                 </li>
             </ol>

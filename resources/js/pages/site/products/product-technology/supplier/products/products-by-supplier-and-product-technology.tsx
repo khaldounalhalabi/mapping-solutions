@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import Supplier from "@/models/supplier";
 import Product from "@/models/product";
 import SpectrumLine from "@/components/ui/spectrum-line";
@@ -69,8 +70,10 @@ const ProductsBySupplierAndProductTechnology = ({
                     />
 
                     <p className={"text-paragraph text-xs"}>
-                        Try a product name, model number, or manufacturer —
-                        results appear as you type.
+                        {" "}
+                        {translateKey(
+                            "site.copy.try_a_product_name_model_number_or_manufacturer_results_appear_as_you_type",
+                        )}{" "}
                     </p>
                 </div>
             </section>
@@ -88,16 +91,24 @@ const ProductsBySupplierAndProductTechnology = ({
                         }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
-                            Need a quote or a specification?
+                            {" "}
+                            {translateKey(
+                                "site.copy.need_a_quote_or_a_specification",
+                            )}{" "}
                         </h1>
                         <p className={"text-sm text-paragraph"}>
-                            We'll confirm configuration, accessories and lead
-                            time before you commit.
+                            {" "}
+                            {translateKey(
+                                "site.copy.we_ll_confirm_configuration_accessories_and_lead_time_before_you_commit",
+                            )}{" "}
                         </p>
                     </div>
                     <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
-                            Talk it through with us
+                            {" "}
+                            {translateKey(
+                                "site.copy.talk_it_through_with_us",
+                            )}{" "}
                         </Button>
                     </Link>
                 </div>
@@ -110,14 +121,17 @@ const ProductsBySupplierAndProductTechnology = ({
                         dir={"back"}
                         className={"text-navy-secondary font-extrabold"}
                     >
-                        Back to {translate(productTechnology.name)}
+                        {" "}
+                        {translateKey("site.copy.back_to")}{" "}
+                        {translate(productTechnology.name)}
                     </MoveLink>
                     <MoveLink
                         href={route("site.products")}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >
-                        All Categories
+                        {" "}
+                        {translateKey("site.copy.all_categories")}{" "}
                     </MoveLink>
                 </div>
             </div>

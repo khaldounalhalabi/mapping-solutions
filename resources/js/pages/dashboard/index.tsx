@@ -1,7 +1,11 @@
+import { translateKey } from "@/hooks/use-translation";
 const Index = () => {
     return (
         <div>
-            <h1 className="text-5xl dark:text-white">Hello Amer</h1>
+            <h1 className="text-5xl dark:text-white">
+                {" "}
+                {translateKey("dashboard.welcome")}{" "}
+            </h1>
         </div>
     );
 };

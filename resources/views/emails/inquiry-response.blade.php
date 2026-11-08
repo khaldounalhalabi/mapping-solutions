@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,7 +7,7 @@
 </head>
 <body>
     <main>
-        <p>Hello {{ $inquiry->first_name }},</p>
+        <p>{{ __('site.mail.greeting', ['name' => $inquiry->first_name]) }}</p>
 
         <p style="white-space: pre-line">{{ $inquiry->response_message }}</p>
     </main>

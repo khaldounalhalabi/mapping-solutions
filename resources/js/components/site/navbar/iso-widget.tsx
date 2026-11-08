@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import IsoCheckIcon from "@/components/site/icons/ISOCheckIcon";
 
 const IsoWidget = () => {
@@ -15,7 +16,8 @@ const IsoWidget = () => {
                         "text-paragraph text-[0.6rem] uppercase tracking-wider"
                     }
                 >
-                    certified
+                    {" "}
+                    {translateKey("site.copy.certified")}{" "}
                 </p>
             </div>
         </div>

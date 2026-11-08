@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { MailIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -10,11 +11,14 @@ import {
 } from "react-icons/fa";
 import useSettings from "@/hooks/use-settings";
 import SettingKeyEnum from "@/enums/setting-key-enum";
-import { useForm } from "@inertiajs/react";
+import { useForm, usePage } from "@inertiajs/react";
 import { FormEvent } from "react";
 
 const NewsletterSection = () => {
     const { valueOf } = useSettings();
+    const {
+        props: { currentLocale },
+    } = usePage();
     const { protect, protectionFields } = usePublicFormProtection();
     const {
         data,
@@ -41,22 +45,27 @@ const NewsletterSection = () => {
             <div className={"flex items-center gap-2"}>
                 <MailIcon className={"text-white"} />
                 <h1 className={"text-white text-lg font-extrabold"}>
-                    Subscribe
+                    {" "}
+                    {translateKey("site.copy.subscribe")}{" "}
                 </h1>
             </div>
             <div>
                 <p className={"text-white/60 text-sm"}>
-                    Join our mailing list for new instruments, application
-                    notes, events and training workshops.
+                    {" "}
+                    {translateKey(
+                        "site.copy.join_our_mailing_list_for_new_instruments_application_notes_events_and_training_workshops",
+                    )}{" "}
                 </p>
             </div>
             <form onSubmit={submit} className={"w-full"}>
                 {protectionFields}
-                <div className={"flex w-full min-w-0 items-center"}>
+                <div
+                    className={`flex w-full min-w-0 items-center ${currentLocale == "ar" ? "flex-row-reverse" : ""}`}
+                >
                     <Input
                         type="email"
                         name="email"
-                        aria-label="Email address"
+                        aria-label={translateKey("site.copy.email_address")}
                         aria-invalid={!!errors.email}
                         required
                         value={data.email}
@@ -64,9 +73,9 @@ const NewsletterSection = () => {
                             setData("email", event.target.value)
                         }
                         className={
-                            "min-w-0 rounded-sm rounded-r-none placeholder-gray-500 border-gray-600 border outline-none border-r-0 py-[1.20rem]"
+                            "min-w-0 rounded-sm rounded-e-none placeholder-gray-500 border-gray-600 border outline-none border-e-0 py-[1.20rem]"
                         }
-                        placeholder={"Email Address"}
+                        placeholder={translateKey("site.copy.email_address_2")}
                     />
                     <Button
                         type="submit"
@@ -77,7 +86,8 @@ const NewsletterSection = () => {
                         }
                         variant={"secondary"}
                     >
-                        Join
+                        {" "}
+                        {translateKey("site.copy.join")}{" "}
                     </Button>
                 </div>
                 {errors.email && (
@@ -87,7 +97,10 @@ const NewsletterSection = () => {
                 )}
                 {wasSuccessful && (
                     <p role="status" className="text-sm text-white">
-                        Thank you for subscribing.
+                        {" "}
+                        {translateKey(
+                            "site.copy.thank_you_for_subscribing",
+                        )}{" "}
                     </p>
                 )}
             </form>

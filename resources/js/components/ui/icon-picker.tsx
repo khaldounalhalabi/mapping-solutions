@@ -1,4 +1,5 @@
 "use client";
+import { translateKey } from "@/hooks/use-translation";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -32,7 +33,7 @@ interface IconPickerProps {
 const IconPicker = ({
     value,
     onChange,
-    placeholder = "Select an icon",
+    placeholder = translateKey("site.language.select_icon"),
     disabled,
 }: IconPickerProps) => {
     const [open, setOpen] = useState(false);
@@ -124,7 +125,7 @@ const IconPicker = ({
                         <Search className="absolute top-2.5 left-2.5 size-4 text-muted-foreground" />
                         <input
                             type="text"
-                            placeholder="Search icons..."
+                            placeholder={translateKey("site.copy.search_icons")}
                             value={search}
                             onChange={(e) => {
                                 startTransition(() => {
@@ -206,7 +207,8 @@ const IconPicker = ({
                     </div>
 
                     <div className="px-0.5 text-xs text-muted-foreground">
-                        {filteredIcons.length} of {iconNames.length} icons
+                        {filteredIcons.length} {translateKey("site.copy.of")}{" "}
+                        {iconNames.length} {translateKey("site.copy.icons")}{" "}
                         {isPending && " (filtering...)"}
                     </div>
                 </div>

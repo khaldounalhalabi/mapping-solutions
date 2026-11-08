@@ -1,21 +1,33 @@
+import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import SectionKicker from "@/components/ui/section-kicker";
 import SectionTitle from "@/components/ui/section-title";
 import SectionDescription from "@/components/ui/section-description";
 import { Link } from "@inertiajs/react";
 import { translate } from "@/models/translatable";
-import { format, parseISO } from "date-fns";
 import MoveLink from "@/components/ui/move-link";
 
 const NewsSection = ({ news }: { news: NewsArticle[] }) => {
     return (
         <div className={"flex flex-col items-start px-page-padding my-12"}>
-            <SectionKicker>news and events</SectionKicker>
-            <SectionTitle>Latest updates</SectionTitle>
+            <SectionKicker>
+                {" "}
+                {translateKey("site.copy.news_and_events")}{" "}
+            </SectionKicker>
+            <SectionTitle>
+                {" "}
+                {translateKey("site.copy.latest_updates")}{" "}
+            </SectionTitle>
             <SectionDescription className={"my-5"}>
-                Product releases, training workshops and project announcements.
+                {" "}
+                {translateKey(
+                    "site.copy.product_releases_training_workshops_and_project_announcements",
+                )}{" "}
             </SectionDescription>
-            <MoveLink href={route("site.news")}>View all news</MoveLink>
+            <MoveLink href={route("site.news")}>
+                {" "}
+                {translateKey("site.copy.view_all_news")}{" "}
+            </MoveLink>
             <div
                 className={
                     "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 my-10"
@@ -39,10 +51,10 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                             }
                         >
                             <h2 className={"text-success text-xs font-bold"}>
-                                {format(
-                                    parseISO(n.created_at),
-                                    "MMMM yyyy",
-                                ).toUpperCase()}
+                                {formatDate(n.created_at, {
+                                    month: "long",
+                                    year:  "numeric",
+                                })}
                             </h2>
                             <h1
                                 className={
@@ -55,7 +67,8 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                                 {translate(n.excerpt)}
                             </p>
                             <MoveLink href={route("site.news.show", n.slug)}>
-                                Read more
+                                {" "}
+                                {translateKey("site.copy.read_more")}{" "}
                             </MoveLink>
                         </div>
                     </Link>

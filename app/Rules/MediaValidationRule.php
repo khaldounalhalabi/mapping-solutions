@@ -34,14 +34,14 @@ readonly class MediaValidationRule implements ValidationRule
             $fileToValidate = $value;
         } elseif ($value instanceof SerializedMedia) {
             if (! $value->exists()) {
-                $fail('Invalid media file');
+                $fail(trans('site.validation.media'));
 
                 return;
             }
             $fileToValidate = $value->getUploadedFile();
         } else {
             if (! SerializedMedia::isMediaArray($value)) {
-                $fail('Invalid media file');
+                $fail(trans('site.validation.media'));
 
                 return;
             }
@@ -49,7 +49,7 @@ readonly class MediaValidationRule implements ValidationRule
             $serializedMedia = new SerializedMedia($value);
 
             if (! $serializedMedia->exists()) {
-                $fail('Invalid media file');
+                $fail(trans('site.validation.media'));
 
                 return;
             }

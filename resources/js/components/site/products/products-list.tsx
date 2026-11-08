@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import Product from "@/models/product";
 import { groupBy, uniqueBy } from "@/helper";
 import MoveLink from "@/components/ui/move-link";
@@ -67,7 +68,10 @@ export default function ProductsList(props: { items: Product[] }) {
                                                     "font-extrabold text-navy-secondary"
                                                 }
                                             >
-                                                View product
+                                                {" "}
+                                                {translateKey(
+                                                    "site.copy.view_product",
+                                                )}{" "}
                                             </MoveLink>
                                         </div>
                                     </Link>

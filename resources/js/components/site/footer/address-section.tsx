@@ -1,3 +1,4 @@
+import { translateKey } from "@/hooks/use-translation";
 import { GlobeIcon } from "lucide-react";
 import useSettings from "@/hooks/use-settings";
 import SettingKeyEnum from "@/enums/setting-key-enum";
@@ -39,19 +40,19 @@ const AddressSection = () => {
                     className={"text-danger hover:text-white text-xs font-bold"}
                     href={"#"}
                 >
-                    Sitemap
+                    {translateKey("site.copy.sitemap")}{" "}
                 </a>
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
                     href={route("site.privacy.policy")}
                 >
-                    Privacy
+                    {translateKey("site.copy.privacy")}{" "}
                 </a>
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
                     href={route("site.terms.and.conditions")}
                 >
-                    Terms
+                    {translateKey("site.copy.terms")}{" "}
                 </a>
             </div>
         </div>

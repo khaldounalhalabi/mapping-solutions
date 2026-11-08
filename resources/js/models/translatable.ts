@@ -1,4 +1,4 @@
-export type AvailableLocales = "en";
+export type AvailableLocales = "en" | "ar" | "fr";
 
 export type Translatable = Record<AvailableLocales, string>;
 
@@ -16,23 +16,27 @@ export function translate(
     val: string | undefined | null,
     returnObject = false,
 ): string | Translatable {
-    const currentLocale = window.localStorage.getItem("locale") ?? "en";
+    const currentLocale = document.documentElement.lang || "en";
+    let translations: Partial<Translatable> = {};
     try {
-        if (!val && returnObject) {
-            return { en: "" } as Translatable;
-        } else if (!val && !returnObject) {
-            return "";
+        const parsed: unknown = JSON.parse(val ?? "{}");
+        if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+            translations = parsed as Partial<Translatable>;
+        } else if (typeof parsed === "string") {
+            translations = { en: parsed };
+        } else if (val) {
+            translations = { en: val };
         }
-        const tr = JSON.parse(val ?? "{}");
-        if (returnObject) {
-            return tr;
-        }
-
-        return tr[currentLocale];
-    } catch (e) {
-        if (returnObject) {
-            return { en: "" } as Translatable;
-        }
-        return val ?? "";
+    } catch {
+        translations = { en: val ?? "" };
     }
+    if (returnObject) {
+        return { en: "", ar: "", fr: "", ...translations };
+    }
+    const selected = translations[currentLocale as AvailableLocales];
+    return (
+        (typeof selected === "string" && selected.trim()
+            ? selected
+            : translations.en) || ""
+    );
 }

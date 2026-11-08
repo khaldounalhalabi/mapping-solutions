@@ -1,6 +1,6 @@
+import { formatNumber, translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ProductTechnology from "@/models/product-technology";
-import { MoveRightIcon } from "lucide-react";
 import { translate } from "@/models/translatable";
 import LinedTitle from "@/components/ui/lined-title";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@inertiajs/react";
 import MoveLink from "@/components/ui/move-link";
 import CatalogueSearch from "@/components/site/products/catalogue-search";
+import MoveRightIcon from "@/components/site/icons/move-right-icon";
 
 const BySlug = ({
     productTechnology,
@@ -27,7 +28,8 @@ const BySlug = ({
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
-                    product catalogue
+                    {" "}
+                    {translateKey("site.copy.product_catalogue")}{" "}
                 </h2>
                 <h1
                     className={
@@ -45,15 +47,18 @@ const BySlug = ({
                         product_technology_id={productTechnology.id}
                     />
                     <p className={"text-paragraph text-xs"}>
-                        Try a product name, model number, or manufacturer —
-                        results appear as you type.
+                        {" "}
+                        {translateKey(
+                            "site.copy.try_a_product_name_model_number_or_manufacturer_results_appear_as_you_type",
+                        )}{" "}
                     </p>
                 </div>
             </section>
 
             <div className={"py-16 px-page-padding"}>
                 <LinedTitle>
-                    {productTechnology.suppliers?.length} manufacturers
+                    {formatNumber(productTechnology.suppliers?.length ?? 0)}{" "}
+                    {translateKey("site.copy.manufacturers")}{" "}
                 </LinedTitle>
                 <div
                     className={
@@ -120,7 +125,8 @@ const BySlug = ({
                                     variant={"secondary"}
                                     className={"text-xs font-bold"}
                                 >
-                                    {s.products_count ?? 0} Products
+                                    {s.products_count ?? 0}{" "}
+                                    {translateKey("site.copy.products_2")}{" "}
                                 </Badge>
                                 <Link
                                     href={route(
@@ -139,7 +145,8 @@ const BySlug = ({
                                         variant={"link"}
                                         size={"sm"}
                                     >
-                                        Browse <MoveRightIcon />
+                                        {translateKey("site.copy.browse")}{" "}
+                                        <MoveRightIcon />
                                     </Button>
                                 </Link>
                             </div>
@@ -158,17 +165,25 @@ const BySlug = ({
                         }
                     >
                         <h1 className={"font-extrabold text-navy-secondary"}>
-                            Comparing options in{" "}
+                            {" "}
+                            {translateKey(
+                                "site.copy.comparing_options_in",
+                            )}{" "}
                             {translate(productTechnology.name)}
                         </h1>
                         <p className={"text-sm text-paragraph"}>
-                            Our engineers can put the candidates side by side
-                            against your requirement and budget.
+                            {" "}
+                            {translateKey(
+                                "site.copy.our_engineers_can_put_the_candidates_side_by_side_against_your_requirement_and_budget",
+                            )}{" "}
                         </p>
                     </div>
                     <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
-                            Talk it through with us
+                            {" "}
+                            {translateKey(
+                                "site.copy.talk_it_through_with_us",
+                            )}{" "}
                         </Button>
                     </Link>
                 </div>
@@ -178,7 +193,8 @@ const BySlug = ({
                     dir={"back"}
                     className={"text-navy-secondary font-extrabold"}
                 >
-                    All Categories
+                    {" "}
+                    {translateKey("site.copy.all_categories")}{" "}
                 </MoveLink>
             </div>
         </div>
