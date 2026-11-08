@@ -10,10 +10,12 @@ export default function CatalogueSearch({
     product_technology_id,
     supplier_id,
     compact = false,
+    onResultSelect,
 }: {
     product_technology_id?: number;
     supplier_id?:           number;
     compact?:               boolean;
+    onResultSelect?:        () => void;
 }) {
     const { t } = useTranslation();
     const {
@@ -102,6 +104,7 @@ export default function CatalogueSearch({
                     ) {
                         event.preventDefault();
                         setOpen(false);
+                        onResultSelect?.();
                         router.visit(options[Math.max(active, 0)].href);
                     }
                 }}
@@ -120,6 +123,7 @@ export default function CatalogueSearch({
                     onClick={() => {
                         if (options.length) {
                             setOpen(false);
+                            onResultSelect?.();
                             router.visit(options[Math.max(active, 0)].href);
                         } else {
                             setOpen(true);
@@ -170,6 +174,7 @@ export default function CatalogueSearch({
                                     setValue("");
                                     setResults(emptyResults);
                                     requestVersion.current++;
+                                    onResultSelect?.();
                                 }}
                                 className={`flex flex-col rounded px-3 py-2 text-sm hover:bg-navy-secondary/10 focus:bg-navy-secondary/10 ${active === index ? "bg-navy-secondary/10" : ""}`}
                             >

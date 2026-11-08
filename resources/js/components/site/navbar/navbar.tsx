@@ -1,5 +1,6 @@
 import { Link } from "@inertiajs/react";
 import { Menu } from "lucide-react";
+import { useRef } from "react";
 import { asset } from "@/helper";
 import PhoneLink from "@/components/site/navbar/phone-link";
 import IsoWidget from "@/components/site/navbar/iso-widget";
@@ -7,6 +8,8 @@ import NavLinks from "@/components/site/navbar/nav-links";
 import CatalogueSearch from "@/components/site/products/catalogue-search";
 
 const Navbar = () => {
+    const mobileMenu = useRef<HTMLDetailsElement>(null);
+
     return (
         <nav
             className={
@@ -33,14 +36,19 @@ const Navbar = () => {
                 </div>
                 <NavLinks />
             </div>
-            <details className="hidden max-[1100px]:block">
+            <details ref={mobileMenu} className="hidden max-[1100px]:block">
                 <summary className="flex cursor-pointer list-none items-center gap-2 rounded-md border px-3 py-2 text-sm font-bold [&::-webkit-details-marker]:hidden">
                     <Menu size={20} />
                     Menu
                 </summary>
                 <div className="absolute top-full right-0 left-0 max-h-[calc(100dvh-76px)] max-sm:max-h-[calc(100dvh-70px)] overflow-y-auto border-t bg-background px-[26px] py-4 shadow-lg">
                     <div className="mb-4">
-                        <CatalogueSearch compact />
+                        <CatalogueSearch
+                            compact
+                            onResultSelect={() => {
+                                mobileMenu.current?.removeAttribute("open");
+                            }}
+                        />
                     </div>
                     <NavLinks mobile />
                 </div>
