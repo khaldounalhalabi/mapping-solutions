@@ -33,7 +33,7 @@ const useSettings = () => {
         >;
     }
 
-    return { getSetting, valueOf };
+    return { getSetting, valueOf , settings };
 };
 
 export default useSettings;

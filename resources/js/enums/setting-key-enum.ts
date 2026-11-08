@@ -1,4 +1,6 @@
 enum SettingKeyEnum {
+    PRIVACY_POLICY = "privacy_policy",
+    TERMS_AND_CONDITIONS = "terms_and_conditions",
     ADDRESS = "address",
     CONTACT_EMAIL = "contact_email",
     CONTACT_PHONE = "contact_phone",

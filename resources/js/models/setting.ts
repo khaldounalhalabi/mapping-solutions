@@ -69,6 +69,8 @@ export function isSettingType<T extends SettingTypeEnum>(
 
 // Map each setting key to its corresponding value type.
 export type SettingKeyTypeMap = {
+    [SettingKeyEnum.PRIVACY_POLICY]:         SettingTypeEnum.TRANSLATABLE_HTML_TEXT;
+    [SettingKeyEnum.TERMS_AND_CONDITIONS]:   SettingTypeEnum.TRANSLATABLE_HTML_TEXT;
     [SettingKeyEnum.ADDRESS]:                SettingTypeEnum.STRING;
     [SettingKeyEnum.CONTACT_EMAIL]:          SettingTypeEnum.STRING;
     [SettingKeyEnum.CONTACT_PHONE]:          SettingTypeEnum.PHONE;

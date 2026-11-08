@@ -41,17 +41,15 @@ const AddressSection = () => {
                 >
                     Sitemap
                 </a>
-                {/*TODO: fix this link*/}
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
-                    href={"#"}
+                    href={route("site.privacy.policy")}
                 >
                     Privacy
                 </a>
-                {/*TODO: fix this link*/}
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
-                    href={"#"}
+                    href={route("site.terms.and.conditions")}
                 >
                     Terms
                 </a>

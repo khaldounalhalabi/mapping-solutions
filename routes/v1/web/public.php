@@ -26,7 +26,7 @@ Route::get('/products/search', [SiteController::class, 'searchProducts'])->name(
 Route::get('/products/{productSlug}', [SiteController::class, 'showProduct'])->name('site.products.show');
 
 Route::get('/suppliers', [SiteController::class, 'suppliers'])->name('site.suppliers');
-Route::get('/suppliers/{supplierSlug}/products', [SiteController::class , 'productsBySupplier'])->name('site.suppliers.products');
+Route::get('/suppliers/{supplierSlug}/products', [SiteController::class, 'productsBySupplier'])->name('site.suppliers.products');
 
 Route::get('/services', [SiteController::class, 'services'])->name('site.services');
 Route::get('/news', [SiteController::class, 'newsArticles'])->name('site.news');
@@ -45,3 +45,6 @@ Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact')
 Route::get('/applications', [SiteController::class, 'applications'])->name('site.applications');
 Route::post('/contact', [SiteController::class, 'storeInquiry'])->middleware('throttle:5,1,contact')->name('site.contact.store');
 Route::post('/careers/apply', [SiteController::class, 'storeJobApplication'])->middleware('throttle:5,1,careers')->name('site.careers.apply');
+
+Route::get('/privacy-policy', [SiteController::class, 'privacyPolicy'])->name('site.privacy.policy');
+Route::get('/terms-and-conditions', [SiteController::class, 'termsAndConditions'])->name('site.terms.and.conditions');

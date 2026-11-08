@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Modules\Settings\App\Resources\SettingResource;
 use Inertia\Middleware;
 use Illuminate\Http\Request;
 use Psr\Container\NotFoundExceptionInterface;
@@ -42,7 +43,7 @@ class HandleInertiaRequests extends Middleware
             'baseUrl'          => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
             'error'            => session()->get('error') ?? null,
             'success'          => session()->get('success') ?? null,
-            'settings'         => SettingService::make()->all(),
+            'settings'         => SettingResource::collection(SettingService::make()->all()),
         ]);
     }
 

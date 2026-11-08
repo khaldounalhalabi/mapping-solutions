@@ -91,6 +91,11 @@ class SiteController extends WebController
         ]);
     }
 
+    public function privacyPolicy(): Response
+    {
+        return Inertia::render('site/legal/index', ['policy' => 'privacy_policy']);
+    }
+
     public function products(): Response
     {
         $technologies = ProductTechnologyService::make()->index([], [
@@ -240,6 +245,11 @@ class SiteController extends WebController
         return Inertia::render('site/suppliers/index', [
             'technologies' => ProductTechnologyResource::collection($technologies),
         ]);
+    }
+
+    public function termsAndConditions(): Response
+    {
+        return Inertia::render('site/legal/index', ['policy' => 'terms_and_conditions']);
     }
 
     public function vacancy(string $slug): Response

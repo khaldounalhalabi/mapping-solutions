@@ -1,6 +1,10 @@
 import IsoCheckIcon from "@/components/site/icons/ISOCheckIcon";
 
+import { Link } from "@inertiajs/react";
+import { useTranslation } from "@/hooks/use-translation";
+
 const IsoCertifiedSection = () => {
+    const { t } = useTranslation();
     return (
         <div className={"flex flex-col items-center h-full gap-5"}>
             <div className={"flex items-center gap-2"}>
@@ -31,7 +35,24 @@ const IsoCertifiedSection = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className="flex flex-col gap-3">
+                <nav
+                    aria-label={t("site.legal.navigation")}
+                    className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-white/80"
+                >
+                    <Link
+                        href={route("site.privacy.policy")}
+                        className="hover:text-white hover:underline"
+                    >
+                        {t("site.legal.privacy_policy")}
+                    </Link>
+                    <Link
+                        href={route("site.terms.and.conditions")}
+                        className="hover:text-white hover:underline"
+                    >
+                        {t("site.legal.terms_and_conditions")}
+                    </Link>
+                </nav>
                 <p className={"text-white text-sm font-bold text-center"}>
                     Mapping Solutions © 2026. All rights reserved
                 </p>

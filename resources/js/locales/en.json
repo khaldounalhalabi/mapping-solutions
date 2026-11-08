@@ -488,6 +488,19 @@
             "no_results": "No matching products.",
             "retry": "Try again",
             "search_results": "Search results"
+        },
+        "legal": {
+            "label": "Legal information",
+            "privacy_policy": "Privacy policy",
+            "terms_and_conditions": "Terms and conditions",
+            "privacy_intro": "How we handle your information and respect your privacy.",
+            "terms_intro": "The terms that apply when you use our website and services.",
+            "empty": "This policy is being updated. Please contact us if you have any questions.",
+            "questions": "Have a question?",
+            "contact_copy": "Our team can help with questions about these policies.",
+            "contact": "Contact our team",
+            "home": "Home",
+            "navigation": "Legal pages"
         }
     }
 }
