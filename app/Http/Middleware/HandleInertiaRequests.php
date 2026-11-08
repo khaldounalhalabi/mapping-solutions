@@ -2,13 +2,14 @@
 
 namespace App\Http\Middleware;
 
-use App\Modules\Settings\App\Resources\SettingResource;
 use Inertia\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Modules\Settings\App\Services\SettingService;
+use App\Modules\Settings\App\Resources\SettingResource;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -36,14 +37,18 @@ class HandleInertiaRequests extends Middleware
         JsonResource::withoutWrapping();
 
         return array_merge(parent::share($request), [
-            'availableLocales' => config('cubeta-starter.available_locales'),
-            'currentLocale'    => app()->getLocale(),
-            'authUser'         => auth()->user(),
-            'asset'            => asset('/'),
-            'baseUrl'          => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
-            'error'            => session()->get('error') ?? null,
-            'success'          => session()->get('success') ?? null,
-            'settings'         => SettingResource::collection(SettingService::make()->all()),
+            'availableLocales'    => config('cubeta-starter.available_locales'),
+            'currentLocale'       => app()->getLocale(),
+            'formProtectionToken' => fn (): string => Crypt::encryptString(json_encode([
+                'issued_at' => now()->timestamp,
+                'session'   => hash('sha256', $request->session()->getId()),
+            ], JSON_THROW_ON_ERROR)),
+            'authUser' => auth()->user(),
+            'asset'    => asset('/'),
+            'baseUrl'  => (config('cubeta-starter.project_url') ?? config('app.url')) ?? '/',
+            'error'    => session()->get('error') ?? null,
+            'success'  => session()->get('success') ?? null,
+            'settings' => SettingResource::collection(SettingService::make()->all()),
         ]);
     }
 

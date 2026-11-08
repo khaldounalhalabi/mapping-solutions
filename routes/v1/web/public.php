@@ -3,17 +3,18 @@
 use App\Http\Controllers\WEB\v1;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\v1\WEB\SiteController;
+use App\Http\Middleware\PreventAutomatedSubmissions;
 
-Route::post('/v1/dashboard/login', [v1\BaseAuthController::class, 'login'])->name('v1.web.public.login');
-Route::post('/v1/dashboard/request-reset-password', [v1\BaseAuthController::class, 'requestResetPassword'])->name('v1.web.public.request.reset.password');
-Route::post('/v1/dashboard/reset-password', [v1\BaseAuthController::class, 'resetPassword'])->name('v1.web.public.reset.password');
-Route::post('/v1/dashboard/validate-reset-password-code', [v1\BaseAuthController::class, 'validateResetPasswordCode'])->name('v1.web.public.validate.reset.password.code');
+Route::post('/v1/dashboard/login', [v1\BaseAuthController::class, 'login'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('v1.web.public.login');
+Route::post('/v1/dashboard/request-reset-password', [v1\BaseAuthController::class, 'requestResetPassword'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('v1.web.public.request.reset.password');
+Route::post('/v1/dashboard/reset-password', [v1\BaseAuthController::class, 'resetPassword'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('v1.web.public.reset.password');
+Route::post('/v1/dashboard/validate-reset-password-code', [v1\BaseAuthController::class, 'validateResetPasswordCode'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('v1.web.public.validate.reset.password.code');
 
 Route::get('/v1/newsletter/unsubscribe/{newsletterSubscriber}', v1\NewsletterUnsubscribeController::class)
     ->middleware('signed')
     ->name('v1.web.public.newsletter.unsubscribe');
 Route::post('/v1/newsletter/subscribe', v1\NewsletterSubscribeController::class)
-    ->middleware('throttle:5,1,newsletter')
+    ->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])
     ->name('v1.web.public.newsletter.subscribe');
 
 Route::inertia('/v1/dashboard/login', 'dashboard/login')->name('v1.web.public.login.page');
@@ -46,8 +47,8 @@ Route::get('/careers', [SiteController::class, 'careers'])->name('site.careers')
 Route::get('/vacancy/{slug}', [SiteController::class, 'vacancy'])->name('site.vacancy');
 Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact');
 Route::get('/applications', [SiteController::class, 'applications'])->name('site.applications');
-Route::post('/contact', [SiteController::class, 'storeInquiry'])->middleware('throttle:5,1,contact')->name('site.contact.store');
-Route::post('/careers/apply', [SiteController::class, 'storeJobApplication'])->middleware('throttle:5,1,careers')->name('site.careers.apply');
+Route::post('/contact', [SiteController::class, 'storeInquiry'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('site.contact.store');
+Route::post('/careers/apply', [SiteController::class, 'storeJobApplication'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('site.careers.apply');
 
 Route::get('/privacy-policy', [SiteController::class, 'privacyPolicy'])->name('site.privacy.policy');
 Route::get('/terms-and-conditions', [SiteController::class, 'termsAndConditions'])->name('site.terms.and.conditions');

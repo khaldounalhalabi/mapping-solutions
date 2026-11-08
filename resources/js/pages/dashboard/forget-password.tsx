@@ -1,3 +1,4 @@
+import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { useForm } from "@inertiajs/react";
 import React from "react";
 import {
@@ -14,12 +15,14 @@ import { useTranslation } from "@/hooks/use-translation";
 
 const ForgetPassword = () => {
     const { t } = useTranslation();
-    const { post, setData, processing } = useForm<{
+    const { protect, protectionFields } = usePublicFormProtection();
+    const { post, transform, setData, processing } = useForm<{
         email: string;
     }>();
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
+        transform(protect);
         post(route("v1.web.public.request.reset.password"));
     };
     return (
@@ -39,6 +42,7 @@ const ForgetPassword = () => {
                     backButton={false}
                     buttonText={t("dashboard.auth.send_code")}
                 >
+                    {protectionFields}
                     <FieldGroup>
                         <Input
                             name={"email"}

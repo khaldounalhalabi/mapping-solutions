@@ -4,6 +4,7 @@ import { Link, router } from "@inertiajs/react";
 import { SearchIcon } from "lucide-react";
 
 import useCatalogueSearch from "@/hooks/use-catalogue-search";
+
 const emptyResults = { products: [], suppliers: [] };
 export default function CatalogueSearch({
     product_technology_id,
@@ -11,8 +12,8 @@ export default function CatalogueSearch({
     compact = false,
 }: {
     product_technology_id?: number;
-    supplier_id?: number;
-    compact?: boolean;
+    supplier_id?:           number;
+    compact?:               boolean;
 }) {
     const { t } = useTranslation();
     const {
@@ -115,7 +116,7 @@ export default function CatalogueSearch({
                 <button
                     type="button"
                     aria-label={t("site.catalogue.search_placeholder")}
-                    className="absolute end-0 top-0 h-10 w-10 bg-navy text-white flex items-center justify-center"
+                    className="rounded-r-md absolute inset-e-0 top-0 h-10 w-10 bg-navy text-white flex items-center justify-center"
                     onClick={() => {
                         if (options.length) {
                             setOpen(false);

@@ -1,3 +1,4 @@
+import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { useForm } from "@inertiajs/react";
 import Form from "@/components/form/form";
 import Input from "@/components/form/fields/input";
@@ -14,22 +15,23 @@ export default function ApplicationForm({
     vacancy,
 }: {
     vacancies?: Vacancy[];
-    vacancy?: Vacancy;
+    vacancy?:   Vacancy;
 }) {
     const { t } = useTranslation();
+    const { protect, protectionFields } = usePublicFormProtection();
     const form = useForm({
-        vacancy_id: vacancy?.id ?? (null as number | null),
-        first_name: "",
-        last_name: "",
-        email: "",
-        phone: "",
-        referral_source: "",
-        cover_letter: "",
-        relevant_experience: "",
-        linkedin_url: "",
+        vacancy_id:             vacancy?.id ?? (null as number | null),
+        first_name:             "",
+        last_name:              "",
+        email:                  "",
+        phone:                  "",
+        referral_source:        "",
+        cover_letter:           "",
+        relevant_experience:    "",
+        linkedin_url:           "",
         eligible_to_work_in_uk: "",
-        notice_period: "",
-        gdpr_consent: false,
+        notice_period:          "",
+        gdpr_consent:           false,
     });
     return (
         <div className="public-form">
@@ -48,6 +50,7 @@ export default function ApplicationForm({
                     processing={form.processing}
                     onSubmit={(e) => {
                         e.preventDefault();
+                        form.transform(protect);
                         form.post(route("site.careers.apply"), {
                             preserveScroll: true,
                         });
@@ -77,6 +80,7 @@ export default function ApplicationForm({
                         />
                     )}
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                        {protectionFields}
                         <Input
                             name="first_name"
                             id="first_name_id"

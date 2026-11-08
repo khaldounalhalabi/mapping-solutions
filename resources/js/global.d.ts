@@ -27,12 +27,13 @@ interface Paginated<T> {
 declare module "@inertiajs/core" {
     export interface InertiaConfig {
         sharedPageProps: {
-            availableLocales: AvailableLocales[];
-            currentLocale:    AvailableLocales;
-            authUser?:        User;
-            asset:            string;
-            baseUrl:          string;
-            settings:         Setting[];
+            formProtectionToken: string;
+            availableLocales:    AvailableLocales[];
+            currentLocale:       AvailableLocales;
+            authUser?:           User;
+            asset:               string;
+            baseUrl:             string;
+            settings:            Setting[];
         };
         flashDataType: {
             error?:   string;

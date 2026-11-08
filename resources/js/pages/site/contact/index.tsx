@@ -1,3 +1,4 @@
+import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { Head, useForm } from "@inertiajs/react";
 import { Check, Mail, MapPin, Phone } from "lucide-react";
 import Form from "@/components/form/form";
@@ -12,6 +13,7 @@ import SettingKeyEnum from "@/enums/setting-key-enum";
 export default function Contact() {
     const { valueOf } = useSettings();
     const { t } = useTranslation();
+    const { protect, protectionFields } = usePublicFormProtection();
     const form = useForm({
         first_name: "",
         last_name:  "",
@@ -153,6 +155,7 @@ export default function Contact() {
                                     processing={form.processing}
                                     onSubmit={(e) => {
                                         e.preventDefault();
+                                        form.transform(protect);
                                         form.post(route("site.contact.store"), {
                                             preserveScroll: true,
                                         });
@@ -167,6 +170,7 @@ export default function Contact() {
                                             gap:                 20,
                                         }}
                                     >
+                                        {protectionFields}
                                         <Input
                                             name="first_name"
                                             id="first_name_id"

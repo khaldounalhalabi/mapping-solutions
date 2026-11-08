@@ -1,3 +1,4 @@
+import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { MailIcon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -14,10 +15,20 @@ import { FormEvent } from "react";
 
 const NewsletterSection = () => {
     const { valueOf } = useSettings();
-    const { data, setData, post, processing, errors, reset, wasSuccessful } =
-        useForm({ email: "" });
+    const { protect, protectionFields } = usePublicFormProtection();
+    const {
+        data,
+        setData,
+        post,
+        transform,
+        processing,
+        errors,
+        reset,
+        wasSuccessful,
+    } = useForm({ email: "" });
     const submit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        transform(protect);
         post(route("v1.web.public.newsletter.subscribe"), {
             preserveScroll: true,
             onSuccess:      () => reset(),
@@ -40,6 +51,7 @@ const NewsletterSection = () => {
                 </p>
             </div>
             <form onSubmit={submit} className={"w-full"}>
+                {protectionFields}
                 <div className={"flex w-full min-w-0 items-center"}>
                     <Input
                         type="email"

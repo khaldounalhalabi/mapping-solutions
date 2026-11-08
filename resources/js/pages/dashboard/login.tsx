@@ -1,3 +1,4 @@
+import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import {
     Card,
     CardContent,
@@ -14,13 +15,15 @@ import { useTranslation } from "@/hooks/use-translation";
 
 function Login() {
     const { t } = useTranslation();
-    const { post, setData, processing } = useForm<{
+    const { protect, protectionFields } = usePublicFormProtection();
+    const { post, transform, setData, processing } = useForm<{
         email:    string;
         password: string;
     }>();
 
     const onSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
+        transform(protect);
         post(route("v1.web.public.login"));
     };
     return (
@@ -38,6 +41,7 @@ function Login() {
                     processing={processing}
                     backButton={false}
                 >
+                    {protectionFields}
                     <FieldGroup>
                         <Input
                             name={"email"}
