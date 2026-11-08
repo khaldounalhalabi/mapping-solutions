@@ -3,8 +3,8 @@ import { Menu } from "lucide-react";
 import { asset } from "@/helper";
 import PhoneLink from "@/components/site/navbar/phone-link";
 import IsoWidget from "@/components/site/navbar/iso-widget";
-import SearchInput from "@/components/site/navbar/search-input";
 import NavLinks from "@/components/site/navbar/nav-links";
+import CatalogueSearch from "@/components/site/products/catalogue-search";
 
 const Navbar = () => {
     return (
@@ -29,7 +29,7 @@ const Navbar = () => {
                 <div className={"flex gap-5 items-center"}>
                     <PhoneLink />
                     <IsoWidget />
-                    <SearchInput />
+                    <CatalogueSearch compact />
                 </div>
                 <NavLinks />
             </div>
@@ -40,7 +40,7 @@ const Navbar = () => {
                 </summary>
                 <div className="absolute top-full right-0 left-0 max-h-[calc(100dvh-76px)] max-sm:max-h-[calc(100dvh-70px)] overflow-y-auto border-t bg-background px-[26px] py-4 shadow-lg">
                     <div className="mb-4">
-                        <SearchInput />
+                        <CatalogueSearch compact />
                     </div>
                     <NavLinks mobile />
                 </div>

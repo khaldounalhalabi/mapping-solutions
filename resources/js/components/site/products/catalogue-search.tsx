@@ -1,121 +1,45 @@
 import { Input } from "@/components/ui/input";
 import { useTranslation } from "@/hooks/use-translation";
-import Product from "@/models/product";
-import { translate } from "@/models/translatable";
-import Http from "@/modules/http/http";
 import { Link, router } from "@inertiajs/react";
 import { SearchIcon } from "lucide-react";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { isEmptyObject } from "@/helper";
 
-interface SearchResults {
-    products: Product[];
-}
-
-const emptyResults: SearchResults = { products: [] };
-
+import useCatalogueSearch from "@/hooks/use-catalogue-search";
+const emptyResults = { products: [], suppliers: [] };
 export default function CatalogueSearch({
     product_technology_id,
     supplier_id,
+    compact = false,
 }: {
     product_technology_id?: number;
-    supplier_id?:           number;
+    supplier_id?: number;
+    compact?: boolean;
 }) {
     const { t } = useTranslation();
-    const id = useId();
-    const container = useRef<HTMLDivElement>(null);
-    const requestVersion = useRef(0);
-    const [value, setValue] = useState("");
-    const [results, setResults] = useState<SearchResults>(emptyResults);
-    const [open, setOpen] = useState(false);
-    const [active, setActive] = useState(-1);
-    const [status, setStatus] = useState<
-        "idle" | "loading" | "ready" | "error"
-    >("idle");
-    const [retry, setRetry] = useState(0);
-    const visible = open && value.trim().length >= 2;
-    const options = results.products.map((product) => ({
-        key:        `product-${product.id}`,
-        label:      translate(product.name),
-        supplier:   product.supplier?.name,
-        technology: product.product_technology
-            ? translate(product.product_technology.name)
-            : undefined,
-        href:       route("site.products.show", product.slug),
-    }));
-
-    const filters = useCallback(() => {
-        let filters = {};
-
-        if (product_technology_id) {
-            filters = {
-                ...filters,
-                product_technology_id,
-            };
-        }
-
-        if (supplier_id) {
-            filters = {
-                ...filters,
-                supplier_id,
-            };
-        }
-
-        return isEmptyObject(filters) ? null : filters;
-    }, [product_technology_id]);
-
-    useEffect(() => {
-        const version = ++requestVersion.current;
-        const search = value.trim();
-        if (search.length < 2) {
-            return;
-        }
-
-        const filterFields = filters();
-        const timer = window.setTimeout(async () => {
-            const response = await Http.make<SearchResults>().get(
-                route("site.products.search"),
-                { search, ...(filterFields ? filterFields : {}) },
-                { Accept: "application/json" },
-            );
-            if (version !== requestVersion.current) {
-                return;
-            }
-            if (!response.ok() || !response.data) {
-                setStatus("error");
-                return;
-            }
-            setResults(response.data);
-            setStatus("ready");
-        }, 300);
-        return () => {
-            window.clearTimeout(timer);
-            requestVersion.current++;
-        };
-    }, [value, retry]);
-
-    useEffect(() => {
-        const dismiss = (event: PointerEvent) => {
-            if (!container.current?.contains(event.target as Node)) {
-                setOpen(false);
-            }
-        };
-        document.addEventListener("pointerdown", dismiss);
-        return () => document.removeEventListener("pointerdown", dismiss);
-    }, []);
-
-    useEffect(() => {
-        if (active >= 0) {
-            document
-                .getElementById(`${id}-option-${active}`)
-                ?.scrollIntoView({ block: "nearest" });
-        }
-    }, [active, id]);
+    const {
+        id,
+        container,
+        requestVersion,
+        value,
+        setValue,
+        setResults,
+        setOpen,
+        active,
+        setActive,
+        status,
+        setStatus,
+        setRetry,
+        visible,
+        options,
+    } = useCatalogueSearch({ product_technology_id, supplier_id });
 
     return (
         <div
             ref={container}
-            className="relative w-full max-w-2xl min-w-0"
+            className={
+                compact
+                    ? "relative w-full min-w-0 min-[1101px]:w-64"
+                    : "relative w-full max-w-2xl min-w-0"
+            }
             onBlur={(event) => {
                 if (!event.currentTarget.contains(event.relatedTarget as Node))
                     setOpen(false);
@@ -180,9 +104,30 @@ export default function CatalogueSearch({
                         router.visit(options[Math.max(active, 0)].href);
                     }
                 }}
-                className="bg-white w-full py-6 shadow-xl px-10"
+                className={
+                    compact
+                        ? "bg-white w-full h-10 rounded-sm ps-8 pe-10"
+                        : "bg-white w-full py-6 shadow-xl px-10"
+                }
                 placeholder={t("site.catalogue.search_placeholder")}
             />
+            {compact && (
+                <button
+                    type="button"
+                    aria-label={t("site.catalogue.search_placeholder")}
+                    className="absolute end-0 top-0 h-10 w-10 bg-navy text-white flex items-center justify-center"
+                    onClick={() => {
+                        if (options.length) {
+                            setOpen(false);
+                            router.visit(options[Math.max(active, 0)].href);
+                        } else {
+                            setOpen(true);
+                        }
+                    }}
+                >
+                    <SearchIcon className="size-4" />
+                </button>
+            )}
             {visible && (
                 <div className="absolute inset-x-0 top-full z-50 mt-2 max-h-96 overflow-y-auto rounded-md border bg-white p-2 text-navy shadow-xl">
                     <p role="status" className="px-3 text-sm text-paragraph">

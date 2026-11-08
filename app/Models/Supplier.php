@@ -65,6 +65,29 @@ class Supplier extends Model
         ];
     }
 
+    public function filterArray(): array
+    {
+        return [
+            [
+                'name'  => 'supplier_id',
+                'query' => fn (Builder $query, $value) => $query->when(
+                    ! empty($value),
+                    fn (Builder $query) => $query->whereKey((int) $value)
+                ),
+            ],
+            [
+                'name'  => 'product_technology_id',
+                'query' => fn (Builder $query, $value) => $query->when(
+                    ! empty($value),
+                    fn (Builder $query) => $query->whereHas(
+                        'products',
+                        fn (Builder $products) => $products->where('product_technology_id', $value)
+                    )
+                ),
+            ],
+        ];
+    }
+
     /**
      * @return HasMany<ProductFamily, static>
      */

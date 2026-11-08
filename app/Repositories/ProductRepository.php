@@ -51,13 +51,13 @@ class ProductRepository extends BaseRepository
     /**
      * @return Collection<int, Product>
      */
-    public function searchSuggestions(): Collection
+    public function searchSuggestions(array $relations = [] , array $counts = []): Collection
     {
         return $this->query()
             ->search()
             ->filter()
-            ->relations(['supplier', 'productTechnology'])
-            ->query()
+            ->relations($relations)
+            ->counts($counts)
             ->orderByDesc('created_at')
             ->orderByDesc('id')
             ->limit(5)

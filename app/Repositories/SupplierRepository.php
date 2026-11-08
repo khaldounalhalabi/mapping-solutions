@@ -44,4 +44,15 @@ class SupplierRepository extends BaseRepository
                 $query->where('product_technologies.slug', $productTechnologySlug);
             })->get();
     }
+
+    public function searchSuggestions(): Collection
+    {
+        return $this->query()
+            ->search()
+            ->filter()
+            ->orderByDesc('created_at')
+            ->orderByDesc('id')
+            ->limit(5)
+            ->get();
+    }
 }

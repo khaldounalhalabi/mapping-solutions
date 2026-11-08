@@ -40,8 +40,8 @@ class ProductService extends BaseService
     /**
      * @return Collection<int, Product>
      */
-    public function searchSuggestions(): Collection
+    public function searchSuggestions(array $relations = [] , array $counts = []): Collection
     {
-        return $this->repository->searchSuggestions();
+        return $this->repository->searchSuggestions($relations , $counts);
     }
 }

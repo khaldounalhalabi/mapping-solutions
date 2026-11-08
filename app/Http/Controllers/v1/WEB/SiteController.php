@@ -155,19 +155,20 @@ class SiteController extends WebController
         ]);
     }
 
-    public function searchProducts(Request $request): JsonResponse
+    public function search(Request $request): JsonResponse
     {
         $request->validate(['search' => ['nullable', 'string', 'max:200']]);
         $keyword = trim($request->string('search')->toString());
 
         if (mb_strlen($keyword) < 2) {
-            return rest()->ok()->data(['products' => []])->send();
+            return rest()->ok()->data(['products' => [], 'suppliers' => []])->send();
         }
 
         $request->merge(['search' => $keyword]);
 
         return rest()->ok()->data([
-            'products' => ProductResource::collection(ProductService::make()->searchSuggestions()),
+            'products'  => ProductResource::collection(ProductService::make()->searchSuggestions(['supplier', 'productTechnology'])),
+            'suppliers' => SupplierResource::collection(SupplierService::make()->searchSuggestions()),
         ])->send();
     }
 

@@ -58,7 +58,6 @@ class ProductRange extends Model
             'sort_order',
             'description',
             'uses',
-
         ];
     }
 
