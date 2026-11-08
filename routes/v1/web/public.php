@@ -12,6 +12,9 @@ Route::post('/v1/dashboard/validate-reset-password-code', [v1\BaseAuthController
 Route::get('/v1/newsletter/unsubscribe/{newsletterSubscriber}', v1\NewsletterUnsubscribeController::class)
     ->middleware('signed')
     ->name('v1.web.public.newsletter.unsubscribe');
+Route::post('/v1/newsletter/subscribe', v1\NewsletterSubscribeController::class)
+    ->middleware('throttle:5,1,newsletter')
+    ->name('v1.web.public.newsletter.subscribe');
 
 Route::inertia('/v1/dashboard/login', 'dashboard/login')->name('v1.web.public.login.page');
 Route::inertia('/v1/dashboard/request-reset-password', 'dashboard/forget-password')->name('v1.web.public.request.reset.password.page');
