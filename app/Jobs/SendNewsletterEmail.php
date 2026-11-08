@@ -27,7 +27,7 @@ class SendNewsletterEmail implements ShouldQueue
             ->each(function (NewsletterSubscriber $subscriber): void {
                 $unsubscribeUrl = URL::signedRoute(
                     'v1.web.public.newsletter.unsubscribe',
-                    ['newsletterSubscriber' => $subscriber],
+                    ['newsletterSubscriberId' => $subscriber],
                 );
 
                 Mail::to($subscriber->email)->send(

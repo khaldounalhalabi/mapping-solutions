@@ -198,8 +198,9 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                                                     {translate(s.summary)}
                                                 </p>
                                             </div>
-                                            {/*TODO: adjust this link*/}
-                                            <MoveLink href={"#"}>
+                                            <MoveLink
+                                                href={route("site.contact")}
+                                            >
                                                 Request a quote
                                             </MoveLink>
                                         </div>

@@ -169,15 +169,12 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                             }
                                         >
                                             {s.product_families?.map((f) => (
-                                                // TODO: fix this link
-                                                <Link href={"#"}>
-                                                    <Badge
-                                                        variant={"navy"}
-                                                        className={"p-3"}
-                                                    >
-                                                        {translate(f.name)}
-                                                    </Badge>
-                                                </Link>
+                                                <Badge
+                                                    variant={"navy"}
+                                                    className={"p-3"}
+                                                >
+                                                    {translate(f.name)}
+                                                </Badge>
                                             ))}
                                         </div>
                                         <div
@@ -191,7 +188,6 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                     "flex items-center gap-3"
                                                 }
                                             >
-                                                {/*TODO: Fix this link*/}
                                                 <Link
                                                     href={route(
                                                         "site.suppliers.products",
@@ -206,8 +202,9 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                         <MoveRightIcon />
                                                     </Button>
                                                 </Link>
-                                                {/*TODO: Fix this link*/}
-                                                <Link href={"#"}>
+                                                <Link
+                                                    href={route("site.contact")}
+                                                >
                                                     <Button
                                                         className={
                                                             "text-link font-bold"

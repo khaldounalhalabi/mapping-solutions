@@ -54,7 +54,7 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                             <p className="text-paragraph text-xs leading-relaxed line-clamp-3">
                                 {translate(n.excerpt)}
                             </p>
-                            <MoveLink href={route("site.news")}>
+                            <MoveLink href={route("site.news.show", n.slug)}>
                                 Read more
                             </MoveLink>
                         </div>

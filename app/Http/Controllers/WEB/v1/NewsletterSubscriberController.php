@@ -143,6 +143,13 @@ class NewsletterSubscriberController extends WebController
         ])->back();
     }
 
+    public function unsubscribe($newsletterSubscriberId)
+    {
+        $this->newsletterSubscriberService->delete($newsletterSubscriberId);
+
+        return view('emails.newsletter-unsubscribed');
+    }
+
     public function update(StoreUpdateNewsletterSubscriberDTO $dto, $newsletterSubscriberId)
     {
         $newsletterSubscriber = $this->newsletterSubscriberService->update($dto->toArray(), $newsletterSubscriberId, $this->relations);

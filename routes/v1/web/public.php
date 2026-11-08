@@ -10,10 +10,10 @@ Route::post('/v1/dashboard/request-reset-password', [v1\BaseAuthController::clas
 Route::post('/v1/dashboard/reset-password', [v1\BaseAuthController::class, 'resetPassword'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('v1.web.public.reset.password');
 Route::post('/v1/dashboard/validate-reset-password-code', [v1\BaseAuthController::class, 'validateResetPasswordCode'])->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])->name('v1.web.public.validate.reset.password.code');
 
-Route::get('/v1/newsletter/unsubscribe/{newsletterSubscriber}', v1\NewsletterUnsubscribeController::class)
+Route::get('/v1/newsletter/unsubscribe/{newsletterSubscriberId}', [v1\NewsletterSubscriberController::class , 'unsubscribe'])
     ->middleware('signed')
     ->name('v1.web.public.newsletter.unsubscribe');
-Route::post('/v1/newsletter/subscribe', v1\NewsletterSubscribeController::class)
+Route::post('/v1/newsletter/subscribe', [v1\NewsletterSubscriberController::class , 'store'])
     ->middleware(['throttle:public-forms', PreventAutomatedSubmissions::class])
     ->name('v1.web.public.newsletter.subscribe');
 

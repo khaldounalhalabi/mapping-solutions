@@ -1,5 +1,5 @@
 import { translate } from "@/models/translatable";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import Supplier from "@/models/supplier";
 import ProductRange from "@/models/product-range";
@@ -46,6 +46,9 @@ const Index = ({
     const bandRefs = useRef<(HTMLButtonElement | null)[]>([]);
     const band = bands[activeBand];
     const { valueOf } = useSettings();
+    const {
+        props: { suppliers_count, products_count },
+    } = usePage();
 
     useEffect(() => {
         const preference = window.matchMedia(
@@ -148,7 +151,6 @@ const Index = ({
                             capability.
                         </p>
                         <div className={"grid grid-cols-3 w-full gap-3"}>
-                            {/*TODO: make those come from the settings API*/}
                             <div className={"space-y-1"}>
                                 <h2
                                     className={
@@ -174,7 +176,7 @@ const Index = ({
                                         "text-3xl text-band font-extrabold"
                                     }
                                 >
-                                    {suppliers.length}
+                                    {suppliers_count}
                                 </h2>
                                 <p
                                     className={
@@ -190,7 +192,7 @@ const Index = ({
                                         "text-3xl text-band font-extrabold"
                                     }
                                 >
-                                    24
+                                    {products_count}
                                 </h2>
                                 <p
                                     className={

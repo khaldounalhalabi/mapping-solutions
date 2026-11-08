@@ -29,8 +29,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                             fit.
                         </p>
                     </div>
-                    {/*TODO: configure this link*/}
-                    <Link>
+                    <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             Send us your requirement
                         </Button>

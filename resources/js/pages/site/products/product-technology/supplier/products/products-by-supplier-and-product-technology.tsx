@@ -95,8 +95,7 @@ const ProductsBySupplierAndProductTechnology = ({
                             time before you commit.
                         </p>
                     </div>
-                    {/*TODO: configure this link*/}
-                    <Link>
+                    <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             Talk it through with us
                         </Button>
