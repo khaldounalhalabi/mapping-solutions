@@ -898,7 +898,8 @@
             },
             "description": {
                 "en": "Vegetation condition, water quality, coastal change and habitat mapping."
-            }
+            },
+            "is_featured": true
         },
         {
             "name": {
@@ -911,7 +912,8 @@
             },
             "description": {
                 "en": "ISR payloads, target detection and airborne reconnaissance."
-            }
+            },
+            "is_featured": true
         },
         {
             "name": {
@@ -924,7 +926,8 @@
             },
             "description": {
                 "en": "Spectroscopy, materials analysis and field measurement campaigns."
-            }
+            },
+            "is_featured": true
         },
         {
             "name": {
@@ -937,7 +940,8 @@
             },
             "description": {
                 "en": "Corridor mapping, topographic survey and asset inspection."
-            }
+            },
+            "is_featured": true
         }
     ],
     "services": [
