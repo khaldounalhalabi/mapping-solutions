@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import { GlobeIcon } from "lucide-react";
 import useSettings from "@/hooks/use-settings";
@@ -11,9 +12,9 @@ const AddressSection = () => {
         >
             <div className={"flex items-center gap-2"}>
                 <GlobeIcon className={"text-white"} />
-                <h1 className={"text-white text-lg font-extrabold"}>
+                <h2 className={"text-white text-lg font-extrabold"}>
                     Mapping Solutions Ltd
-                </h1>
+                </h2>
             </div>
             <a
                 href={`${valueOf(SettingKeyEnum.ADDRESS_GOOGLE_MAP_URL)}`}
@@ -43,13 +44,13 @@ const AddressSection = () => {
                 </a>
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
-                    href={route("site.privacy.policy")}
+                    href={siteRoute("site.privacy.policy")}
                 >
                     {translateKey("site.copy.privacy")}{" "}
                 </a>
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
-                    href={route("site.terms.and.conditions")}
+                    href={siteRoute("site.terms.and.conditions")}
                 >
                     {translateKey("site.copy.terms")}{" "}
                 </a>

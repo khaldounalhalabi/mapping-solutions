@@ -1,45 +1,45 @@
+import { siteRoute } from "@/lib/site-route";
 import { useTranslation } from "@/hooks/use-translation";
 import { Link } from "@inertiajs/react";
 import { cn } from "@/lib/utils";
-import { isUrlActive } from "@/helper";
 
 const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
     const { t } = useTranslation();
     const LINKS = [
         {
-            link:  route("site.index"),
+            link:  siteRoute("site.index"),
             title: t("site.navigation.home"),
         },
         {
-            link:  route("site.products"),
+            link:  siteRoute("site.products"),
             title: t("site.navigation.products"),
         },
         {
-            link:  route("site.applications"),
+            link:  siteRoute("site.applications"),
             title: t("site.navigation.applications"),
         },
         {
-            link:  route("site.suppliers"),
+            link:  siteRoute("site.suppliers"),
             title: t("site.navigation.suppliers"),
         },
         {
-            link:  route("site.services"),
+            link:  siteRoute("site.services"),
             title: t("site.navigation.services"),
         },
         {
-            link:  route("site.news"),
+            link:  siteRoute("site.news"),
             title: t("site.navigation.news"),
         },
         {
-            link:  route("site.about"),
+            link:  siteRoute("site.about"),
             title: t("site.navigation.about"),
         },
         {
-            link:  route("site.careers"),
+            link:  siteRoute("site.careers"),
             title: t("site.navigation.careers"),
         },
         {
-            link:  route("site.contact"),
+            link:  siteRoute("site.contact"),
             title: t("site.navigation.contact"),
         },
     ];
@@ -58,9 +58,12 @@ const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
             }}
         >
             {LINKS.map((l) => {
-                let isActive = isUrlActive(l.link);
+                const path = new URL(l.link).pathname;
+                let isActive =
+                    window.location.pathname === path ||
+                    window.location.pathname.startsWith(`${path}/`);
                 if (
-                    l.link == route("site.index") &&
+                    l.link == siteRoute("site.index") &&
                     !route().current("site.index")
                 ) {
                     isActive = false;

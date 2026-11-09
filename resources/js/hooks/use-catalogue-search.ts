@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import Product from "@/models/product";
 import { translate } from "@/models/translatable";
 import Http from "@/modules/http/http";
@@ -6,7 +7,7 @@ import { isEmptyObject } from "@/helper";
 import Supplier from "@/models/supplier";
 
 interface SearchResults {
-    products: Product[];
+    products:  Product[];
     suppliers: Supplier[];
 }
 const emptyResults: SearchResults = { products: [], suppliers: [] };
@@ -15,7 +16,7 @@ export default function useCatalogueSearch({
     supplier_id,
 }: {
     product_technology_id?: number;
-    supplier_id?: number;
+    supplier_id?:           number;
 }) {
     const id = useId();
     const container = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ export default function useCatalogueSearch({
             technology: product.product_technology
                 ? translate(product.product_technology.name)
                 : undefined,
-            href:       route("site.products.show", product.slug),
+            href:       siteRoute("site.products.show", product.slug),
         }))
         .concat(
             results.suppliers.map((supplier) => ({
@@ -45,7 +46,7 @@ export default function useCatalogueSearch({
                 label:      supplier.name,
                 supplier:   "Supplier",
                 technology: undefined,
-                href:       route("site.suppliers.products", supplier.slug),
+                href:       siteRoute("site.suppliers.products", supplier.slug),
             })),
         );
 
@@ -79,7 +80,7 @@ export default function useCatalogueSearch({
         const filterFields = filters();
         const timer = window.setTimeout(async () => {
             const response = await Http.make<SearchResults>().get(
-                route("site.search"),
+                siteRoute("site.search"),
                 { search, ...(filterFields ? filterFields : {}) },
                 { Accept: "application/json" },
             );

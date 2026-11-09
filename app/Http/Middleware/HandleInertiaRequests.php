@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Inertia\Middleware;
+use App\Modules\Seo\PageSeo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Services\v1\Product\ProductService;
@@ -39,6 +40,7 @@ class HandleInertiaRequests extends Middleware
         JsonResource::withoutWrapping();
 
         return array_merge(parent::share($request), [
+            'seo'                 => fn (): array => app(PageSeo::class)->build($request),
             'availableLocales'    => config('cubeta-starter.available_locales'),
             'currentLocale'       => app()->getLocale(),
             'formProtectionToken' => fn (): string => Crypt::encryptString(json_encode([

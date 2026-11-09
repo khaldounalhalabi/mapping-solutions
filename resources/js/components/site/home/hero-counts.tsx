@@ -35,13 +35,13 @@ const HeroCounts = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 w-full items-start gap-10 justify-between">
             {heroStats.map((stat, index) => (
                 <div key={index} className="flex items-start flex-col">
-                    <h1 className="text-4xl font-extrabold text-navy">
+                    <p className="text-4xl font-extrabold text-navy">
                         <AnimatedCounter
                             value={stat.value}
                             suffix={stat.suffix}
                             duration={1800}
                         />
-                    </h1>
+                    </p>
 
                     <p className="text-xs text-paragraph text-start">
                         {stat.description}

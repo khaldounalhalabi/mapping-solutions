@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { formatNumber, translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ProductTechnology from "@/models/product-technology";
@@ -23,14 +24,14 @@ const BySlug = ({
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
-                <h2
+                <p
                     className={
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
                     {" "}
                     {translateKey("site.copy.product_catalogue")}{" "}
-                </h2>
+                </p>
                 <h1
                     className={
                         "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
@@ -67,7 +68,7 @@ const BySlug = ({
                 >
                     {productTechnology.suppliers?.map((s) => (
                         <Link
-                            href={route(
+                            href={siteRoute(
                                 "site.products.product.technologies.suppliers.index",
                                 {
                                     productTechnologySlug:
@@ -89,8 +90,10 @@ const BySlug = ({
                                     className="w-24 sm:w-32 shrink-0 flex items-center justify-center overflow-hidden rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
                                 >
                                     <img
+                                        loading="lazy"
+                                        decoding="async"
                                         src={s.logo?.url}
-                                        alt={s.name + "-logo"}
+                                        alt={s.name}
                                         className="h-full w-full object-fill"
                                     />
                                 </div>
@@ -129,7 +132,7 @@ const BySlug = ({
                                     {translateKey("site.copy.products_2")}{" "}
                                 </Badge>
                                 <Link
-                                    href={route(
+                                    href={siteRoute(
                                         "site.products.product.technologies.suppliers.index",
                                         {
                                             productTechnologySlug:
@@ -164,13 +167,13 @@ const BySlug = ({
                             "flex flex-col gap-3 items-start max-w-full lg:max-w-1/2"
                         }
                     >
-                        <h1 className={"font-extrabold text-navy-secondary"}>
+                        <h2 className={"font-extrabold text-navy-secondary"}>
                             {" "}
                             {translateKey(
                                 "site.copy.comparing_options_in",
                             )}{" "}
                             {translate(productTechnology.name)}
-                        </h1>
+                        </h2>
                         <p className={"text-sm text-paragraph"}>
                             {" "}
                             {translateKey(
@@ -178,7 +181,7 @@ const BySlug = ({
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={route("site.contact")}>
+                    <Link href={siteRoute("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey(
@@ -189,7 +192,7 @@ const BySlug = ({
                 </div>
 
                 <MoveLink
-                    href={route("site.products")}
+                    href={siteRoute("site.products")}
                     dir={"back"}
                     className={"text-navy-secondary font-extrabold"}
                 >

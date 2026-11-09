@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import IndexHeroSection from "@/components/site/products/index-hero-section";
 import ProductTechnology from "@/models/product-technology";
@@ -21,12 +22,12 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                             "flex flex-col gap-3 items-start max-w-full lg:max-w-1/2"
                         }
                     >
-                        <h1 className={"font-extrabold text-navy-secondary"}>
+                        <h2 className={"font-extrabold text-navy-secondary"}>
                             {" "}
                             {translateKey(
                                 "site.copy.not_sure_where_to_start",
                             )}{" "}
-                        </h1>
+                        </h2>
                         <p className={"text-sm text-paragraph"}>
                             {" "}
                             {translateKey(
@@ -34,7 +35,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={route("site.contact")}>
+                    <Link href={siteRoute("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey(

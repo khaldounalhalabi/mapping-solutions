@@ -9,12 +9,12 @@ const ContactSection = () => {
             }
         >
             <div className={"flex flex-col items-center gap-6"}>
-                <h1 className={"text-white font-bold text-4xl"}>
+                <h2 className={"text-white font-bold text-4xl"}>
                     {" "}
                     {translateKey(
                         "site.copy.technical_guidance_on_instrument_selection",
                     )}{" "}
-                </h1>
+                </h2>
                 <p className={"text-white/60 text-sm text-center md:max-w-1/2"}>
                     {" "}
                     {translateKey(

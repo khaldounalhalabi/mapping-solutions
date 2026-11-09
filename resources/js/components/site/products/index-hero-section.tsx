@@ -12,14 +12,14 @@ const IndexHeroSection = () => {
             }
         >
             <SpectrumLine className={"w-16 h-1"} />
-            <h2
+            <h1
                 className={
                     "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                 }
             >
                 {" "}
                 {translateKey("site.copy.product_catalogue")}{" "}
-            </h2>
+            </h1>
             <h1
                 className={
                     "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"

@@ -1,5 +1,6 @@
+import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import { BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react";
 import Vacancy from "@/models/vacancy";
 import { translate } from "@/models/translatable";
@@ -29,11 +30,6 @@ export default function Show({ vacancy }: { vacancy: Vacancy }) {
     ];
     return (
         <PublicReveals className="jb-page">
-            <Head
-                title={`${title} | ${translateKey("site.copy.careers")} | Mapping Solutions`}
-            >
-                <meta name="description" content={translate(vacancy.excerpt)} />
-            </Head>
             <section className="jb-hero">
                 <div className="jb-col jb-hero-in">
                     <div className="jb-bar" />
@@ -109,7 +105,7 @@ export default function Show({ vacancy }: { vacancy: Vacancy }) {
                 </div>
             </div>
             <div className="jb-wide jb-back">
-                <Link href={route("site.careers")}>
+                <Link href={siteRoute("site.careers")}>
                     {" "}
                     {translateKey("site.copy.all_vacancies")}{" "}
                 </Link>

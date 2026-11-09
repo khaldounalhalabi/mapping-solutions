@@ -1,10 +1,11 @@
+import { siteRoute } from "@/lib/site-route";
 import PublicRichText from "@/components/site/public-rich-text";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import SettingKeyEnum from "@/enums/setting-key-enum";
 import useSettings from "@/hooks/use-settings";
 import { useTranslation } from "@/hooks/use-translation";
 import { translate } from "@/models/translatable";
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import ArrowUpRightIcon from "@/components/site/icons/arrow-up-right-icon";
 
 export default function LegalPage({
@@ -26,11 +27,10 @@ export default function LegalPage({
 
     return (
         <>
-            <Head title={title} />
             <header className="bg-hero text-white">
                 <div className="mx-auto max-w-7xl px-6 py-14 sm:px-10 lg:px-16 lg:py-20">
                     <Link
-                        href={route("site.index")}
+                        href={siteRoute("site.index")}
                         className="text-sm text-white/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4"
                     >
                         {t("site.legal.home")} <span aria-hidden="true">/</span>{" "}
@@ -101,7 +101,7 @@ export default function LegalPage({
                             </p>
                         </div>
                         <Link
-                            href={route("site.contact")}
+                            href={siteRoute("site.contact")}
                             className="inline-flex shrink-0 items-center gap-2 text-sm font-bold text-navy underline underline-offset-4"
                         >
                             {t("site.legal.contact")}{" "}

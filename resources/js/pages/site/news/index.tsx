@@ -1,10 +1,16 @@
+import { useTranslation } from "@/hooks/use-translation";
+import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import { translate } from "@/models/translatable";
-import { InfiniteScroll, Link } from "@inertiajs/react";
+import { InfiniteScroll, Link, usePage } from "@inertiajs/react";
 import { Paginated } from "@/global";
 
 const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
+    const { t } = useTranslation();
+    const { newsPagination } = usePage<{
+        newsPagination: { previous: string | null; next: string | null };
+    }>().props;
     return (
         <div>
             <section
@@ -32,6 +38,7 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
                 </p>
             </section>
             <InfiniteScroll
+                preserveUrl
                 className={
                     "py-10 px-page-padding flex flex-col items-start gap-10"
                 }
@@ -39,14 +46,15 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
             >
                 {articles.data.map((a) => (
                     <Link
+                        key={a.id}
                         className={
                             "flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 hover:shadow-2xl p-3 rounded-md border w-full"
                         }
-                        href={route("site.news.show", a.slug)}
+                        href={siteRoute("site.news.show", a.slug)}
                     >
-                        <h1 className={"text-navy text-xl font-extrabold"}>
+                        <h2 className={"text-navy text-xl font-extrabold"}>
                             {translate(a.title)}
-                        </h1>
+                        </h2>
                         <p className={"text-paragraph text-sm font-extrabold"}>
                             {formatDate(a.created_at)}
                         </p>
@@ -57,6 +65,21 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
                     </Link>
                 ))}
             </InfiniteScroll>
+            <nav
+                aria-label={t("seo.pagination")}
+                className="flex justify-between gap-4 px-page-padding pb-10"
+            >
+                {newsPagination.previous && (
+                    <Link href={newsPagination.previous} rel="prev">
+                        {t("seo.previous")}
+                    </Link>
+                )}
+                {newsPagination.next && (
+                    <Link href={newsPagination.next} rel="next">
+                        {t("seo.next")}
+                    </Link>
+                )}
+            </nav>
         </div>
     );
 };

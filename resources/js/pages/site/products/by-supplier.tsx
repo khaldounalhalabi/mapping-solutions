@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import Supplier from "@/models/supplier";
 import Product from "@/models/product";
@@ -23,20 +24,20 @@ const BySupplier = ({
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
-                <h2
+                <p
                     className={
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
                     {supplier.name} {translateKey("site.copy.products_2")}{" "}
-                </h2>
+                </p>
                 <div
                     key={supplier.id}
                     className="w-32 flex items-center justify-center overflow-hidden rounded-md starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
                 >
                     <img
                         src={supplier.logo?.url}
-                        alt={supplier.name + "-logo"}
+                        alt={supplier.name}
                         className="h-full w-full object-fill"
                     />
                 </div>
@@ -75,12 +76,12 @@ const BySupplier = ({
                             "flex flex-col gap-3 items-start max-w-full lg:max-w-1/2"
                         }
                     >
-                        <h1 className={"font-extrabold text-navy-secondary"}>
+                        <h2 className={"font-extrabold text-navy-secondary"}>
                             {" "}
                             {translateKey(
                                 "site.copy.need_a_quote_or_a_specification",
                             )}{" "}
-                        </h1>
+                        </h2>
                         <p className={"text-sm text-paragraph"}>
                             {" "}
                             {translateKey(
@@ -88,7 +89,7 @@ const BySupplier = ({
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={route("site.contact")}>
+                    <Link href={siteRoute("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey(
@@ -100,7 +101,7 @@ const BySupplier = ({
 
                 <div className={"flex flex-wrap items-center gap-5"}>
                     <MoveLink
-                        href={route("site.suppliers")}
+                        href={siteRoute("site.suppliers")}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >

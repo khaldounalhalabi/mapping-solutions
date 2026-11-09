@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import MarketApplication from "@/models/market-application";
 import SectionKicker from "@/components/ui/section-kicker";
@@ -20,7 +21,7 @@ const ApplicationsSection = ({
                 {" "}
                 {translateKey("site.copy.applications")}{" "}
             </SectionKicker>
-            <SectionTitle>
+            <SectionTitle as="h2">
                 {" "}
                 {translateKey(
                     "site.copy.applications_across_research_industry_and_defence",
@@ -33,7 +34,7 @@ const ApplicationsSection = ({
                 )}{" "}
             </SectionDescription>
 
-            <MoveLink href={route("site.applications")}>
+            <MoveLink href={siteRoute("site.applications")}>
                 {" "}
                 {translateKey("site.copy.view_all_applications")}{" "}
             </MoveLink>
@@ -47,7 +48,7 @@ const ApplicationsSection = ({
                     .map((a) => (
                         <Link
                             href={
-                                route("site.applications") +
+                                siteRoute("site.applications") +
                                 `#application-${a.id}`
                             }
                             key={a.id}

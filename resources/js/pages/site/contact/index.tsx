@@ -1,6 +1,7 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import usePublicFormProtection from "@/hooks/use-public-form-protection";
-import { Head, useForm } from "@inertiajs/react";
+import { useForm } from "@inertiajs/react";
 import { Check, Mail, MapPin, Phone } from "lucide-react";
 import Form from "@/components/form/form";
 import Input from "@/components/form/fields/input";
@@ -56,14 +57,6 @@ export default function Contact() {
     ];
     return (
         <PublicReveals className="ct">
-            <Head title={translateKey("site.copy.contact_mapping_solutions")}>
-                <meta
-                    name="description"
-                    content={translateKey(
-                        "site.extra.contact_mapping_solutions_for_remote_sensing_instruments_surveys_training_and_technical_su",
-                    )}
-                />
-            </Head>
             <section className="hero">
                 <div className="w hero-in">
                     <div className="spectrum" />
@@ -199,9 +192,12 @@ export default function Contact() {
                                     onSubmit={(e) => {
                                         e.preventDefault();
                                         form.transform(protect);
-                                        form.post(route("site.contact.store"), {
-                                            preserveScroll: true,
-                                        });
+                                        form.post(
+                                            siteRoute("site.contact.store"),
+                                            {
+                                                preserveScroll: true,
+                                            },
+                                        );
                                     }}
                                 >
                                     <div

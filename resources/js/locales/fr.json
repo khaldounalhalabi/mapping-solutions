@@ -764,5 +764,10 @@
             "training_course": "Formation",
             "technical_support": "Assistance technique"
         }
+    },
+    "seo": {
+        "previous": "Page précédente",
+        "next": "Page suivante",
+        "pagination": "Pagination des actualités"
     }
 }

@@ -1,5 +1,6 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import { ArrowDown } from "lucide-react";
 import { DynamicIcon } from "lucide-react/dynamic";
 import MarketApplication from "@/models/market-application";
@@ -16,16 +17,6 @@ export default function Applications({
 }) {
     return (
         <PublicReveals className="applications-page">
-            <Head
-                title={translateKey("site.copy.applications_mapping_solutions")}
-            >
-                <meta
-                    name="description"
-                    content={translateKey(
-                        "site.extra.explore_remote_sensing_applications_across_research_environment_infrastructure_industry_an",
-                    )}
-                />
-            </Head>
             <section className="relative overflow-hidden bg-[#08182f] py-16 text-white md:py-24">
                 <div className="mx-auto max-w-[1180px] px-[26px]">
                     <SpectrumLine className="mb-7 h-[5px] w-28 rounded" />
@@ -134,7 +125,7 @@ export default function Applications({
                                             html={translate(a.description)}
                                         />
                                         <Link
-                                            href={route("site.contact")}
+                                            href={siteRoute("site.contact")}
                                             className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#d63b3b]"
                                         >
                                             {" "}
@@ -180,7 +171,7 @@ export default function Applications({
                     )}{" "}
                 </p>
                 <Link
-                    href={route("site.contact")}
+                    href={siteRoute("site.contact")}
                     className="mt-7 inline-flex items-center gap-3 rounded-lg bg-[#d63b3b] px-7 py-4 text-sm font-bold hover:bg-[#bd3030]"
                 >
                     {" "}

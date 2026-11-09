@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import IsoCheckIcon from "@/components/site/icons/ISOCheckIcon";
 
@@ -44,13 +45,13 @@ const IsoCertifiedSection = () => {
                     className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-white/80"
                 >
                     <Link
-                        href={route("site.privacy.policy")}
+                        href={siteRoute("site.privacy.policy")}
                         className="hover:text-white hover:underline"
                     >
                         {t("site.legal.privacy_policy")}
                     </Link>
                     <Link
-                        href={route("site.terms.and.conditions")}
+                        href={siteRoute("site.terms.and.conditions")}
                         className="hover:text-white hover:underline"
                     >
                         {t("site.legal.terms_and_conditions")}

@@ -1,3 +1,4 @@
+import SeoHead from "@/components/seo-head";
 import { usePage } from "@inertiajs/react";
 import { DirectionProvider } from "@base-ui/react/direction-provider";
 import LanguageDropdown from "@/components/dashboard/navbar/language-dropdown";
@@ -10,6 +11,7 @@ const AuthLayout = ({ children }: { children?: ReactNode }) => {
     return (
         <DirectionProvider direction={currentLocale === "ar" ? "rtl" : "ltr"}>
             <ThemeProvider defaultTheme={"system"}>
+                <SeoHead />
                 <ToasterProvider>
                     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
                         <div className="w-full max-w-sm">

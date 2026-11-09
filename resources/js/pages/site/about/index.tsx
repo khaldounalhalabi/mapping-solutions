@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { formatNumber } from "@/hooks/use-translation";
 import { translateKey } from "@/hooks/use-translation";
 import { translate } from "@/models/translatable";
@@ -133,7 +134,7 @@ const Index = ({
                         }
                     >
                         <SpectrumLine className={"w-16 h-1"} />
-                        <h2
+                        <p
                             className={
                                 "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                             }
@@ -142,7 +143,7 @@ const Index = ({
                             {translateKey(
                                 "site.copy.about_mapping_solutions",
                             )}{" "}
-                        </h2>
+                        </p>
                         <h1
                             className={
                                 "text-[clamp(2.3rem,5.2vw,3.9rem)] leading-[1.05] tracking-tight text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
@@ -241,7 +242,7 @@ const Index = ({
                     "mx-auto w-full max-w-7xl space-y-8 px-6 py-18 sm:px-10 lg:px-16 lg:py-28"
                 }
             >
-                <h1
+                <h2
                     className={
                         "max-w-[22ch] text-navy text-[clamp(1.55rem,3.6vw,2.5rem)] leading-tight font-extrabold starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
@@ -258,7 +259,7 @@ const Index = ({
                         {" "}
                         {translateKey("site.copy.photograph")}{" "}
                     </span>
-                </h1>
+                </h2>
                 <p
                     className={
                         "max-w-[58ch] text-paragraph text-[15.5px] leading-[1.88] starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
@@ -490,14 +491,19 @@ const Index = ({
                         {suppliers.map((supplier) => (
                             <Link
                                 key={supplier.id}
-                                href={route("site.suppliers")}
-                                aria-label={`Explore ${supplier.name} instruments`}
+                                href={siteRoute(
+                                    "site.suppliers.products",
+                                    supplier.slug,
+                                )}
+                                aria-label={supplier.name}
                                 className="flex items-center justify-center overflow-hidden rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
                             >
                                 {supplier.logo?.url ? (
                                     <img
+                                        loading="lazy"
+                                        decoding="async"
                                         src={supplier.logo?.url}
-                                        alt={supplier.name + "-logo"}
+                                        alt={supplier.name}
                                         className="h-full w-full object-fill"
                                     />
                                 ) : (
@@ -590,7 +596,7 @@ const Index = ({
                         {translateKey("site.copy.talk_to_our_team")}{" "}
                     </a>
                     <Link
-                        href={route("site.products")}
+                        href={siteRoute("site.products")}
                         className="inline-flex items-center justify-center rounded-lg border border-white/40 px-8 py-4 text-sm font-bold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                     >
                         {" "}

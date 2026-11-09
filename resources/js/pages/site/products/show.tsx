@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import Product from "@/models/product";
@@ -26,13 +27,13 @@ const Show = ({ product }: { product: Product }) => {
                     className={"flex flex-col w-full min-w-0 items-start gap-5"}
                 >
                     <SpectrumLine className={"w-16 h-1"} />
-                    <h2
+                    <p
                         className={
                             "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                         }
                     >
                         {translate(product.product_technology?.name)}
-                    </h2>
+                    </p>
                     <h1
                         className={
                             "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
@@ -78,7 +79,9 @@ const Show = ({ product }: { product: Product }) => {
                     <img
                         className="w-full max-h-96 object-contain lg:max-h-none"
                         src={product.hero_image?.url}
-                        alt={product.hero_image?.name}
+                        alt={translate(product.name)}
+                        decoding="async"
+                        fetchPriority="high"
                     />
                 </div>
 
@@ -195,7 +198,7 @@ const Show = ({ product }: { product: Product }) => {
                     {" "}
                     {translateKey("site.copy.product_details")}{" "}
                 </SectionKicker>
-                <SectionTitle>
+                <SectionTitle as="h2">
                     {" "}
                     {translateKey(
                         "site.copy.everything_about_this_product",
@@ -343,14 +346,14 @@ const Show = ({ product }: { product: Product }) => {
                                 "flex flex-col items-start gap-2 max-w-5/6"
                             }
                         >
-                            <h1
+                            <h2
                                 className={"font-extrabold text-navy-secondary"}
                             >
                                 {" "}
                                 {translateKey(
                                     "site.copy.not_sure_this_is_the_right_instrument",
                                 )}{" "}
-                            </h1>
+                            </h2>
                             <p className={"text-sm text-paragraph"}>
                                 {" "}
                                 {translateKey(
@@ -360,7 +363,7 @@ const Show = ({ product }: { product: Product }) => {
                                     className={
                                         "text-navy-secondary font-bold hover:underline"
                                     }
-                                    href={route("site.contact")}
+                                    href={siteRoute("site.contact")}
                                 >
                                     {" "}
                                     {translateKey(
@@ -373,7 +376,7 @@ const Show = ({ product }: { product: Product }) => {
                 </div>
                 <div className={"flex flex-wrap items-center w-full gap-5"}>
                     <MoveLink
-                        href={route(
+                        href={siteRoute(
                             "site.products.product.technologies.suppliers.index",
                             {
                                 supplierSlug:          product.supplier?.slug,
@@ -389,17 +392,20 @@ const Show = ({ product }: { product: Product }) => {
                         {product.supplier?.name}
                     </MoveLink>
                     <MoveLink
-                        href={route("site.products.product.technologies.show", {
-                            productTechnologySlug:
-                                product.product_technology?.slug,
-                        })}
+                        href={siteRoute(
+                            "site.products.product.technologies.show",
+                            {
+                                productTechnologySlug:
+                                    product.product_technology?.slug,
+                            },
+                        )}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >
                         {translate(product.product_technology?.name)}
                     </MoveLink>
                     <MoveLink
-                        href={route("site.products")}
+                        href={siteRoute("site.products")}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >

@@ -24,7 +24,7 @@ const LanguageDropdown = ({
     appearance?: "default" | "website";
 }) => {
     const {
-        props: { currentLocale, availableLocales },
+        props: { currentLocale, availableLocales, seo },
     } = usePage();
 
     const { t } = useTranslation();
@@ -117,7 +117,20 @@ const LanguageDropdown = ({
                             "min-h-11 text-left gap-3 rounded-lg px-3 py-2 text-sm",
                             l === currentLocale && "bg-navy/5 text-navy",
                         )}
-                        onClick={() => handleLocalChange(l)}
+                        render={
+                            appearance === "website" && seo.alternates[l] ? (
+                                <a
+                                    href={seo.alternates[l]}
+                                    hrefLang={l}
+                                    lang={l}
+                                />
+                            ) : undefined
+                        }
+                        onClick={
+                            appearance === "website" && seo.alternates[l]
+                                ? undefined
+                                : () => handleLocalChange(l)
+                        }
                     >
                         <span
                             className="flex size-7 shrink-0 items-center justify-center rounded-md border border-current/10 bg-muted/50 text-[10px] font-bold uppercase"

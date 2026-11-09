@@ -764,5 +764,10 @@
             "training_course": "Training course",
             "technical_support": "Technical support"
         }
+    },
+    "seo": {
+        "previous": "Previous page",
+        "next": "Next page",
+        "pagination": "News pagination"
     }
 }

@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { formatNumber, translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ApiSelect from "@/components/form/fields/select/api-select";
@@ -31,14 +32,14 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
-                <h2
+                <p
                     className={
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
                     {" "}
                     {translateKey("site.copy.partnerships_since_2004")}{" "}
-                </h2>
+                </p>
                 <h1
                     className={
                         "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
@@ -135,9 +136,11 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 }
                                             >
                                                 <img
+                                                    loading="lazy"
+                                                    decoding="async"
                                                     src={s.logo?.url}
                                                     className="h-full w-full object-fill"
-                                                    alt={`${s.name}-logo`}
+                                                    alt={s.name}
                                                 />
                                             </div>
                                             <div
@@ -202,7 +205,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 }
                                             >
                                                 <Link
-                                                    href={route(
+                                                    href={siteRoute(
                                                         "site.suppliers.products",
                                                         s.slug,
                                                     )}
@@ -218,7 +221,9 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                     </Button>
                                                 </Link>
                                                 <Link
-                                                    href={route("site.contact")}
+                                                    href={siteRoute(
+                                                        "site.contact",
+                                                    )}
                                                 >
                                                     <Button
                                                         className={

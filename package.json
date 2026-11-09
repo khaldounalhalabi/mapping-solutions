@@ -8,7 +8,8 @@
         "typecheck": "tsc -b --noEmit",
         "format": "prettier --write .",
         "prepare": "husky",
-        "test:localization": "node tests/Unit/localization.test.mjs"
+        "test:localization": "node tests/Unit/localization.test.mjs",
+        "test:seo": "node tests/Unit/seo-head.test.mjs"
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx,json,css,scss,md,yml,yaml}": [

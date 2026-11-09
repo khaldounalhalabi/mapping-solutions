@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\SetSeoHeaders;
 use Illuminate\Foundation\Application;
 use App\Http\Middleware\HandleInertiaRequests;
 use App\Modules\Sitemap\GenerateSitemapCommand;
@@ -27,6 +28,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withCommands([GenerateSitemapCommand::class])
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->append(SetSeoHeaders::class);
+
         $middleware->trustProxies(at: '*');
 
         $middleware->alias([

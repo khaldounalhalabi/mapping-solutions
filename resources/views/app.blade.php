@@ -13,7 +13,7 @@
     @viteReactRefresh
     @vite (["resources/js/cubeta-starter.tsx"])
     <x-inertia::head>
-        <title>{{ config('app.name') }}</title>
+        @include ('seo')
     </x-inertia::head>
 
     <link rel="icon" href="{{asset("/favicon.ico")}}" sizes="any" />

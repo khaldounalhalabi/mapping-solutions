@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import { randomInt } from "@/helper";
@@ -85,14 +86,14 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                 }
             >
                 <SpectrumLine className={"w-16 h-1"} />
-                <h2
+                <p
                     className={
                         "text-navy-hero uppercase font-extrabold text-xs starting:translate-y-5 starting:opacity-0 translate-0 opacity-100 transition-all duration-700 ease-out"
                     }
                 >
                     {" "}
                     {translateKey("site.copy.services_since_2004")}{" "}
-                </h2>
+                </p>
                 <h1
                     className={
                         "text-4xl text-white font-extrabold starting:translate-y-6 starting:opacity-0 translate-0 opacity-100 transition-all duration-800 ease-out"
@@ -204,7 +205,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                                                 </p>
                                             </div>
                                             <MoveLink
-                                                href={route("site.contact")}
+                                                href={siteRoute("site.contact")}
                                             >
                                                 {" "}
                                                 {translateKey(

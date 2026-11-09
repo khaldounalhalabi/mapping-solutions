@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import Product from "@/models/product";
 import { groupBy, uniqueBy } from "@/helper";
@@ -30,7 +31,7 @@ export default function ProductsList(props: { items: Product[] }) {
                             >
                                 {products.map((p) => (
                                     <Link
-                                        href={route(
+                                        href={siteRoute(
                                             "site.products.show",
                                             p.slug,
                                         )}
@@ -40,8 +41,10 @@ export default function ProductsList(props: { items: Product[] }) {
                                     >
                                         <div className={"h-3/4 border-b"}>
                                             <img
+                                                loading="lazy"
+                                                decoding="async"
                                                 src={p.hero_image?.url}
-                                                alt={p.name}
+                                                alt={translate(p.name)}
                                                 className={
                                                     "w-full h-full object-contain"
                                                 }
@@ -60,7 +63,7 @@ export default function ProductsList(props: { items: Product[] }) {
                                                 {translate(p.name)}
                                             </h2>
                                             <MoveLink
-                                                href={route(
+                                                href={siteRoute(
                                                     "site.products.show",
                                                     p.slug,
                                                 )}

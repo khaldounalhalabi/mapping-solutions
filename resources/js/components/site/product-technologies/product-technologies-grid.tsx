@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { formatNumber, translateKey } from "@/hooks/use-translation";
 import ProductTechnology from "@/models/product-technology";
 import { Button } from "@/components/ui/button";
@@ -28,9 +29,12 @@ const ProductTechnologiesGrid = ({
                     <Link
                         key={tech.id}
                         className="group shadow-xl rounded-xl flex flex-col w-full min-w-0 h-full min-h-60.5 hover:-translate-y-2 transition-all duration-700"
-                        href={route("site.products.product.technologies.show", {
-                            productTechnologySlug: tech.slug,
-                        })}
+                        href={siteRoute(
+                            "site.products.product.technologies.show",
+                            {
+                                productTechnologySlug: tech.slug,
+                            },
+                        )}
                     >
                         <div
                             className="relative isolate flex h-4/5 w-full items-center justify-center overflow-hidden rounded-t-xl before:pointer-events-none before:absolute before:inset-y-0 before:-left-1/2 before:z-10 before:w-1/2 before:translate-x-0 before:skew-x-[-25deg] before:bg-linear-to-r before:from-transparent before:via-white/40 before:to-transparent before:transition-transform before:duration-700 before:ease-in-out group-hover:before:translate-x-[400%]"
@@ -44,6 +48,8 @@ const ProductTechnologiesGrid = ({
                             >
                                 {tech.icon ? (
                                     <img
+                                        loading="lazy"
+                                        decoding="async"
                                         src={tech.icon.url}
                                         alt={`${tech.name}-icon`}
                                     />

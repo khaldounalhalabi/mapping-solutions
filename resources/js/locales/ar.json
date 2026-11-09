@@ -764,5 +764,10 @@
             "training_course": "دورة تدريبية",
             "technical_support": "الدعم الفني"
         }
+    },
+    "seo": {
+        "previous": "الصفحة السابقة",
+        "next": "الصفحة التالية",
+        "pagination": "صفحات الأخبار"
     }
 }

@@ -1,3 +1,4 @@
+import SeoHead from "@/components/seo-head";
 import { DirectionProvider } from "@base-ui/react/direction-provider";
 import React, { useEffect } from "react";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
@@ -37,6 +38,7 @@ const DashboardLayout = ({ children }: { children?: React.ReactNode }) => {
     return (
         <DirectionProvider direction={currentLocale === "ar" ? "rtl" : "ltr"}>
             <ThemeProvider defaultTheme={"system"}>
+                <SeoHead />
                 <TooltipProvider>
                     <ToasterProvider>
                         <SidebarProvider

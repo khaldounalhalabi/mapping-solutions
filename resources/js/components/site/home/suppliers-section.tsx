@@ -1,3 +1,5 @@
+import { Link } from "@inertiajs/react";
+import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import Supplier from "@/models/supplier";
 import SectionKicker from "@/components/ui/section-kicker";
@@ -15,7 +17,7 @@ const SuppliersSection = ({ suppliers }: { suppliers: Supplier[] }) => {
                 {" "}
                 {translateKey("site.copy.partnerships")}{" "}
             </SectionKicker>
-            <SectionTitle>
+            <SectionTitle as="h2">
                 {" "}
                 {translateKey("site.copy.manufacturers_represented")}{" "}
             </SectionTitle>
@@ -27,16 +29,19 @@ const SuppliersSection = ({ suppliers }: { suppliers: Supplier[] }) => {
             </SectionDescription>
             <div className="grid w-full grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-5">
                 {suppliers.map((s) => (
-                    <div
+                    <Link
+                        href={siteRoute("site.suppliers.products", s.slug)}
                         key={s.id}
                         className="flex items-center justify-center overflow-hidden rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
                     >
                         <img
+                            loading="lazy"
+                            decoding="async"
                             src={s.logo?.url}
-                            alt={s.name + "-logo"}
+                            alt={s.name}
                             className="h-full w-full object-fill"
                         />
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>

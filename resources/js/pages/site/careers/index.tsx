@@ -1,5 +1,6 @@
+import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import { CSSProperties } from "react";
 import { CalendarDays, MapPin } from "lucide-react";
 import Vacancy from "@/models/vacancy";
@@ -17,14 +18,6 @@ export default function Careers({
     const count = vacancies.length;
     return (
         <PublicReveals className="cr">
-            <Head title={translateKey("site.copy.careers_mapping_solutions")}>
-                <meta
-                    name="description"
-                    content={translateKey(
-                        "site.extra.explore_careers_in_remote_sensing_geospatial_science_and_specialist_instrumentation_at_map",
-                    )}
-                />
-            </Head>
             <section className="hero">
                 <div className="hero-dots" aria-hidden="true" />
                 <div className="w hero-in">
@@ -292,7 +285,7 @@ export default function Careers({
                                 return (
                                     <Link
                                         key={v.id}
-                                        href={route("site.vacancy", v.slug)}
+                                        href={siteRoute("site.vacancy", v.slug)}
                                         className="vac"
                                     >
                                         <div>

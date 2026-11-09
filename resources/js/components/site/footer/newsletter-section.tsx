@@ -44,10 +44,10 @@ const NewsletterSection = () => {
         >
             <div className={"flex items-center gap-2"}>
                 <MailIcon className={"text-white"} />
-                <h1 className={"text-white text-lg font-extrabold"}>
+                <h2 className={"text-white text-lg font-extrabold"}>
                     {" "}
                     {translateKey("site.copy.subscribe")}{" "}
-                </h1>
+                </h2>
             </div>
             <div>
                 <p className={"text-white/60 text-sm"}>

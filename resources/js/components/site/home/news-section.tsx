@@ -1,3 +1,4 @@
+import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import SectionKicker from "@/components/ui/section-kicker";
@@ -14,7 +15,7 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                 {" "}
                 {translateKey("site.copy.news_and_events")}{" "}
             </SectionKicker>
-            <SectionTitle>
+            <SectionTitle as="h2">
                 {" "}
                 {translateKey("site.copy.latest_updates")}{" "}
             </SectionTitle>
@@ -24,7 +25,7 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                     "site.copy.product_releases_training_workshops_and_project_announcements",
                 )}{" "}
             </SectionDescription>
-            <MoveLink href={route("site.news")}>
+            <MoveLink href={siteRoute("site.news")}>
                 {" "}
                 {translateKey("site.copy.view_all_news")}{" "}
             </MoveLink>
@@ -35,13 +36,15 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
             >
                 {news.map((n) => (
                     <Link
-                        href={route("site.news.show", n.slug)}
+                        href={siteRoute("site.news.show", n.slug)}
                         key={n.id}
                         className={`group h-full flex flex-col gap-3 rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl`}
                     >
                         <img
+                            loading="lazy"
+                            decoding="async"
                             src={n.hero_image?.url}
-                            alt={translate(n.title) + "-hero-image"}
+                            alt={translate(n.title)}
                             className="aspect-video w-full object-cover"
                         />
 
@@ -56,17 +59,19 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                                     year:  "numeric",
                                 })}
                             </h2>
-                            <h1
+                            <h2
                                 className={
                                     "text-navy font-extrabold line-clamp-2"
                                 }
                             >
                                 {translate(n.title)}
-                            </h1>
+                            </h2>
                             <p className="text-paragraph text-xs leading-relaxed line-clamp-3">
                                 {translate(n.excerpt)}
                             </p>
-                            <MoveLink href={route("site.news.show", n.slug)}>
+                            <MoveLink
+                                href={siteRoute("site.news.show", n.slug)}
+                            >
                                 {" "}
                                 {translateKey("site.copy.read_more")}{" "}
                             </MoveLink>

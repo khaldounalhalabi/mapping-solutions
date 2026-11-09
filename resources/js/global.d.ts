@@ -1,4 +1,5 @@
 import "@inertiajs/core";
+import { Seo } from "@/models/seo";
 import User from "@/models/user";
 import { route as routeFn } from "ziggy-js";
 import { AvailableLocales } from "@/models/translatable";
@@ -27,6 +28,7 @@ interface Paginated<T> {
 declare module "@inertiajs/core" {
     export interface InertiaConfig {
         sharedPageProps: {
+            seo:                 Seo;
             formProtectionToken: string;
             availableLocales:    AvailableLocales[];
             currentLocale:       AvailableLocales;

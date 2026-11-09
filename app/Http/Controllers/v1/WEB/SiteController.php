@@ -5,6 +5,7 @@ namespace App\Http\Controllers\v1\WEB;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\ProductRange;
+use App\Modules\Seo\PageSeo;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -85,9 +86,12 @@ class SiteController extends WebController
     public function newsArticles()
     {
         $articles = NewsArticleService::make()->paginate();
+        abort_if($articles->currentPage() > $articles->lastPage(), 404);
+        $articles->appends(['lang' => app()->getLocale()]);
 
         return Inertia::render('site/news/index', [
-            'articles' => Inertia::scroll(fn () => NewsArticleResource::collection($articles)),
+            'newsPagination' => ['previous' => $articles->previousPageUrl(), 'next' => $articles->nextPageUrl()],
+            'articles'       => Inertia::scroll(fn () => NewsArticleResource::collection($articles)),
         ]);
     }
 
@@ -123,6 +127,7 @@ class SiteController extends WebController
         return Inertia::render('site/products/by-supplier', [
             'products' => ProductResource::collection($products),
             'supplier' => SupplierResource::make($supplier),
+            'seo'      => app(PageSeo::class)->build(request(), $supplier),
         ]);
     }
 
@@ -134,9 +139,12 @@ class SiteController extends WebController
         }
 
         $productTechnology = ProductTechnologyService::make()->bySlug($productTechnologySlug);
+        abort_unless($productTechnology, 404);
         $products = ProductService::make()->getBySupplierAndProductTechnology($supplier->id, $productTechnology->id, ['productFamily']);
+        abort_if($products->isEmpty(), 404);
 
         return Inertia::render('site/products/product-technology/supplier/products/products-by-supplier-and-product-technology', [
+            'seo'               => app(PageSeo::class)->build(request(), $productTechnology, $supplier),
             'supplier'          => SupplierResource::make($supplier),
             'productTechnology' => ProductTechnologyResource::make($productTechnology),
             'products'          => ProductResource::collection($products),
@@ -150,7 +158,10 @@ class SiteController extends WebController
             'suppliers.productFamilies',
         ]);
 
+        abort_unless($productTechnology, 404);
+
         return Inertia::render('site/products/product-technology/by-slug', [
+            'seo'               => app(PageSeo::class)->build(request(), $productTechnology),
             'productTechnology' => ProductTechnologyResource::make($productTechnology),
         ]);
     }
@@ -195,6 +206,7 @@ class SiteController extends WebController
 
         return Inertia::render('site/news/show', [
             'article'     => NewsArticleResource::make($article),
+            'seo'         => app(PageSeo::class)->build(request(), $article),
             'prevArticle' => $prevArticle ? NewsArticleResource::make($prevArticle) : null,
         ]);
     }
@@ -213,6 +225,7 @@ class SiteController extends WebController
 
         return Inertia::render('site/products/show', [
             'product' => ProductResource::make($product),
+            'seo'     => app(PageSeo::class)->build(request(), $product),
         ]);
     }
 
@@ -260,6 +273,7 @@ class SiteController extends WebController
 
         return Inertia::render('site/careers/show', [
             'vacancy' => VacancyResource::make($vacancy),
+            'seo'     => app(PageSeo::class)->build(request(), $vacancy),
         ]);
     }
 }
