@@ -1,5 +1,7 @@
 import { translateKey } from "@/hooks/use-translation";
 import { Button } from "@/components/ui/button";
+import { Link } from "@inertiajs/react";
+import { siteRoute } from "@/lib/site-route";
 
 const ContactSection = () => {
     return (
@@ -21,10 +23,14 @@ const ContactSection = () => {
                         "site.copy.provide_the_measurement_requirement_the_area_to_be_covered_and_the_accuracy_required_and_o",
                     )}{" "}
                 </p>
-                <Button variant={"hero"} size={"hero"}>
-                    {" "}
-                    {translateKey("site.copy.contact_our_technical_team")}{" "}
-                </Button>
+                <Link href={siteRoute("site.contact")}>
+                    <Button variant={"hero"} size={"hero"}>
+                        {" "}
+                        {translateKey(
+                            "site.copy.contact_our_technical_team",
+                        )}{" "}
+                    </Button>
+                </Link>
             </div>
         </div>
     );

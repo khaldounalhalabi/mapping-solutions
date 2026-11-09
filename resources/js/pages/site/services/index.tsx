@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { DynamicIcon } from "lucide-react/dynamic";
 import ServiceCategory from "@/models/service-category";
 import MoveLink from "@/components/ui/move-link";
+import { Link } from "@inertiajs/react";
 
 const colors = ["navy-secondary", "green", "purple", "red"] as const;
 
@@ -237,10 +238,14 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                         "site.copy.tell_us_the_area_the_target_and_the_accuracy_you_need_we_ll_tell_you_what_s_achievable_wha",
                     )}{" "}
                 </p>
-                <Button variant={"hero"} size={"hero"}>
-                    {" "}
-                    {translateKey("site.copy.contact_our_technical_team")}{" "}
-                </Button>
+                <Link href={siteRoute("site.contact")}>
+                    <Button variant={"hero"} size={"hero"}>
+                        {" "}
+                        {translateKey(
+                            "site.copy.contact_our_technical_team",
+                        )}{" "}
+                    </Button>
+                </Link>
             </div>
             <SpectrumLine />
         </div>

@@ -51,14 +51,16 @@ const Show = ({ product }: { product: Product }) => {
                     >
                         {translate(product.excerpt)}
                     </p>
-                    <Button
-                        className={"hidden md:block"}
-                        variant={"hero"}
-                        size={"hero"}
-                    >
-                        {" "}
-                        {translateKey("site.copy.request_a_quote")}{" "}
-                    </Button>
+                    <Link href={siteRoute("site.contact")}>
+                        <Button
+                            className={"hidden md:block"}
+                            variant={"hero"}
+                            size={"hero"}
+                        >
+                            {" "}
+                            {translateKey("site.copy.request_a_quote")}{" "}
+                        </Button>
+                    </Link>
                     <p
                         className={
                             "hidden md:block text-xs text-white/80 max-w-full lg:max-w-1/2 starting:translate-y-7 starting:opacity-0 translate-0 opacity-100 transition-all duration-900 ease-out"
@@ -216,12 +218,11 @@ const Show = ({ product }: { product: Product }) => {
                 </p>
 
                 <Tabs defaultValue={"overview"} className="w-full min-w-0">
-                    <TabsList className="max-w-full overflow-x-auto shrink-0 flex gap-3 h-14 items-center justify-between rounded-md border border-slate-200 bg-slate-50 px-2 py-7">
+                    <TabsList className="max-w-full overflow-x-auto shrink-0 flex gap-3 h-14 overflow-y-hidden items-center justify-between rounded-md border border-slate-200 bg-slate-50 px-2 py-7">
                         <TabsTrigger
                             className="h-full data-active:shadow-navy-secondary/50 data-active:border-navy-secondary shrink-0 flex-none sm:flex-1 py-5 px-4 text-sm font-bold transition-all data-active:bg-navy-secondary data-active:hover:text-white data-active:text-white data-active:shadow-md"
                             value={"overview"}
                         >
-                            {" "}
                             {translateKey("site.copy.overview")}{" "}
                         </TabsTrigger>
                         <TabsTrigger
