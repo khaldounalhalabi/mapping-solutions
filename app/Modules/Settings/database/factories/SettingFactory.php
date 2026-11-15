@@ -2,9 +2,9 @@
 
 namespace App\Modules\Settings\database\factories;
 
-use App\Modules\Settings\App\Enums\SettingTypeEnum;
-use App\Modules\Settings\App\Models\Setting;
 use App\Serializers\Translatable;
+use App\Modules\Settings\App\Models\Setting;
+use App\Modules\Settings\App\Enums\SettingTypeEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,17 +16,18 @@ class SettingFactory extends Factory
 
     /**
      * Define the model's default state.
+     *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
         return [
-            'label' => Translatable::fake(),
-            'key' => fake()->unique()->word,
-            'value' => Translatable::fake(),
+            'label'     => Translatable::fake(),
+            'key'       => fake()->unique()->word,
+            'value'     => Translatable::fake(),
             'structure' => [
                 'value_type' => SettingTypeEnum::TRANSLATABLE->value,
-            ]
+            ],
         ];
     }
 }

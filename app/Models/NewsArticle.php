@@ -39,7 +39,7 @@ use App\Serializers\Translatable as TranslatableSerializer;
     'excerpt',
     'content',
     'hero_image',
-    'created_at'
+    'created_at',
 ])]
 class NewsArticle extends Model
 {

@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             DemoDataSeeder::class,
             ProductRangeSeeder::class,
-            TrainingCategorySeeder::class,
+            TrainingCourseSeeder::class,
         ]);
     }
 }

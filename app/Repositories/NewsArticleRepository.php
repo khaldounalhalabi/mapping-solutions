@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Models\NewsArticle;
 use Carbon\Carbon;
+use App\Models\NewsArticle;
 use Illuminate\Database\Eloquent\Collection;
 use App\Repositories\Contracts\BaseRepository;
 
@@ -23,6 +23,16 @@ class NewsArticleRepository extends BaseRepository
             ->first();
     }
 
+    public function previousTo(Carbon $createdAt, array $relations = [], array $counts = []): ?NewsArticle
+    {
+        return $this->query()
+            ->relations($relations)
+            ->counts($counts)
+            ->where('created_at', '<', $createdAt)
+            ->orderByDesc('created_at')
+            ->first();
+    }
+
     /**
      * @return Collection<int,NewsArticle>
      */
@@ -34,15 +44,5 @@ class NewsArticleRepository extends BaseRepository
             ->orderByDesc('created_at')
             ->limit($count)
             ->get();
-    }
-
-    public function previousTo(Carbon $createdAt, array $relations = [], array $counts = []): ?NewsArticle
-    {
-        return $this->query()
-            ->relations($relations)
-            ->counts($counts)
-            ->where('created_at', '<', $createdAt)
-            ->orderByDesc('created_at')
-            ->first();
     }
 }

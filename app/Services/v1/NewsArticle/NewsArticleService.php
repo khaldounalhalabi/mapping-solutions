@@ -2,11 +2,11 @@
 
 namespace App\Services\v1\NewsArticle;
 
+use Carbon\Carbon;
 use App\Traits\Makable;
 use App\Models\NewsArticle;
 use App\Services\Contracts\BaseService;
 use App\Repositories\NewsArticleRepository;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
@@ -25,16 +25,16 @@ class NewsArticleService extends BaseService
         return $this->repository->bySlug($newsArticleSlug, $relations, $counts);
     }
 
+    public function previousTo(Carbon $createdAt, array $relations = [], array $counts = []): ?NewsArticle
+    {
+        return $this->repository->previousTo($createdAt, $relations, $counts);
+    }
+
     /**
      * @return Collection<int , NewsArticle>
      */
     public function recent(int $count = 3, array $relations = []): Collection
     {
         return $this->repository->recent($count, $relations);
-    }
-
-    public function previousTo(Carbon $createdAt, array $relations = [], array $counts = []): ?NewsArticle
-    {
-        return $this->repository->previousTo($createdAt, $relations, $counts);
     }
 }

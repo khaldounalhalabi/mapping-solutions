@@ -20,8 +20,8 @@ class TrainingCategoryService extends BaseService
     protected string $repositoryClass = TrainingCategoryRepository::class;
 
     /** @return Collection<int, TrainingCategory> */
-    public function published(array $relations = [] , array $counts = []): Collection
+    public function published(array $relations = [], array $counts = []): Collection
     {
-        return $this->repository->published($relations , $counts);
+        return $this->repository->published($relations, $counts);
     }
 }

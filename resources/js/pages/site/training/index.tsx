@@ -140,7 +140,7 @@ export default function Training({
                             <article
                                 key={category.id}
                                 id={`training-${category.id}`}
-                                className={`scroll-mt-24 overflow-hidden rounded-lg border border-t-4 bg-card ${theme.border}`}
+                                className={`scroll-mt-24 h-full overflow-hidden rounded-lg border border-t-4 bg-card ${theme.border}`}
                             >
                                 <div className="flex flex-col gap-4 p-6">
                                     <div className="flex items-center justify-between">
@@ -169,7 +169,7 @@ export default function Training({
                                             (course) => (
                                                 <div
                                                     key={course.id}
-                                                    className="flex flex-col gap-4 p-6"
+                                                    className="flex h-full justify-between flex-col gap-4 p-6"
                                                 >
                                                     <h4 className="font-bold text-navy">
                                                         {translate(course.name)}
