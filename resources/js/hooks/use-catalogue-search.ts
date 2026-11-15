@@ -1,3 +1,4 @@
+import { useTranslation } from "@/hooks/use-translation";
 import { siteRoute } from "@/lib/site-route";
 import Product from "@/models/product";
 import { translate } from "@/models/translatable";
@@ -18,6 +19,7 @@ export default function useCatalogueSearch({
     product_technology_id?: number;
     supplier_id?:           number;
 }) {
+    const { t } = useTranslation();
     const id = useId();
     const container = useRef<HTMLDivElement>(null);
     const requestVersion = useRef(0);
@@ -44,7 +46,7 @@ export default function useCatalogueSearch({
             results.suppliers.map((supplier) => ({
                 key:        `supplier-${supplier.id}`,
                 label:      supplier.name,
-                supplier:   "Supplier",
+                supplier:   t("models.supplier.singular"),
                 technology: undefined,
                 href:       siteRoute("site.suppliers.products", supplier.slug),
             })),

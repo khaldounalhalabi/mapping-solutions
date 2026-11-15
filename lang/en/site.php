@@ -355,7 +355,7 @@ return [
             'singular' => 'Product',
             'plural'   => 'Products',
             'fields'   => [
-                'supplier_id'           => 'Supplier',
+                'supplier_id'           => 'Partner',
                 'product_family_id'     => 'Product Family',
                 'product_technology_id' => 'Product Technology',
                 'name'                  => 'Name',

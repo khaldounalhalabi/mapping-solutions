@@ -223,8 +223,8 @@
             "plural": "Familles de produits",
             "fields": {
                 "name": "Nom",
-                "supplier": "Fournisseur",
-                "supplier_name": "Nom du fournisseur"
+                "supplier": "Partenaire",
+                "supplier_name": "Nom du partenaire"
             }
         },
         "product_technology": {
@@ -257,7 +257,7 @@
                 "name": "Nom",
                 "price_note": "Note sur le prix",
                 "external_url": "URL externe",
-                "supplier": "Fournisseur",
+                "supplier": "Partenaire",
                 "product_family": "Famille de produits",
                 "product_technology": "Technologie de produit",
                 "excerpt": "Extrait",
@@ -274,8 +274,8 @@
             }
         },
         "supplier": {
-            "singular": "Fournisseur",
-            "plural": "Fournisseurs",
+            "singular": "Partenaire",
+            "plural": "Partenaires",
             "fields": {
                 "name": "Nom",
                 "description": "Description",
@@ -396,7 +396,7 @@
             "singular": "Produit",
             "plural": "Produits",
             "fields": {
-                "supplier_id": "Fournisseur",
+                "supplier_id": "Partenaire",
                 "product_family_id": "Famille de produits",
                 "product_technology_id": "Technologie de produit",
                 "name": "Nom",
@@ -507,7 +507,7 @@
             "home": "Accueil",
             "products": "Produits",
             "applications": "Applications",
-            "suppliers": "Fournisseurs",
+            "suppliers": "Partenaires",
             "services": "Services",
             "news": "Actualités",
             "about": "À propos",
@@ -691,7 +691,7 @@
             "need_a_quote_or_a_specification": "Besoin d’un devis ou de caractéristiques ?",
             "we_ll_confirm_configuration_accessories_and_lead_time_before_you_commit": "Nous confirmerons la configuration, les accessoires et les délais avant votre engagement.",
             "talk_it_through_with_us": "Parlons-en ensemble",
-            "all_suppliers": "Tous les fournisseurs",
+            "all_suppliers": "Tous les partenaires",
             "not_sure_where_to_start": "Vous ne savez pas par où commencer ?",
             "tell_us_what_you_need_to_measure_over_what_area_to_what_accuracy_we_ll_shortlist_the_instr": "Indiquez la mesure, la surface et la précision requises : nous sélectionnerons les instruments adaptés.",
             "send_us_your_requirement": "Envoyez-nous vos besoins",

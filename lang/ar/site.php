@@ -355,7 +355,7 @@ return [
             'singular' => 'منتج',
             'plural'   => 'المنتجات',
             'fields'   => [
-                'supplier_id'           => 'المورد',
+                'supplier_id'           => 'الشريك',
                 'product_family_id'     => 'عائلة المنتجات',
                 'product_technology_id' => 'تقنية المنتج',
                 'name'                  => 'الاسم',

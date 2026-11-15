@@ -355,7 +355,7 @@ return [
             'singular' => 'Produit',
             'plural'   => 'Produits',
             'fields'   => [
-                'supplier_id'           => 'Fournisseur',
+                'supplier_id'           => 'Partenaire',
                 'product_family_id'     => 'Famille de produits',
                 'product_technology_id' => 'Technologie de produit',
                 'name'                  => 'Nom',

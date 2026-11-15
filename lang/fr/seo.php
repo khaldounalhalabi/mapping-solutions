@@ -9,23 +9,23 @@ return [
     ],
     'products' => [
         'title'       => 'Instruments de télédétection et de mesure',
-        'description' => 'Parcourez nos instruments de mesure et de télédétection par technologie et fournisseur. Consultez les caractéristiques pour votre projet.',
+        'description' => 'Parcourez nos instruments de mesure et de télédétection par technologie et partenaire. Consultez les caractéristiques pour votre projet.',
     ],
     'product' => [
         'title'       => ':name',
         'description' => 'Découvrez :name : caractéristiques techniques, applications et assistance spécialisée. Contactez Mapping Solutions pour un devis.',
     ],
     'technology' => [
-        'title'       => 'Instruments et fournisseurs :name',
-        'description' => 'Découvrez les instruments :name, les fournisseurs spécialisés et les solutions de mesure avec les conseils de Mapping Solutions.',
+        'title'       => 'Instruments et partenaires :name',
+        'description' => 'Découvrez les instruments :name, les partenaires spécialisés et les solutions de mesure avec les conseils de Mapping Solutions.',
     ],
     'technology_supplier' => [
         'title'       => 'Instruments :name de :supplier',
         'description' => 'Parcourez les instruments :name de :supplier et leurs caractéristiques, avec l’assistance spécialisée de Mapping Solutions.',
     ],
     'suppliers' => [
-        'title'       => 'Nos fournisseurs d’instruments et de technologies',
-        'description' => 'Découvrez nos fournisseurs spécialisés en instruments de télédétection et géospatiaux, leurs produits et leurs technologies de mesure.',
+        'title'       => 'Nos partenaires d’instruments et de technologies',
+        'description' => 'Découvrez nos partenaires spécialisés en instruments de télédétection et géospatiaux, leurs produits et leurs technologies de mesure.',
     ],
     'supplier' => [
         'title'       => 'Produits et instruments :name',

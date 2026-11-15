@@ -223,8 +223,8 @@
             "plural": "عائلات المنتجات",
             "fields": {
                 "name": "الاسم",
-                "supplier": "المورد",
-                "supplier_name": "اسم المورد"
+                "supplier": "الشريك",
+                "supplier_name": "اسم الشريك"
             }
         },
         "product_technology": {
@@ -257,7 +257,7 @@
                 "name": "الاسم",
                 "price_note": "ملاحظة السعر",
                 "external_url": "رابط خارجي",
-                "supplier": "المورد",
+                "supplier": "الشريك",
                 "product_family": "عائلة المنتجات",
                 "product_technology": "تقنية المنتج",
                 "excerpt": "مقتطف",
@@ -274,8 +274,8 @@
             }
         },
         "supplier": {
-            "singular": "المورد",
-            "plural": "الموردون",
+            "singular": "الشريك",
+            "plural": "الشركاء",
             "fields": {
                 "name": "الاسم",
                 "description": "الوصف",
@@ -396,7 +396,7 @@
             "singular": "منتج",
             "plural": "المنتجات",
             "fields": {
-                "supplier_id": "المورد",
+                "supplier_id": "الشريك",
                 "product_family_id": "عائلة المنتجات",
                 "product_technology_id": "تقنية المنتج",
                 "name": "الاسم",
@@ -507,7 +507,7 @@
             "home": "الرئيسية",
             "products": "المنتجات",
             "applications": "التطبيقات",
-            "suppliers": "الموردون",
+            "suppliers": "الشركاء",
             "services": "الخدمات",
             "news": "الأخبار",
             "about": "من نحن",
@@ -691,7 +691,7 @@
             "need_a_quote_or_a_specification": "هل تحتاج إلى عرض سعر أو مواصفات؟",
             "we_ll_confirm_configuration_accessories_and_lead_time_before_you_commit": "سنؤكد التهيئة والملحقات ومدة التوريد قبل اتخاذ قرارك.",
             "talk_it_through_with_us": "ناقش الأمر معنا",
-            "all_suppliers": "جميع الموردين",
+            "all_suppliers": "جميع الشركاء",
             "not_sure_where_to_start": "لا تعرف من أين تبدأ؟",
             "tell_us_what_you_need_to_measure_over_what_area_to_what_accuracy_we_ll_shortlist_the_instr": "أخبرنا بما تريد قياسه والمساحة والدقة، وسنختار الأجهزة المناسبة.",
             "send_us_your_requirement": "أرسل احتياجاتك",

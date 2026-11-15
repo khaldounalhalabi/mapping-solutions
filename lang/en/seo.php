@@ -9,23 +9,23 @@ return [
     ],
     'products' => [
         'title'       => 'Remote Sensing & Survey Instruments',
-        'description' => 'Browse measurement and remote sensing instruments by technology and supplier. Find technical specifications and support for your project.',
+        'description' => 'Browse measurement and remote sensing instruments by technology and partner. Find technical specifications and support for your project.',
     ],
     'product' => [
         'title'       => ':name',
         'description' => 'Explore :name, including technical details, specifications, applications and expert support. Contact Mapping Solutions for a quote.',
     ],
     'technology' => [
-        'title'       => ':name Instruments & Suppliers',
-        'description' => 'Explore :name instruments, specialist suppliers and measurement solutions. Get expert advice from Mapping Solutions.',
+        'title'       => ':name Instruments & Partners',
+        'description' => 'Explore :name instruments, specialist partners and measurement solutions. Get expert advice from Mapping Solutions.',
     ],
     'technology_supplier' => [
         'title'       => ':supplier :name Instruments',
         'description' => 'Browse :name instruments from :supplier, with product details and expert support from Mapping Solutions.',
     ],
     'suppliers' => [
-        'title'       => 'Our Instrument & Technology Suppliers',
-        'description' => 'Discover our specialist suppliers of remote sensing and geospatial instruments. Explore their products and measurement technologies.',
+        'title'       => 'Our Instrument & Technology Partners',
+        'description' => 'Discover our specialist partners of remote sensing and geospatial instruments. Explore their products and measurement technologies.',
     ],
     'supplier' => [
         'title'       => ':name Products & Instruments',

@@ -223,8 +223,8 @@
             "plural": "Product Families",
             "fields": {
                 "name": "Name",
-                "supplier": "Supplier",
-                "supplier_name": "Supplier Name"
+                "supplier": "Partner",
+                "supplier_name": "Partner Name"
             }
         },
         "product_technology": {
@@ -257,7 +257,7 @@
                 "name": "Name",
                 "price_note": "Price Note",
                 "external_url": "External URL",
-                "supplier": "Supplier",
+                "supplier": "Partner",
                 "product_family": "Product Family",
                 "product_technology": "Product Technology",
                 "excerpt": "Excerpt",
@@ -274,8 +274,8 @@
             }
         },
         "supplier": {
-            "singular": "Supplier",
-            "plural": "Suppliers",
+            "singular": "Partner",
+            "plural": "Partners",
             "fields": {
                 "name": "Name",
                 "description": "Description",
@@ -396,7 +396,7 @@
             "singular": "Product",
             "plural": "Products",
             "fields": {
-                "supplier_id": "Supplier",
+                "supplier_id": "Partner",
                 "product_family_id": "Product Family",
                 "product_technology_id": "Product Technology",
                 "name": "Name",
@@ -507,7 +507,7 @@
             "home": "Home",
             "products": "Products",
             "applications": "Applications",
-            "suppliers": "Suppliers",
+            "suppliers": "Partners",
             "services": "Services",
             "news": "News",
             "about": "About",
@@ -691,7 +691,7 @@
             "need_a_quote_or_a_specification": "Need a quote or a specification?",
             "we_ll_confirm_configuration_accessories_and_lead_time_before_you_commit": "We'll confirm configuration, accessories and lead time before you commit.",
             "talk_it_through_with_us": "Talk it through with us",
-            "all_suppliers": "All Suppliers",
+            "all_suppliers": "All Partners",
             "not_sure_where_to_start": "Not sure where to start ?",
             "tell_us_what_you_need_to_measure_over_what_area_to_what_accuracy_we_ll_shortlist_the_instr": "Tell us what you need to measure, over what area, to what accuracy. We'll shortlist the instruments that fit.",
             "send_us_your_requirement": "Send us your requirement",
