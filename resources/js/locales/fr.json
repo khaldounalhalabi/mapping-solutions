@@ -469,6 +469,13 @@
                 "level": "Niveau",
                 "is_published": "Publié"
             }
+        },
+        "EmailReceiver": {
+            "singular": "Destinataire des e-mails",
+            "plural": "Destinataires des e-mails",
+            "fields": {
+                "email": "E-mail"
+            }
         }
     },
     "enums": {

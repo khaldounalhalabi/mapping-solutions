@@ -469,6 +469,13 @@
                 "level": "Level",
                 "is_published": "Published"
             }
+        },
+        "EmailReceiver": {
+            "singular": "Email receiver",
+            "plural": "Email receivers",
+            "fields": {
+                "email": "Email"
+            }
         }
     },
     "enums": {

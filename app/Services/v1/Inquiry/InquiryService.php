@@ -10,6 +10,7 @@ use App\Mail\InquiryResponseMessage;
 use Illuminate\Support\Facades\Mail;
 use App\Repositories\InquiryRepository;
 use App\Services\Contracts\BaseService;
+use App\Services\v1\EmailReceiver\EmailReceiverService;
 
 /**
  * @extends BaseService<Inquiry>
@@ -53,6 +54,20 @@ class InquiryService extends BaseService
             );
 
             return $inquiry;
+        });
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function store(array $data, array $relationships = [], array $counts = []): Inquiry
+    {
+        return DB::transaction(function () use ($data, $relationships, $counts): Inquiry {
+            /** @var Inquiry $submission */
+            $submission = parent::store($data, $relationships, $counts);
+            EmailReceiverService::make()->notifyOfSubmission($submission);
+
+            return $submission;
         });
     }
 }

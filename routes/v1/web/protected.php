@@ -76,3 +76,6 @@ Route::resource('/v1/training-categories', v1\TrainingCategoryController::class)
 
 Route::get('/v1/training-courses/data', [v1\TrainingCourseController::class, 'data'])->name('v1.web.protected.training.courses.data');
 Route::resource('/v1/training-courses', v1\TrainingCourseController::class)->names('v1.web.protected.training.courses');
+
+Route::get('/v1/email-receivers/data', [v1\EmailReceiverController::class, 'data'])->name('v1.web.protected.email.receivers.data');
+Route::resource('/v1/email-receivers', v1\EmailReceiverController::class)->names('v1.web.protected.email.receivers');

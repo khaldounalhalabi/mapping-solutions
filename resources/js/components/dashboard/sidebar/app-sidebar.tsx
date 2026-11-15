@@ -159,6 +159,11 @@ export function AppSidebar({
             icon:  <MessageSquareMoreIcon />,
         },
         {
+            title: t("models.EmailReceiver.plural"),
+            href:  route("v1.web.protected.email.receivers.index"),
+            icon:  <MailCheckIcon />,
+        },
+        {
             title: t("models.Setting.plural"),
             href:  route("v1.web.protected.settings.index"),
             icon:  <SettingsIcon />,
