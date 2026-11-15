@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\EmailReceiver;
 use App\Repositories\Contracts\BaseRepository;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * @extends  BaseRepository<EmailReceiver>

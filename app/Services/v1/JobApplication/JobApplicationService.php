@@ -2,13 +2,13 @@
 
 namespace App\Services\v1\JobApplication;
 
+use Throwable;
 use App\Traits\Makable;
 use App\Models\JobApplication;
 use Illuminate\Support\Facades\DB;
 use App\Services\Contracts\BaseService;
 use App\Repositories\JobApplicationRepository;
 use App\Services\v1\EmailReceiver\EmailReceiverService;
-use Throwable;
 
 /**
  * @extends BaseService<JobApplication>
