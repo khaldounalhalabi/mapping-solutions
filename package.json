@@ -12,7 +12,8 @@
         "test:seo": "node tests/Unit/seo-head.test.mjs"
     },
     "lint-staged": {
-        "*.{js,jsx,ts,tsx,json,css,scss,md,yml,yaml}": [
+        "!(*.blade).php": "vendor/bin/pint",
+        "*.{js,jsx,ts,tsx,json,css,scss,md,yml,yaml,blade.php}": [
             "prettier --write"
         ]
     },

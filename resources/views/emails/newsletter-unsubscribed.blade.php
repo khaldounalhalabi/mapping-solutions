@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ __('site.mail.unsubscribed') }}</title>
-</head>
-<body>
-    <main>
-        <h1>{{ __('site.mail.unsubscribed_title') }}</h1>
-        <p>{{ __('site.mail.unsubscribed_message') }}</p>
-    </main>
-</body>
-</html>
+@extends ('emails.layout', ['title' => __('site.mail.unsubscribed_title')])
+
+@section ('body')
+    <tr>
+        <td
+            style="
+                padding: 28px 24px;
+                color: #475569;
+                font-size: 16px;
+                line-height: 1.7;
+            "
+        >
+            <p style="margin: 0">{{ __('site.mail.unsubscribed_message') }}</p>
+        </td>
+    </tr>
+@endsection

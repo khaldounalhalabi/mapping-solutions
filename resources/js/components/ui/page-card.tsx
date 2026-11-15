@@ -20,7 +20,7 @@ const PageCard = ({
     actions?:     ReactNode[] | ReactNode;
 }) => {
     return (
-        <Card>
+        <Card className={"overflow-visible"}>
             <CardHeader>
                 {title && <CardTitle>{title}</CardTitle>}
                 {description && (
