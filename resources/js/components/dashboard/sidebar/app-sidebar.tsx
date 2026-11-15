@@ -132,6 +132,16 @@ export function AppSidebar({
             icon:     <BriefcaseBusinessIcon />,
             children: [
                 {
+                    title: t("models.TrainingCategory.plural"),
+                    href:  route("v1.web.protected.training.categories.index"),
+                    icon:  <FolderTreeIcon />,
+                },
+                {
+                    title: t("models.TrainingCourse.plural"),
+                    href:  route("v1.web.protected.training.courses.index"),
+                    icon:  <ClipboardListIcon />,
+                },
+                {
                     title: t("models.Vacancy.plural"),
                     href:  route("v1.web.protected.vacancies.index"),
                     icon:  <ClipboardListIcon />,

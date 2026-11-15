@@ -397,6 +397,29 @@ return [
                 'uses'        => 'الاستخدامات',
             ],
         ],
+        'TrainingCategory' => [
+            'singular' => 'فئة تدريب',
+            'plural'   => 'فئات التدريب',
+            'fields'   => [
+                'name'       => 'الاسم',
+                'summary'    => 'الملخص',
+                'sort_order' => 'ترتيب العرض',
+            ],
+        ],
+        'TrainingCourse' => [
+            'singular' => 'دورة تدريبية',
+            'plural'   => 'الدورات التدريبية',
+            'fields'   => [
+                'name'                 => 'الاسم',
+                'summary'              => 'الملخص',
+                'sort_order'           => 'ترتيب العرض',
+                'training_category_id' => 'الفئة',
+                'outline'              => 'محاور الدورة',
+                'duration'             => 'المدة',
+                'level'                => 'المستوى',
+                'is_published'         => 'منشور',
+            ],
+        ],
     ],
     'mail' => [
         'greeting'             => 'مرحباً :name،',

@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'page' => 'Page :page',
-    'home' => [
+    'training' => ['title' => 'Formation', 'description' => 'Découvrez nos formations en traitement d’images, SIG et en ligne. Discutez du contenu, des disponibilités et des besoins de votre équipe.'],
+    'page'     => 'Page :page',
+    'home'     => [
         'title'       => 'Instruments de télédétection et géospatiaux',
         'description' => 'Découvrez les instruments de télédétection, technologies géospatiales, relevés, formations et assistance technique de Mapping Solutions.',
         'label'       => 'Accueil',

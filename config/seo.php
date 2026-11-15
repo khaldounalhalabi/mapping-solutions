@@ -2,6 +2,7 @@
 
 return [
     'pages' => [
+        'site.training'                                      => 'training',
         'site.index'                                         => 'home',
         'site.products'                                      => 'products',
         'site.products.show'                                 => 'product',

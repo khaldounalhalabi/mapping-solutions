@@ -446,6 +446,29 @@
             "plural": "Paramètres",
             "label": "Libellé",
             "value": "Valeur"
+        },
+        "TrainingCategory": {
+            "singular": "Catégorie de formation",
+            "plural": "Catégories de formation",
+            "fields": {
+                "name": "Nom",
+                "summary": "Résumé",
+                "sort_order": "Ordre d’affichage"
+            }
+        },
+        "TrainingCourse": {
+            "singular": "Formation",
+            "plural": "Formations",
+            "fields": {
+                "name": "Nom",
+                "summary": "Résumé",
+                "sort_order": "Ordre d’affichage",
+                "training_category_id": "Catégorie",
+                "outline": "Programme",
+                "duration": "Durée",
+                "level": "Niveau",
+                "is_published": "Publié"
+            }
         }
     },
     "enums": {
@@ -513,7 +536,8 @@
             "about": "À propos",
             "careers": "Carrières",
             "contact": "Contact",
-            "menu": "Menu"
+            "menu": "Menu",
+            "training": "Formation"
         },
         "language": {
             "label": "Choisir la langue",
@@ -763,6 +787,32 @@
             "survey_services": "Services de relevés",
             "training_course": "Formation",
             "technical_support": "Assistance technique"
+        },
+        "training": {
+            "eyebrow": "Formation · télédétection et SIG",
+            "title": "Transformez vos données géospatiales en savoir-faire.",
+            "intro": "Découvrez le traitement d’images, les cours de SIG et la formation en ligne. Parlons de votre expérience, de vos logiciels et des compétences de votre équipe.",
+            "browse": "Explorer les formations",
+            "enquire": "Discuter de vos besoins",
+            "areas": "Trouvez votre parcours de formation",
+            "areas_intro": "De la compréhension des images à l’exploitation des données spatiales, choisissez un domaine à explorer.",
+            "courses": "Possibilités de formation",
+            "outline": "Au programme",
+            "duration": "Durée",
+            "level": "Niveau",
+            "course_enquiry": "Se renseigner sur cette formation",
+            "empty": "Le détail des cours est en préparation. Contactez-nous pour discuter d’une formation dans ce domaine.",
+            "no_categories": "Contactez notre équipe pour découvrir les formations en traitement d’images, SIG et en ligne.",
+            "tailored_title": "Commençons par les objectifs de votre équipe.",
+            "tailored_body": "Présentez-nous vos projets, vos outils et les compétences à renforcer. Nous pourrons discuter des sujets, des modalités et des disponibilités.",
+            "step_one": "Votre expérience",
+            "step_one_body": "Présentez votre niveau et les compétences que vous souhaitez développer.",
+            "step_two": "Votre méthode de travail",
+            "step_two_body": "Décrivez vos données, vos logiciels et les besoins de vos projets.",
+            "step_three": "La prochaine étape",
+            "step_three_body": "Discutez du contenu, du calendrier et de l’organisation avec notre équipe.",
+            "availability": "Contactez-nous pour connaître les disponibilités et les tarifs.",
+            "category_delete": "La suppression d’une catégorie supprime également ses cours."
         }
     },
     "seo": {

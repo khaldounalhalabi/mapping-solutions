@@ -12,7 +12,14 @@ import { useTranslation } from "@/hooks/use-translation";
 import useSettings from "@/hooks/use-settings";
 import SettingKeyEnum from "@/enums/setting-key-enum";
 
-export default function Contact() {
+import TrainingCourse from "@/models/training-course";
+import { translate } from "@/models/translatable";
+
+export default function Contact({
+    trainingCourse,
+}: {
+    trainingCourse?: TrainingCourse | null;
+}) {
     const { valueOf } = useSettings();
     const { t } = useTranslation();
     const { protect, protectionFields } = usePublicFormProtection();
@@ -23,8 +30,10 @@ export default function Contact() {
         country:    "",
         email:      "",
         phone:      "",
-        subject:    "",
-        message:    "",
+        subject:    trainingCourse ? "Training course" : "",
+        message:    trainingCourse
+            ? translate(trainingCourse.name) + "\n\n"
+            : "",
     });
     const cards = [
         {
@@ -307,9 +316,12 @@ export default function Contact() {
                                             )
                                         }
                                     />
-                                    <Select<string>
+                                    <Select
                                         required
                                         name="subject"
+                                        selected={
+                                            form.data.subject || undefined
+                                        }
                                         label={t("publicForms.subject")}
                                         placeholder={translateKey(
                                             "site.copy.select",

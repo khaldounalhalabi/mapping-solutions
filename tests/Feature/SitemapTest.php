@@ -109,7 +109,7 @@ class SitemapTest extends TestCase
         $this->artisan('sitemap:generate')->assertSuccessful();
 
         $entries = $this->entries();
-        $paths = ['/', '/products', '/suppliers', '/services', '/news', '/about', '/careers', '/contact', '/applications', '/privacy-policy', '/terms-and-conditions'];
+        $paths = ['/', '/products', '/suppliers', '/services', '/training', '/news', '/about', '/careers', '/contact', '/applications', '/privacy-policy', '/terms-and-conditions'];
         $expected = [];
         foreach ($paths as $path) {
             foreach (['en', 'ar', 'fr'] as $lang) {
@@ -176,7 +176,7 @@ class SitemapTest extends TestCase
         $this->artisan('sitemap:generate')->assertSuccessful();
 
         $entries = $this->entries();
-        $this->assertCount(22, $entries);
+        $this->assertCount(24, $entries);
         $this->assertSame([
             'en'        => 'https://canonical.example/?lang=en',
             'es'        => 'https://canonical.example/?lang=es',
@@ -270,14 +270,14 @@ class SitemapTest extends TestCase
         $this->artisan('sitemap:generate')->assertSuccessful();
 
         $index = $this->xml('sitemap.xml');
-        $this->assertSame(17, $index->query('/s:sitemapindex/s:sitemap/s:loc')->length);
+        $this->assertSame(18, $index->query('/s:sitemapindex/s:sitemap/s:loc')->length);
         foreach ($index->query('/s:sitemapindex/s:sitemap/s:loc') as $location) {
             $this->assertSame('/', dirname(parse_url($location->textContent, PHP_URL_PATH)));
             $child = $this->xml(ltrim(parse_url($location->textContent, PHP_URL_PATH), '/'));
             $this->assertLessThanOrEqual(2, $child->query('/s:urlset/s:url')->length);
         }
         Storage::disk('sitemap')->assertExists($previousFiles);
-        $this->assertCount(33, $this->entries());
+        $this->assertCount(36, $this->entries());
     }
 
     public function test_successful_publication_prunes_child_files_older_than_seven_days(): void
@@ -291,6 +291,6 @@ class SitemapTest extends TestCase
         $this->artisan('sitemap:generate')->assertSuccessful();
 
         Storage::disk('sitemap')->assertMissing($previousFiles);
-        $this->assertCount(33, $this->entries());
+        $this->assertCount(36, $this->entries());
     }
 }

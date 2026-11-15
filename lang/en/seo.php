@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'page' => 'Page :page',
-    'home' => [
+    'training' => ['title' => 'Training', 'description' => 'Explore image processing training, GIS courses and e-learning with Mapping Solutions. Discuss course content, availability and your team’s training needs.'],
+    'page'     => 'Page :page',
+    'home'     => [
         'title'       => 'Remote Sensing & Geospatial Instruments',
         'description' => 'Explore remote sensing instruments, geospatial technologies, surveys, training and technical support from Mapping Solutions.',
         'label'       => 'Home',

@@ -446,6 +446,29 @@
             "plural": "Settings",
             "label": "Label",
             "value": "Value"
+        },
+        "TrainingCategory": {
+            "singular": "Training Category",
+            "plural": "Training Categories",
+            "fields": {
+                "name": "Name",
+                "summary": "Summary",
+                "sort_order": "Display order"
+            }
+        },
+        "TrainingCourse": {
+            "singular": "Training Course",
+            "plural": "Training Courses",
+            "fields": {
+                "name": "Name",
+                "summary": "Summary",
+                "sort_order": "Display order",
+                "training_category_id": "Category",
+                "outline": "Course outline",
+                "duration": "Duration",
+                "level": "Level",
+                "is_published": "Published"
+            }
         }
     },
     "enums": {
@@ -513,7 +536,8 @@
             "about": "About",
             "careers": "Careers",
             "contact": "Contact",
-            "menu": "Menu"
+            "menu": "Menu",
+            "training": "Training"
         },
         "language": {
             "label": "Choose language",
@@ -763,6 +787,32 @@
             "survey_services": "Survey services",
             "training_course": "Training course",
             "technical_support": "Technical support"
+        },
+        "training": {
+            "eyebrow": "Training · remote sensing & GIS",
+            "title": "Turn geospatial data into practical skills.",
+            "intro": "Explore image processing, GIS courses and e-learning. Talk to us about your experience, your software and the skills your team needs.",
+            "browse": "Explore training",
+            "enquire": "Discuss your training needs",
+            "areas": "Find your next learning path",
+            "areas_intro": "From understanding imagery to working with spatial data, choose an area to explore.",
+            "courses": "Training opportunities",
+            "outline": "What you will cover",
+            "duration": "Duration",
+            "level": "Level",
+            "course_enquiry": "Enquire about this course",
+            "empty": "Course details are being prepared. Contact us to discuss training in this area.",
+            "no_categories": "Contact our team to explore image processing, GIS and e-learning options.",
+            "tailored_title": "Start with your team’s goals.",
+            "tailored_body": "Tell us what you work on, the tools you use and where you want to build confidence. We can discuss the right topics, delivery options and availability.",
+            "step_one": "Your experience",
+            "step_one_body": "Share your starting point and the skills you want to develop.",
+            "step_two": "Your workflow",
+            "step_two_body": "Tell us about your data, software and project requirements.",
+            "step_three": "Your next step",
+            "step_three_body": "Discuss content, timing and training arrangements with our team.",
+            "availability": "Contact us for availability and pricing.",
+            "category_delete": "Deleting a category also deletes its courses."
         }
     },
     "seo": {

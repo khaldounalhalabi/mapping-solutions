@@ -70,3 +70,9 @@ Route::resource('/v1/product-ranges', v1\ProductRangeController::class)->names('
 Route::resource('/v1/settings', v1\SettingController::class)
     ->only(['index', 'edit', 'update'])
     ->names('v1.web.protected.settings');
+
+Route::get('/v1/training-categories/data', [v1\TrainingCategoryController::class, 'data'])->name('v1.web.protected.training.categories.data');
+Route::resource('/v1/training-categories', v1\TrainingCategoryController::class)->names('v1.web.protected.training.categories');
+
+Route::get('/v1/training-courses/data', [v1\TrainingCourseController::class, 'data'])->name('v1.web.protected.training.courses.data');
+Route::resource('/v1/training-courses', v1\TrainingCourseController::class)->names('v1.web.protected.training.courses');

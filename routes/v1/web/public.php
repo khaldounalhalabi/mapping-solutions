@@ -52,3 +52,5 @@ Route::post('/careers/apply', [SiteController::class, 'storeJobApplication'])->m
 
 Route::get('/privacy-policy', [SiteController::class, 'privacyPolicy'])->name('site.privacy.policy');
 Route::get('/terms-and-conditions', [SiteController::class, 'termsAndConditions'])->name('site.terms.and.conditions');
+
+Route::get('/training', [SiteController::class, 'training'])->name('site.training');

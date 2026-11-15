@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <nav
             className={
-                "z-10 bg-background sticky top-0 w-full px-8 xl:px-22 py-5 shadow-2xl flex items-center justify-between max-[1100px]:h-[76px] max-[1100px]:px-[26px] max-[1100px]:py-3 max-sm:h-[70px] max-sm:px-5"
+                "z-10 bg-background sticky top-0 w-full px-8 xl:px-22 py-5 shadow-2xl flex items-center justify-between max-[1279px]:h-[76px] max-[1279px]:px-[26px] max-[1279px]:py-3 max-sm:h-[70px] max-sm:px-5"
             }
         >
             <Link
@@ -28,7 +28,7 @@ const Navbar = () => {
                 <img
                     src={asset("/images/logo.jpg")}
                     className={
-                        "h-auto w-50 max-[1100px]:w-36 max-sm:w-28 max-[380px]:w-24"
+                        "h-auto w-50 max-[1279px]:w-36 max-sm:w-28 max-[380px]:w-24"
                     }
                     alt="Mapping Solutions"
                     width={1600}
@@ -36,7 +36,7 @@ const Navbar = () => {
                 />
             </Link>
             <div
-                className={"flex flex-col gap-8 items-end max-[1100px]:hidden"}
+                className={"flex flex-col gap-8 items-end max-[1279px]:hidden"}
             >
                 <div className={"flex gap-5 items-center"}>
                     <LanguageDropdown appearance="website" />
@@ -46,7 +46,7 @@ const Navbar = () => {
                 </div>
                 <NavLinks />
             </div>
-            <div className="hidden shrink-0 items-center gap-2 max-[1100px]:flex">
+            <div className="hidden shrink-0 items-center gap-2 max-[1279px]:flex">
                 <LanguageDropdown appearance="website" />
                 <details ref={mobileMenu}>
                     <summary className="flex min-h-10 cursor-pointer list-none items-center gap-2 rounded-md border px-3 py-2 text-sm font-bold max-[380px]:px-2.5 [&::-webkit-details-marker]:hidden">

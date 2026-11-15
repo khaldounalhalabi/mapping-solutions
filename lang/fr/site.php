@@ -397,6 +397,29 @@ return [
                 'uses'        => 'Utilisations',
             ],
         ],
+        'TrainingCategory' => [
+            'singular' => 'Catégorie de formation',
+            'plural'   => 'Catégories de formation',
+            'fields'   => [
+                'name'       => 'Nom',
+                'summary'    => 'Résumé',
+                'sort_order' => 'Ordre d’affichage',
+            ],
+        ],
+        'TrainingCourse' => [
+            'singular' => 'Formation',
+            'plural'   => 'Formations',
+            'fields'   => [
+                'name'                 => 'Nom',
+                'summary'              => 'Résumé',
+                'sort_order'           => 'Ordre d’affichage',
+                'training_category_id' => 'Catégorie',
+                'outline'              => 'Programme',
+                'duration'             => 'Durée',
+                'level'                => 'Niveau',
+                'is_published'         => 'Publié',
+            ],
+        ],
     ],
     'mail' => [
         'greeting'             => 'Bonjour :name,',

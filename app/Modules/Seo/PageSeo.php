@@ -103,10 +103,10 @@ class PageSeo
         $website = ['@type' => 'WebSite', '@id' => $origin.'/#website', 'name' => 'Mapping Solutions', 'url' => $origin.'/', 'publisher' => ['@id' => $organization['@id']]];
         $webpage = [
             '@type' => match ($key) {
-                'contact'                                                                                                               => 'ContactPage',
-                'about'                                                                                                                 => 'AboutPage',
-                'products', 'suppliers', 'news', 'services', 'applications', 'careers', 'supplier', 'technology', 'technology_supplier' => 'CollectionPage',
-                default                                                                                                                 => 'WebPage',
+                'contact'                                                                                                                           => 'ContactPage',
+                'about'                                                                                                                             => 'AboutPage',
+                'training', 'products', 'suppliers', 'news', 'services', 'applications', 'careers', 'supplier', 'technology', 'technology_supplier' => 'CollectionPage',
+                default                                                                                                                             => 'WebPage',
             },
             '@id' => $canonical.'#webpage', 'url' => $canonical, 'name' => $seo['title'], 'description' => $seo['description'], 'inLanguage' => $locale, 'isPartOf' => ['@id' => $website['@id']],
         ];

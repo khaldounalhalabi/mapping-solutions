@@ -44,7 +44,7 @@ class SeoTest extends TestCase
     {
         $titles = [];
         foreach (['en', 'ar', 'fr'] as $locale) {
-            foreach (['/', '/products', '/suppliers', '/services', '/news', '/about', '/careers', '/contact', '/applications', '/privacy-policy', '/terms-and-conditions'] as $path) {
+            foreach (['/', '/products', '/suppliers', '/services', '/training', '/news', '/about', '/careers', '/contact', '/applications', '/privacy-policy', '/terms-and-conditions'] as $path) {
                 $response = $this->get($path.'?lang='.$locale.'&utm_source=test');
                 $response->assertOk()->assertHeaderMissing('X-Robots-Tag');
                 $document = $this->document($response->getContent());
@@ -64,7 +64,7 @@ class SeoTest extends TestCase
                 $this->assertContains('Organization', array_column($this->graph($document), '@type'));
             }
         }
-        $this->assertCount(33, array_unique($titles));
+        $this->assertCount(36, array_unique($titles));
     }
 
     public function test_dashboard_auth_redirects_and_utilities_cannot_be_indexed(): void

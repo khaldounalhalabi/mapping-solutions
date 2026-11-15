@@ -397,6 +397,29 @@ return [
                 'uses'        => 'Uses',
             ],
         ],
+        'TrainingCategory' => [
+            'singular' => 'Training Category',
+            'plural'   => 'Training Categories',
+            'fields'   => [
+                'name'       => 'Name',
+                'summary'    => 'Summary',
+                'sort_order' => 'Display order',
+            ],
+        ],
+        'TrainingCourse' => [
+            'singular' => 'Training Course',
+            'plural'   => 'Training Courses',
+            'fields'   => [
+                'name'                 => 'Name',
+                'summary'              => 'Summary',
+                'sort_order'           => 'Display order',
+                'training_category_id' => 'Category',
+                'outline'              => 'Course outline',
+                'duration'             => 'Duration',
+                'level'                => 'Level',
+                'is_published'         => 'Published',
+            ],
+        ],
     ],
     'mail' => [
         'greeting'             => 'Hello :name,',

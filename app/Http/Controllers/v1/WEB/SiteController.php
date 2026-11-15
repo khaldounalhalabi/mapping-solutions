@@ -22,14 +22,19 @@ use App\Services\v1\Vacancy\VacancyService;
 use App\Services\v1\Supplier\SupplierService;
 use App\Http\Resources\v1\NewsArticleResource;
 use App\Http\Resources\v1\ProductRangeResource;
+use App\Http\Resources\v1\TrainingCourseResource;
 use App\Http\Resources\v1\ServiceCategoryResource;
+use App\Http\Resources\v1\TrainingCategoryResource;
 use App\Services\v1\NewsArticle\NewsArticleService;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Http\Resources\v1\MarketApplicationResource;
 use App\Http\Resources\v1\ProductTechnologyResource;
 use App\DTOs\v1\JobApplication\StoreJobApplicationDTO;
 use App\Services\v1\JobApplication\JobApplicationService;
+use App\Services\v1\TrainingCourse\TrainingCourseService;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use App\Services\v1\ServiceCategory\ServiceCategoryService;
+use App\Services\v1\TrainingCategory\TrainingCategoryService;
 use App\Services\v1\MarketApplication\MarketApplicationService;
 use App\Services\v1\ProductTechnology\ProductTechnologyService;
 
@@ -58,9 +63,13 @@ class SiteController extends WebController
         ]);
     }
 
-    public function contact(): Response
+    public function contact(Request $request): Response
     {
-        return Inertia::render('site/contact/index');
+        $course = TrainingCourseService::make()->publishedById($request->integer('training_course'));
+
+        return Inertia::render('site/contact/index', [
+            'trainingCourse' => $course ? TrainingCourseResource::make($course) : null,
+        ]);
     }
 
     public function index()
@@ -264,6 +273,15 @@ class SiteController extends WebController
     public function termsAndConditions(): Response
     {
         return Inertia::render('site/legal/index', ['policy' => 'terms_and_conditions']);
+    }
+
+    public function training(): Response
+    {
+        return Inertia::render('site/training/index', [
+            'categories' => TrainingCategoryResource::collection(TrainingCategoryService::make()->published([
+                'trainingCourses' => fn (HasMany $query): HasMany => $query->where('is_published', true)->orderBy('sort_order')->orderBy('id'),
+            ])),
+        ]);
     }
 
     public function vacancy(string $slug): Response

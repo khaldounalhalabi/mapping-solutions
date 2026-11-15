@@ -18,15 +18,18 @@ import { useTranslation } from "@/hooks/use-translation";
 type Buttons = "delete" | "edit" | "show";
 
 export interface ActionsButtonsProps<Data extends Record<string, any>> {
-    data?:      Data;
-    id?:        number | string;
-    buttons:    Buttons[];
-    children?:  ReactNode;
-    baseUrl:    string;
-    deleteUrl?: string;
-    editUrl?:   string;
-    showUrl?:   string;
-    setHidden?: (value: ((prevState: number[]) => number[]) | number[]) => void;
+    data?:              Data;
+    id?:                number | string;
+    buttons:            Buttons[];
+    children?:          ReactNode;
+    baseUrl:            string;
+    deleteUrl?:         string;
+    deleteDescription?: string;
+    editUrl?:           string;
+    showUrl?:           string;
+    setHidden?:         (
+        value: ((prevState: number[]) => number[]) | number[],
+    ) => void;
 }
 
 function ActionsButtons<Data extends Record<string, any>>({
@@ -35,6 +38,7 @@ function ActionsButtons<Data extends Record<string, any>>({
     buttons,
     baseUrl,
     deleteUrl,
+    deleteDescription,
     showUrl,
     editUrl,
     setHidden,
@@ -120,7 +124,8 @@ function ActionsButtons<Data extends Record<string, any>>({
                                 {t("dashboard.delete.title")}
                             </AlertDialogTitle>
                             <AlertDialogDescription>
-                                {t("dashboard.delete.confirmation")}
+                                {deleteDescription ??
+                                    t("dashboard.delete.confirmation")}
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>

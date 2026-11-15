@@ -734,6 +734,103 @@
             ],
             "relations": [],
             "version": "v1"
+        },
+        {
+            "model_name": "TrainingCategory",
+            "table_name": "training_categories",
+            "attributes": [
+                {
+                    "name": "name",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "sort_order",
+                    "type": "integer",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "summary",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                }
+            ],
+            "relations": {
+                "hasMany": [
+                    {
+                        "type": "hasMany",
+                        "model_name": "TrainingCourse"
+                    }
+                ]
+            },
+            "version": "v1"
+        },
+        {
+            "model_name": "TrainingCourse",
+            "table_name": "training_courses",
+            "attributes": [
+                {
+                    "name": "training_category_id",
+                    "type": "key",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "name",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "outline",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "duration",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "level",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "is_published",
+                    "type": "boolean",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "sort_order",
+                    "type": "integer",
+                    "nullable": false,
+                    "unique": false
+                },
+                {
+                    "name": "summary",
+                    "type": "translatable",
+                    "nullable": false,
+                    "unique": false
+                }
+            ],
+            "relations": {
+                "belongsTo": [
+                    {
+                        "type": "belongsTo",
+                        "model_name": "TrainingCategory",
+                        "key": "training_category_id"
+                    }
+                ]
+            },
+            "version": "v1"
         }
     ]
 }

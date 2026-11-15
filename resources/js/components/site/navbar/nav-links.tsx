@@ -27,6 +27,10 @@ const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
             title: t("site.navigation.services"),
         },
         {
+            link:  siteRoute("site.training"),
+            title: t("site.navigation.training"),
+        },
+        {
             link:  siteRoute("site.news"),
             title: t("site.navigation.news"),
         },
@@ -48,7 +52,7 @@ const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
             className={
                 mobile
                     ? "flex flex-col items-stretch gap-1"
-                    : "flex gap-4 xl:gap-9 items-center justify-between"
+                    : "flex gap-4 xl:gap-6 items-center justify-between"
             }
             onClick={(event) => {
                 if (mobile && (event.target as HTMLElement).closest("a"))
