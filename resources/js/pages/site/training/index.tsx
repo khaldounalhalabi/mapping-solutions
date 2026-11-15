@@ -4,6 +4,7 @@ import { siteRoute } from "@/lib/site-route";
 import TrainingCategory from "@/models/training-category";
 import { translate } from "@/models/translatable";
 import { Link } from "@inertiajs/react";
+import { CSSProperties } from "react";
 import {
     ArrowDown,
     ArrowUpRight,
@@ -133,14 +134,31 @@ export default function Training({
                         {t("site.training.areas_intro")}
                     </p>
                 </div>
-                <div className="grid items-start gap-6 lg:grid-cols-3">
+                <div className="grid gap-6 lg:grid-cols-3">
                     {categories.map((category, index) => {
                         const theme = themes[index % themes.length];
+                        const groupStart = Math.floor(index / 3) * 3;
+                        const rowCount =
+                            1 +
+                            Math.max(
+                                1,
+                                ...categories
+                                    .slice(groupStart, groupStart + 3)
+                                    .map(
+                                        (item) =>
+                                            item.training_courses?.length ?? 0,
+                                    ),
+                            );
                         return (
                             <article
                                 key={category.id}
                                 id={`training-${category.id}`}
-                                className={`scroll-mt-24 h-full overflow-hidden rounded-lg border border-t-4 bg-card ${theme.border}`}
+                                className={`scroll-mt-24 overflow-hidden rounded-lg border border-t-4 bg-card lg:row-span-(--training-rows) lg:grid lg:grid-rows-subgrid lg:gap-y-0 ${theme.border}`}
+                                style={
+                                    {
+                                        "--training-rows": rowCount,
+                                    } as CSSProperties
+                                }
                             >
                                 <div className="flex flex-col gap-4 p-6">
                                     <div className="flex items-center justify-between">
@@ -163,13 +181,13 @@ export default function Training({
                                         {translate(category.summary)}
                                     </p>
                                 </div>
-                                <div className="divide-y border-t">
+                                <>
                                     {category.training_courses?.length ? (
                                         category.training_courses.map(
                                             (course) => (
                                                 <div
                                                     key={course.id}
-                                                    className="flex h-full justify-between flex-col gap-4 p-6"
+                                                    className="flex flex-col justify-between gap-4 border-t p-6"
                                                 >
                                                     <h4 className="font-bold text-navy">
                                                         {translate(course.name)}
@@ -247,11 +265,11 @@ export default function Training({
                                             ),
                                         )
                                     ) : (
-                                        <p className="p-6 text-sm leading-relaxed text-muted-foreground">
+                                        <p className="border-t p-6 text-sm leading-relaxed text-muted-foreground">
                                             {t("site.training.empty")}
                                         </p>
                                     )}
-                                </div>
+                                </>
                             </article>
                         );
                     })}
