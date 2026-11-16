@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { formatNumber, translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ProductTechnology from "@/models/product-technology";
@@ -68,7 +67,7 @@ const BySlug = ({
                 >
                     {productTechnology.suppliers?.map((s) => (
                         <Link
-                            href={siteRoute(
+                            href={route(
                                 "site.products.product.technologies.suppliers.index",
                                 {
                                     productTechnologySlug:
@@ -132,7 +131,7 @@ const BySlug = ({
                                     {translateKey("site.copy.products_2")}{" "}
                                 </Badge>
                                 <Link
-                                    href={siteRoute(
+                                    href={route(
                                         "site.products.product.technologies.suppliers.index",
                                         {
                                             productTechnologySlug:
@@ -181,7 +180,7 @@ const BySlug = ({
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={siteRoute("site.contact")}>
+                    <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey(
@@ -192,7 +191,7 @@ const BySlug = ({
                 </div>
 
                 <MoveLink
-                    href={siteRoute("site.products")}
+                    href={route("site.products")}
                     dir={"back"}
                     className={"text-navy-secondary font-extrabold"}
                 >

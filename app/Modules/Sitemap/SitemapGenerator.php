@@ -70,7 +70,7 @@ class SitemapGenerator
             }
 
             $provider = config('sitemap.providers')[$route->getName()] ?? null;
-            if ($route->parameterNames() !== [] && $provider === null) {
+            if (array_diff($route->parameterNames(), ['locale']) !== [] && $provider === null) {
                 throw new RuntimeException("Register a sitemap provider for dynamic public route [{$route->getName()}].");
             }
 
@@ -87,7 +87,7 @@ class SitemapGenerator
 
                 $alternates = [];
                 foreach ($locales as $locale) {
-                    $alternates[$locale] = $origin.$this->urls->route($route->getName(), [...$parameters, 'lang' => $locale], false);
+                    $alternates[$locale] = $origin.$this->urls->route($route->getName(), [...$parameters, 'locale' => $locale], false);
                 }
 
                 foreach ($alternates as $url) {

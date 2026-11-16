@@ -1,3 +1,4 @@
+import { syncLocaleRouting } from "@/lib/locale-routing";
 import AuthLayout from "@/components/layouts/auth-layout";
 import { createInertiaApp } from "@inertiajs/react";
 import "../css/cubeta-starter.css";
@@ -5,7 +6,10 @@ import DashboardLayout from "@/components/layouts/dashboard-layout";
 import SiteLayout from "@/components/layouts/site-layout";
 
 createInertiaApp({
-    layout: (name) => {
+    layout: (name, page) => {
+        if (typeof page.props.currentLocale === "string") {
+            syncLocaleRouting(page.props.currentLocale);
+        }
         const isDashboardPage = name.includes("dashboard");
 
         if (isDashboardPage) {

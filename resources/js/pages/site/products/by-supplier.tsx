@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import Supplier from "@/models/supplier";
 import Product from "@/models/product";
@@ -89,7 +88,7 @@ const BySupplier = ({
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={siteRoute("site.contact")}>
+                    <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey(
@@ -101,7 +100,7 @@ const BySupplier = ({
 
                 <div className={"flex flex-wrap items-center gap-5"}>
                     <MoveLink
-                        href={siteRoute("site.suppliers")}
+                        href={route("site.suppliers")}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >

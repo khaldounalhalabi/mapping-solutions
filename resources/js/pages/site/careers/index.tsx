@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
 import { Link } from "@inertiajs/react";
 import { CSSProperties } from "react";
@@ -285,7 +284,7 @@ export default function Careers({
                                 return (
                                     <Link
                                         key={v.id}
-                                        href={siteRoute("site.vacancy", v.slug)}
+                                        href={route("site.vacancy", v.slug)}
                                         className="vac"
                                     >
                                         <div>

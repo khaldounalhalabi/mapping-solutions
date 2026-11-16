@@ -1,6 +1,5 @@
 import SpectrumLine from "@/components/ui/spectrum-line";
 import { useTranslation } from "@/hooks/use-translation";
-import { siteRoute } from "@/lib/site-route";
 import TrainingCategory from "@/models/training-category";
 import { translate } from "@/models/translatable";
 import { Link } from "@inertiajs/react";
@@ -68,7 +67,7 @@ export default function Training({
                                 <ArrowDown className="size-4" />
                             </a>
                             <Link
-                                href={siteRoute("site.contact")}
+                                href={route("site.contact")}
                                 className="inline-flex min-h-11 items-center gap-3 rounded-md border border-white/30 px-5 py-3 text-sm font-bold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4"
                             >
                                 {t("site.training.enquire")}
@@ -244,7 +243,7 @@ export default function Training({
                                                         </p>
                                                     </details>
                                                     <Link
-                                                        href={siteRoute(
+                                                        href={route(
                                                             "site.contact",
                                                             {
                                                                 training_course:
@@ -290,7 +289,7 @@ export default function Training({
                             {t("site.training.tailored_body")}
                         </p>
                         <Link
-                            href={siteRoute("site.contact")}
+                            href={route("site.contact")}
                             className="inline-flex min-h-11 items-center gap-3 rounded-md bg-navy px-5 py-3 text-sm font-bold text-white hover:bg-navy/90 focus-visible:outline-2 focus-visible:outline-offset-4"
                         >
                             {t("site.training.enquire")}

@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
 import { Link } from "@inertiajs/react";
 import { BriefcaseBusiness, CalendarDays, MapPin } from "lucide-react";
@@ -105,7 +104,7 @@ export default function Show({ vacancy }: { vacancy: Vacancy }) {
                 </div>
             </div>
             <div className="jb-wide jb-back">
-                <Link href={siteRoute("site.careers")}>
+                <Link href={route("site.careers")}>
                     {" "}
                     {translateKey("site.copy.all_vacancies")}{" "}
                 </Link>

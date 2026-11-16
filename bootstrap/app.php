@@ -10,6 +10,7 @@ use App\Modules\Sitemap\GenerateSitemapCommand;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\AcceptedLanguagesMiddleware;
+use Illuminate\Routing\Middleware\SubstituteBindings;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -18,11 +19,17 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function () {
 
-            Route::middleware(['web'])
-                ->group(base_path('routes/v1/web/public.php'));
-
-            Route::middleware(['web', 'authenticated:web'])
-                ->group(base_path('routes/v1/web/protected.php'));
+            foreach (['unlocalized.' => '', '' => '{locale}'] as $name => $prefix) {
+                Route::middleware(['web'])
+                    ->name($name)
+                    ->prefix($prefix)
+                    ->where(['locale' => implode('|', array_map(fn (string $locale): string => preg_quote($locale, '/'), config('cubeta-starter.available_locales')))])
+                    ->group(function () {
+                        Route::group([], base_path('routes/v1/web/public.php'));
+                        Route::middleware(['authenticated:web'])
+                            ->group(base_path('routes/v1/web/protected.php'));
+                    });
+            }
 
         },
     )
@@ -36,6 +43,11 @@ return Application::configure(basePath: dirname(__DIR__))
             'authenticated' => Authenticate::class,
             'locale'        => AcceptedLanguagesMiddleware::class,
         ]);
+
+        $middleware->prependToPriorityList(
+            before: SubstituteBindings::class,
+            prepend: AcceptedLanguagesMiddleware::class,
+        );
 
         $middleware->web(append: [
             AcceptedLanguagesMiddleware::class,

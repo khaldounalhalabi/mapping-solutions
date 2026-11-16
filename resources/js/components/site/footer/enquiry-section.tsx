@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import { PencilLineIcon } from "lucide-react";
 import MoveLink from "@/components/ui/move-link";
@@ -26,7 +25,7 @@ const EnquirySection = () => {
 
             <div className={"flex items-center"}>
                 <MoveLink
-                    href={siteRoute("site.contact")}
+                    href={route("site.contact")}
                     className={"hover:text-white"}
                 >
                     {" "}

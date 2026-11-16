@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import { randomInt } from "@/helper";
@@ -206,7 +205,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                                                 </p>
                                             </div>
                                             <MoveLink
-                                                href={siteRoute("site.contact")}
+                                                href={route("site.contact")}
                                             >
                                                 {" "}
                                                 {translateKey(
@@ -238,7 +237,7 @@ const Index = ({ categories }: { categories: ServiceCategory[] }) => {
                         "site.copy.tell_us_the_area_the_target_and_the_accuracy_you_need_we_ll_tell_you_what_s_achievable_wha",
                     )}{" "}
                 </p>
-                <Link href={siteRoute("site.contact")}>
+                <Link href={route("site.contact")}>
                     <Button variant={"hero"} size={"hero"}>
                         {" "}
                         {translateKey(

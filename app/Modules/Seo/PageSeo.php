@@ -149,7 +149,7 @@ class PageSeo
 
     public function url(string $route, array $parameters, string $locale, int $page = 1): string
     {
-        $query = ['lang' => $locale];
+        $query = ['locale' => $locale];
         if ($page > 1) {
             $query['page'] = $page;
         }

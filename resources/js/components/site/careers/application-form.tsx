@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { useForm } from "@inertiajs/react";
@@ -53,7 +52,7 @@ export default function ApplicationForm({
                     onSubmit={(e) => {
                         e.preventDefault();
                         form.transform(protect);
-                        form.post(siteRoute("site.careers.apply"), {
+                        form.post(route("site.careers.apply"), {
                             preserveScroll: true,
                         });
                     }}

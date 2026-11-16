@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import { useTranslation } from "@/hooks/use-translation";
 import LanguageDropdown from "@/components/dashboard/navbar/language-dropdown";
@@ -22,7 +21,7 @@ const Navbar = () => {
             }
         >
             <Link
-                href={siteRoute("site.index")}
+                href={route("site.index")}
                 aria-label={translateKey("site.copy.mapping_solutions_home")}
             >
                 <img

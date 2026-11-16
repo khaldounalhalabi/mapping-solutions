@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import { GlobeIcon } from "lucide-react";
 import useSettings from "@/hooks/use-settings";
@@ -44,13 +43,13 @@ const AddressSection = () => {
                 </a>
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
-                    href={siteRoute("site.privacy.policy")}
+                    href={route("site.privacy.policy")}
                 >
                     {translateKey("site.copy.privacy")}{" "}
                 </a>
                 <a
                     className={"text-danger hover:text-white text-xs font-bold"}
-                    href={siteRoute("site.terms.and.conditions")}
+                    href={route("site.terms.and.conditions")}
                 >
                     {translateKey("site.copy.terms")}{" "}
                 </a>

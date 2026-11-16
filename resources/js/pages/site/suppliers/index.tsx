@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { formatNumber, translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import ApiSelect from "@/components/form/fields/select/api-select";
@@ -205,7 +204,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                 }
                                             >
                                                 <Link
-                                                    href={siteRoute(
+                                                    href={route(
                                                         "site.suppliers.products",
                                                         s.slug,
                                                     )}
@@ -221,9 +220,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                                                     </Button>
                                                 </Link>
                                                 <Link
-                                                    href={siteRoute(
-                                                        "site.contact",
-                                                    )}
+                                                    href={route("site.contact")}
                                                 >
                                                     <Button
                                                         className={

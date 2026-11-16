@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import SpectrumLine from "@/components/ui/spectrum-line";
@@ -122,7 +121,7 @@ const Show = ({
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={siteRoute("site.contact")}>
+                    <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey("site.copy.get_in_touch")}{" "}
@@ -136,13 +135,10 @@ const Show = ({
                             className={
                                 "hover:cursor-pointer max-w-full lg:max-w-1/3 flex flex-col items-start gap-3 p-5 border rounded-lg group transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-navy-secondary/50 hover:border-navy-secondary"
                             }
-                            href={siteRoute("site.news.show", prevArticle.slug)}
+                            href={route("site.news.show", prevArticle.slug)}
                         >
                             <MoveLink
-                                href={siteRoute(
-                                    "site.news.show",
-                                    prevArticle.slug,
-                                )}
+                                href={route("site.news.show", prevArticle.slug)}
                                 dir={"back"}
                                 className={"text-navy-secondary"}
                             >
@@ -158,7 +154,7 @@ const Show = ({
 
                 <div className={"flex w-full justify-start"}>
                     <MoveLink
-                        href={siteRoute("site.news")}
+                        href={route("site.news")}
                         dir={"back"}
                         className={"text-navy-secondary"}
                     >

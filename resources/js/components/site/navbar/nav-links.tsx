@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { useTranslation } from "@/hooks/use-translation";
 import { Link } from "@inertiajs/react";
 import { cn } from "@/lib/utils";
@@ -7,43 +6,43 @@ const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
     const { t } = useTranslation();
     const LINKS = [
         {
-            link:  siteRoute("site.index"),
+            link:  route("site.index"),
             title: t("site.navigation.home"),
         },
         {
-            link:  siteRoute("site.products"),
+            link:  route("site.products"),
             title: t("site.navigation.products"),
         },
         {
-            link:  siteRoute("site.applications"),
+            link:  route("site.applications"),
             title: t("site.navigation.applications"),
         },
         {
-            link:  siteRoute("site.suppliers"),
+            link:  route("site.suppliers"),
             title: t("site.navigation.suppliers"),
         },
         {
-            link:  siteRoute("site.services"),
+            link:  route("site.services"),
             title: t("site.navigation.services"),
         },
         {
-            link:  siteRoute("site.training"),
+            link:  route("site.training"),
             title: t("site.navigation.training"),
         },
         {
-            link:  siteRoute("site.news"),
+            link:  route("site.news"),
             title: t("site.navigation.news"),
         },
         {
-            link:  siteRoute("site.about"),
+            link:  route("site.about"),
             title: t("site.navigation.about"),
         },
         {
-            link:  siteRoute("site.careers"),
+            link:  route("site.careers"),
             title: t("site.navigation.careers"),
         },
         {
-            link:  siteRoute("site.contact"),
+            link:  route("site.contact"),
             title: t("site.navigation.contact"),
         },
     ];
@@ -67,7 +66,7 @@ const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
                     window.location.pathname === path ||
                     window.location.pathname.startsWith(`${path}/`);
                 if (
-                    l.link == siteRoute("site.index") &&
+                    l.link == route("site.index") &&
                     !route().current("site.index")
                 ) {
                     isActive = false;

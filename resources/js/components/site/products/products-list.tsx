@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import Product from "@/models/product";
 import { groupBy, uniqueBy } from "@/helper";
@@ -31,7 +30,7 @@ export default function ProductsList(props: { items: Product[] }) {
                             >
                                 {products.map((p) => (
                                     <Link
-                                        href={siteRoute(
+                                        href={route(
                                             "site.products.show",
                                             p.slug,
                                         )}
@@ -63,7 +62,7 @@ export default function ProductsList(props: { items: Product[] }) {
                                                 {translate(p.name)}
                                             </h2>
                                             <MoveLink
-                                                href={siteRoute(
+                                                href={route(
                                                     "site.products.show",
                                                     p.slug,
                                                 )}

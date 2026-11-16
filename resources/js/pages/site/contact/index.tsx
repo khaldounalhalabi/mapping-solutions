@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import usePublicFormProtection from "@/hooks/use-public-form-protection";
 import { useForm } from "@inertiajs/react";
@@ -201,12 +200,9 @@ export default function Contact({
                                     onSubmit={(e) => {
                                         e.preventDefault();
                                         form.transform(protect);
-                                        form.post(
-                                            siteRoute("site.contact.store"),
-                                            {
-                                                preserveScroll: true,
-                                            },
-                                        );
+                                        form.post(route("site.contact.store"), {
+                                            preserveScroll: true,
+                                        });
                                     }}
                                 >
                                     <div

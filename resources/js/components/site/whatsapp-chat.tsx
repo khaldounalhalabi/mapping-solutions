@@ -1,6 +1,5 @@
 import SpectrumLine from "@/components/ui/spectrum-line";
 import { useTranslation } from "@/hooks/use-translation";
-import { siteRoute } from "@/lib/site-route";
 import { Link } from "@inertiajs/react";
 import { XIcon } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
@@ -164,7 +163,7 @@ export default function WhatsappChat() {
                     </div>
                     <footer className="border-t border-[#eaeef4] px-5 pt-[13px] pb-4 text-center">
                         <Link
-                            href={siteRoute("site.contact")}
+                            href={route("site.contact")}
                             onClick={() => setIsOpen(false)}
                             className="text-xs font-bold text-[#67768a] hover:text-[#0b2140]"
                         >

@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import Product from "@/models/product";
@@ -51,7 +50,7 @@ const Show = ({ product }: { product: Product }) => {
                     >
                         {translate(product.excerpt)}
                     </p>
-                    <Link href={siteRoute("site.contact")}>
+                    <Link href={route("site.contact")}>
                         <Button
                             className={"hidden md:block"}
                             variant={"hero"}
@@ -364,7 +363,7 @@ const Show = ({ product }: { product: Product }) => {
                                     className={
                                         "text-navy-secondary font-bold hover:underline"
                                     }
-                                    href={siteRoute("site.contact")}
+                                    href={route("site.contact")}
                                 >
                                     {" "}
                                     {translateKey(
@@ -377,7 +376,7 @@ const Show = ({ product }: { product: Product }) => {
                 </div>
                 <div className={"flex flex-wrap items-center w-full gap-5"}>
                     <MoveLink
-                        href={siteRoute(
+                        href={route(
                             "site.products.product.technologies.suppliers.index",
                             {
                                 supplierSlug:          product.supplier?.slug,
@@ -393,20 +392,17 @@ const Show = ({ product }: { product: Product }) => {
                         {product.supplier?.name}
                     </MoveLink>
                     <MoveLink
-                        href={siteRoute(
-                            "site.products.product.technologies.show",
-                            {
-                                productTechnologySlug:
-                                    product.product_technology?.slug,
-                            },
-                        )}
+                        href={route("site.products.product.technologies.show", {
+                            productTechnologySlug:
+                                product.product_technology?.slug,
+                        })}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >
                         {translate(product.product_technology?.name)}
                     </MoveLink>
                     <MoveLink
-                        href={siteRoute("site.products")}
+                        href={route("site.products")}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >

@@ -1,5 +1,4 @@
 import { Link } from "@inertiajs/react";
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import Supplier from "@/models/supplier";
 import SectionKicker from "@/components/ui/section-kicker";
@@ -30,7 +29,7 @@ const SuppliersSection = ({ suppliers }: { suppliers: Supplier[] }) => {
             <div className="grid w-full grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 gap-5">
                 {suppliers.map((s) => (
                     <Link
-                        href={siteRoute("site.suppliers.products", s.slug)}
+                        href={route("site.suppliers.products", s.slug)}
                         key={s.id}
                         className="flex items-center justify-center overflow-hidden rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl"
                     >

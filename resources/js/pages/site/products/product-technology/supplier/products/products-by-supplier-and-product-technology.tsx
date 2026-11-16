@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import Supplier from "@/models/supplier";
 import Product from "@/models/product";
@@ -106,7 +105,7 @@ const ProductsBySupplierAndProductTechnology = ({
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={siteRoute("site.contact")}>
+                    <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey(
@@ -118,12 +117,9 @@ const ProductsBySupplierAndProductTechnology = ({
 
                 <div className={"flex flex-wrap items-center gap-5"}>
                     <MoveLink
-                        href={siteRoute(
-                            "site.products.product.technologies.show",
-                            {
-                                productTechnologySlug: productTechnology.slug,
-                            },
-                        )}
+                        href={route("site.products.product.technologies.show", {
+                            productTechnologySlug: productTechnology.slug,
+                        })}
                         dir={"back"}
                         className={"text-navy-secondary font-extrabold"}
                     >
@@ -132,7 +128,7 @@ const ProductsBySupplierAndProductTechnology = ({
                         {translate(productTechnology.name)}
                     </MoveLink>
                     <MoveLink
-                        href={siteRoute("site.products")}
+                        href={route("site.products")}
                         dir={"back"}
                         className={"text-paragraph font-extrabold"}
                     >

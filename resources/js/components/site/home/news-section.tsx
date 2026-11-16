@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import SectionKicker from "@/components/ui/section-kicker";
@@ -25,7 +24,7 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                     "site.copy.product_releases_training_workshops_and_project_announcements",
                 )}{" "}
             </SectionDescription>
-            <MoveLink href={siteRoute("site.news")}>
+            <MoveLink href={route("site.news")}>
                 {" "}
                 {translateKey("site.copy.view_all_news")}{" "}
             </MoveLink>
@@ -36,7 +35,7 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
             >
                 {news.map((n) => (
                     <Link
-                        href={siteRoute("site.news.show", n.slug)}
+                        href={route("site.news.show", n.slug)}
                         key={n.id}
                         className={`group h-full flex flex-col gap-3 rounded-md border border-gray-200 transition-all hover:-translate-y-0.5 hover:shadow-2xl`}
                     >
@@ -69,9 +68,7 @@ const NewsSection = ({ news }: { news: NewsArticle[] }) => {
                             <p className="text-paragraph text-xs leading-relaxed line-clamp-3">
                                 {translate(n.excerpt)}
                             </p>
-                            <MoveLink
-                                href={siteRoute("site.news.show", n.slug)}
-                            >
+                            <MoveLink href={route("site.news.show", n.slug)}>
                                 {" "}
                                 {translateKey("site.copy.read_more")}{" "}
                             </MoveLink>

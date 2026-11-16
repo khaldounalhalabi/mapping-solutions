@@ -1,5 +1,4 @@
 import { useTranslation } from "@/hooks/use-translation";
-import { siteRoute } from "@/lib/site-route";
 import { formatDate, translateKey } from "@/hooks/use-translation";
 import NewsArticle from "@/models/news-article";
 import { translate } from "@/models/translatable";
@@ -50,7 +49,7 @@ const Index = ({ articles }: { articles: Paginated<NewsArticle> }) => {
                         className={
                             "flex flex-col items-start gap-3 transition-all hover:-translate-y-0.5 hover:shadow-2xl p-3 rounded-md border w-full"
                         }
-                        href={siteRoute("site.news.show", a.slug)}
+                        href={route("site.news.show", a.slug)}
                     >
                         <h2 className={"text-navy text-xl font-extrabold"}>
                             {translate(a.title)}

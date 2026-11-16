@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import PublicRichText from "@/components/site/public-rich-text";
 import SpectrumLine from "@/components/ui/spectrum-line";
 import SettingKeyEnum from "@/enums/setting-key-enum";
@@ -30,7 +29,7 @@ export default function LegalPage({
             <header className="bg-hero text-white">
                 <div className="mx-auto max-w-7xl px-6 py-14 sm:px-10 lg:px-16 lg:py-20">
                     <Link
-                        href={siteRoute("site.index")}
+                        href={route("site.index")}
                         className="text-sm text-white/70 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4"
                     >
                         {t("site.legal.home")} <span aria-hidden="true">/</span>{" "}
@@ -101,7 +100,7 @@ export default function LegalPage({
                             </p>
                         </div>
                         <Link
-                            href={siteRoute("site.contact")}
+                            href={route("site.contact")}
                             className="inline-flex shrink-0 items-center gap-2 text-sm font-bold text-navy underline underline-offset-4"
                         >
                             {t("site.legal.contact")}{" "}

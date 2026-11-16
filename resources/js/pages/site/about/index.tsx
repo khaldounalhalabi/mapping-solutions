@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { formatNumber } from "@/hooks/use-translation";
 import { translateKey } from "@/hooks/use-translation";
 import { translate } from "@/models/translatable";
@@ -491,7 +490,7 @@ const Index = ({
                         {suppliers.map((supplier) => (
                             <Link
                                 key={supplier.id}
-                                href={siteRoute(
+                                href={route(
                                     "site.suppliers.products",
                                     supplier.slug,
                                 )}
@@ -596,7 +595,7 @@ const Index = ({
                         {translateKey("site.copy.talk_to_our_team")}{" "}
                     </a>
                     <Link
-                        href={siteRoute("site.products")}
+                        href={route("site.products")}
                         className="inline-flex items-center justify-center rounded-lg border border-white/40 px-8 py-4 text-sm font-bold hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                     >
                         {" "}

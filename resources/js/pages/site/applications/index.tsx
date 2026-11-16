@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import { Link } from "@inertiajs/react";
 import { ArrowDown } from "lucide-react";
@@ -125,7 +124,7 @@ export default function Applications({
                                             html={translate(a.description)}
                                         />
                                         <Link
-                                            href={siteRoute("site.contact")}
+                                            href={route("site.contact")}
                                             className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#d63b3b]"
                                         >
                                             {" "}
@@ -171,7 +170,7 @@ export default function Applications({
                     )}{" "}
                 </p>
                 <Link
-                    href={siteRoute("site.contact")}
+                    href={route("site.contact")}
                     className="mt-7 inline-flex items-center gap-3 rounded-lg bg-[#d63b3b] px-7 py-4 text-sm font-bold hover:bg-[#bd3030]"
                 >
                     {" "}

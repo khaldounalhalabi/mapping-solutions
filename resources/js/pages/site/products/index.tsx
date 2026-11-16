@@ -1,4 +1,3 @@
-import { siteRoute } from "@/lib/site-route";
 import { translateKey } from "@/hooks/use-translation";
 import IndexHeroSection from "@/components/site/products/index-hero-section";
 import ProductTechnology from "@/models/product-technology";
@@ -35,7 +34,7 @@ const Index = ({ technologies }: { technologies: ProductTechnology[] }) => {
                             )}{" "}
                         </p>
                     </div>
-                    <Link href={siteRoute("site.contact")}>
+                    <Link href={route("site.contact")}>
                         <Button variant={"navy-secondary"} size={"hero"}>
                             {" "}
                             {translateKey(

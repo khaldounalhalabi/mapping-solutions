@@ -49,4 +49,6 @@ declare module "@inertiajs/core" {
 
 declare global {
     var route: typeof routeFn;
+
+    var Ziggy: import("ziggy-js").Config;
 }

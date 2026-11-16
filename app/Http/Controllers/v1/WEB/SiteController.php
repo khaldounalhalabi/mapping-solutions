@@ -96,7 +96,6 @@ class SiteController extends WebController
     {
         $articles = NewsArticleService::make()->paginate();
         abort_if($articles->currentPage() > $articles->lastPage(), 404);
-        $articles->appends(['lang' => app()->getLocale()]);
 
         return Inertia::render('site/news/index', [
             'newsPagination' => ['previous' => $articles->previousPageUrl(), 'next' => $articles->nextPageUrl()],

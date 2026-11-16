@@ -1,5 +1,4 @@
 import { useTranslation } from "@/hooks/use-translation";
-import { siteRoute } from "@/lib/site-route";
 import Product from "@/models/product";
 import { translate } from "@/models/translatable";
 import Http from "@/modules/http/http";
@@ -40,7 +39,7 @@ export default function useCatalogueSearch({
             technology: product.product_technology
                 ? translate(product.product_technology.name)
                 : undefined,
-            href:       siteRoute("site.products.show", product.slug),
+            href:       route("site.products.show", product.slug),
         }))
         .concat(
             results.suppliers.map((supplier) => ({
@@ -48,7 +47,7 @@ export default function useCatalogueSearch({
                 label:      supplier.name,
                 supplier:   t("models.supplier.singular"),
                 technology: undefined,
-                href:       siteRoute("site.suppliers.products", supplier.slug),
+                href:       route("site.suppliers.products", supplier.slug),
             })),
         );
 
@@ -82,7 +81,7 @@ export default function useCatalogueSearch({
         const filterFields = filters();
         const timer = window.setTimeout(async () => {
             const response = await Http.make<SearchResults>().get(
-                siteRoute("site.search"),
+                route("site.search"),
                 { search, ...(filterFields ? filterFields : {}) },
                 { Accept: "application/json" },
             );
