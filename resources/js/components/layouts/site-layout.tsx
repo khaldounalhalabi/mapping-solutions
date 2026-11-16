@@ -4,6 +4,7 @@ import { DirectionProvider } from "@base-ui/react/direction-provider";
 import { ReactNode } from "react";
 import Navbar from "@/components/site/navbar/navbar";
 import Footer from "@/components/site/footer/footer";
+import WhatsappChat from "@/components/site/whatsapp-chat";
 
 const SiteLayout = ({ children }: { children?: ReactNode }) => {
     const page = usePage();
@@ -15,6 +16,7 @@ const SiteLayout = ({ children }: { children?: ReactNode }) => {
                 <Navbar />
                 <main>{children}</main>
                 <Footer />
+                <WhatsappChat />
             </div>
         </DirectionProvider>
     );

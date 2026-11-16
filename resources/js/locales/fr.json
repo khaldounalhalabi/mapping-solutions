@@ -820,6 +820,39 @@
             "step_three_body": "Discutez du contenu, du calendrier et de l’organisation avec notre équipe.",
             "availability": "Contactez-nous pour connaître les disponibilités et les tarifs.",
             "category_delete": "La suppression d’une catégorie supprime également ses cours."
+        },
+        "chat": {
+            "name": "Mapping Solutions",
+            "status": "Équipe technique · lun–ven 9 h–17 h",
+            "hello": "Bonjour.",
+            "introduction": "Dites-nous ce que vous devez mesurer — la cible, la zone, la précision — et nos ingénieurs vous orienteront vers le bon instrument.",
+            "prompt": "Choisissez un sujet ci-dessous ou démarrez une discussion et rédigez votre message.",
+            "quick_start": "Démarrage rapide",
+            "start": "Démarrer une discussion",
+            "email": "Vous préférez un e-mail ? Utilisez le formulaire de contact →",
+            "close": "Fermer la discussion WhatsApp",
+            "open": "Ouvrir la discussion WhatsApp",
+            "launcher": "Discutez avec nous",
+            "default_message": "Bonjour Mapping Solutions,",
+            "topics": {
+                "product": {
+                    "label": "Question sur un produit",
+                    "message": "Bonjour, j’ai une question sur un produit de votre site."
+                },
+                "quote": {
+                    "label": "Demander un devis",
+                    "message": "Bonjour, je souhaiterais un devis."
+                },
+                "survey": {
+                    "label": "Services de topographie",
+                    "message": "Bonjour, j’ai un projet de topographie dont je souhaiterais discuter."
+                },
+                "advice": {
+                    "label": "Conseil technique",
+                    "message": "Bonjour, j’ai besoin de conseils pour choisir un instrument."
+                }
+            },
+            "online": "Équipe technique · en ligne"
         }
     },
     "seo": {

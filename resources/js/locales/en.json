@@ -820,6 +820,39 @@
             "step_three_body": "Discuss content, timing and training arrangements with our team.",
             "availability": "Contact us for availability and pricing.",
             "category_delete": "Deleting a category also deletes its courses."
+        },
+        "chat": {
+            "name": "Mapping Solutions",
+            "status": "Technical team · replies Mon–Fri 9–5",
+            "hello": "Hello.",
+            "introduction": "Tell us what you need to measure — the target, the area, the accuracy — and our engineers will point you at the right instrument.",
+            "prompt": "Pick a topic below, or start a chat and write your own.",
+            "quick_start": "Quick start",
+            "start": "Start a chat",
+            "email": "Prefer email? Use the contact form →",
+            "close": "Close WhatsApp chat",
+            "open": "Open WhatsApp chat",
+            "launcher": "Chat with us",
+            "default_message": "Hello Mapping Solutions,",
+            "topics": {
+                "product": {
+                    "label": "Product enquiry",
+                    "message": "Hello, I have a question about a product on your site."
+                },
+                "quote": {
+                    "label": "Request a quote",
+                    "message": "Hello, I would like a quote."
+                },
+                "survey": {
+                    "label": "Survey services",
+                    "message": "Hello, I have a survey project I would like to discuss."
+                },
+                "advice": {
+                    "label": "Technical advice",
+                    "message": "Hello, I need advice choosing an instrument."
+                }
+            },
+            "online": "Technical team · online now"
         }
     },
     "seo": {
