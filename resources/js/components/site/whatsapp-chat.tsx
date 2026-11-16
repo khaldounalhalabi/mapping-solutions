@@ -66,7 +66,8 @@ export default function WhatsappChat() {
     return (
         <div
             ref={containerRef}
-            className="fixed right-4 bottom-4 z-40 min-[481px]:right-[26px] min-[481px]:bottom-[26px] print:hidden"
+            dir={locale === "ar" ? "rtl" : "ltr"}
+            className="fixed end-4 bottom-4 z-40 min-[481px]:end-[26px] min-[481px]:bottom-[26px] print:hidden"
         >
             {isOpen && (
                 <div
@@ -76,7 +77,7 @@ export default function WhatsappChat() {
                     aria-labelledby={`${panelId}-title`}
                     tabIndex={-1}
                     dir={locale === "ar" ? "rtl" : "ltr"}
-                    className="absolute right-0 bottom-[74px] max-h-[calc(100dvh-110px)] w-[340px] max-w-[calc(100vw-32px)] overflow-y-auto rounded-[18px] bg-white text-[#2c3947] shadow-[0_24px_60px_#0b214047,0_3px_10px_#0b21401a] outline-none max-[480px]:w-[calc(100vw-32px)]"
+                    className="absolute end-0 bottom-[74px] max-h-[calc(100dvh-110px)] w-[340px] max-w-[calc(100vw-32px)] overflow-y-auto rounded-[18px] bg-white text-[#2c3947] shadow-[0_24px_60px_#0b214047,0_3px_10px_#0b21401a] outline-none max-[480px]:w-[calc(100vw-32px)]"
                 >
                     <header className="relative flex items-center gap-3.5 bg-[radial-gradient(130%_180%_at_12%_0%,#123a66,#0b2140_74%)] px-[22px] py-5 text-white">
                         <SpectrumLine className="absolute inset-x-0 top-0 h-[3px]" />
