@@ -301,10 +301,11 @@ class Http<RESPONSE extends any = any> {
                     ([_, value]) => value !== undefined,
                 ),
             );
-            url =
-                url +
-                "?" +
-                new URLSearchParams(params as Record<string, string>);
+            const parsedUrl = new URL(url);
+            new URLSearchParams(params as Record<string, string>).forEach(
+                (value, key) => parsedUrl.searchParams.set(key, value),
+            );
+            url = parsedUrl.toString();
         }
         return url;
     }
